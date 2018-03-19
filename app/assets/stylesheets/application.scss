@@ -1,0 +1,30 @@
+@import "materialize";
+
+/* --- COLORS ---
+LIGHT BLUE: #77C9D4
+SEA GREEN: #57BC90
+FOREST GREEN: #015249
+SLEEK GRAY: #A5A5AF
+*/
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: 'Open Sans', sans-serif;
+}
+// Navigation
+nav {
+  background-color: #ffffff!important;
+}
+.nav-wrapper {
+  padding: 0rem 6rem;
+}
+body > nav > div > ul > li > a:hover,body > nav > div > ul > li > a:active {
+  background-color: none;
+}
+nav ul li:hover, nav ul li a:hover{
+   background-color: white;
+   border-bottom: 2px solid #77C9D4;
+}
+body > nav > div > ul > li > a {
+  color: #222;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+}
