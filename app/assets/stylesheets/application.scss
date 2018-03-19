@@ -9,12 +9,18 @@ SLEEK GRAY: #A5A5AF
 h1, h2, h3, h4, h5, h6, p, a {
   font-family: 'Open Sans', sans-serif;
 }
+body {
+  margin: -1rem!important;
+}
 // Navigation
 nav {
   background-color: #ffffff!important;
 }
 .nav-wrapper {
   padding: 0rem 6rem;
+}
+nav .brand-logo {
+  color: #222!important;
 }
 body > nav > div > ul > li > a:hover,body > nav > div > ul > li > a:active {
   background-color: none;
