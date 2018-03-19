@@ -1,5 +1,8 @@
 {
   "name": "yoopy",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react_ujs": "^2.4.4"
+  },
+  "devDependencies": {}
 }
