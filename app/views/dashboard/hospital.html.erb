@@ -9,9 +9,13 @@
 <p class="output_message"></p>
 <div id="jobs" class="container align-top">
   <% @jobs.each do |job| %>
-    <li><%= job.name %></li>
+  <div class="card horizontal">
+  <%= react_component('Job', job: job) %>
+  </div>
   <% end %>
 </div>
+
+
 
 
 <div id='modal_hospital' class="container">

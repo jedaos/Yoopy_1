@@ -9,6 +9,7 @@ class DashboardController < ApplicationController
       redirect_to root_path
     end
 
+  
   end
 
   def show

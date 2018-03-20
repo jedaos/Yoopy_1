@@ -10,6 +10,7 @@ class JobsController < ApplicationController
 
     # respond_to do |format|
     if @job.save
+      # render json: @job
       # redirect_to dashboard_index_path
       # format.json { render action: 'show', status: :created, location: @job }
       # format.js   { render 'dashboard/hospital', status: :created, location: @job }
