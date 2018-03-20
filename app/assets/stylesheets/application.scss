@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 // Navigation
 nav {
-  background-color: #ffffff!important;
+  background: rgba(255,255,255,0.4)!important;
 }
 .nav-wrapper {
   padding: 0rem 6rem;
@@ -33,6 +33,53 @@ body > nav > div > ul > li > a {
   font-family: 'Open Sans', sans-serif;
 }
 // End of Navigation
+
+// Home Page
+.homewrapper {
+  max-width: 1260px;
+  width: 1260px;
+  height: 2000px;;
+  margin: 0 auto;
+
+}
+.headline-box {
+  height: 500px;
+  width: 525px;
+  display: block;
+  float: right;
+  margin-top: 10vh;
+  color: #fff;
+  text-align: left;
+}
+#headline {
+  font-weight: 700;
+}
+#sub-headline {
+  font-size: 26px;
+}
+#homepage1 {
+  height: 90vh;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-image: url('yoopy3_resized.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.yoopy-button {
+  width: 25rem;
+
+  padding: 2rem 0.5;
+  font-size: 22px;
+}
+#facil-button {
+  margin-bottom: 2rem;
+  font-size: 18px;
+}
+#prof-button {
+  font-size: 18px;
+}
 
 // Dashboard
 #dashboard-wrapper {
@@ -56,23 +103,4 @@ body > nav > div > ul > li > a {
   position: absolute;
   float: right;
   padding: 1rem 2rem;
-}
-.carousel-fixed-item center{
-  position: relative;
-  font-size: 25px;
-  top: -25%;
-}
-.fadingEffect {
-    position:absolute;
-    top:0; bottom:0; right:0;
-    width:100%;
-    background:white;
-}
-.white-text h1{
-  top: -25%;
-  position: relative;
-}
-@keyframes fadeInFromLeft {
-  from {left: 0}
-  to {left: 100%}
 }

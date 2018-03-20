@@ -26,6 +26,6 @@ $( document ).on('turbolinks:load', function(){
   autoplay()
 function autoplay() {
   $('.carousel').carousel('next');
-  setTimeout(autoplay, 4500);
+  setTimeout(autoplay, 6500);
     }
   })
