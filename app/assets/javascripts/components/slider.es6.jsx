@@ -1,46 +1,24 @@
-// import SlideOne from './SlideOne';
-// import SlideTwo from './SlideTwo';
-// import SlideThree from './SlideThree';
-// import RightArrow from './RightArrow';
-// import LeftArrow from './LeftArrow';
 
-
-class Slider extends React.Component {
+class Homepage extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      slideCount: 1
+      message: true
     }
-
-    this.nextSlide = this.nextSlide.bind(this)
-    this.previousSlide = this.previousSlide.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
-
-  nextSlide() {
-      this.setState({ slideCount: this.state.slideCount + 1 })
-    if (this.state.slideCount === 0) {
-      this.setState({
-        slideCount: this.state.slideCount - 3
-      })
-    }
+  handleClick(){
+    this.setState({
+      message: !this.state.message
+    })
   }
-
-  previousSlide() {
-      this.setState({ slideCount: this.state.slideCount - 1 })
-
-  }
-
-  render() {
-    return (
-      <div className="slider">
-        { this.state.slideCount === 0 ? <Slide1 /> : null }
-        { this.state.slideCount === 1 ? <SlideOne /> : null }
-        { this.state.slideCount === 2 ? <SlideTwo /> : null }
-        { this.state.slideCount === 3 ? <SlideThree /> : null }
-
-        <RightArrow nextSlide={this.nextSlide} />
-        <LeftArrow previousSlide={this.previousSlide} />
+  render(){
+    return(
+      <div className="container" onClick={this.handleClick}>
+        <h1>{this.state.message ? "Hello" : "Welcome to Yoomy"}</h1>
+        <Card onMouseEnter={this.props.onMouseEnter}/>
       </div>
-    );
+    )
   }
+
 }

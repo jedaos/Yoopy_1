@@ -18,13 +18,14 @@
 //= require react_ujs
 //= require components
 //= require_tree .
-$( document ).ready(function(){
+$( document ).on('turbolinks:load', function(){
   $(".button-collapse").sideNav();
 
   $('.carousel.carousel-slider').carousel({fullWidth: true});
+  $('.carousel').carousel();
   autoplay()
 function autoplay() {
-    $('.carousel').carousel('next');
-    setTimeout(autoplay, 4500);
-  }
-})
+  $('.carousel').carousel('next');
+  setTimeout(autoplay, 4500);
+    }
+  })
