@@ -32,3 +32,28 @@ body > nav > div > ul > li > a {
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
 }
+// End of Navigation
+
+// Dashboard
+#dashboard-wrapper {
+  height: 800px;
+}
+#hospital_sidebar {
+  border-right: 1px solid #ccc;
+  background-color: #242424;
+  color: #fff;
+  height: 1000px;
+  position: relative;
+  float: left;
+  padding: 1rem 2rem;
+}
+.sidebar-items li {
+  list-style: none;
+  line-height: 3rem;
+}
+#dash-content {
+  display: inline-block;
+  position: absolute;
+  float: right;
+  padding: 1rem 2rem;
+}

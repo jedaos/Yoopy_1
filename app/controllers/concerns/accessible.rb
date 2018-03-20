@@ -9,11 +9,11 @@ module Accessible
     if current_hospital
       flash.clear
       # if you have rails_admin. You can redirect anywhere really
-      redirect_to(rails_admin.dashboard_path) && return
+      redirect_to(dashboard_index_path) && return
     elsif current_prof
       flash.clear
       # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
-      redirect_to(authenticated_user_root_path) && return
+      redirect_to(dashboard_index_path) && return
     end
   end
 end
