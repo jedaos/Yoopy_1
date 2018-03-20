@@ -1,14 +1,16 @@
 @import "materialize";
 
 /* --- COLORS ---
-LIGHT BLUE: #77C9D4
-SEA GREEN: #57BC90
+LIGHT BLUE: #42a5f5
+SEA GREEN: #1de9b6
 FOREST GREEN: #015249
 SLEEK GRAY: #A5A5AF
 */
 h1, h2, h3, h4, h5, h6, p, a {
   font-family: 'Open Sans', sans-serif;
 }
+
+
 
 // Navigation
 nav {
@@ -24,8 +26,8 @@ body > nav > div > ul > li > a:hover,body > nav > div > ul > li > a:active {
   background-color: none;
 }
 nav ul li:hover, nav ul li a:hover{
-   background-color: white;
-   border-bottom: 2px solid #77C9D4;
+   background-color: #42a5f5;
+   color: #fff;
 }
 body > nav > div > ul > li > a {
   color: #222;
@@ -36,9 +38,11 @@ body > nav > div > ul > li > a {
 
 // Home Page
 .homewrapper {
-  height: 2000px;;
   margin: 0 auto;
-
+}
+.home-container {
+  max-width: 70%;
+  margin: 0 auto;
 }
 .headline-box {
   height: 500px;
@@ -56,14 +60,13 @@ body > nav > div > ul > li > a {
   font-size: 26px;
 }
 #homepage1 {
-  height: 90vh;
+  height: 85vh;
   width: 100%;
   border: 1px solid #ccc;
-  background-image: url('yoopy3_resized.jpg');
+  background-image: url('yoopy4_resized.jpg');
   background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .yoopy-button {
   width: 25rem;
@@ -77,6 +80,21 @@ body > nav > div > ul > li > a {
 }
 #prof-button {
   font-size: 18px;
+}
+#homepage2 {
+  margin-top: 6rem;
+}
+.underline {
+  height: 2px;
+  width: 100px;
+  background-color: #1de9b6;
+}
+.subtext {
+  font-size: 18px;
+  color: #787878;
+}
+#for-facils, #for-profs {
+  margin-top: 15rem;
 }
 
 // Dashboard
@@ -101,4 +119,15 @@ body > nav > div > ul > li > a {
   position: absolute;
   float: right;
   padding: 1rem 2rem;
+}
+
+.col.s3 {
+  z-index: -1;
+}
+
+
+// footer
+.page-footer {
+  background-color: #A5A5AF!important;
+  z-index: 99999;
 }
