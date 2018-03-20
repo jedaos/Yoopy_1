@@ -1,0 +1,8 @@
+$('#new_job_form').hide();
+
+<% if @job.errors.any? %>
+  $('.output_message').text('Something went wrong!');
+<% else %>
+  $('.output_message').text('Job was created!');
+  $('#jobs').append("<li><%= @job.name %></li>");
+<% end %>

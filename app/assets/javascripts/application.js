@@ -28,4 +28,12 @@ function autoplay() {
   $('.carousel').carousel('next');
   setTimeout(autoplay, 6500);
     }
-  })
+    // $('.modal').modal();
+    // $('#modal1').modal('open');
+    // $('#modal1').modal('close');
+    // $('#button_modal').click(function(){
+    // $('.modal_hospital').html("<%= j(render 'new_job') %>");
+    
+    // $('.new_job_button').hide();
+
+    });

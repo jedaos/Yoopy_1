@@ -3,6 +3,17 @@
   <%= render 'hospital_sidebar' %>
   <div class="col s9" id="dash-content">
     <%= current_hospital.institution_name %>
-    <%= link_to 'Post A Job', new_job_path %>
+    <%= link_to 'Post A Job', new_job_path, id: 'new_job_button', remote: true %>
   </div>
+</div>
+<p class="output_message"></p>
+<div id="jobs" class="container align-top">
+  <% @jobs.each do |job| %>
+    <li><%= job.name %></li>
+  <% end %>
+</div>
+
+
+<div id='modal_hospital' class="container">
+
 </div>

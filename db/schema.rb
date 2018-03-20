@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319170407) do
+ActiveRecord::Schema.define(version: 20180320221849) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20180319170407) do
     t.datetime "updated_at", null: false
     t.decimal "rate", precision: 8, scale: 2
     t.datetime "expiration"
+    t.integer "hospital_id"
+    t.index ["hospital_id"], name: "index_jobs_on_hospital_id"
   end
 
   create_table "profs", force: :cascade do |t|
@@ -71,6 +73,10 @@ ActiveRecord::Schema.define(version: 20180319170407) do
     t.string "image"
     t.string "bio"
     t.string "phone"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["email"], name: "index_profs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_profs_on_reset_password_token", unique: true
   end

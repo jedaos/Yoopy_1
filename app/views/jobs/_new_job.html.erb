@@ -1,0 +1,29 @@
+
+
+
+
+<%= form_with model: @job, id: 'new_job_form', remote: true do |f| %>
+
+  <h4>New Job Posting</h4>
+  <%= f.hidden_field :hospital_id, :value=>current_hospital.id %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rate %>
+      <%= f.text_field :rate %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit id: 'submit_job' %>
+    </div>
+    <% end %>
+  </div>
+</div>
