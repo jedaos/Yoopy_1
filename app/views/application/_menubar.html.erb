@@ -1,0 +1,23 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Yoopy</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><a href="#">About</a></li>
+          <li><%= link_to 'Medical Professionals', new_prof_registration_path %></li>
+          <li><%= link_to 'Facilities', new_hospital_registration_path %></li>
+          <li><a href="#">Blog</a></li>
+          <li><%= link_to 'Log Out', destroy_hospital_session_path, :method => :delete %></li>
+
+
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><a href="#">About</a></li>
+          <li><%= link_to 'Medical Professionals', new_prof_registration_path %></li>
+          <li><%= link_to 'Facilities', new_hospital_registration_path %></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+    </div>
+  </nav>
