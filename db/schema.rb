@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320221849) do
+ActiveRecord::Schema.define(version: 20180321185400) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180320221849) do
     t.decimal "rate", precision: 8, scale: 2
     t.datetime "expiration"
     t.integer "hospital_id"
+    t.string "slot_num"
     t.index ["hospital_id"], name: "index_jobs_on_hospital_id"
   end
 
