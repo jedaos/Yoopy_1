@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     :email, :phone, :city, :zip, :license_num, :job_title, :bio, :image, :name ])
     #in keys you list all the input you want to accept.
   end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :name, :bio, :job_title, :phone, :image) }
+  end
 end

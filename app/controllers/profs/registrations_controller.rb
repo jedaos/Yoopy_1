@@ -2,9 +2,10 @@
 
 class Profs::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_account_update_params, only: [:update]
   include Accessible
-  skip_before_action :check_user, only: :destroy
+  skip_before_action :check_user, only: [:destroy, :update]
+
 
   # GET /resource/sign_up
   # def new
@@ -22,9 +23,16 @@ class Profs::RegistrationsController < Devise::RegistrationsController
   # end
   #
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @prof = current_prof
+
+    if @prof.update(prof_params)
+      redirect_to dashboard_index_path
+    else
+      redirect_back(fallback_location: dashboard_index_path, notice: "something went wrong, please try again.")
+    end
+
+  end
 
   # DELETE /resource
   # def destroy
@@ -39,7 +47,10 @@ class Profs::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
+  private
+  def prof_params
+    params.require(:prof).permit(:bio, :job_title, :image, :phone, :email)
+  end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -49,7 +60,7 @@ class Profs::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:bio, :job_title, :image, :phone])
   # end
 
   # The path used after sign up.

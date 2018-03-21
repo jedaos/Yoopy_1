@@ -1,11 +1,10 @@
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-
-
   <div class="field">
     <%= f.label :job_title %><br />
-    <%= f.text_field :job_title, autocomplete: "off" %>
+    <%= f.text_field :job_title, autocomplete: "off"%>
   </div>
 
   <div class="field">
@@ -22,6 +21,11 @@
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(We need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="actions">

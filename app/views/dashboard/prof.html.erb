@@ -1,7 +1,27 @@
 <div class="row" id="dashboard-wrapper">
   <%= render 'prof_sidebar' %>
   <div class="col s9" id="dash-content">
-    <h4>Welcome, <%= current_prof.name %></h4>
-    <h6><%= link_to 'Update Your Bio & Account Information', edit_prof_registration_path %></h6>
+
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="container">
+          <h4>Personal Information</h4>
+          <%= render 'profs/registrations/secondary_info', resource: current_prof %>
+        </div>
+      </div>
+    </div>
+
+    <div class="prof-info-collection">
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>Welcome, <%= current_prof.name %></h4></li>
+        <li class="collection-item">Phone: <%= current_prof.phone %></li>
+        <li class="collection-item">Email: <%= current_prof.email %></li>
+        <li class="collection-item">License: <%= current_prof.license_num %></li>
+        <li class="collection-item">Bio: <%= current_prof.bio %></li>
+      </ul>
+    </div>
+    <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1">Update Bio & Account Information</a>
+
+     <h4>Your current jobs</h4>
   </div>
 </div>
