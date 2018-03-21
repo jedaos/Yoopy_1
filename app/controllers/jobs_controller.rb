@@ -2,10 +2,14 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:update, :destroy]
   respond_to :json
   def index
-
-    end
+    @jobs = Job.all
+  end
   def new
-    @job = Job.new
+    if hospital_signed_in?
+      @job = Job.new
+    else
+      redirect_to dashboard_index_path
+    end
     # @job = Job.find(params[:id])
   end
 
