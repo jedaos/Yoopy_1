@@ -4,20 +4,23 @@
   <div class="col s9" id="dash-content">
     <%= current_hospital.institution_name %>
     <%= link_to 'Post A Job', new_job_path, id: 'new_job_button', remote: true %>
+
+    <div id='modal_hospital' class="container"></div>
+    
+
+    <p class="output_message"></p>
+    <div id="jobs" class="container align-top">
+      <% @jobs.each do |job| %>
+      <div class="card horizontal">
+      <%= react_component('Job', job: job) %>
+      </div>
+      <% end %>
+    </div>
+
+
   </div>
-</div>
-<p class="output_message"></p>
-<div id="jobs" class="container align-top">
-  <% @jobs.each do |job| %>
-  <div class="card horizontal">
-  <%= react_component('Job', job: job) %>
-  </div>
-  <% end %>
-</div>
 
 
 
-
-<div id='modal_hospital' class="container">
 
 </div>

@@ -15,7 +15,7 @@ class Homepage extends React.Component {
   render(){
     return(
       <div className="container" onClick={this.handleClick}>
-        <h1>{this.state.message ? "Hello" : "Welcome to Yoomy"}</h1>
+        <h1>{this.state.message ? "Hello" : "Welcome to Yoopy"}</h1>
         <Card onMouseEnter={this.props.onMouseEnter}/>
       </div>
     )
