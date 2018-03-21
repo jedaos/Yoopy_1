@@ -1,1 +1,7 @@
-<h2>Professional's Dashboard</h2>
+<div class="row" id="dashboard-wrapper">
+  <%= render 'prof_sidebar' %>
+  <div class="col s9" id="dash-content">
+    <h4>Welcome, <%= current_prof.name %></h4>
+    <h6><%= link_to 'Update Your Bio & Account Information', edit_prof_registration_path %></h6>
+  </div>
+</div>

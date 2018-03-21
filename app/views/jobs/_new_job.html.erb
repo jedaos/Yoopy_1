@@ -14,7 +14,7 @@
 
     <div class="form-group">
       <%= f.label :rate %>
-      <%= f.text_field :rate, :required => true %>
+      <%= f.number_field :rate, value: number_to_currency(f.object.rate.to_f, delimiter: '', unit: ''), step: :any, :required => true %>
     </div>
 
     <div class="actions">

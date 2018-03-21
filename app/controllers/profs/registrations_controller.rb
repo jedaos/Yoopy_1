@@ -20,7 +20,7 @@ class Profs::RegistrationsController < Devise::RegistrationsController
   # def edit
   #   super
   # end
-
+  #
   # PUT /resource
   # def update
   #   super

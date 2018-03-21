@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
   resources :jobs
+  
   # post '/dashboard' => 'jobs#new'
   # devise_for :profs
   # devise_for :hospitals
