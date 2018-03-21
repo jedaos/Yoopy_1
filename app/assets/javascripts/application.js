@@ -20,6 +20,7 @@
 //= require_tree .
 $( document ).on('turbolinks:load', function(){
   $(".button-collapse").sideNav();
+  $('.modal').modal();
 
   $('.carousel.carousel-slider').carousel({fullWidth: true});
   $('.carousel').carousel();
@@ -33,7 +34,7 @@ function autoplay() {
     // $('#modal1').modal('close');
     // $('#button_modal').click(function(){
     // $('.modal_hospital').html("<%= j(render 'new_job') %>");
-    
+
     // $('.new_job_button').hide();
 
     });

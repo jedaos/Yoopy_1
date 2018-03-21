@@ -74,10 +74,6 @@ ActiveRecord::Schema.define(version: 20180321185400) do
     t.string "image"
     t.string "bio"
     t.string "phone"
-    t.string "photo_file_name"
-    t.string "photo_content_type"
-    t.integer "photo_file_size"
-    t.datetime "photo_updated_at"
     t.index ["email"], name: "index_profs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_profs_on_reset_password_token", unique: true
   end

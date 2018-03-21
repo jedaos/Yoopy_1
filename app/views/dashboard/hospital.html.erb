@@ -10,16 +10,7 @@
 <p class="output_message"></p>
 <div id="jobs" class="container align-top">
 
-<div class="card horizontal">
-  <% @jobs.each do |job| %>
-<%= job.name %>
-<%= job.description %>
-<%= job.rate %>
-<%= job.slot_num %>
-  <% end %>
 
-
-</div>
 
 <%= react_component('JobApp', :jobs => @jobs) %>
 
@@ -27,9 +18,22 @@
 
 </div>
 
+    <div id='modal_hospital' class="container"></div>
+
+
+    <p class="output_message"></p>
+    <div id="jobs" class="container align-top">
+      <% @jobs.each do |job| %>
+      <div class="card horizontal">
+      <%= react_component('Job', job: job) %>
+      </div>
+      <% end %>
+    </div>
+
+
+  </div>
 
 
 
-<div id='modal_hospital' class="container">
 
 </div>
