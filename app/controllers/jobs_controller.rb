@@ -34,6 +34,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
     # respond_with Job.destroy(params[:id]
   end
 
@@ -49,7 +51,7 @@ class JobsController < ApplicationController
 
     def destroy
       @job.destroy
-      head :no_content
+      redirect_to dashboard_index_path
     end
 
 
