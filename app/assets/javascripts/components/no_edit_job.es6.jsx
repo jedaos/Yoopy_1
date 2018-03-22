@@ -2,17 +2,12 @@ class NoEditJob extends React.Component {
   render () {
     return (
       <div className="card horizontal">
-      <form id="index">
-      <input type='text' className="form-control" name='job[name]' defaultValue={this.props.job.name} onChange={this.handleChange} />
-
-        <input type='text' className='form-control' name='job[description]' defaultValue={this.props.job.description} onChange={this.handleChange} />
-
-        <input type='text' className='form-control' name='job[rate]' defaultValue={this.props.job.rate} onChange={this.handleChange} />
-        <div className='actions'>
-        
-        </div>
-        </form>
-        </div>
+        <ul>
+          <li><h5>Title: {this.props.job.name}</h5></li>
+          <li><h5>Description: {this.props.job.description}</h5></li>
+          <li><h5>Rate: {this.props.job.rate}</h5></li>
+        </ul>
+      </div>
     );
   }
 }
