@@ -1,5 +1,9 @@
 class SlotsController < ApplicationController
 
+  def index
+    @slots = Slot.all
+  end
+
   def new
     @slot = Slot.new
   end

@@ -4,6 +4,8 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    @slots = Slot.all
+    
     puts @jobs
     if current_prof
       @user = current_prof
