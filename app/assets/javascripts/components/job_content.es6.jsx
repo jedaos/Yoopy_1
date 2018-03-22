@@ -22,7 +22,7 @@ class JobContent extends React.Component {
         <input type='text' className='form-control' name='job[slot_num]' defaultValue={this.props.job.slot_num} onChange={this.handleChange} />
 
         <div className='actions'>
-        <input type='submit' name='commit' value='Update Job' class="btn #1de9b6 teal accent-3" id="job-post-button"/>
+        <input type='submit' name='commit' value='Update Job' class="btn #bdbdbd grey lighten-1" id="job-post-button"/>
         <input type='submit' name='delete' value='Delete Job' class="btn #bdbdbd grey lighten-1" id="job-post-button"/>
 
         </div>
