@@ -11,5 +11,5 @@ class JobApp extends React.Component {
 }
 
 JobApp.propTypes = {
-  job: PropTypes.array
+  jobs: PropTypes.array
 };

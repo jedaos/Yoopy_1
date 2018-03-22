@@ -1,7 +1,15 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:update, :destroy]
   respond_to :json
+
   def index
+    @jobs = Job.all
+    puts @jobs
+    if current_prof
+      @user = current_prof
+    else
+      @user = current_hospital
+    end
 
     end
   def new
@@ -26,7 +34,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @jobs = Job.all
+    @job = Job.find(params[:id])
   end
 
   def destroy
