@@ -13,7 +13,11 @@ class JobsController < ApplicationController
 
     end
   def new
-    @job = Job.new
+    if hospital_signed_in?
+      @job = Job.new
+    else
+      redirect_to dashboard_index_path
+    end
     # @job = Job.find(params[:id])
   end
 
