@@ -7,7 +7,7 @@ class JobContent extends React.Component {
 
   }
   render () {
-    
+
     return (
       <div className="card horizontal">
       <form id="Update" action={`/jobs/${this.props.job.id}`} acceptCharset='UTF-8' onSubmit={this.handleSubmit} data-remote='true' method='post'>
