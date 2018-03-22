@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20180322204616) do
     t.string "city"
     t.string "zip"
     t.string "phone"
+    t.string "publishable_key"
+    t.string "provider"
+    t.string "uid"
+    t.string "access_code"
     t.index ["email"], name: "index_hospitals_on_email", unique: true
     t.index ["reset_password_token"], name: "index_hospitals_on_reset_password_token", unique: true
   end
@@ -74,8 +78,10 @@ ActiveRecord::Schema.define(version: 20180322204616) do
     t.string "image"
     t.string "bio"
     t.string "phone"
+    t.string "publishable_key"
     t.string "provider"
     t.string "uid"
+    t.string "access_code"
     t.index ["email"], name: "index_profs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_profs_on_reset_password_token", unique: true
   end

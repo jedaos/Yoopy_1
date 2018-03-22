@@ -9,7 +9,7 @@ class JobContent extends React.Component {
   render () {
 
     return (
-      <div className="card horizontal">
+      <div className="card" id="job-posting-card">
       <form id="Update" action={`/jobs/${this.props.job.id}`} acceptCharset='UTF-8' onSubmit={this.handleSubmit} data-remote='true' method='post'>
       <input type='hidden' name='_method' value='patch' />
 
@@ -18,13 +18,17 @@ class JobContent extends React.Component {
         <input type='text' className='form-control' name='job[description]' defaultValue={this.props.job.description} onChange={this.handleChange} />
 
         <input type='text' className='form-control' name='job[rate]' defaultValue={this.props.job.rate} onChange={this.handleChange} />
+
+        <input type='text' className='form-control' name='job[slot_num]' defaultValue={this.props.job.slot_num} onChange={this.handleChange} />
+
         <div className='actions'>
-        <input type='submit' name='commit' value='Update Job' />
+        <input type='submit' name='commit' value='Update Job' class="btn #bdbdbd grey lighten-1" id="job-post-button"/>
+        <input type='submit' name='delete' value='Delete Job' class="btn #bdbdbd grey lighten-1" id="job-post-button"/>
+
         </div>
         </form>
         <form id="delete" action={`/jobs/${this.props.job.id}`} acceptCharset='UTF-8' onSubmit={this.handleSubmit} data-remote='true' method='post'>
         <input type='hidden' name='_method' value='delete' />
-        <input type='submit' name='delete' value='Delete Job' />
         </form>
         </div>
     );

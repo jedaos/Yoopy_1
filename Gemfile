@@ -37,6 +37,13 @@ gem 'omniauth'
 gem 'materialize-sass'
 gem 'jquery-rails'
 
+# Sripe Connect
+gem 'stripe'
+gem 'omniauth-stripe-connect'
+
+gem 'figaro'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
