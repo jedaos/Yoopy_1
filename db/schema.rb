@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321185400) do
+ActiveRecord::Schema.define(version: 20180322145725) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20180321185400) do
     t.string "city"
     t.string "zip"
     t.string "phone"
+    t.string "publishable_key"
+    t.string "provider"
+    t.string "uid"
+    t.string "access_code"
     t.index ["email"], name: "index_hospitals_on_email", unique: true
     t.index ["reset_password_token"], name: "index_hospitals_on_reset_password_token", unique: true
   end
@@ -74,6 +78,10 @@ ActiveRecord::Schema.define(version: 20180321185400) do
     t.string "image"
     t.string "bio"
     t.string "phone"
+    t.string "publishable_key"
+    t.string "provider"
+    t.string "uid"
+    t.string "access_code"
     t.index ["email"], name: "index_profs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_profs_on_reset_password_token", unique: true
   end
