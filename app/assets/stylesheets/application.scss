@@ -125,7 +125,9 @@ body > nav > div > ul > li > a {
 #job-posting-card {
   padding: 3rem;
 }
-
+.jobs-card-hospitals, .new-job-card-hospitals {
+  width: 50%;
+}
 .col.s3 {
   z-index: -1;
 }

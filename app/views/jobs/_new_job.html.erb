@@ -24,10 +24,11 @@
     </div>
 
     <div class="actions">
-      <%= f.submit id: 'submit_job' %>
+      <%= f.submit id: 'submit_job', class:'btn #bdbdbd grey lighten-1' %>
+      <%= submit_tag("Cancel", :id => "Cancel", class:"btn #bdbdbd grey lighten-1")%>
+
     </div>
 
-    <%= submit_tag("Cancel", :id => "Cancel")%>
     <script language="javascript">
       $(document).ready(function() {
         $('#Cancel').click(function() {
