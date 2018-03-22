@@ -17,7 +17,7 @@ class Profs::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
   end
-  
+
   def stripe_connect
     @prof = current_prof
     if @prof.update_attributes({
@@ -33,6 +33,7 @@ class Profs::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
     end
+  end
 
   # You should also create an action method in this controller like this:
   # def twitter

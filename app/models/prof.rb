@@ -5,7 +5,7 @@ class Prof < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(provider: auth.provider, linkedin_uid: auth.uid).first_or_create do |user|
       prof.email = auth.info.email
       prof.password = Devise.friendly_token[0,20]
       prof.name = auth.info.prof   # assuming the user model has a name
@@ -16,7 +16,7 @@ class Prof < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
          def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
-         prof = Prof.where(:provider => auth.provider, :uid => auth.uid).first
+         prof = Prof.where(:provider => auth.provider, :linkedin_uid => auth.uid).first
          if prof
            return prof
          else
@@ -27,7 +27,7 @@ class Prof < ApplicationRecord
 
              prof = Prof.create(name:auth.info.first_name,
                                  provider:auth.provider,
-                                 uid:auth.uid,
+                                 linkedin_uid:auth.uid,
                                  email:auth.info.email,
                                  password:Devise.friendly_token[0,20],
                                )
