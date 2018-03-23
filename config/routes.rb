@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   resources :jobs
   get 'jobs/index' => 'jobs#index'
-
+  resources :bookings
+  post 'bookings/create' => 'bookings#create'
   # post '/dashboard' => 'jobs#new'
   # devise_for :profs
   # devise_for :hospitals

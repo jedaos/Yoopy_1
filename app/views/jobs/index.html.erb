@@ -1,5 +1,3 @@
 <div class="container">
-<%= react_component("AllJobs", {:jobs => @jobs}) %>
-
-
+<%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots) )%>
 </div>
