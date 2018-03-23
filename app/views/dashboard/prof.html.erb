@@ -1,7 +1,9 @@
-<div class="row" id="dashboard-wrapper">
+<div class="col s3" id="sidebar">
   <%= render 'prof_sidebar' %>
-  <div class="col s9" id="dash-content">
+</div>
 
+  <div class="col s9" id="dash-content">
+    
     <div id="modal1" class="modal">
       <div class="modal-content">
         <div class="container">
@@ -20,9 +22,8 @@
         <li class="collection-item">Bio: <%= current_prof.bio %></li>
       </ul>
     </div>
-    <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1">Update Bio & Account Information</a>
 
+    <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1">Update Bio & Account Information</a>
      <h4>Your current jobs</h4>
      <%= current_prof.bookings %>
   </div>
-</div>

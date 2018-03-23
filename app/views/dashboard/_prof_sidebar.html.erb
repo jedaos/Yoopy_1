@@ -1,10 +1,10 @@
-<div class="col s3" id="sidebar">
   <h4>Welcome, <%= current_prof.name %></h4>
   <div class="sidebar-items">
-    <li><i class="material-icons">supervisor_account</i>Account</li>
-    <li><i class="material-icons">help</i>Support</li>
+    <ul>
+      <li><i class="material-icons">supervisor_account</i>Account</li>
+      <li><i class="material-icons">help</i>Support</li>
+    </ul>
   </div>
   <div class="sidebar-stripe">
       <%= link_to "Stripe Connect", stripe_connect_login_path, class:'btn'%>
   </div>
-</div>
