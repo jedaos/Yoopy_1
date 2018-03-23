@@ -8,7 +8,7 @@ class SlotsController < ApplicationController
     @slot = Slot.new
   end
 
-   
+
 
   def create
     @slot = Slot.new(slot_params)
@@ -16,7 +16,8 @@ class SlotsController < ApplicationController
       redirect_to dashboard_index_path
     else
       flash[:error] = "something went wrong"
-  end
+    end
+  end 
   private
   def slot_params
     params.require(:slot).permit(:job_id)
