@@ -3,7 +3,8 @@
 </div>
 
   <div class="col s9" id="dash-content">
-    
+    <%#= image_tag('current_prof.image') %>
+
     <div id="modal1" class="modal">
       <div class="modal-content">
         <div class="container">
@@ -24,6 +25,11 @@
     </div>
 
     <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1">Update Bio & Account Information</a>
-     <h4>Your current jobs</h4>
-     <%= current_prof.bookings %>
+
+     <% if current_prof.bookings.nil? %>
+       <h4>You Don't Have Any Jobs Booked Currently.</h4>
+     <% else %>
+       <h4>Your Current Jobs</h4>
+       <%= current_prof.bookings %>
+     <% end %>
   </div>
