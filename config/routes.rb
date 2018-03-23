@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   # get "omniauth_callbacks/:action/callback", :controller => "omniauth_callbacks", :constraints => { :action => /stripe_connect/ }
-  get 'auth/stripe_connect', as: 'stripe_connect_login'
+  get 'auth/stripe_connect', as: 'stripe_connect_login', to: 'omniauth_callbacks#stripe_connect'
 
 #
 # , :omniauth_callbacks => "omniauth_callbacks"
