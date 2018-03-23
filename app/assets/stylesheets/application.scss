@@ -84,14 +84,23 @@ body > nav > div > ul > li > a {
 #homepage2 {
   margin-top: 6rem;
 }
-.underline {
+#iphone-display {
+  float: right;
+}
+.underline-green {
   height: 2px;
   width: 100px;
   background-color: #1de9b6;
 }
+.underline-blue {
+  height: 2px;
+  width: 100px;
+  background-color: #42a5f5;
+}
 .subtext {
   font-size: 18px;
   color: #787878;
+  margin-bottom: 4rem;
 }
 #for-facils, #for-profs {
   margin-top: 15rem;
