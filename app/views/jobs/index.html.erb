@@ -1,3 +1,7 @@
 <div class="container">
+<<<<<<< HEAD
   <%= react_component("AllJobs", {:jobs => @jobs}) %>
+=======
+<%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots) )%>
+>>>>>>> master
 </div>

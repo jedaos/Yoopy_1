@@ -3,6 +3,21 @@
 class Profs::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
+  def linkedin
+
+    auth = request.env["omniauth.auth"]
+
+    @prof = Prof.find_for_linkedin_oauth(request.env["omniauth.auth"],current_prof)
+    if @prof.persisted?
+      flash[:notice] = I18n.t "devise.omniauth_callbacks.success"
+      sign_in_and_redirect @prof, :event => :authentication
+    else
+      session["devise.linkedin_uid"] = request.env["omniauth.auth"]
+      redirect_to new_prof_registration_url
+    end
+
+  end
+
   def stripe_connect
     @prof = current_prof
     if @prof.update_attributes({
@@ -28,9 +43,9 @@ class Profs::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # https://github.com/plataformatec/devise#omniauth
 
   # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
+  def passthru
+    super
+  end
 
   # GET|POST /users/auth/twitter/callback
   # def failure
