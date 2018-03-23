@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
 
 
   def prof_signed_in?
-    current_prof ? true : false
+    not current_prof.nil?
   end
 
   def hospital_signed_in?
-    current_hospital ? true : false
+    not current_hospital.nil?
   end
 
   def configure_permitted_parameters

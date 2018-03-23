@@ -3,29 +3,40 @@ class Slot extends React.Component {
     super(props)
 
   }
-  handleClick(){
+
+
+  handleClick(e){
 
 
     $.ajax({
       method: 'POST',
-      url: `/booking`,
+      url: `/bookings`,
       dataType: 'json',
-      data: {slot_id: this.props.slot.id, job_id: this.props.jobId},
+      data: {
+        booking: {
+         slot_id: this.props.slot.id,
+        }
+      },
       success: (response) => {
         console.log("Worked", response);
       },
       error: (response) => {
         console.log(response);
       }
+
     })
+
   }
+
+
   render () {
     return (<div>
 
-        <button onClick={this.handleClick.bind(this)} />
+        <button id="reserve" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
 
     </div>);
   }
+
 }
 
 Slot.propTypes = {

@@ -25,6 +25,10 @@
 <!--  -->
 
      <h4>Your current jobs</h4>
-     <%= current_prof.bookings %>
+     <% current_prof.bookings.each do |booking| %>
+     <div class="card horizontal">
+       <li> <%= booking.slot.job.name %></li>
+     </div>
+     <% end %>
   </div>
 </div>

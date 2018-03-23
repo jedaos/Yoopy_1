@@ -7,22 +7,22 @@ class Hospitals::OmniauthCallbacksController < Devise::OmniauthCallbacksControll
   # You should also create an action method in this controller like this:
   # def twitter
   # end
-  def stripe_connect
-    @hospital = current_hospital
-    if @hospital.update_attributes({
-        provider: request.env["omniauth.auth"].provider,
-        uid: request.env["omniauth.auth"].uid,
-        access_code: request.env["omniauth.auth"].credentials.token,
-        publishable_key: request.env["omniauth.auth"].info.stripe_publishable_key
-      })
-      # anything else you need to do in response..
-      sign_in_and_redirect @hospital, :event => :authentication
-      set_flash_message(:notice, :success, :kind => "Stripe") if is_navigational_format?
-    else
-      session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
-  end
+  # def stripe_connect
+  #   @hospital = current_hospital
+  #   if @hospital.update_attributes({
+  #       provider: request.env["omniauth.auth"].provider,
+  #       uid: request.env["omniauth.auth"].uid,
+  #       access_code: request.env["omniauth.auth"].credentials.token,
+  #       publishable_key: request.env["omniauth.auth"].info.stripe_publishable_key
+  #     })
+  #     # anything else you need to do in response..
+  #     sign_in_and_redirect @hospital, :event => :authentication
+  #     set_flash_message(:notice, :success, :kind => "Stripe") if is_navigational_format?
+  #   else
+  #     session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
+  #     redirect_to new_user_registration_url
+  #   end
+  # end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth

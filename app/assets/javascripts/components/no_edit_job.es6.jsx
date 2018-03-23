@@ -1,6 +1,6 @@
 class NoEditJob extends React.Component {
 
-  render () {
+  render () {    
 
     return(
 
