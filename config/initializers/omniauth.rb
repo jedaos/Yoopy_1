@@ -1,4 +1,4 @@
-``#config/initializers/oauth.rb
+#config/initializers/oauth.rb
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :stripe_connect,
     ENV['stripe_connect'],
@@ -11,4 +11,4 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   # end
 end
 
-OmniAuth.config.full_host = 'http://localhost:3000'
+OmniAuth.config.full_host = ''
