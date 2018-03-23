@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20180322223756) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "slot_id"
-    t.integer "prof_id"
+    t.bigint "slot_id"
+    t.bigint "prof_id"
     t.index ["prof_id"], name: "index_bookings_on_prof_id"
     t.index ["slot_id"], name: "index_bookings_on_slot_id"
   end
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20180322223756) do
     t.datetime "updated_at", null: false
     t.decimal "rate", precision: 8, scale: 2
     t.datetime "expiration"
-    t.integer "hospital_id"
+    t.bigint "hospital_id"
     t.string "slot_num"
     t.index ["hospital_id"], name: "index_jobs_on_hospital_id"
   end
@@ -90,8 +93,12 @@ ActiveRecord::Schema.define(version: 20180322223756) do
   create_table "slots", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "job_id"
+    t.bigint "job_id"
     t.index ["job_id"], name: "index_slots_on_job_id"
   end
 
+  add_foreign_key "bookings", "profs"
+  add_foreign_key "bookings", "slots"
+  add_foreign_key "jobs", "hospitals"
+  add_foreign_key "slots", "jobs"
 end

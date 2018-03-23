@@ -10,12 +10,14 @@ class ChargesController < ApplicationController
     source: params[:stripeToken]
   )
 
-  charge = Stripe::Charge.create(
-    customer: customer.id,
-    amount: @amount,
-    description: 'Rails Stripe customer',
-    currency: 'usd'
-  )
+  charge = Stripe::Charge.create({
+    :amount => 1000,
+    :currency => "usd",
+    :source => "tok_visa",
+    :destination => {
+      :account => "{CONNECTED_STRIPE_ACCOUNT_ID}",
+    }
+  })
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
