@@ -11,4 +11,4 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   # end
 end
 
-OmniAuth.config.full_host = ''
+# OmniAuth.config.full_host = ''
