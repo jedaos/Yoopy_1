@@ -1,4 +1,5 @@
 <div class="container">
 <%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots), prof_id: current_prof.id.to_s )%>
 <!-- <%= current_prof.id %> -->
+
 </div>

@@ -2,14 +2,19 @@
 <div class="row" id="dashboard-wrapper">
   <%= render 'hospital_sidebar' %>
   <div class="col s9" id="dash-content">
-    <%= current_hospital.institution_name %>
     <%= link_to 'Post A Job', new_job_path, class:'yoopy-button btn-large #00695c teal accent-3', id: 'new_job_button', remote: true %>
     <%= @job %>
     <p class="output_message"></p>
     <div id='modal_hospital' class="new-job-card-hospitals"></div>
 
     <div id="jobs" class="jobs-card-hospitals">
-    <%= react_component('JobApp', :jobs => @jobs) %>
+      <% if current_hospital.job_ids.nil? %>
+        <h4>You Don't Have Any Job Postings</h4>
+      <% else %>
+        <h4>Your Open Jobs</h4>
+        <%= react_component('JobApp', :jobs => @jobs) %>
+      <% end %>
+
     <h1><%= link_to "Stripe Connect", stripe_connect_login_path %></h1>
 
     </div>

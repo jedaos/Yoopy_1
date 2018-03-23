@@ -42,6 +42,7 @@ gem 'stripe'
 gem 'omniauth-stripe-connect'
 
 gem 'figaro'
+gem 'hirb'
 
 
 # Use Capistrano for deployment
