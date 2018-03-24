@@ -133,6 +133,7 @@ body > nav > div > ul > li > a {
   padding-top: 4rem;
 }
 
+
 // Dashboard
 #dashboard-wrapper {
   height: 800px;
@@ -173,4 +174,13 @@ body > nav > div > ul > li > a {
 .page-footer {
   background-color: #A5A5AF!important;
   z-index: 99999;
+}
+
+
+
+// ---- MEDIA QUERIES ----
+@media only screen and (min-width: 504px) {
+  #facil-button {
+    margin-bottom: 0;
+  }
 }
