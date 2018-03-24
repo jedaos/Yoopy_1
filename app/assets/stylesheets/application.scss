@@ -45,8 +45,8 @@ body > nav > div > ul > li > a {
   margin: 0 auto;
 }
 .headline-box {
-  height: 500px;
-  width: 600px;
+  height: 400px;
+  width: 550px;
   display: block;
   float: right;
   margin: 10vh;
@@ -62,17 +62,18 @@ body > nav > div > ul > li > a {
 #homepage1 {
   height: 85vh;
   width: 100%;
-  border: 1px solid #ccc;
   background-image: url('yoopy4_resized.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .yoopy-button {
-  width: 25rem;
-
+  width: max-content;
   padding: 2rem 0.5;
-  font-size: 22px;
+  font-size: 20px;
+}
+#cta-button {
+  width: 45%;
 }
 #facil-button {
   margin-bottom: 2rem;
@@ -104,6 +105,32 @@ body > nav > div > ul > li > a {
 }
 #for-facils, #for-profs {
   margin-top: 15rem;
+}
+// End of home page desktop
+
+// Home Page mobile
+.button-collapse {
+  color: #222;
+}
+#homepage1-mobile {
+  background-image: url('yoopy_mobile.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80vh;
+}
+#headline-mobile, #sub-headline-mobile {
+  color: #fff;
+}
+#sub-headline-mobile {
+  font-size: 22px;
+}
+.headline-box-mobile {
+  margin-top: 0rem;
+  padding: 4rem 3rem;
+}
+#homepage2-mobile {
+  padding-top: 4rem;
 }
 
 // Dashboard

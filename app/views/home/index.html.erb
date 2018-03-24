@@ -1,72 +1,75 @@
+<div class="hide-on-med-and-down">
   <div id="homepage1">
     <div class="homewrapper">
       <div class="headline-box">
         <h1 id="headline">On Demand <br>Medical Staffing</h1>
-        <p id="sub-headline">Yoopy provides medical facilities with the opportunity to quickly connect with medical professionals when experience a shortage.</p>
-        <%= link_to 'Become A Yoopy Facility', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large #1de9b6 teal accent-3' %>
-        <%= link_to 'Become A Yoopy Professional', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
+        <p id="sub-headline">Yoopy connects healthcare facilities with healthcare professionals quickly.</p>
+        <div class="row">
+          <div class="col s6" id="cta-button">
+            <%= link_to 'Facility Sign-Up', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large #1de9b6 teal accent-3' %>
+          </div>
+          <div class="col s6" id="cta-button">
+            <%= link_to 'Professional Sign-Up', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
+          </div>
+        </div>
 
       </div>
     </div>
   </div>
 
-<div class="home-container">
-  <div id="homepage2">
-    <!-- About Us Row -->
-    <div class="row" id="about-us">
-      <div class="col s6">
-        <h3>About Us</h3>
-        <div class="underline"></div>
-        <p class="subtext">Lorem ipsum dolor sit amet, magna in augue fringilla, turpis ad nulla lacus vel a, vestibulum class voluptas in vel sed. Dolor dapibus aptent nec curabitur, eros ac leo leo consectetuer, tortor per commodo dolor tellus in.</p>
+  <div class="home-container">
+    <div id="homepage2">
+      <!-- About Us Row -->
+      <div class="row" id="about-us">
+        <div class="col s6">
+          <h3>About Us</h3>
+          <div class="underline"></div>
+          <p class="subtext">Yoopy provides healthcare professionals & healthcare facilities with more flexibility than any other service in the industry. <br> <br>During shortages or emergencies, Yoopy connects medical facilities with an on-demand supply of professionals.</p>
+        </div>
+
+        <div class="col s6">
+
+        </div>
       </div>
 
-      <div class="col s6">
+      <!-- For Facilities Row -->
+      <div class="row" id="for-facils">
+        <div class="col s6">
+          <%= image_tag('iphone_frame1_small.png') %>
 
+        </div>
+
+        <div class="col s6">
+          <h3>For Medical Facilities</h3>
+          <div class="underline-green"></div>
+          <p class="subtext">Lorem ipsum dolor sit amet, magna in augue fringilla, turpis ad nulla lacus vel a, vestibulum class voluptas in vel sed. Dolor dapibus aptent nec curabitur, eros ac leo leo consectetuer, tortor per commodo dolor tellus in.</p>
+          <%= link_to 'Become A Yoopy Facility', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large #1de9b6 teal accent-3' %>
+
+        </div>
       </div>
+
+      <!-- For Professionals Row -->
+      <div class="row" id="for-profs">
+        <div class="col s6">
+          <h3>For Medical Professionals</h3>
+          <div class="underline-blue"></div>
+          <p class="subtext">Yoopy lets you decide how valuable your time is, who you enjoy caring for, and what you choose to do. Be alerted on your mobile device when facilities in your area are paying for your services.</p>
+          <%= link_to 'Become A Yoopy Professional', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
+
+        </div>
+
+        <div class="col s6">
+          <span id="iphone-display"><%= image_tag('iphone_frame1_small.png') %></span>
+        </div>
+      </div>
+
     </div>
-
-    <!-- For Facilities Row -->
-    <div class="row" id="for-facils">
-      <div class="col s6">
-        <%= image_tag('iphone_frame1_small.png') %>
-
-      </div>
-
-      <div class="col s6">
-        <h3>For Medical Facilities</h3>
-        <div class="underline-green"></div>
-        <p class="subtext">Lorem ipsum dolor sit amet, magna in augue fringilla, turpis ad nulla lacus vel a, vestibulum class voluptas in vel sed. Dolor dapibus aptent nec curabitur, eros ac leo leo consectetuer, tortor per commodo dolor tellus in.</p>
-        <%= link_to 'Become A Yoopy Facility', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large #1de9b6 teal accent-3' %>
-
-      </div>
-    </div>
-
-    <!-- For Professionals Row -->
-    <div class="row" id="for-profs">
-      <div class="col s6">
-        <h3>For Medical Professionals</h3>
-        <div class="underline-blue"></div>
-        <p class="subtext">Lorem ipsum dolor sit amet, magna in augue fringilla, turpis ad nulla lacus vel a, vestibulum class voluptas in vel sed. Dolor dapibus aptent nec curabitur, eros ac leo leo consectetuer, tortor per commodo dolor tellus in.</p>
-        <%= link_to 'Become A Yoopy Professional', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
-
-      </div>
-
-      <div class="col s6">
-        <span id="iphone-display"><%= image_tag('iphone_frame1_small.png') %></span>
-      </div>
-    </div>
-
   </div>
+  <%= render 'footer' %>
 </div>
-<%= render 'footer' %>
 
 
-<!-- Carousel Code -->
-<!-- <div id="home"class="carousel carousel-slider">
-  <div class="carousel-fixed-item center">
-    <h1 class="white-text">Welcome To On-Demand Recruitment</h1>
-  </div>
-    <a class="carousel-item"><img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb"></a>
-    <a class="carousel-item"><img src="https://images.pexels.com/photos/415779/pexels-photo-415779.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb"></a>
-    <a class="carousel-item"><img src="https://images.pexels.com/photos/48603/pexels-photo-48603.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb"></a>
-</div> -->
+<!-- TABLET & MOBILE VIEW -->
+<div class="hide-on-large-only	">
+  <%= render 'mobile' %>
+</div>
