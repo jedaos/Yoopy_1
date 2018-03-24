@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @slots = Slot.all
-    
+
     puts @jobs
     if current_prof
       @user = current_prof
@@ -27,6 +27,10 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     # respond_to do |format|
     if @job.save
+###CREATE NOTIFICATIONS HERE
+        Prof.all.each do |prof|
+          Notification.create(recipient: prof, actor: current_hospital, action: "posted job", notifiable: @job)
+        end
       # Job.make_slots(params[:slot_num], @job.id)
       @job.slot_num.to_i.times {Slot.create({:job_id => @job.id})}
       # render json: @job

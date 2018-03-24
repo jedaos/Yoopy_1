@@ -13,7 +13,7 @@ class ChargesController < ApplicationController
   charge = Stripe::Charge.create({
     :amount => 1000,
     :currency => "usd",
-    :source => 'tok_visa',           #params[:stripeToken],
+    :source => 'tok_visa', #params[:stripeToken],
     :destination => {
       :account => params[:publishable_key],
     }

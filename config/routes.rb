@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get 'jobs/index' => 'jobs#index'
   resources :bookings
 
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
   # post '/dashboard' => 'jobs#new'
   # devise_for :profs
   # devise_for :hospitals

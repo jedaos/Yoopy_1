@@ -1,6 +1,8 @@
 class Prof < ApplicationRecord
   has_many :bookings
   has_many :slots, :through => :bookings
+  has_many :notifications, foreign_key: :recipient_id
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable # :omniauthable #
   # Include default devise modules. Others available are:
