@@ -1,20 +1,16 @@
 class Slot extends React.Component {
   constructor(props){
     super(props)
-
   }
 
-
   handleClick(e){
-
-
     $.ajax({
       method: 'POST',
       url: `/bookings`,
       dataType: 'json',
       data: {
         booking: {
-         slot_id: this.props.slot.id,
+          slot_id: this.props.slot.id,
         }
       },
       success: (response) => {
@@ -23,17 +19,13 @@ class Slot extends React.Component {
       error: (response) => {
         console.log(response);
       }
-
     })
-
   }
 
-
   render () {
-    return (<div>
-
-        <button id="reserve" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
-
+    return (
+      <div>
+      <button id="reserve" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
     </div>);
   }
 
