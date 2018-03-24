@@ -14,7 +14,8 @@ class Notifications
   handleSuccess: (data) =>
     console.log(data)
     items = $.map data, (notification) ->
-      "<li><a href='#{notification.url}'>#{notification.actor}#{notification.action} #{notification.notifiable.type}</a></li>"
+      "<li><a href='#{notification.url}'>#{notification.actor} #{notification.action} #{notification.notifiable.type}</a></li>"
+    $("[data-behavior='unread-count']").text(items.length)
     $("[data-behavior='notification-items']").html(items)
 jQuery ->
   new Notifications

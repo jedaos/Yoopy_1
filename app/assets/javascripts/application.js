@@ -22,7 +22,7 @@
 
 
 $( document ).on('turbolinks:load', function(){
-  
+  $('.dropdown-trigger').dropdown();
 
   $(".button-collapse").sideNav();
   $('.modal').modal();
