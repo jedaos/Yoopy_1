@@ -8,8 +8,11 @@ class BookingsController < ApplicationController
     @booking = current_prof.bookings.new(booking_params)
     respond_to do |format|
       format.json do
-        if @booking.save
-          render json: @booking
+        if @booking.save!
+           @booking.slot.available = false
+           @booking.slot.save!
+           render json: @booking
+
         else
           render json: { :errors => @booking.errors.messages }, status: 442
         end

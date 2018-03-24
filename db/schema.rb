@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20180324153528) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "job_id"
+    t.boolean "available", default: true
     t.index ["job_id"], name: "index_slots_on_job_id"
   end
 
