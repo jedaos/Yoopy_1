@@ -1,7 +1,11 @@
 class Slot extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      buttonClass: 'btn-floating btn-large'
+    }
   }
+
 
   handleClick(e){
     $.ajax({
@@ -15,6 +19,10 @@ class Slot extends React.Component {
       },
       success: (response) => {
         console.log("Worked", response);
+        localStorage.setItem('buttonClass', 'btn-floating btn-large disabled');
+        this.setState({
+          buttonClass: 'btn-floating btn-large disabled'
+        });
       },
       error: (response) => {
         console.log(response);
@@ -25,8 +33,8 @@ class Slot extends React.Component {
   render () {
     return (
       <div>
-      <button id="reserve" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
-    </div>);
+      <button className={this.state.buttonClass} id={this.props.slot.id} onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
+    </div>)
   }
 
 }

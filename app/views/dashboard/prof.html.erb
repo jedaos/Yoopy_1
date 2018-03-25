@@ -27,9 +27,21 @@
     <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1">Update Bio & Account Information</a>
 
      <h4>Your current jobs</h4>
+     <div class="row center-cols center-align">
      <% current_prof.bookings.each do |booking| %>
-     <div class="card horizontal">
-       <li> <%= booking.slot.job.name %></li>
-     </div>
+     <div class="card">
+       <span class="card-title" style="width:100%; background: rgba(0, 0, 0, 0.5);"><%= booking.slot.job.hospital.institution_name %></span>
+       <div class="card-content">
+
+
+       <%= booking.slot.job.name %>
+
+       <%= booking.slot.job.description %>
+
+
+
+       </div>
      <% end %>
+      </div>
+     </div>
   </div>
