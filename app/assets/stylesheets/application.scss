@@ -186,8 +186,10 @@ body > nav > div > ul > li > a {
   .btn-floating {
     display: inline-block;
   }
-
-
+//notifications unred
+span#unred{
+  color: black
+}
 
 // ---- MEDIA QUERIES ----
 @media only screen and (min-width: 504px) {

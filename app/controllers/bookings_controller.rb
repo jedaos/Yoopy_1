@@ -10,8 +10,7 @@ class BookingsController < ApplicationController
       format.json do
         if @booking.save!
            @booking.slot.available = false
-           @booking.slot.save!
-           
+           @booking.slot.save!           
            render json: @booking
 
         else

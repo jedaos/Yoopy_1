@@ -11,8 +11,9 @@
       <li><%= link_to 'Jobs', jobs_path %></li>
       <li><%= link_to 'Log Out', destroy_prof_session_path, :method => :delete %></li>
       <!-- Notifications dropdown -->
-      <span data-behavior='unread-count'></span>
-      <li><a class='dropdown-trigger btn' href='#' data-behavior="notifications" data-target='dropdown1'>Notifications</a></li>
+      <span data-behavior='unread-count' id='unred'></span>
+      <li><a class='dropdown-trigger btn' href='#' data-behavior="notifications" data-target='dropdown1'><i class='material-icons'>notifications</i></a></li>
+
       <li><ul id='dropdown1' class='dropdown-content alignment right' data-behavior='notification-items'></li>
 
         <!-- Notification Should appear here. -->

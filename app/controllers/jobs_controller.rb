@@ -29,7 +29,7 @@ class JobsController < ApplicationController
     if @job.save
 ###CREATE NOTIFICATIONS HERE
         Prof.all.each do |prof|
-          Notification.create(recipient: prof, actor: current_hospital, action: "posted job", notifiable: @job)
+          Notification.create(recipient: prof, actor: current_hospital, action: "posted", notifiable: @job)
         end
       # Job.make_slots(params[:slot_num], @job.id)
       @job.slot_num.to_i.times {Slot.create({:job_id => @job.id})}
