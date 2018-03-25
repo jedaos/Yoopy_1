@@ -2,12 +2,12 @@ class Slot extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      buttonClass: 'btn-floating btn-large'
+      buttonClass: 'btn-floating btn-large',
+      available: this.props.slot.available
     }
   }
-
-
   handleClick(e){
+    this.props.slot.available = !this.props.slot.availeble
     $.ajax({
       method: 'POST',
       url: `/bookings`,
@@ -18,11 +18,13 @@ class Slot extends React.Component {
         }
       },
       success: (response) => {
-        console.log("Worked", response);
-        localStorage.setItem('buttonClass', 'btn-floating btn-large disabled');
+        console.log(response);
         this.setState({
-          buttonClass: 'btn-floating btn-large disabled'
+          buttonClass: 'btn-floating btn-large disabled',
+          available: !this.state.available
+
         });
+
       },
       error: (response) => {
         console.log(response);
@@ -31,12 +33,22 @@ class Slot extends React.Component {
   }
 
   render () {
-    return (
+    if (this.props.slot.available){
+    return(
       <div>
-      <button className={this.state.buttonClass} id={this.props.slot.id} onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
-    </div>)
-  }
 
+
+      <button className={this.state.buttonClass} id={this.props.slot.id} onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
+
+
+    </div>
+    )
+  } else {
+    return(
+      <p>This slot is no longer available</p>
+    )
+  }
+  }
 }
 
 Slot.propTypes = {

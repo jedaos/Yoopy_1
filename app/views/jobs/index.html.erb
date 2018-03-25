@@ -3,6 +3,7 @@
   You must sign in or create an account ro view jobs
 
   <% else %>
+
 <%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots), prof_id: current_prof.id.to_s )%>
 <!-- <%= current_prof.id %> -->
 

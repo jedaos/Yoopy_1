@@ -12,11 +12,14 @@ class NoEditJob extends React.Component {
          <li><h5>Rate: {this.props.job.rate}</h5></li>
          <li><h5>Slots: {this.props.job.slot_num}</h5></li>
          <div className='card-horizontal'>
+
          {this.props.job.slots.map((slot) => {
+           
            return(<li key={slot.id}>
              <Slot jobId={this.props.job.id} slot={slot} />
            </li>)
          })}
+
          </div>
        </ul>
      </div>

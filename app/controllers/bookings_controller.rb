@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
         if @booking.save!
            @booking.slot.available = false
            @booking.slot.save!
+           
            render json: @booking
 
         else
