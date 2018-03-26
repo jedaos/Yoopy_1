@@ -1,4 +1,4 @@
 class Booking < ApplicationRecord
-  belongs_to :slot, dependent: :destroy
+  belongs_to :slot
   belongs_to :prof
 end

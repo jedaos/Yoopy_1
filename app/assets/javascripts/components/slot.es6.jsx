@@ -38,7 +38,7 @@ class Slot extends React.Component {
       <div>
 
 
-      <button className={this.state.buttonClass} id={this.props.slot.id} onClick={this.handleClick.bind(this)}>Reserve This Slot</button>
+      <button className={this.state.buttonClass} id={this.props.slot.id} onClick={this.handleClick.bind(this)}>Reserve</button>
 
 
     </div>

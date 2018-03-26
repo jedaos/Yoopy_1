@@ -5,6 +5,7 @@ class NoEditJob extends React.Component {
     return(
 
       <div className="card horizontal">
+        <Timer job={this.props.job.created_at} />
        <ul>
 
          <li><h5>Title: {this.props.job.name}</h5></li>
@@ -14,7 +15,7 @@ class NoEditJob extends React.Component {
          <div className='card-horizontal'>
 
          {this.props.job.slots.map((slot) => {
-           
+
            return(<li key={slot.id}>
              <Slot jobId={this.props.job.id} slot={slot} />
            </li>)
