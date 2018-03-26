@@ -2,12 +2,13 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:update, :destroy]
   respond_to :json
 
+  @rate = [100, 200, 300]
+
 
   def index
     @jobs = Job.all
     @slots = Slot.all
 
-    puts @jobs
     if current_prof
       @user = current_prof
     else
@@ -15,6 +16,7 @@ class JobsController < ApplicationController
     end
 
     end
+
   def new
     if hospital_signed_in?
       @job = Job.new
@@ -42,7 +44,7 @@ class JobsController < ApplicationController
     else
       flash[:error] = "Something went wrong!"
     end
-    
+
     # end
   end
 
