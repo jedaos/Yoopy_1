@@ -169,6 +169,25 @@ body > nav > div > ul > li > a {
   z-index: -1;
 }
 
+//Form Rate Display
+#new_job_form > div:nth-child(7) > span.thumb.active {
+  left: auto!important;
+  top: auto!important;
+  margin: 0 auto!important;
+  height: 0!important;
+  width: 30px;
+
+}
+input[type=range] + .thumb.active .value {
+  color: #222;
+  font-size: 24px;
+  before: "$"
+}
+input[type=range] + .thumb.active .value::before {
+  content: "$";
+}
+
+
 
 // footer
 .page-footer {
