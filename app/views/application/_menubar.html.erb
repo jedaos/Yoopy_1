@@ -12,10 +12,10 @@
       <li><%= link_to 'Log Out', destroy_prof_session_path, :method => :delete %></li>
       <span data-behavior='unread-count' id='unred'></span>
       <a class='dropdown-trigger btn' href='#' data-behavior="notifications" data-target='dropdown1'><i class='material-icons' data-behavior="notifications-link">notifications</i></a>
-      <ul id='dropdown1' class='dropdown-content' data-behavior='notification-items'>
+      <div id='dropdown1' class='dropdown-content' data-behavior='notification-items'>
 
         <!-- Notification Should appear here. -->
-      </ul>
+      </div>
       <!-- Notifications end here  -->
 
     </ul>

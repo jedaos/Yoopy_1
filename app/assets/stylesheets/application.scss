@@ -192,8 +192,11 @@ span#unred{
   position: relative;
   z-index: 10;
 }
-.dropdown1{
+#dropdown1{
   position: relative;
+  right: 0px;
+  bottom: 50px;
+  overflow: visible;
 }
 
 // ---- MEDIA QUERIES ----
