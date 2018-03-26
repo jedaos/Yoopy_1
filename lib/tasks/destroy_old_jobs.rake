@@ -1,5 +1,4 @@
-namespace :destroy do
-  task :old_jobs => :environment do
-    Job.destroy_all.where("created_at < ? #{3.hours.ago}")
+
+  task :destroy_old_jobs => :environment do
+    Job.expired.destroy_all
     end
-  end

@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -21,16 +22,10 @@
 
 
 
+
+
 $( document ).on('turbolinks:load', function(){
-  $('.dropdown-trigger').dropdown({
-    belowOrigin: true,
-    alignment: 'left',
-    inDuration: 200,
-    outDuration: 150,
-    constrain_width: true,
-    hover: false,
-    gutter: 1
-  });
+  $('.dropdown-trigger').dropdown()
 
   $(".button-collapse").sideNav();
   $('.modal').modal();

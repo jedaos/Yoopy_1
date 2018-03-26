@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
   has_many :slots, dependent: :destroy
   belongs_to :hospital
-  has_many :profs, through: :slots
+  has_many :profs, through: :slots, dependent: :destroy
   scope :expired, -> { where('created_at < ?', 3.hours.ago) }
 
   RATES = [100, 200, 300, 400]
