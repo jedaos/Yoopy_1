@@ -33,7 +33,7 @@ class Slot extends React.Component {
   }
 
   render () {
-    if (this.props.slot.available){
+    if (this.state.available){
     return(
       <div>
 
