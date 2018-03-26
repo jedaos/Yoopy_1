@@ -4,7 +4,7 @@ class JobApp extends React.Component {
       <div>
         {this.props.jobs.map((job) => {
           return (<JobContent job={job} key={job.id}/>)
-        })};
+        })}
       </div>
     )
   }
