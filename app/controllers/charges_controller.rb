@@ -15,7 +15,7 @@ class ChargesController < ApplicationController
     :currency => "usd",
     :source => 'tok_visa', #params[:stripeToken],
     :destination => {
-      # :amount => this is where we can take out a fee.
+       # :amount => this is where we can take out a fee.
       :account => params[:publishable_key],
     }
   })

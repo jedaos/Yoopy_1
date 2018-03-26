@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:update, :destroy]
   respond_to :json
 
+
   def index
     @jobs = Job.all
     @slots = Slot.all
@@ -37,9 +38,11 @@ class JobsController < ApplicationController
       # redirect_to dashboard_index_path
       # format.json { render action: 'show', status: :created, location: @job }
       # format.js   { render 'dashboard/hospital', status: :created, location: @job }
+
     else
       flash[:error] = "Something went wrong!"
     end
+    
     # end
   end
 

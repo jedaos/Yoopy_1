@@ -43,7 +43,7 @@ gem 'omniauth-stripe-connect'
 
 gem 'figaro'
 gem 'hirb'
-
+gem 'whenever', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
