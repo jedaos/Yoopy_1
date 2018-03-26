@@ -4,11 +4,20 @@ class Notifications
     @setup() if @notifications.length > 0
 
   setup: ->
+    $("[data-behavior='notifications-link']").on "click", @handleClick
     $.ajax(
       url: "/notifications.json"
       datatype: "JSON"
       method: "GET"
       success: @handleSuccess
+    )
+  handleClick: (e) ->
+    $.ajax(
+      url: "/notifications/mark_as_read"
+      datatype: "JSON"
+      method: "POST"
+      success: ->
+        $("[data-behavior='unread-count']").text(0)
     )
 
   handleSuccess: (data) =>

@@ -1,7 +1,7 @@
 class JobContent extends React.Component {
   constructor(props){
     super(props);
-  
+
 
   }
   render () {
@@ -29,7 +29,7 @@ class JobContent extends React.Component {
         <input type='hidden' name='_method' value='delete' />
         </form>
         </div>
-    );
+    )
   }
 }
 

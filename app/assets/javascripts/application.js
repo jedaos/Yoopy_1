@@ -22,11 +22,19 @@
 
 
 $( document ).on('turbolinks:load', function(){
-  $('.dropdown-trigger').dropdown();
+  $('.dropdown-trigger').dropdown({
+    belowOrigin: true,
+    alignment: 'left',
+    inDuration: 200,
+    outDuration: 150,
+    constrain_width: true,
+    hover: false,
+    gutter: 1
+  });
 
   $(".button-collapse").sideNav();
   $('.modal').modal();
-  
+
     // $('.modal').modal();
     // $('#modal1').modal('open');
     // $('#modal1').modal('close');

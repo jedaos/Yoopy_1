@@ -8,7 +8,7 @@ class AllJobs extends React.Component {
         <div>
             {this.props.jobs.map((job) => {
               return (<NoEditJob job={job} key={job.id}/>)
-            })};
+            })}
             <p>
               </p>
         </div>

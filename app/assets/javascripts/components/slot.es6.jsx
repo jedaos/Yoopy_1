@@ -45,7 +45,7 @@ class Slot extends React.Component {
     )
   } else {
     return(
-      <p><i class='material-icons'>lock</i></p>
+      <p><i className='material-icons'>lock</i></p>
     )
   }
   }

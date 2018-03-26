@@ -186,9 +186,14 @@ body > nav > div > ul > li > a {
   .btn-floating {
     display: inline-block;
   }
-//notifications unred
+//notifications unred / content
 span#unred{
-  color: black
+  color: black;
+  position: relative;
+  z-index: 10;
+}
+.dropdown1{
+  position: relative;
 }
 
 // ---- MEDIA QUERIES ----
