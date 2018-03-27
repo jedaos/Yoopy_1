@@ -2,8 +2,7 @@
 <div class="row" id="dashboard-wrapper">
   <%= render 'hospital_sidebar' %>
   <div class="col s9" id="dash-content">
-    <%= link_to 'Post A Job', new_job_path, class:'yoopy-button btn-large #00695c teal accent-3', id: 'new_job_button', remote: true %>
-    <%= @job %>
+    <%#= @job %>
     <p class="output_message"></p>
     <div id='modal_hospital' class="new-job-card-hospitals"></div>
 
@@ -15,7 +14,7 @@
         <%= react_component('JobApp', :jobs => @jobs) %>
       <% end %>
 
-    <h1><%= link_to "Stripe Connect", stripe_connect_login_path %></h1>
+    <!-- <h1><%#= link_to "Stripe Connect", stripe_connect_login_path %></h1> -->
 
     </div>
     <% current_hospital.jobs.each do |job| %>
@@ -24,26 +23,34 @@
       <% if slot.prof.nil?  %>
         No bookings
       <% else %>
-      <%= slot.prof.name %>
-      <%= form_tag charges_path do %>
-        <article>
-          <% if flash[:error].present? %>
-            <div id="error_explanation">
-              <p><%= flash[:error] %></p>
-            </div>
-          <% end %>
-          <label class="amount">
-            <span>Amount: $5</span>
-          </label>
-        </article>
+      <ul>
+        <li><h5><%= slot.prof.name %></h5></li>
+        <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+        <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+        <li>
+          <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
+              <% end %>
+              <label class="amount">
+                <h6>Rate: $<%= slot.job.rate %></h6>
+              </label>
+            </article>
 
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-description="A month's subscription"
-                data-amount="500"
-                data-locale="auto"></script>
-      <% end %>
-      <% end %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="A month's subscription"
+                    data-amount="<%= slot.job.rate * 100 %>"
+                    data-locale="auto"></script>
+          <% end %>
+          <% end %>
+        </li>
+      </ul>
+
+
     </div>
     <% end %>
     <% end %>

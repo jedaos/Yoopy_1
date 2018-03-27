@@ -1,8 +1,15 @@
 <div class="col s3" id="sidebar">
   <h5><%= current_hospital.institution_name %></h5>
+  <div class="new-job-button">
+    <%= link_to 'Post A Job', new_job_path, class:'yoopy-button btn-large #00695c teal accent-3', id: 'new_job_button', remote: true %>
+  </div>
+
   <div class="sidebar-items">
-    <li><i class="material-icons">supervisor_account</i>Account</li>
-    <li><i class="material-icons">attach_money</i>Connect With Stripe</li>
-    <li><i class="material-icons">help</i>Support</li>
+    <%= link_to stripe_connect_login_path do %>
+    <li><i class="material-icons">attach_money</i>     Connect With Stripe</li>
+    <% end %>
+
+    <li><i class="material-icons">supervisor_account</i>     Account</li>
+    <li><i class="material-icons">help</i>     Support</li>
   </div>
 </div>

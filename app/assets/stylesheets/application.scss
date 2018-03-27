@@ -146,10 +146,21 @@ body > nav > div > ul > li > a {
   position: relative;
   float: left;
   padding: 1rem 2rem;
+  z-index: 9999;
 }
 .sidebar-items li {
   list-style: none;
-  line-height: 3rem;
+  line-height: 4rem;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  font-size: 20px;
+}
+.sidebar-items li:hover {
+  background-color: #111;
+}
+.sidebar-items {
+  margin-top: 3rem;
 }
 #dash-content {
   display: inline-block;
