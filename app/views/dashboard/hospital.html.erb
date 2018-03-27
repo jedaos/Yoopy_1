@@ -1,58 +1,62 @@
+<div class="hide-on-med-and-down">
+  <div class="row" id="dashboard-wrapper">
+    <%= render 'hospital_sidebar' %>
+    <div class="col s9" id="dash-content">
+      <%#= @job %>
+      <p class="output_message"></p>
+      <div id='modal_hospital' class="new-job-card-hospitals"></div>
 
-<div class="row" id="dashboard-wrapper">
-  <%= render 'hospital_sidebar' %>
-  <div class="col s9" id="dash-content">
-    <%#= @job %>
-    <p class="output_message"></p>
-    <div id='modal_hospital' class="new-job-card-hospitals"></div>
+      <div id="jobs" class="jobs-card-hospitals">
+        <% if current_hospital.job_ids.nil? %>
+          <h4>You Don't Have Any Job Postings</h4>
+        <% else %>
+          <h4>Your Open Jobs</h4>
+          <%= react_component('JobApp', :jobs => @jobs) %>
+        <% end %>
 
-    <div id="jobs" class="jobs-card-hospitals">
-      <% if current_hospital.job_ids.nil? %>
-        <h4>You Don't Have Any Job Postings</h4>
-      <% else %>
-        <h4>Your Open Jobs</h4>
-        <%= react_component('JobApp', :jobs => @jobs) %>
+      <!-- <h1><%#= link_to "Stripe Connect", stripe_connect_login_path %></h1> -->
+
+      </div>
+      <% current_hospital.jobs.each do |job| %>
+      <% job.slots.each do |slot| %>
+      <div class="card horizontal">
+        <% if slot.prof.nil?  %>
+          No bookings
+        <% else %>
+        <ul>
+          <li><h5><%= slot.prof.name %></h5></li>
+          <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+          <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+          <li>
+            <%= form_tag charges_path do %>
+              <article>
+                <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+                <% end %>
+                <label class="amount">
+                  <h6>Rate: $<%= slot.job.rate %></h6>
+                </label>
+              </article>
+
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="A month's subscription"
+                      data-amount="<%= slot.job.rate * 100 %>"
+                      data-locale="auto"></script>
+            <% end %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
       <% end %>
+      <% end %>
+    </div> <!-- End Dash Content Div-->
+  </div> <!-- End of Row Div -->
+</div>
 
-    <!-- <h1><%#= link_to "Stripe Connect", stripe_connect_login_path %></h1> -->
-
-    </div>
-    <% current_hospital.jobs.each do |job| %>
-    <% job.slots.each do |slot| %>
-    <div class="card horizontal">
-      <% if slot.prof.nil?  %>
-        No bookings
-      <% else %>
-      <ul>
-        <li><h5><%= slot.prof.name %></h5></li>
-        <li><h6>Bio: <%= slot.prof.bio %></h6></li>
-        <li><h6>Contact: <%= slot.prof.phone %></h6></li>
-        <li>
-          <%= form_tag charges_path do %>
-            <article>
-              <% if flash[:error].present? %>
-                <div id="error_explanation">
-                  <p><%= flash[:error] %></p>
-                </div>
-              <% end %>
-              <label class="amount">
-                <h6>Rate: $<%= slot.job.rate %></h6>
-              </label>
-            </article>
-
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-description="A month's subscription"
-                    data-amount="<%= slot.job.rate * 100 %>"
-                    data-locale="auto"></script>
-          <% end %>
-          <% end %>
-        </li>
-      </ul>
-
-
-    </div>
-    <% end %>
-    <% end %>
-  </div>
+<div class="hide-on-large-only">
+  <%= render 'mobile_hospital' %>
 </div>

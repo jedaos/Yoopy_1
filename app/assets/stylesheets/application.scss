@@ -180,6 +180,12 @@ body > nav > div > ul > li > a {
   z-index: -1;
 }
 
+// mobile hospital dash
+#mobile-wrapper > a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 //Form Rate Display
 #new_job_form > div:nth-child(7) > span.thumb.active {
   left: auto!important;
@@ -233,5 +239,16 @@ span#unred{
 @media only screen and (min-width: 504px) {
   #facil-button {
     margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: 900px) {
+  #job_rate {
+    width: 50%;
+  }
+  #new_job_form > div:nth-child(7) > span:nth-child(4) > span,#new_job_form > div:nth-child(7) > span.character-counter, #Cancel {
+    display: none;
+  }
+  .jobs-card-hospitals, .new-job-card-hospitals {
+    width: 100%;
   }
 }
