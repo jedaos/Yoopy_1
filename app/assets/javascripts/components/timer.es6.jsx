@@ -1,12 +1,10 @@
-
-
 class Timer extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
       time: {},
-      seconds: (new Date(this.props.job).getTime()/1000) - 10800
+      seconds: moment(new Date(this.props.job))
     }
     this.timer = 0;
     this.startTimer = this.startTimer.bind(this);

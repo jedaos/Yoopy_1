@@ -1,27 +1,35 @@
 class ChargesController < ApplicationController
+  require "stripe"
   def new
   end
 
   def create
-  @amount = 500
 
-  customer = Stripe::Customer.create(
-    email: params[:stripeEmail],
-    source: params[:stripeToken]
-  )
+    @amount = params[:price].to_i * 100
 
-  charge = Stripe::Charge.create({
-    :amount => 1000,
-    :currency => "usd",
-    :source => 'tok_visa', #params[:stripeToken],
-    :destination => {
-       # :amount => this is where we can take out a fee.
-      :account => params[:publishable_key],
-    }
-  })
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      source: params[:stripeToken]
+    )
+    Stripe.api_key = ENV["stripe_secret"]
+
+    token = params[:stripeToken]
+
+    charge = Stripe::Charge.create({
+      :amount => @amount,
+      :currency => "usd",
+      :source => 'tok_visa',#params[:stripeToken],
+      :destination => {
+        :amount => Job.commision(@amount * 100).to_i,
+        :account => Prof.find(params[:prof_id]).uid,
+      }
+    })
+
+    # rescue Stripe::CardError => e
+    #   flash[:error] = e.message
+    #   redirect_to new_charge_path
+    # end
   end
+
 end

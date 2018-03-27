@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "moment": "^2.21.0",
-    "react-moment": "^0.7.0",
+    "moment-countdown": "^0.0.3",
     "react_ujs": "^2.4.4"
   },
   "devDependencies": {}

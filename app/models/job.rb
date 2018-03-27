@@ -6,9 +6,23 @@ class Job < ApplicationRecord
 
   RATES = [100, 200, 300, 400]
 
-  
-  def self.rate
-    @rate = [100, 200, 300]
+  def self.commision(price)
+    case price
+    when 100..150
+      return price * 0.15
+    when 150..175
+      return price * 0.10
+    when 175..200
+      return price * 0.05
+    when 200...300
+      return price * 0.03
+    else
+      return price * 0.01
+    end
+  end
+
+  def amount_with_commision
+    (Job.commision(self.rate)) + self.rate
   end
 
   # def self.make_slots(num_slots, slot_params)

@@ -40,11 +40,16 @@
               </label>
             </article>
 
+            <%= hidden_field_tag :price, job.amount_with_commision %>
+            <%= hidden_field_tag :prof_id, slot.prof.id %>
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-description="A month's subscription"
-                    data-amount="<%= slot.job.rate * 100 %>"
-                    data-locale="auto"></script>
+                    data-key='<%= ENV["stripe_publishable_key"] %>'
+                    data-description="You will be charged a $<%= Job.commision(job.rate) %>0 fee."
+                    data-amount="<%= job.amount_with_commision * 100 %>"
+                    data-locale="auto">
+
+                  </script>
+
           <% end %>
           <% end %>
         </li>

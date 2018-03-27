@@ -22,14 +22,18 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
   devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions" }
-  devise_for :profs, path: 'profs', controllers: { sessions: "profs/sessions", registrations: "profs/registrations" } #omniauth_callbacks: "profs/omniauth_callbacks" }
+  devise_for :profs, path: 'profs', controllers: { sessions: "profs/sessions", registrations: "profs/registrations" }
+   #omniauth_callbacks: "profs/omniauth_callbacks"
+  devise_scope :prof do
+    get 'auth/stripe_connect/callback' => 'yoopy_omniauth_callbacks#stripe_connect'
+  end
 
   resources :charges, only: [:new, :create]
   resources :posts
   root to: 'posts#index'
 
   # get "omniauth_callbacks/:action/callback", :controller => "omniauth_callbacks", :constraints => { :action => /stripe_connect/ }
-  get 'auth/stripe_connect', as: 'stripe_connect_login', to: 'omniauth_callbacks#stripe_connect'
+  get 'auth/stripe_connect', as: 'stripe_connect_login', to: 'yoopy_omniauth_callbacks#stripe_connect'
 
 #
 # , :omniauth_callbacks => "omniauth_callbacks"
