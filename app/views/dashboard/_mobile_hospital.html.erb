@@ -2,8 +2,12 @@
   <h2>Welcome, <%= current_hospital.institution_name %></h2>
 
   <%= link_to 'Connect Stripe', stripe_connect_login_path, class:"btn-large #42a5f5 blue lighten-1" %>
+  <%= link_to 'Post A Job', new_job_path, class:'yoopy-button btn-large #00695c teal accent-3', id: 'new_job_button', remote: true %>
 
-  <%= render 'jobs/new_job' %>
+  <%#= render 'jobs/new_job' %>
+  <script type="text/javascript">
+  </script>
+  <div id='modal_hospital_mobile' class="new-job-card-hospitals"></div>
 
 
   <div id="jobs" class="jobs-card-hospitals">
