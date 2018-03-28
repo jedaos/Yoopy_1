@@ -17,6 +17,7 @@
       <!-- <h1><%#= link_to "Stripe Connect", stripe_connect_login_path %></h1> -->
 
       </div>
+
       <% current_hospital.jobs.each do |job| %>
       <% job.slots.each do |slot| %>
       <div class="card horizontal">
@@ -49,16 +50,19 @@
                     data-locale="auto">
 
                   </script>
+                  </div>
 
-          <% end %>
-          <% end %>
+              <% end %>
+            <% end %>
         </li>
       </ul>
 
       <% end %>
       <% end %>
-    </div> <!-- End Dash Content Div-->
+
+     <!-- End Dash Content Div-->
   </div> <!-- End of Row Div -->
+</div>
 </div>
 
 <div class="hide-on-large-only">
