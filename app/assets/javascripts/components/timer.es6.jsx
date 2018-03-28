@@ -1,73 +1,45 @@
 class Timer extends React.Component {
   constructor(props){
     super(props);
-
     this.state = {
-      time: {},
-      seconds: moment(new Date(this.props.job))
+      start: new Date(this.props.job).getTime(),
+      end: (new Date(this.props.job).getTime()+(10800*1000)),
+      time: 0
     }
-    this.timer = 0;
-    this.startTimer = this.startTimer.bind(this);
-    this.countDown = this.countDown.bind(this);
+    this.now = this.now.bind(this)
 
   }
 
-
-
-  secondsToTime(secs){
-
-    let hours = Math.floor(secs / (60 * 60));
-
-    let divisor_for_minutes = secs % (60 * 60);
-    let minutes = Math.floor(divisor_for_minutes / 60);
-
-    let divisor_for_seconds = divisor_for_minutes % 60;
-    let seconds = Math.ceil(divisor_for_seconds);
-
-    let obj = {
-      "h": hours,
-      "m": minutes,
-      "s": seconds
-    };
-    return obj;
+  now(){
+    return this.state.end - new Date().getTime()
   }
 
- componentDidMount() {
-    let timeLeftVar = this.secondsToTime(this.state.seconds);
-    this.setState({ time: timeLeftVar });
-    this.startTimer();
-  }
 
-  startTimer() {
-    if (this.timer == 0) {
-      this.timer = setInterval(this.countDown, 1000);
-    }
-  }
+  msToTime(s){
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
 
-  countDown() {
-    // Remove one second, set state so a re-render happens.
-    let seconds = this.state.seconds - 1;
     this.setState({
-      time: this.secondsToTime(seconds),
-      seconds: seconds,
-    });
-
-    // Check if we're at zero.
-    if (seconds == 0) {
-      clearInterval(this.timer);
-    }
+    time: hrs + ':' + mins + ':' + secs
+    })
   }
-
-
-
-
+  componentDidMount(){
+    var self = this
+  setInterval(function() {
+    var x = self.now();
+    return self.msToTime(x)
+  }, 1000);
+}
 
   render () {
+
     return (
-
       <div>
-
-      {this.state.time.h % 60}:{this.state.time.m}:{this.state.time.s}
+        {this.state.time}
       </div>
     );
   }

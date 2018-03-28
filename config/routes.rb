@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
   resources :jobs
+  # get 'jobs/:id' => "jobs#show"
   get 'jobs/index' => 'jobs#index'
   resources :bookings
 
