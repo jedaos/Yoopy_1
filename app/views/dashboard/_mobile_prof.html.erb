@@ -1,0 +1,39 @@
+<div class="container" id="mobile-wrapper">
+  <h4>Welcome, <%= current_prof.name %></h4>
+  <%= link_to 'Connect Stripe', stripe_connect_login_path, class:"btn-large #42a5f5 blue lighten-1" %>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <div class="container">
+        <h4>Personal Information</h4>
+        <%= render 'profs/registrations/secondary_info', resource: current_prof %>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-info-collection">
+    <h4>Account Information</h4>
+    <ul class="collection with-header">
+      <li class="collection-item">Phone: <%= current_prof.phone %></li>
+      <li class="collection-item">Email: <%= current_prof.email %></li>
+      <li class="collection-item">License: <%= current_prof.license_num %></li>
+      <li class="collection-item">Bio: <%= current_prof.bio %></li>
+    </ul>
+    <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal2">Update Bio & Account Information</a>
+
+  </div>
+
+  <h4>Your current jobs</h4>
+  <div class="row center-cols center-align">
+    <% current_prof.bookings.each do |booking| %>
+    <div class="card">
+      <span class="card-title" style="width:100%;"><%= booking.slot.job.hospital.institution_name %></span>
+      <div class="card-content">
+        <%= booking.slot.job.name %>
+        <%= booking.slot.job.description %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>

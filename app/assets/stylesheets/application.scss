@@ -245,7 +245,7 @@ span#unred{
   #job_rate {
     width: 50%;
   }
-  #new_job_form > div:nth-child(7) > span:nth-child(4) > span,#new_job_form > div:nth-child(7) > span.character-counter, #Cancel {
+  #new_job_form > div:nth-child(7) > span:nth-child(4) > span,#new_job_form > div:nth-child(7) > span.character-counter, .character-counter {
     display: none;
   }
   .jobs-card-hospitals, .new-job-card-hospitals {

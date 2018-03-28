@@ -4,7 +4,9 @@
     <div class="col s9" id="dash-content">
       <%#= @job %>
       <p class="output_message"></p>
-      <div id='modal_hospital' class="new-job-card-hospitals"></div>
+      <div id='modal_hospital' class="new-job-card-hospitals">
+        
+      </div>
 
       <div id="jobs" class="jobs-card-hospitals">
         <% if current_hospital.job_ids.nil? %>
@@ -60,7 +62,8 @@
       <% end %>
       <% end %>
 
-     <!-- End Dash Content Div-->
+
+    </div> <!-- End Dash Content Div-->
   </div> <!-- End of Row Div -->
 </div>
 </div>

@@ -2,9 +2,6 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:update, :destroy]
   respond_to :json
 
-  @rate = [100, 200, 300]
-
-
   def index
     @jobs = Job.all
     @slots = Slot.all
@@ -30,7 +27,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     # respond_to do |format|
     if @job.save
-###CREATE NOTIFICATIONS HERE
+    ###CREATE NOTIFICATIONS HERE
         Prof.all.each do |prof|
           Notification.create(recipient: prof, actor: current_hospital, action: "posted", notifiable: @job)
         end
