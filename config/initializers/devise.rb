@@ -254,7 +254,8 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
 
-
+  require 'omniauth-linkedin'
+  config.omniauth :linkedin, ENV["LINKID"], ENV["LINKSECRET"]
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

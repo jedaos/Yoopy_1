@@ -40,6 +40,9 @@ gem 'jquery-rails'
 # Sripe Connect
 gem 'stripe'
 gem 'omniauth-stripe-connect'
+#linkedin
+gem 'omniauth'
+gem 'omniauth-linkedin'
 
 gem 'figaro'
 gem 'hirb'
