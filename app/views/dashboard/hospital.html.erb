@@ -1,3 +1,4 @@
+
 <div class="hide-on-med-and-down">
   <div class="row" id="dashboard-wrapper">
     <%= render 'hospital_sidebar' %>
@@ -5,8 +6,9 @@
       <%#= @job %>
       <p class="output_message"></p>
       <div id='modal_hospital' class="new-job-card-hospitals">
-        
+
       </div>
+
 
       <div id="jobs" class="jobs-card-hospitals">
         <% if current_hospital.job_ids.nil? %>
@@ -20,6 +22,7 @@
 
       </div>
 
+
       <% current_hospital.jobs.each do |job| %>
       <% job.slots.each do |slot| %>
       <div class="card horizontal">
@@ -30,6 +33,8 @@
           <li><h5><%= slot.prof.name %></h5></li>
           <li><h6>Bio: <%= slot.prof.bio %></h6></li>
           <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+          <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+          </div>
           <li>
             <%= form_tag charges_path do %>
               <article>
@@ -71,3 +76,7 @@
 <div class="hide-on-large-only">
   <%= render 'mobile_hospital' %>
 </div>
+
+<div id="modal_prof">
+
+  </div>

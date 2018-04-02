@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :dashboard, only: [:index]
+  resources :dashboard #only: [:index]
+  get '/dashboard/:id/prof_show' => 'dashboard#prof_show', as: :prof_show
   resources :jobs
   # get 'jobs/:id' => "jobs#show"
   get 'jobs/index' => 'jobs#index'

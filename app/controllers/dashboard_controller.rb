@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
     if current_prof
 
       @li_profile = session['li_profile']
-      pp session['li_profile']
+      # pp session['li_profile']
       # @li_profile.headline
 
       render 'dashboard/prof'
@@ -20,6 +20,14 @@ class DashboardController < ApplicationController
     end
 
 
+  end
+
+  def prof_show
+    @prof = Prof.find(params[:id])
+    @li_profile = session['li_profile']
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   def show
