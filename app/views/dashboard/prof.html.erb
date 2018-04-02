@@ -27,6 +27,8 @@
       <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1">Update Bio & Account Information</a>
     </div>
 
+
+
     <div class="col s6">
       <h4>Your current jobs</h4>
       <div class="row center-cols center-align">
@@ -41,9 +43,23 @@
       <% end %>
       </div>
     </div>
+
   </div>
 
   </div>
+</div>
+
+
+
+<div class="container">
+  <h1>LinkedIn Profile</h1>
+First Name: <%= @li_profile['first_name'] %>
+<br />
+Last Name:<%= @li_profile['last_name'] %>
+<br />
+Headline: <%= @li_profile['headline'] %>
+<br />
+LinkedIn Profile: <%= link_to "Check out this profile", @li_profile['site_standard_profile_request']["url"] %>
 </div>
 
 <!-- Mobile Version -->
