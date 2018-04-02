@@ -55,10 +55,12 @@
   <% if @li_profile.nil?  %>
   <h3>Sign in with LinkedIn to show potential employers more information about yourself</h3>
   <% else %>
-  <h1>LinkedIn Profile</h1>
+  <h2>LinkedIn Profile</h2>
+  <h5>Displaying information from your LinkedIn will allow potential employers to get more information about you. This will increase your
+  chances of getting hired.</h5>
   First Name: <%= @li_profile['first_name'] %>
   <br />
-  Last Name:<%= @li_profile['last_name'] %>
+  Last Name: <%= @li_profile['last_name'] %>
   <br />
   Headline: <%= @li_profile['headline'] %>
   <br />
