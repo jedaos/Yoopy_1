@@ -52,14 +52,18 @@
 
 
 <div class="container">
+  <% if @li_profile.nil?  %>
+  <h3>Sign in with LinkedIn to show potential employers more information about yourself</h3>
+  <% else %>
   <h1>LinkedIn Profile</h1>
-First Name: <%= @li_profile['first_name'] %>
-<br />
-Last Name:<%= @li_profile['last_name'] %>
-<br />
-Headline: <%= @li_profile['headline'] %>
-<br />
-LinkedIn Profile: <%= link_to "Check out this profile", @li_profile['site_standard_profile_request']["url"] %>
+  First Name: <%= @li_profile['first_name'] %>
+  <br />
+  Last Name:<%= @li_profile['last_name'] %>
+  <br />
+  Headline: <%= @li_profile['headline'] %>
+  <br />
+  LinkedIn Profile: <%= link_to "Check out this profile", @li_profile['site_standard_profile_request']["url"] %>
+  <% end %>
 </div>
 
 <!-- Mobile Version -->
