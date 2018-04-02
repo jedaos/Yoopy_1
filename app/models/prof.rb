@@ -29,6 +29,7 @@ class Prof < ApplicationRecord
       end
     end
 
+  
 
 
 
