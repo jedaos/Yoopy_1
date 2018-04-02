@@ -204,6 +204,35 @@ input[type=range] + .thumb.active .value::before {
   content: "$";
 }
 
+// Facility Signup Page
+.facil-signup-wrapper {
+  background-image: url('facil_signup.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1rem;
+  height: 100vh;
+}
+.signup-text {
+  color: #fff;
+}
+#signup-headline {
+  font-size: 72px;
+}
+#form-background {
+  background-color: rgba(234,234,234,0.95);
+  padding: 2rem 2rem;
+}
+::placeholder {
+  color: #787878;
+  font-size: 1.2rem;
+}
+span.character-coutner, #new_hospital > div > span {
+  display: none;
+}
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #42a5f5;
+  box-shadow: 1px solid #42a5f5;
+}
 
 
 // footer
