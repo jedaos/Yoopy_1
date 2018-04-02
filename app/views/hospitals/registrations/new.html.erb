@@ -1,13 +1,13 @@
 <div class="facil-signup-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col s6">
-        <h2 class="signup-text">Enter the hospital's information</h2>
+      <div class="col s7">
+        <h2 class="signup-text" id="signup-headline">Becoming a Yoopy Facility is Easy!</h2>
         <h5 class="signup-text">Enter the details for your medical facility to get started.</h5>
 
       </div>
 
-      <div class="col s6" id="form-background">
+      <div class="col s5" id="form-background">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
 
