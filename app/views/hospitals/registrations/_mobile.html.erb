@@ -1,0 +1,61 @@
+<div class="facil-signup-wrapper">
+  <div class="container">
+    <h3 class="signup-text">Becoming a Yoopy Facility is Easy!</h3>
+    <h5 class="signup-text">Enter the details for your medical facility to get started.</h5>
+    <div id="form-background">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%#= f.label :institution_name %>
+          <%= f.text_field :institution_name, placeholder: 'Institution Name'  %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :street %>
+          <%= f.text_field :street, placeholder: 'Street' %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :city %>
+          <%= f.text_field :city, placeholder: 'City' %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :zip %>
+          <%= f.text_field :zip, placeholder: 'Zip Code' %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :phone %>
+          <%= f.text_field :phone, placeholder: 'Business Number' %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email Address' %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :password %>
+          <% if @minimum_password_length %>
+          <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+        </div>
+
+        <div class="field">
+          <%#= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class:"yoopy-button btn #42a5f5 blue lighten-1" %>
+        </div>
+      <% end %>
+      <p>Already a Yoopy Facility?</p>
+      <%= render "hospitals/shared/links" %>
+    </div>
+
+  </div>
+</div>
