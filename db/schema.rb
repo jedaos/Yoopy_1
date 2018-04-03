@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331232749) do
+ActiveRecord::Schema.define(version: 20180403135201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 20180331232749) do
     t.string "access_code"
     t.string "linkedin_uid"
     t.string "link_provider"
+    t.string "link_token"
+    t.string "link_secret"
     t.index ["email"], name: "index_profs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_profs_on_reset_password_token", unique: true
   end

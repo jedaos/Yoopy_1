@@ -255,7 +255,7 @@ Devise.setup do |config|
 
 
   require 'omniauth-linkedin'
-  config.omniauth :linkedin, ENV["LINKID"], ENV["LINKSECRET"]
+  config.omniauth :linkedin, ENV["LINKID"], ENV["LINKSECRET"], :scope => 'r_basicprofile r_emailaddress', :fields => ["id", "email-address", "first-name", "last-name", "headline", "num-connections"]
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

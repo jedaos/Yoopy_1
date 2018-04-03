@@ -1,8 +1,14 @@
 
-  <h1>First Name: <%= @prof.name %></h1> <%#= @li_profile['first_name'] %>
-  <br />
-  Last Name: <%#= @li_profile['last_name'] %>
-  <br />
-  Headline: Hello <%#= @li_profile['headline'] %>
-  <br />
-  LinkedIn Profile: <%#= link_to "Check out this profile", @li_profile['site_standard_profile_request']["url"] %>
+First Name: <%= @li_profile.profile["first_name"] %>
+<br />
+Last Name: <%= @li_profile.profile["last_name"] %>
+<br />
+Headline: <%= @li_profile.profile["headline"] %>
+<br />
+Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
+<br />
+Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
+<br />
+LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
+<br />
+Image: <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"] %>
