@@ -50,9 +50,9 @@
 </div>
 
 
-
+<div class="card-horizontal">
 <div class="container">
-  <% if @li_profile.nil?  %>
+    <% if @li_profile.nil?  %>
   <h3>Sign in with LinkedIn to show potential employers more information about yourself</h3>
   <% else %>
   <h2>LinkedIn Profile</h2>
@@ -73,6 +73,7 @@
     Image: <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"] %>
 
     <% end %>
+</div>
   </div>
 
 <!-- Mobile Version -->

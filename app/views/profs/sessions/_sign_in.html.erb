@@ -23,6 +23,7 @@
       <%= f.submit "Log in", class: "btn-large green-button" %>
     </div>
   <% end %>
+  <%= link_to "Sign in with LinkedIn", prof_linkedin_omniauth_authorize_path %>
 
   <%= render "profs/shared/links" %>
 </div>

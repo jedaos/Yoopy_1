@@ -3,7 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-  $('#Info').click(function(){
-    $('#modal_prof').toggle()
-  })
+  // $('#Info').click(function(){
+  //   $('#modal_prof').show()
+  // })
 })
