@@ -284,6 +284,24 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   width: 40%;
 }
 
+// Job Index page
+#job-cards {
+  width: 80%;
+  margin: 2rem auto;
+}
+#job-card-timer {
+  border-right: 2px solid #ccc;
+  padding: 1rem;
+  line-height: 1rem;
+}
+#reserve-buttons {
+  display: inline-flex;
+}
+#reserve-buttons li {
+  padding: 0rem 1rem 0rem 0rem;
+  margin-top: 1rem;
+}
+
 // footer
 .page-footer {
   background-color: #A5A5AF!important;
