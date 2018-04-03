@@ -2,7 +2,7 @@
 
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Yoopy</a>
+    <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
@@ -11,7 +11,7 @@
       <li><%= link_to 'Jobs', jobs_path %></li>
       <li><%= link_to 'Log Out', destroy_prof_session_path, :method => :delete %></li>
       <span data-behavior='unread-count' id='unred'></span>
-      <a class='dropdown-trigger btn' href='#' data-behavior="notifications" data-target='dropdown1'><i class='material-icons' data-behavior="notifications-link">notifications</i></a>
+      <a class='dropdown-trigger btn green-button' href='#' data-behavior="notifications" data-target='dropdown1'><i class='material-icons' data-behavior="notifications-link">notifications</i></a>
       <div id='dropdown1' class='dropdown-content' data-behavior='notification-items'>
 
         <!-- Notification Should appear here. -->
@@ -37,7 +37,7 @@
 <% elsif hospital_signed_in? %>
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Yoopy</a>
+    <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
@@ -57,7 +57,7 @@
 <% else %>
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Yoopy</a>
+    <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
