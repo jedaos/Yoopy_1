@@ -2,7 +2,7 @@ class Slot extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      buttonClass: 'btn-floating btn-large',
+      buttonClass: 'btn-large #757575 grey darken-1',
       available: this.props.slot.available
     }
   }
@@ -20,7 +20,7 @@ class Slot extends React.Component {
       success: (response) => {
         console.log(response);
         this.setState({
-          buttonClass: 'btn-floating btn-large disabled',
+          buttonClass: 'btn-large disabled',
           available: !this.state.available
 
         });
@@ -37,11 +37,9 @@ class Slot extends React.Component {
     return(
       <div>
 
-
       <button className={this.state.buttonClass} id={this.props.slot.id} style={{fontSize: 10}} onClick={this.handleClick.bind(this)}>Reserve</button>
 
-
-    </div>
+      </div>
     )
   } else {
     return(

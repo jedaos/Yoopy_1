@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6, p, a {
   font-family: 'Open Sans', sans-serif;
 }
 html {
-  margin: -1rem;
+  margin: -1rem 0rem;
 }
 
 body {
@@ -31,17 +31,18 @@ body {
 
 // Navigation
 nav {
-  background: rgba(255,255,255,0.80)!important;
+  background: rgba(255,255,255,0.80);
   height: 90px;
 }
 .nav-wrapper {
   padding: 0rem 6rem;
 }
-nav .brand-logo {
-  color: #222!important;
-}
+
 body > nav > div > ul > li > a:hover,body > nav > div > ul > li > a:active {
   background-color: none;
+}
+body > nav > div > ul.right.hide-on-med-and-down > a:hover,.btn:hover, .btn-large:hover, .btn:focus, .btn-large:focus, .btn-floating:focus {
+  background-color: #6bbf3d!important;
 }
 nav ul li:hover, nav ul li a:hover{
    // background-color: #42a5f5;
@@ -290,6 +291,24 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 }
 #signup {
   width: 40%;
+}
+
+// Job Index page
+#job-cards {
+  width: 80%;
+  margin: 2rem auto;
+}
+#job-card-timer {
+  border-right: 2px solid #ccc;
+  padding: 1rem;
+  line-height: 1rem;
+}
+#reserve-buttons {
+  display: inline-flex;
+}
+#reserve-buttons li {
+  padding: 0rem 1rem 0rem 0rem;
+  margin-top: 1rem;
 }
 
 // footer
