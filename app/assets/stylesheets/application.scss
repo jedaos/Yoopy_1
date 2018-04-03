@@ -5,16 +5,25 @@ LIGHT BLUE: #42a5f5
 SEA GREEN: #1de9b6
 FOREST GREEN: #015249
 SLEEK GRAY: #A5A5AF
+
+LOGO GREEN: #48DA37
 */
 h1, h2, h3, h4, h5, h6, p, a {
   font-family: 'Open Sans', sans-serif;
 }
+html {
+  margin: -1rem;
+}
 
+body {
+
+}
 
 
 // Navigation
 nav {
-  background: rgba(255,255,255,0.4)!important;
+  background: rgba(255,255,255,0.80)!important;
+  height: 90px;
 }
 .nav-wrapper {
   padding: 0rem 6rem;
@@ -26,13 +35,16 @@ body > nav > div > ul > li > a:hover,body > nav > div > ul > li > a:active {
   background-color: none;
 }
 nav ul li:hover, nav ul li a:hover{
-   background-color: #42a5f5;
-   color: #fff;
+   // background-color: #42a5f5;
+   background-color: #fff;;
+   // color: #fff;
+   border-bottom: 2px solid #48DA37;
 }
 body > nav > div > ul > li > a {
   color: #222;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Open Sans', sans-serif;
+  padding-top: 1rem;
 }
 // End of Navigation
 
@@ -40,9 +52,17 @@ body > nav > div > ul > li > a {
 .homewrapper {
   margin: 0 auto;
 }
-.home-container {
+.content {
   max-width: 70%;
   margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.home-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  margin-bottom: -2rem;
 }
 .headline-box {
   height: 400px;
@@ -59,8 +79,14 @@ body > nav > div > ul > li > a {
 #sub-headline {
   font-size: 26px;
 }
+#facil-button {
+  background-color: #6bbf3d;
+}
+.green-button {
+  background-color: #6bbf3d;
+}
 #homepage1 {
-  height: 85vh;
+  height: 90vh;
   width: 100%;
   background-image: url('yoopy4_resized.jpg');
   background-attachment: fixed;
@@ -85,13 +111,16 @@ body > nav > div > ul > li > a {
 #homepage2 {
   margin-top: 6rem;
 }
+#about-us {
+  padding-top: 3rem;
+}
 #iphone-display {
   float: right;
 }
 .underline-green {
   height: 2px;
   width: 100px;
-  background-color: #1de9b6;
+  background-color: #6bbf3d;
 }
 .underline-blue {
   height: 2px;
@@ -299,7 +328,6 @@ span#unred{
   .jobs-card-hospitals, .new-job-card-hospitals {
     width: 100%;
   }
-
 }
 @media only screen and (max-width: 1200px) and (min-width: 900px) {
   #signup {

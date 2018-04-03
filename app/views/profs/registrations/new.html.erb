@@ -1,5 +1,5 @@
-<div class="prof-signup-wrapper">
-  <div class="hide-on-med-and-down">
+<div class="hide-on-med-and-down">
+  <div class="prof-signup-wrapper">
     <div class="container">
       <div class="row">
         <div class="col s7">
@@ -50,24 +50,30 @@
             <div class="actions">
               <div class="row">
                 <div class="col s6" id="signup">
-                  <%= f.submit "Sign up", class:"yoopy-button btn #1de9b6 teal accent-3", style: 'height: 50px'%>
+                  <%= f.submit "Sign up", class:"yoopy-button btn green-button", style: 'height: 50px'%>
                 </div>
 
                 <div class="col s6" id="linkedin">
-                  <%- resource_class.omniauth_providers.each do |provider| %>
-                    <%= link_to image_tag("linkedIn_button.png", height: '50'), omniauth_authorize_path(resource_name, provider) %>
-                  <% end -%>
+                  <%- if devise_mapping.omniauthable? %>
+                    <%- resource_class.omniauth_providers.each do |provider| %>
+                      <%= link_to image_tag("linkedIn_button.png", height: '50'), omniauth_authorize_path(resource_name, provider) %>
+                    <% end -%>
+                  <% end %>
                 </div>
               </div>
             </div>
           <% end %>
 
           <p>Already a Yoopy Professional?</p>
-          <%= render "profs/shared/links" %>
+          <%- if controller_name != 'sessions' %>
+            <%= link_to "Log in", new_session_path(resource_name) %><br />
+          <% end -%>
         </div>
       </div>
-
-
     </div>
   </div>
+</div>
+
+<div class="hide-on-large-only">
+  <%= render 'mobile' %>
 </div>

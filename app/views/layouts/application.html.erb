@@ -2,12 +2,7 @@
 <html>
   <head>
     <title>Yoopy</title>
-
-
-
     <%= csrf_meta_tags %>
-
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
@@ -34,15 +29,15 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render 'menubar' %>
-    <% if prof_signed_in? %>
- Signed in as <%= current_prof.name %>. Not you?
-<%= link_to "Sign out", destroy_prof_session_path,:method => :delete %>
-<% else %>
-<%= link_to "Sign up", new_prof_registration_path %> or
-<%= link_to "Sign in", new_prof_session_path %>
-<%= link_to "Sign in with Linkedin", prof_linkedin_omniauth_authorize_path %>
- <% end %>
-    <%#= link_to 'Stripe Login', stripe_connect_login_path(type: :prof) %>
+    <%# if prof_signed_in? %>
+ <!-- Signed in as <%#= current_prof.name %>. Not you? -->
+<%#= link_to "Sign out", destroy_prof_session_path,:method => :delete %>
+<%# else %>
+<%#= link_to "Sign up", new_prof_registration_path %>
+<%#= link_to "Sign in", new_prof_session_path %>
+<%#= link_to "Sign in with Linkedin", prof_linkedin_omniauth_authorize_path %>
+ <%# end %>
+<%#= link_to 'Stripe Login', stripe_connect_login_path(type: :prof) %>
 
       <%= yield %>
 
