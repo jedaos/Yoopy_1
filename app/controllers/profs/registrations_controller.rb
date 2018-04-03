@@ -7,6 +7,9 @@ class Profs::RegistrationsController < Devise::RegistrationsController
   skip_before_action :check_user, only: [:destroy, :update]
 
 
+
+
+
   # GET /resource/sign_up
   # def new
   #   super

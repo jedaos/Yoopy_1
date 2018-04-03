@@ -62,14 +62,14 @@
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
-      <li><%= link_to 'Medical Professionals', new_prof_registration_path %></li>
-      <li><%= link_to 'Facilities', new_hospital_registration_path %></li>
+      <li><a class="modal-trigger" href="#modal3">Medical Professionals</a></li>
+      <li><a class="modal-trigger" href="#modal4">Facilities</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
-      <li><%= link_to 'Medical Professionals', new_prof_registration_path %></li>
-      <li><%= link_to 'Facilities', new_hospital_registration_path %></li>
+      <li><%= link_to 'Medical Professionals', prof_session_path %></li>
+      <li><%= link_to 'Facilities', hospital_session_path %></li>
     </ul>
   </div>
 </nav>
