@@ -1,0 +1,35 @@
+<h4><%= current_prof.name %></h4>
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th>Account Information</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Phone:</td>
+        <td><%= current_prof.phone %></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><%= current_prof.email %></td>
+      </tr>
+      <tr>
+        <td>License Number</td>
+        <% if current_prof.license_num? %>
+          <td><%= current_prof.license_num %></td>
+        <% else %>
+          <td>Add your License Number</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td>Your Bio</td>
+        <% if current_prof.bio? %>
+          <td><%= current_prof.bio %></td>
+        <% else %>
+          <td>Add your bio to stand out</td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
