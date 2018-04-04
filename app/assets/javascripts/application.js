@@ -12,9 +12,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require materialize-sprockets
 //= require rails-ujs
 //= require turbolinks
+//= require materialize-sprockets
 //= require react
 //= require react_ujs
 //= require components
@@ -35,7 +35,7 @@ $( document ).on('turbolinks:load', function(){
 
   $(".button-collapse").sideNav();
   $('.modal').modal();
-  $('.modal_show').modal();
+  $('#modal_prof').modal();
 
   // $('.modal').modal();
   // $('#modal1').modal('open');

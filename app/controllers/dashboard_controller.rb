@@ -32,7 +32,7 @@ class DashboardController < ApplicationController
     # slots = jobs.each{|job| job.slots}
     # booking = Prof.find(Booking.first.prof_id)
     if @prof.link_provider.nil?
-      @prof
+      
     else
       @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
       @li_profile.authorize_from_access(@prof.link_token, @prof.link_secret)

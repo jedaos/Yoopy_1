@@ -34,8 +34,8 @@
           <li><h6>Bio: <%= slot.prof.bio %></h6></li>
           <li><h6>Contact: <%= slot.prof.phone %></h6></li>
             <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+          
 
-          </div>
           <li>
             <%= form_tag charges_path do %>
               <article>
@@ -71,13 +71,25 @@
 
     </div> <!-- End Dash Content Div-->
   </div> <!-- End of Row Div -->
-</div>
-</div>
+
 
 <div class="hide-on-large-only">
   <%= render 'mobile_hospital' %>
 </div>
+<div id="modal_prof" class="modal">
+    <div class="modal-content">
 
-<div id="modal_prof">
-
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+    </div>
   </div>
+<!-- <div id="modal_prof">
+  <div class="modal-content">
+
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+    </div>
+
+  </div> -->
