@@ -21,8 +21,11 @@
 
     <div class="actions">
       <%= f.submit "Log in", class: "btn-large green-button" %>
+      <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path, id: 'linkedin-signin' %>
+
     </div>
   <% end %>
+
 
   <%= render "profs/shared/links" %>
 </div>
