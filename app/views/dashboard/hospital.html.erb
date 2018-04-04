@@ -3,11 +3,10 @@
   <div class="row" id="dashboard-wrapper">
     <%= render 'hospital_sidebar' %>
     <div class="col s9" id="dash-content">
-      <%#= @job %>
       <p class="output_message"></p>
-      <div id='modal_hospital' class="new-job-card-hospitals">
 
-      </div>
+      <!-- New Job Modal -->
+      <div id='modal_hospital' class="new-job-card-hospitals"></div>
 
 
       <div id="jobs" class="jobs-card-hospitals">
@@ -18,48 +17,43 @@
           <%= react_component('JobApp', :jobs => @jobs) %>
         <% end %>
 
-      <!-- <h1><%#= link_to "Stripe Connect", stripe_connect_login_path %></h1> -->
-
       </div>
 
+      <% current_hospital.jobs.each do |job| %>
+      <% job.slots.each do |slot| %>
+      <div class="card horizontal">
+        <% if slot.prof.nil?  %>
+          <h5>This job opening has not been booked yet.</h5>
+        <% else %>
+        <ul>
+          <li><h5><%= slot.prof.name %></h5></li>
+          <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+          <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+          <li>
+            <%= form_tag charges_path do %>
+              <article>
+                <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+                <% end %>
+                <label class="amount">
+                  <h6>Rate: $<%= slot.job.rate %></h6>
+                </label>
+              </article>
 
-      <% @jobs.each do |job| %>
-        <% job.slots.each do |slot| %>
-          <div class="card horizontal">
-            <% if slot.prof.nil?  %>
-              No bookings
-            <% else %>
-              <ul>
-                <li><h5><%= slot.prof.name %></h5></li>
-                <li><h6>Bio: <%= slot.prof.bio %></h6></li>
-                <li><h6>Contact: <%= slot.prof.phone %></h6></li>
-                <li><%= link_to "More Info", prof_show_path(slot.prof), id: "Info", remote: true %></li>
+            <%= hidden_field_tag :price, job.amount_with_commision %>
+            <%= hidden_field_tag :prof_id, slot.prof.id %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key='<%= ENV["stripe_publishable_key"] %>'
+                    data-description="You will be charged a $<%= Job.commision(job.rate) %>0 fee."
+                    data-amount="<%= job.amount_with_commision * 100 %>"
+                    data-locale="auto">
 
-                <li>
-                  <%= form_tag charges_path do %>
-                    <article>
-                      <% if flash[:error].present? %>
-                        <div id="error_explanation">
-                          <p><%= flash[:error] %></p>
-                        </div>
-                      <% end %>
-                      <label class="amount">
-                        <h6>Rate: $<%= slot.job.rate %></h6>
-                      </label>
-                    </article>
+                  </script>
+                  </div>
 
-                    <%= hidden_field_tag :price, job.amount_with_commision %>
-                    <%= hidden_field_tag :prof_id, slot.prof.id %>
-                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key='<%= ENV["stripe_publishable_key"] %>'
-                            data-description="You will be charged a $<%= Job.commision(job.rate) %>0 fee."
-                            data-amount="<%= job.amount_with_commision * 100 %>"
-                            data-locale="auto">
-                    </script>
-
-                  <% end %>
-                </li>
-              </ul>
+              <% end %>
             <% end %>
           </div>
 
