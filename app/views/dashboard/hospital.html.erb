@@ -34,7 +34,7 @@
           <li><h6>Bio: <%= slot.prof.bio %></h6></li>
           <li><h6>Contact: <%= slot.prof.phone %></h6></li>
             <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
-          
+
 
           <li>
             <%= form_tag charges_path do %>
@@ -58,13 +58,13 @@
                     data-locale="auto">
 
                   </script>
-                  </div>
+
 
                   <% end %>
             <% end %>
         </li>
       </ul>
-
+      </div>
       <% end %>
       <% end %>
 

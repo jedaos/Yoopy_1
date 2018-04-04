@@ -59,6 +59,7 @@
         <!-- End of Yoopy Profile Card -->
         <% if current_prof.bookings.nil? %>
         <h4>Your current jobs</h4>
+        <% else %>
           <div class="">
             <% current_prof.bookings.each do |booking| %>
             <div class="card">
