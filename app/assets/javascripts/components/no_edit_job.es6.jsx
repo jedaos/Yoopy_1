@@ -7,7 +7,7 @@ class NoEditJob extends React.Component {
       <div className="card horizontal" id="job-cards">
         <div className='left' id="job-card-timer">
           <h5>Time Remaining:</h5>
-          <p><Timer job={this.props.job.created_at} /></p>
+          <span><Timer job={this.props.job.created_at} /></span>
           <ul>
             <li><h5>Rate:</h5></li>
             <p>${this.props.job.rate}0</p>
