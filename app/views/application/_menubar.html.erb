@@ -54,6 +54,25 @@
   </div>
 </nav>
 
+<% elsif friend_signed_in? %>
+<nav>
+  <div class="nav-wrapper">
+    <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><a href="#">About</a></li>
+      <li><%= link_to 'Dashboard', dashboard_index_path %></li>
+      <li><%= link_to 'Log Out', destroy_friend_session_path, :method => :delete %></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><a href="#">About</a></li>
+      <li><%= link_to 'Dashboard', dashboard_index_path %></li>
+      <li><%= link_to 'Log Out', destroy_friend_session_path, :method => :delete %></li>
+    </ul>
+  </div>
+</nav>
 <% else %>
 <nav>
   <div class="nav-wrapper">
@@ -62,12 +81,14 @@
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
+      <li><%= link_to "Yoopy Friends", friend_session_path, class: 'tooltipped' %></li>
       <li><a class="modal-trigger" href="#modal3">Medical Professionals</a></li>
       <li><a class="modal-trigger" href="#modal4">Facilities</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
+      <li><%= link_to "Yoopy Friends", friend_session_path, class: 'tooltipped'%></li>
       <li><%= link_to 'Medical Professionals', prof_session_path %></li>
       <li><%= link_to 'Facilities', hospital_session_path %></li>
     </ul>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :friend, controllers: {
+    sessions: 'friends/sessions',
+    registrations: 'friends/registrations'
+  }
+
   get 'charges/new'
 
   get 'charges/create'

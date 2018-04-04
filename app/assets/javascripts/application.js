@@ -36,7 +36,7 @@ $( document ).on('turbolinks:load', function(){
   $(".button-collapse").sideNav();
   $('.modal').modal();
   $('#modal_prof').modal();
-
+  $('.tooltipped').tooltip({delay: 50, tooltip: `Yoopy friends are individuals seeking healthcare <br /> professionals for their loved ones`, html: true});
   // $('.modal').modal();
   // $('#modal1').modal('open');
   // $('#modal1').modal('close');

@@ -17,10 +17,18 @@ class DashboardController < ApplicationController
       render 'dashboard/prof'
 
     elsif current_hospital
+
       @jobs = current_hospital.jobs
       render 'dashboard/hospital'
+
+    elsif current_friend
+
+      render 'dashboard/friend'
+
     else
+
       redirect_to root_path
+      
     end
 
 
@@ -32,7 +40,7 @@ class DashboardController < ApplicationController
     # slots = jobs.each{|job| job.slots}
     # booking = Prof.find(Booking.first.prof_id)
     if @prof.link_provider.nil?
-      
+
     else
       @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
       @li_profile.authorize_from_access(@prof.link_token, @prof.link_secret)

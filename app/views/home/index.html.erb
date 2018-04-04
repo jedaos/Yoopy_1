@@ -14,6 +14,12 @@
       </div>
     </div>
 
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <%= render 'friends/sessions/sign_in' %>
+      </div>
+    </div>
+
       <div class="headline-box">
         <h1 id="headline">On Demand <br>Medical Staffing</h1>
         <p id="sub-headline">Yoopy connects healthcare facilities with healthcare professionals quickly.</p>
@@ -23,6 +29,9 @@
           </div>
           <div class="col s6" id="cta-button">
             <%= link_to 'Professional Sign-Up', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
+          </div>
+          <div class="col s6" id="cta-button">
+            <%= link_to "Become A Yoopy Friend", new_friend_registration_path, id: 'friend-button', class: "yoopy-button btn-large #42a5f5 blue lighten-3"  %>
           </div>
         </div>
 
