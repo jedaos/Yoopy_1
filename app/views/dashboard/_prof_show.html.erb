@@ -1,6 +1,4 @@
-<% if @prof.link_provider.nil? %>
-    <h4>We dont have access to this LinkedIn profile. "<%= @prof.name %>" has not allowed us access</h4>
-<% else %>
+
     First Name: <%= @li_profile.profile["first_name"] %>
     <br />
     Last Name: <%= @li_profile.profile["last_name"] %>
@@ -14,4 +12,3 @@
     LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
     <br />
     Image: <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"] %>
-<% end %>
