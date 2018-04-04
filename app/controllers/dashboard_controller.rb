@@ -31,14 +31,16 @@ class DashboardController < ApplicationController
     # @jobs = current_hospital.jobs
     # slots = jobs.each{|job| job.slots}
     # booking = Prof.find(Booking.first.prof_id)
-
-    @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
-    @li_profile.authorize_from_access(@prof.link_token, @prof.link_secret)
-
-    respond_to do |format|
-      format.js {}
+    if @prof.link_provider.nil?
+      
+    else
+      @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
+      @li_profile.authorize_from_access(@prof.link_token, @prof.link_secret)
     end
-  end
+      respond_to do |format|
+        format.js {}
+      end
+    end
 
   def show
     @jobs = Job.all

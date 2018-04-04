@@ -1,14 +1,17 @@
-
-First Name: <%= @li_profile.profile["first_name"] %>
-<br />
-Last Name: <%= @li_profile.profile["last_name"] %>
-<br />
-Headline: <%= @li_profile.profile["headline"] %>
-<br />
-Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
-<br />
-Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
-<br />
-LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
-<br />
-Image: <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"] %>
+<% if @prof.link_provider.nil? %>
+ <h4>This person has not allowed us access to their LinkedIn profile.</h4>
+<% else %>
+    First Name: <%= @li_profile.profile["first_name"] %>
+    <br />
+    Last Name: <%= @li_profile.profile["last_name"] %>
+    <br />
+    Headline: <%= @li_profile.profile["headline"] %>
+    <br />
+    Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
+    <br />
+    Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
+    <br />
+    LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
+    <br />
+    Image: <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"] %>
+<% end %>
