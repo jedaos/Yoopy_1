@@ -3,10 +3,11 @@
   <div class="row" id="dashboard-wrapper">
     <%= render 'hospital_sidebar' %>
     <div class="col s9" id="dash-content">
+      <%#= @job %>
       <p class="output_message"></p>
+      <div id='modal_hospital' class="new-job-card-hospitals">
 
-      <!-- New Job Modal -->
-      <div id='modal_hospital' class="new-job-card-hospitals"></div>
+      </div>
 
 
       <div id="jobs" class="jobs-card-hospitals">
@@ -17,18 +18,24 @@
           <%= react_component('JobApp', :jobs => @jobs) %>
         <% end %>
 
+      <!-- <h1><%#= link_to "Stripe Connect", stripe_connect_login_path %></h1> -->
+
       </div>
+
 
       <% current_hospital.jobs.each do |job| %>
       <% job.slots.each do |slot| %>
       <div class="card horizontal">
         <% if slot.prof.nil?  %>
-          <h5>This job opening has not been booked yet.</h5>
+          No bookings
         <% else %>
         <ul>
           <li><h5><%= slot.prof.name %></h5></li>
           <li><h6>Bio: <%= slot.prof.bio %></h6></li>
           <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+            <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+
+          </div>
           <li>
             <%= form_tag charges_path do %>
               <article>
@@ -53,11 +60,12 @@
                   </script>
                   </div>
 
-              <% end %>
+                  <% end %>
             <% end %>
-          </div>
+        </li>
+      </ul>
 
-        <% end %>
+      <% end %>
       <% end %>
 
 
@@ -70,10 +78,6 @@
   <%= render 'mobile_hospital' %>
 </div>
 
-<div id="modal_prof" class="modal modal_show">
-  <div class="modal-content">
+<div id="modal_prof">
+
   </div>
-  <div class="modal-footer">
-    <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
-  </div>
-</div>
