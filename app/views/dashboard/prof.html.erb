@@ -50,23 +50,31 @@
 </div>
 
 
-
+<div class="card-horizontal">
 <div class="container">
-  <% if @li_profile.nil?  %>
+    <% if @li_profile.nil?  %>
   <h3>Sign in with LinkedIn to show potential employers more information about yourself</h3>
   <% else %>
   <h2>LinkedIn Profile</h2>
   <h5>Displaying information from your LinkedIn will allow potential employers to get more information about you. This will increase your
-  chances of getting hired.</h5>
-  First Name: <%= @li_profile['first_name'] %>
-  <br />
-  Last Name: <%= @li_profile['last_name'] %>
-  <br />
-  Headline: <%= @li_profile['headline'] %>
-  <br />
-  LinkedIn Profile: <%= link_to "Check out this profile", @li_profile['site_standard_profile_request']["url"] %>
-  <% end %>
+    chances of getting hired.</h5>
+    First Name: <%= @li_profile.profile["first_name"] %>
+    <br />
+    Last Name: <%= @li_profile.profile["last_name"] %>
+    <br />
+    Headline: <%= @li_profile.profile["headline"] %>
+    <br />
+    Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
+    <br />
+    Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
+    <br />
+    LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
+    <br />
+    Image: <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"] %>
+
+    <% end %>
 </div>
+  </div>
 
 <!-- Mobile Version -->
 <div class="hide-on-large-only">

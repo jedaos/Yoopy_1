@@ -1,3 +1,4 @@
+
 <div class="hide-on-med-and-down">
   <div class="row" id="dashboard-wrapper">
     <%= render 'hospital_sidebar' %>
@@ -6,6 +7,7 @@
 
       <!-- New Job Modal -->
       <div id='modal_hospital' class="new-job-card-hospitals"></div>
+
 
       <div id="jobs" class="jobs-card-hospitals">
         <% if current_hospital.job_ids.nil? %>
@@ -53,10 +55,9 @@
 
               <% end %>
             <% end %>
-        </li>
-      </ul>
+          </div>
 
-      <% end %>
+        <% end %>
       <% end %>
 
 
@@ -67,4 +68,12 @@
 
 <div class="hide-on-large-only">
   <%= render 'mobile_hospital' %>
+</div>
+
+<div id="modal_prof" class="modal modal_show">
+  <div class="modal-content">
+  </div>
+  <div class="modal-footer">
+    <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+  </div>
 </div>

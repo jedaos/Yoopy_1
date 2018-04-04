@@ -19,6 +19,15 @@ body {
 
 }
 
+// spinner
+#spinner {
+  position: fixed;
+  left: 50%;
+  top: 133px;
+  z-index: 1000;
+  display: none;
+}
+
 
 // Navigation
 nav {
