@@ -19,13 +19,13 @@ class DashboardController < ApplicationController
     elsif current_hospital
 
       @jobs = current_hospital.jobs
-      
+
       render 'dashboard/hospital'
 
     elsif current_friend
-
+      @jobs = current_friend.friend_jobs
       render 'dashboard/friend'
-      @jobs = current_friend.jobs
+
     else
 
       redirect_to root_path
