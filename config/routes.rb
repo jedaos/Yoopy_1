@@ -32,15 +32,15 @@ Rails.application.routes.draw do
   devise_for :profs, path: 'profs', controllers: { sessions: "profs/sessions", registrations: "profs/registrations",  :omniauth_callbacks => "omniauth_callbacks"  }
    #omniauth_callbacks: "profs/omniauth_callbacks"
   devise_scope :prof do
+    # get 'auth/stripe_connect', as: 'stripe_connect_login' #, to: "yoopy_omniauth_callbacks#stripe_connect"
     get 'auth/stripe_connect/callback' => 'yoopy_omniauth_callbacks#stripe_connect'
   end
 
   resources :charges, only: [:new, :create]
   resources :posts
   root to: 'posts#index'
-
   # get "omniauth_callbacks/:action/callback", :controller => "omniauth_callbacks", :constraints => { :action => /stripe_connect/ }
-  get 'auth/stripe_connect', as: 'stripe_connect_login', to: 'yoopy_omniauth_callbacks#stripe_connect'
+
 
 #
 # , :omniauth_callbacks => "omniauth_callbacks"

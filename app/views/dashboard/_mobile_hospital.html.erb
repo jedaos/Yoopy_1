@@ -1,7 +1,7 @@
 <div class="container" id="mobile-wrapper">
   <h2>Welcome, <%= current_hospital.institution_name %></h2>
 
-  <%= link_to 'Connect Stripe', stripe_connect_login_path, class:"btn-large #42a5f5 blue lighten-1" %>
+  <%= link_to 'Connect Stripe', prof_stripe_connect_omniauth_authorize_path, class:"btn-large #42a5f5 blue lighten-1" %>
   <%= link_to 'Post A Job', new_job_path, class:'yoopy-button btn-large #00695c teal accent-3', id: 'new_job_button', remote: true %>
 
   <%#= render 'jobs/new_job' %>
@@ -41,12 +41,12 @@
               <h6>Rate: $<%= slot.job.rate %></h6>
             </label>
           </article>
-
+<!--
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-key="<#%= #Rails.configuration.stripe[:publishable_key] %>"
                   data-description="A month's subscription"
-                  data-amount="<%= slot.job.rate * 100 %>"
-                  data-locale="auto"></script>
+                  data-amount="<#%= #slot.job.rate * 100 %>"
+                  data-locale="auto"></script> -->
         <% end %>
         <% end %>
       </li>

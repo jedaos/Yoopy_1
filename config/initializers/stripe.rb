@@ -1,4 +1,4 @@
-require "stripe"
+# require "stripe"
 Rails.configuration.stripe = {
   :publishable_key => ENV['stripe_pub'],
   :secret_key => ENV['stripe_secret']

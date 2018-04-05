@@ -75,7 +75,8 @@
         <% end %>
         <!-- End of Yoopy Profile Card -->
         <% if current_prof.bookings.nil? %>
-        <h4>Your current jobs</h4>
+        <h5>You don't have any jobs</h5>
+        <%= link_to 'Find Jobs', jobs_path, class:'btn green-button' %>
         <% else %>
           <div class="">
             <% current_prof.bookings.each do |booking| %>
@@ -90,12 +91,12 @@
                 </ul>
               </div>
             </div>
-            <% end %>
-          </div>
 
-        <% else %>
-          <h5>You don't have any jobs</h5>
-          <%= link_to 'Find Jobs', jobs_path, class:'btn green-button' %>
+          </div>
+            <% end %>
+
+
+
         <% end %>
 
 
