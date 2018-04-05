@@ -11,6 +11,9 @@ class DashboardController < ApplicationController
       @li_profile.authorize_from_access(current_prof.link_token, current_prof.link_secret)
       @li_profile
 
+    
+
+
       # pp session['li_profile']
       # @li_profile.headline
 

@@ -1,10 +1,14 @@
 class ChargesController < ApplicationController
-  require "stripe"
+
+
 
   def new
   end
 
   def create
+    Stripe.api_key = ENV["STRIPE_SECRET"]
+  
+
 
     @amount = params[:price].to_i * 100
 
@@ -13,7 +17,7 @@ class ChargesController < ApplicationController
       email: params[:stripeEmail],
       source: params[:stripeToken]
     )
-    Stripe.api_key = ENV["stripe_secret"]
+
 
     token = params[:stripeToken]
 

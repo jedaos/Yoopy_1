@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  resources :friend_jobs
+
   resources :dashboard #only: [:index]
   get '/dashboard/:id/prof_show' => 'dashboard#prof_show', as: :prof_show
   resources :jobs

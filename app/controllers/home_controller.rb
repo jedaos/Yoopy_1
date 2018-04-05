@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
   def index
 
+      # @account = Stripe::Account.retrieve(ENV["stripe_client_id"])
+      # @account.login_links.create()
+      #
   end
 
   def logout
