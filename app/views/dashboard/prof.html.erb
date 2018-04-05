@@ -79,6 +79,7 @@
         <%= link_to 'Find Jobs', jobs_path, class:'btn green-button' %>
         <% else %>
           <div class="">
+            <h4>Your current jobs</h4>
             <% current_prof.bookings.each do |booking| %>
             <div class="card">
               <span class="card-title" style="width:100%;"></span>

@@ -141,6 +141,12 @@ body > nav > div > ul > li > a {
   width: 100px;
   background-color: #42a5f5;
 }
+.underline-gray {
+  height: 2px;
+  width: 10rem;
+  background-color: #CCC;
+  margin-bottom: 2rem;
+}
 .subtext {
   font-size: 18px;
   color: #787878;
@@ -214,7 +220,8 @@ body > nav > div > ul > li > a {
   margin: 0rem 2rem 0rem 0rem;
 }
 #job-posting-card {
-  padding: 3rem;
+  padding: 2rem;
+  border-radius: 12px 12px 12px 12px;
 }
 .jobs-card-hospitals, .new-job-card-hospitals {
   width: 50%;
@@ -229,6 +236,29 @@ body > nav > div > ul > li > a {
 }
 #ask-linkedin {
   z-index: 3;
+}
+
+// Hospital Dashboard
+#jobs {
+  float: left;
+}
+#job-slots {
+  float: right;
+  display: inline-block;
+}
+.job-posting-title {
+  background: #44C824;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 12px 12px 0px 0px;
+}
+.job-posting-footer {
+  background: #bdbdbd;
+  padding: 0.2rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 0px 0px 12px 12px;
 }
 
 // mobile hospital dash

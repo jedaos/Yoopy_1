@@ -14,27 +14,51 @@
         <% if current_hospital.job_ids.nil? %>
           <h4>You Don't Have Any Job Postings</h4>
         <% else %>
-          <h4>Your Open Jobs</h4>
+          <h5>Update or Delete Current Jobs</h5>
+          <div class="underline-gray"></div>
+
           <%= react_component('JobApp', :jobs => @jobs) %>
         <% end %>
+      </div>
 
-      <!-- <h1><%#= link_to "Stripe Connect", stripe_connect_login_path %></h1> -->
+  <div class="col s6" id="job-slots">
+    <h5><%= current_hospital.institution_name %>'s Open Jobs</h5>
+    <div class="underline-gray"></div>
 
+      <% current_hospital.jobs.each do |job| %>
+      <div class="job-posting-title">
+          <h5>Job Posting: <%= job.name %></h5>
+          <p>The medical professionals for this job are listed below.</p>
       </div>
 
 
-      <% current_hospital.jobs.each do |job| %>
-      <% job.slots.each do |slot| %>
-      <div class="card horizontal">
-        <% if slot.prof.nil?  %>
-          No bookings
-        <% else %>
-        <ul>
-          <li><h5><%= slot.prof.name %></h5></li>
-          <li><h6>Bio: <%= slot.prof.bio %></h6></li>
-          <li><h6>Contact: <%= slot.prof.phone %></h6></li>
-            <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+        <% x = 1 %>
+        <% job.slots.each do |slot| %>
 
+          <!-- If there are no bookings for a slot... -->
+            <% if slot.prof.nil?  %>
+              <div class="card-panel grey lighten-5">
+                <div class="row valign-wrapper">
+                  <div class="col s4">
+                    <p>Job Opening #<%= x %></p>
+                    <h5>Not Booked</h5>
+                    <% x+=1 %>
+                  </div>
+                  <div class="col s8">
+                    <span class="black-text">
+                    <p>Your job has been listed! Medical professionals will appear here once this job opening is booked.</p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+          <!-- If there is a booking in a slot -->
+            <% else %>
+              <ul>
+                <li><h5><%= slot.prof.name %></h5></li>
+                <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+                <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+                <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
 
           <li>
             <%= form_tag charges_path, id: 'chargeForm' do %>
@@ -111,11 +135,14 @@
              </li>
             <% end %>
       </ul>
+
+      <% end %>
+      <% end %>
+      <div class="job-posting-footer">
+        <h6>This posting will expire in 3 hours unless it is booked</h6>
       </div>
-      <% end %>
-      <% end %>
 
-
+    </div>
     </div> <!-- End Dash Content Div-->
   </div> <!-- End of Row Div -->
 
@@ -131,12 +158,3 @@
       <a class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
     </div>
   </div>
-<!-- <div id="modal_prof">
-  <div class="modal-content">
-
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
-    </div>
-
-  </div> -->
