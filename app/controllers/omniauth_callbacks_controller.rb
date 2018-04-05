@@ -1,19 +1,28 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-require 'linkedin'
+# require 'linkedin'
+
+def stripe_connect
+ @user = current_prof
+  if @user.update_attributes({
+    provider: request.env["omniauth.auth"].provider,
+    uid: request.env["omniauth.auth"].uid,
+    access_code: request.env["omniauth.auth"].credentials.token,
+    publishable_key: request.env["omniauth.auth"].info.stripe_publishable_key
+   })
+   # anything else you need to do in response..
+   sign_in_and_redirect @user, :event => :authentication
+   set_flash_message(:notice, :success, :kind => "Stripe") if is_navigational_format?
+
+  else
+    session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
+    redirect_to new_user_registration_url
+  end
+end
 
   def linkedin
-    # client = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
-    # token_object = request.env["omniauth.auth"]["extra"]["access_token"]
-    # client.authorize_from_access(token_object.token, token_object.secret)
-    # li_profile = client.profile
-    # session["li_profile"] = li_profile
-    # pp session["li_profile"]
-    #
-    # auth = request.env["omniauth.auth"]
-
     @user = Prof.connect_to_linkedin(request.env["omniauth.auth"],current_prof)
     if @user.persisted?
-      
+
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success"
       sign_in_and_redirect @user, :event => :authentication
     else

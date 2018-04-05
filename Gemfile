@@ -44,7 +44,7 @@ gem 'omniauth-stripe-connect'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 
-gem 'figaro'
+
 gem 'hirb'
 gem 'whenever', require: false
 

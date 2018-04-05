@@ -15,7 +15,7 @@ class JobsController < ApplicationController
     end
 
   def new
-    if hospital_signed_in?
+    if hospital_signed_in? || friend_signed_in?
       @job = Job.new
     else
       redirect_to dashboard_index_path
@@ -25,7 +25,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    # respond_to do |format|
+
     if @job.save
     ###CREATE NOTIFICATIONS HERE
         Prof.all.each do |prof|
@@ -35,10 +35,11 @@ class JobsController < ApplicationController
       @job.slot_num.to_i.times {Slot.create({:job_id => @job.id})}
       # render json: @job
       # redirect_to dashboard_index_path
-      # format.json { render action: 'show', status: :created, location: @job }
+
       # format.js   { render 'dashboard/hospital', status: :created, location: @job }
 
     else
+      p @job.errors.full_messages
       flash[:error] = "Something went wrong!"
     end
 
@@ -78,6 +79,6 @@ class JobsController < ApplicationController
     end
 
   def job_params
-    params.require(:job).permit(:name, :description, :rate, :expiration, :hospital_id, :slot_num)
+    params.require(:job).permit(:name, :description, :rate, :hospital_id, :slot_num)
   end
 end

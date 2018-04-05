@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   require "stripe"
+
   def new
   end
 
@@ -25,7 +26,9 @@ class ChargesController < ApplicationController
         :account => Prof.find(params[:prof_id]).uid,
       }
     })
-
+    respond_to do |format|
+      format.json {}
+    end
     # rescue Stripe::CardError => e
     #   flash[:error] = e.message
     #   redirect_to new_charge_path
