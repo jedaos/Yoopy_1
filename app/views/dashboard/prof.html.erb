@@ -75,29 +75,38 @@
         </div>
         <% end %>
         <!-- End of Yoopy Profile Card -->
-        <% if current_prof.bookings.nil? %>
-        <h5>You don't have any jobs</h5>
-        <%= link_to 'Find Jobs', jobs_path, class:'btn green-button' %>
-        <% else %>
-          <div class="">
-            <h4>Your current jobs</h4>
-            <% current_prof.bookings.each do |booking| %>
-            <div class="card">
-              <span class="card-title" style="width:100%;"></span>
-              <div class="card-content">
+        <% if current_prof.bookings == 0 %>
+          <h4>Your current jobs</h4>
+          <div class="underline-gray"></div>
+          <% current_prof.bookings.each do |booking| %>
+          <div class="card">
+            <div class="job-booked-title">
+              <h4><%= booking.slot.job.hospital.institution_name %></h4>
+            </div>
+            <div class="row card-content">
+              <div class="col s6">
                 <ul>
-                  <li><h4><%= booking.slot.job.hospital.institution_name %></h4></li>
-                  <li><%= booking.slot.job.name %></li>
-                  <li><%= booking.slot.job.description %></li>
-                  <li>$<%= booking.slot.job.rate %>0</li>
+                  <li>Job Name: <br>
+                    <p><%= booking.slot.job.name %></p></li>
+                  <li>Job Description: <br>
+                    <p><%= booking.slot.job.description %></p></li>
+                </ul>
+              </div>
+              <div class="col s6">
+                <ul>
+                  <li>Contact: <br>
+                    <p><%= booking.slot.job.hospital.phone %></p></li>
+                  <li>Pay: <br>
+                    <p>$<%= booking.slot.job.rate %>0</p></li>
                 </ul>
               </div>
             </div>
 
+          <% end %>
           </div>
-            <% end %>
-
-
+        <% else %>
+        <h5>You don't have any jobs</h5>
+        <%= link_to 'Find Jobs', jobs_path, class:'btn green-button' %>
 
         <% end %>
 
