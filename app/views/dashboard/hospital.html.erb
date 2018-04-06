@@ -61,51 +61,9 @@
                 <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
 
           <li>
-            <%= form_tag charges_path, id: 'chargeForm' do %>
-            <script src="https://checkout.stripe.com/checkout.js"></script>
-              <%= hidden_field_tag :price, job.amount_with_commision %>
-            <button id="customButton">Purchase</button>
-            <script>
 
-              var handler = StripeCheckout.configure({
-              key: "<%=ENV['STRIPE_PUBLISHABLE_KEY'] %>",
-              image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-              locale: 'auto',
-              token: function(token) {
-                // You can access the token ID with `token.id`.
-                // Get the token ID to your server-side code for use.
-                token["prof_id"] = <%= slot.prof.id %>
-                token["price"] = <%= job.amount_with_commision %>
-                $.ajax({
-                  url: "/charges",
-                  method: "POST",
-                  dataType: "script",
-                  data: token,
-                  success(response){
-                    console.log("Success", response);
-                  },
-                  error(response){
-                    console.log(response);
-                    console.log("<%= slot.prof.id %>");
-                  }
-                })
-              }
-            });
-            document.getElementById('customButton').addEventListener('click', function(e) {
-              handler.open({
-                name: 'fast-sands-61772.herokuapp',
-                description: "You will be charged a $ <%= Job.commision(job.rate) %>0 fee.",
-                amount: <%= job.amount_with_commision * 100 %>
-              });
-              e.preventDefault();
-              })
-              window.addEventListener('popstate', function() {
-              handler.close();
-            });
 
-            </script>
-            <% end %>
-            <!-- <%= form_tag charges_path do %>
+            <%= form_tag charges_path do %>
               <article>
                 <% if flash[:error].present? %>
                   <div id="error_explanation">
@@ -119,8 +77,9 @@
 
             <%= hidden_field_tag :price, job.amount_with_commision %>
             <%= hidden_field_tag :prof_id, slot.prof.id %>
+            <%= hidden_field_tag :commision, Job.commision(job.rate)  %>            
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key='<%= ENV["stripe_publishable_key"] %>'
+                    data-key='<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>'
                     data-description="You will be charged a $<%= Job.commision(job.rate) %>0 fee."
                     data-amount="<%= job.amount_with_commision * 100 %>"
                     data-locale="auto">
@@ -128,7 +87,7 @@
                   </script>
 
 
-                  <% end %> -->
+                  <% end %>
              </li>
             <% end %>
       </ul>
