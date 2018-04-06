@@ -11,21 +11,19 @@ class NewFriendJob extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
     this.handleRateChange = this.handleRateChange.bind(this)
-    this.handleSlotChange = this.handleSlotChange.bind(this)
   }
 
   handleSubmit(e){
     e.preventDefault()
     $.ajax({
-      url: "/jobs",
+      url: "/friend_jobs",
       method: "POST",
       dataType: "json",
-      data: { job:{
+      data: { friendJob:{
         name: this.state.name,
         description: this.state.description,
         rate: this.state.rate,
-        slot_num: this.state.slotNum,
-        hospital_id: this.props.owner.id
+        friend_id: this.props.owner.id
       }
     },
       success(response){
@@ -49,53 +47,58 @@ class NewFriendJob extends React.Component {
       rate: e.target.value
     })
   }
-  handleSlotChange(e){
-    this.setState({
-      slotNum: e.target.value
-    })
-  }
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="input-field col s12">
-        <input
-          type='text'
-          onChange={this.handleTitleChange}
-          value={this.state.name}
-          placeholder="Title"
-          ></input>
-        </div>
-        <div className="input-field col s12">
-          <input
-            type='text'
-            onChange={this.handleDescriptionChange}
-            value={this.state.description}
-            placeholder="Description"
-          ></input>
-        </div>
-        <div className="form-group">
+    <div className="center" id="friendJobForm">
+      <div className="row">
+        <form className="col s12" onSubmit={this.handleSubmit}>
+          <div className="row">
+            <div className="col s3">
+              <div className="input-field col s12">
 
+                <input
+                  type='text'
+                  onChange={this.handleTitleChange}
+                  value={this.state.name}
+                  placeholder="Title"
+                  >
+                </input>
+              </div>
+            </div>
+          <div className="col s3">
+            <div className="input-field col s12">
+               <input
+                  type='text'
+                  onChange={this.handleDescriptionChange}
+                  value={this.state.description}
+                  placeholder="Description"
+                ></input>
+              </div>
+            </div>
 
-            <select className="browser-default" style={{opacity: 1, height: 20, pointerEvents: "all", width: "10%", top: 80}} value={this.state.rate} onChange={this.handleRateChange}>
-              <option value="Rate" className="disabled"></option>
-              <option value="100">$100</option>
-              <option value="200">$200</option>
-              <option value="300">$300</option>
-            </select>
-
-        </div>
-        <div className="form-group">
-            <input
-              type='integer'
-              onChange={this.handleSlotChange}
-              value={this.state.slotNum}
-              placeholder="Positions"
-              ></input>
-        </div>
-        <input type="submit" value="Submit"></input>
-      </form>
-
+            <div className="right-align">
+              <div className="input-field col s6">
+                <div className="col s6">
+                  <select className="browser-default" value={this.state.rate} onChange={this.handleRateChange}>
+                    <option value="Rate" className="disabled">Rate</option>
+                    <option value="100">$100</option>
+                    <option value="200">$200</option>
+                    <option value="300">$300</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div className="row">
+            <div className="col s">
+              <input className="btn btn-primary" type="submit" value="Submit"></input>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
     );
   }
 }
