@@ -37,6 +37,7 @@ $( document ).on('turbolinks:load', function(){
   $('.modal').modal();
   $('#modal_prof').modal();
   $('.tooltipped').tooltip({delay: 50, tooltip: `Yoopy friends are individuals seeking healthcare <br /> professionals for their loved ones`, html: true});
+  $('.tabs').tabs();
   // $('.modal').modal();
   // $('#modal1').modal('open');
   // $('#modal1').modal('close');
@@ -44,5 +45,6 @@ $( document ).on('turbolinks:load', function(){
   // $('.modal_hospital').html("<%= j(render 'new_job') %>");
 
   // $('.new_job_button').hide();
+
 
 });

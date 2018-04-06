@@ -303,11 +303,25 @@ input[type=range] + .thumb.active .value::before {
 .signup-text {
   color: #fff;
 }
+#signup-button {
+  font-size: 22px;
+}
+.tab col.s3 a, .tabs .tab a:hover, .tabs .tab a.active, .tabs .tab a {
+  color: #1FA0FC;
+}
+.tabs .indicator {
+  background-color: #1FA0FC;
+}
+#signup-form-headline {
+  color: #1FA0FC;
+  text-align: center;
+}
 #signup-headline {
   font-size: 72px;
 }
 #form-background {
-  background-color: rgba(234,234,234,0.95);
+  // background-color: rgba(234,234,234,0.95);
+  background-color: #fff;
   padding: 2rem 2rem;
 }
 ::placeholder {

@@ -20,22 +20,40 @@
       </div>
     </div>
 
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <h4 id="signup-form-headline">What type of Yoopy user are you?</h4>
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a href="#test1">Yoopy Professional</a></li>
+              <li class="tab col s3"><a class="active" href="#test2">Yoopy Facility</a></li>
+              <li class="tab col s3"><a href="#test3">Yoopy Friend</a></li>
+            </ul>
+          </div>
+          <div id="test1" class="col s12">
+            <%= render 'profs/registrations/new' %>
+          </div>
+          <div id="test2" class="col s12">
+            <%= render 'hospitals/registrations/new' %>
+          </div>
+          <div id="test3" class="col s12">
+            <p>Insert Form</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="headline-box">
         <h1 id="headline">On Demand <br>Medical Staffing</h1>
         <p id="sub-headline">Yoopy connects healthcare facilities with healthcare professionals quickly.</p>
         <div class="row">
-          <div class="col s6" id="cta-button">
-            <%= link_to 'Facility Sign-Up', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large' %>
-          </div>
-          <div class="col s6" id="cta-button">
-            <%= link_to 'Professional Sign-Up', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
-          </div>
-          <div class="col s6" id="cta-button">
-            <%= link_to "Become A Yoopy Friend", new_friend_registration_path, id: 'friend-button', class: "yoopy-button btn-large #42a5f5 blue lighten-3"  %>
+          <div class="col s9" id="cta-button">
+            <a class="modal-trigger btn-large green-button" href="#modal6" id="signup-button">Sign Up</a>
           </div>
         </div>
-
       </div>
+
     </div>
   </div>
 
