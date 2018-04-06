@@ -51,50 +51,42 @@
           </div>
 
           <!-- If there is a booking in a slot -->
-        <% else %>
-          <div class="card-panel grey lighten-5">
-            <div class="row valign-wrapper">
-              <div class="col s4">
-                <p>Job Opening #<%= x %></p>
-                <h6>Booked by</h6><h5><%= slot.prof.name %></h5>
-                <% x+=1 %>
-              </div>
-              <div class="col s8">
-                <span class="black-text">
-                  <ul>
-                    <li><h6>Contact: <%= slot.prof.phone %></h6></li>
-                    <li><h6>Bio: <%= slot.prof.bio %></h6></li>
-                    <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
-                    <li>
-                      <%= form_tag charges_path do %>
-                        <article>
-                          <% if flash[:error].present? %>
-                            <div id="error_explanation">
-                              <p><%= flash[:error] %></p>
-                            </div>
-                          <% end %>
-                          <label class="amount">
-                            <h6>Rate: $<%= slot.job.rate %></h6>
-                          </label>
-                        </article>
+            <% else %>
+              <ul>
+                <li><h5><%= slot.prof.name %></h5></li>
+                <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+                <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+                <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
 
-                        <%= hidden_field_tag :price, job.amount_with_commision %>
-                        <%= hidden_field_tag :prof_id, slot.prof.id %>
-                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key='<%= ENV["stripe_publishable_key"] %>'
-                          data-description="You will be charged a $<%= Job.commision(job.rate) %>0 fee."
-                          data-amount="<%= job.amount_with_commision * 100 %>"
-                          data-locale="auto">
-                        </script>
-                      <% end %>
-                    </li>
-                  </ul>
-                </span>
-              </div>
-            </div>
-          </div> <!-- End of the block for a booked job opening-->
+          <li>
 
 
+            <%= form_tag charges_path do %>
+              <article>
+                <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+                <% end %>
+                <label class="amount">
+                  <h6>Rate: $<%= slot.job.rate %></h6>
+                </label>
+              </article>
+
+            <%= hidden_field_tag :price, job.amount_with_commision %>
+            <%= hidden_field_tag :prof_id, slot.prof.id %>
+            <%= hidden_field_tag :commision, Job.commision(job.rate)  %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key='<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>'
+                    data-description="You will be charged a $<%= Job.commision(job.rate) %>0 fee."
+                    data-amount="<%= job.amount_with_commision * 100 %>"
+                    data-locale="auto">
+
+                  </script>
+
+
+                  <% end %>
+             </li>
             <% end %>
 
 

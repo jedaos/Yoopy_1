@@ -1,0 +1,2 @@
+module FriendJobsHelper
+end

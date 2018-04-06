@@ -1,3 +1,42 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
+// // # Place all the behaviors and hooks related to the matching controller here.
+// // # All this logic will automatically be available in application.js.
+// // # You can use CoffeeScript in this file: http://coffeescript.org/
+// $(document).ready(function(){
+//   var handler = StripeCheckout.configure({
+//     key: $('.customButton').data("key"),
+//     image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+//     locale: 'auto',
+//     token: function(token) {
+//       // You can access the token ID with `token.id`.
+//       // Get the token ID to your server-side code for use.
+//
+//       token["prof_id"] = $('.customButton').data("profId")
+//       token["price"] = $('.customButton').data("price")
+//       $.ajax({
+//         url: "/charges",
+//         method: "POST",
+//         dataType: "json",
+//         data: token,
+//         success(response){
+//           console.log("Success", response);
+//         },
+//         error(response){
+//           console.log(response);
+//
+//         }
+//       })
+//     }
+//   });
+//   $('.customButton').click(function(e) {
+//     handler.open({
+//       name: 'fast-sands-61772.herokuapp',
+//       description: `You will be charged a $ ${$('.customButton').data("comission")}0 fee.`,
+//       amount: $('.customButton').data("amount"),
+//
+//     });
+//     e.preventDefault();
+//   })
+//   window.addEventListener('popstate', function() {
+//     handler.close();
+//   });
+// })
