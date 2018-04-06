@@ -11,7 +11,7 @@ class ChargesController < ApplicationController
     Stripe.api_key = ENV["STRIPE_SECRET"]
 
 
-
+    byebug
     @amount = params[:price].to_i * 100
 
 

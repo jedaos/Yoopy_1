@@ -59,33 +59,38 @@
                 <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
 
           <li>
+              <%= form_tag charges_path, id: 'chargeForm' do %>
+                <%= hidden_field_tag "price", job.amount_with_commision %>
+                <%= hidden_field_tag "prof_id", slot.prof.id %>
+                <%= hidden_field_tag "commision", Job.commision(job.rate)  %>
+                <script src="https://checkout.stripe.com/checkout.js"></script>
+                <%= hidden_field_tag 'stripeToken' %>
+                <%= hidden_field_tag 'stripeEmail' %>
 
+                  <button id="customButton<%= slot.prof.id %>" class="btn btn-large btn-primary">Buy Now</button>
+                    <script>
+                      var handler = StripeCheckout.configure({
+                        key: '<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>',
+                        image: './assets/yoopy_logo_small.png',
+                        token: function(token) {
+                          document.getElementById("stripeToken").value = token.id;
+                          document.getElementById("stripeEmail").value = token.email;
+                          document.getElementById("chargeForm").submit();
+                        }
+                      });
 
-            <%= form_tag charges_path do %>
-              <article>
-                <% if flash[:error].present? %>
-                  <div id="error_explanation">
-                    <p><%= flash[:error] %></p>
-                  </div>
-                <% end %>
-                <label class="amount">
-                  <h6>Rate: $<%= slot.job.rate %></h6>
-                </label>
-              </article>
+                      document.getElementById('customButton<%= slot.prof.id %>').addEventListener('click', function(e) {
+                        // Open Checkout with further options
+                        handler.open({
+                          name: 'Yoopy',
+                          description: "You will be charged a $<%= Job.commision(job.rate) %>0 fee.",
+                          amount: "<%= job.amount_with_commision * 100 %>",
+                         });
+                         e.preventDefault();
+                        });
 
-            <%= hidden_field_tag :price, job.amount_with_commision %>
-            <%= hidden_field_tag :prof_id, slot.prof.id %>
-            <%= hidden_field_tag :commision, Job.commision(job.rate)  %>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key='<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>'
-                    data-description="You will be charged a $<%= Job.commision(job.rate) %>0 fee."
-                    data-amount="<%= job.amount_with_commision * 100 %>"
-                    data-locale="auto">
-
-                  </script>
-
-
-                  <% end %>
+                        </script>
+                    <% end %>
              </li>
             <% end %>
 

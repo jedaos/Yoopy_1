@@ -82,7 +82,9 @@ body > nav > div > ul > li > a {
   height: 400px;
   width: 550px;
   display: block;
-  float: right;
+  // float: right;
+  position: absolute;
+  right: 0;
   margin: 10vh;
   color: #fff;
   text-align: left;
@@ -387,6 +389,9 @@ span#unred{
   right: 0px;
   bottom: 50px;
   overflow: visible;
+  li{
+  background-color: rgb(242, 239, 239);
+  }
 }
 
 // ---- MEDIA QUERIES ----

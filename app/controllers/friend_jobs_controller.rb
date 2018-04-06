@@ -1,5 +1,9 @@
 class FriendJobsController < ApplicationController
 
+  def index
+    @friendJobs = FriendJob.all
+  end
+
   def new
     @friendJob = FriendJob.new
   end
