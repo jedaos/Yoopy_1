@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
       @li_profile.authorize_from_access(current_prof.link_token, current_prof.link_secret)
       @li_profile
 
-    
+
 
 
       # pp session['li_profile']
@@ -26,7 +26,7 @@ class DashboardController < ApplicationController
       render 'dashboard/hospital'
 
     elsif current_friend
-      @jobs = current_friend.friend_jobs
+      @jobs = current_friend.friendJobs
       render 'dashboard/friend'
 
     else
