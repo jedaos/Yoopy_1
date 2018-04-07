@@ -32,7 +32,7 @@ $(document).on('ajax:before', function() {
 $( document ).on('turbolinks:load', function(){
 
   $('.dropdown-trigger').dropdown()
-
+  $('.sidenav').sidenav()
   $(".button-collapse").sidenav();
   $('.modal').modal();
   $('#modal_prof').modal();
