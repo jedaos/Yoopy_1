@@ -1,13 +1,17 @@
 <h1>THIS IS FRIEND DASHBOARD</h1>
 <%= react_component("NewFriendJob", owner: current_friend.as_json(only: :id)) %>
 
-<div class="container">
-  <% current_friend.friendJobs.each do |job| %>
+<%= react_component("CurrentFriendJobsWrapper", friendJobs: current_friend.friendJobs.as_json) %>
+
+<!-- <div class="container" id="friendJobs">
+  <%# current_friend.friendJobs.each do |job| %>
       <div class="card horizontal">
-        <%= job.name %>
-        <%= job.description %>
-        <%= job.rate %>
+        <%# job.name %>
+          <br />
+        <%# job.description %>
+          <br />
+        <%# job.rate %>
       </div>
     <br />
-  <% end %>
-</div>
+  <%# end %>
+</div> -->
