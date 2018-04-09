@@ -315,6 +315,9 @@ input[type=range] + .thumb.active .value::before {
 .tabs .indicator {
   background-color: #1FA0FC;
 }
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: #fff;
+}
 #signup-form-headline {
   color: #1FA0FC;
   text-align: center;
