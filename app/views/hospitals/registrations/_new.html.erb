@@ -1,6 +1,6 @@
 <div class="hide-on-med-and-down">
         <div class="" id="form-background">
-          <%= form_for(:hospitals, as: :hospitals, url: new_hospital_registration_path) do |f| %>
+          <%= form_for(:hospital, url: hospital_registration_path, method: :post) do |f| %>
             <%= devise_error_messages! %>
 
             <div class="field">
