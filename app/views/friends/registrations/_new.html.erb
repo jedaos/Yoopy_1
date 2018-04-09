@@ -1,5 +1,5 @@
 <div id="form-background">
-<%= form_for(:friend, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(:friend, as: :friend, url: new_friend_registration_path) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">

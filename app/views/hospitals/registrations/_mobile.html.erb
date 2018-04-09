@@ -3,7 +3,7 @@
     <h3 class="signup-text">Becoming a Yoopy Facility is Easy!</h3>
     <h5 class="signup-text">Enter the details for your medical facility to get started.</h5>
     <div id="form-background">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= form_for(:hospitals, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
         <div class="field">

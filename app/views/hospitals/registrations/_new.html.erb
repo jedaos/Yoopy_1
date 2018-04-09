@@ -1,6 +1,6 @@
 <div class="hide-on-med-and-down">
         <div class="" id="form-background">
-          <%= form_for(:hospitals, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= form_for(:hospitals, as: :hospitals, url: new_hospital_registration_path) do |f| %>
             <%= devise_error_messages! %>
 
             <div class="field">
@@ -50,7 +50,7 @@
               <%= f.submit "Sign up", class:"yoopy-button btn #42a5f5 blue lighten-1" %>
             </div>
           <% end %>
-          
+
           <p>Already a Yoopy Facility?</p>
           <%= render "hospitals/shared/links" %>
         </div>
