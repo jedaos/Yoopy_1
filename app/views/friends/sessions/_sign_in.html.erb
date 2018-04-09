@@ -1,4 +1,4 @@
-<h2>Friends Login</h2>
+<h4>Login as a Yoopy Friend</h4>
 
 <%= form_for(:friend, as: resource_name, url: friend_session_path(@friend)) do |f| %>
   <div class="field">
@@ -20,6 +20,6 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class:"btn-large #42a5f5 blue lighten-1" %>
   </div>
 <% end %>

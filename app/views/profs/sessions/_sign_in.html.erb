@@ -1,4 +1,3 @@
-<div class="container">
   <h4>Log in as a Medical Professional</h4>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,13 +19,12 @@
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "btn-large green-button" %>
+      <%= f.submit "Log in", class:"btn-large #42a5f5 blue lighten-1" %>
       <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path, id: 'linkedin-signin' %>
-      
+
     </div>
   <% end %>
   <%#= link_to "Sign in with LinkedIn", prof_linkedin_omniauth_authorize_path %>
 
 
   <%= render "profs/shared/links" %>
-</div>
