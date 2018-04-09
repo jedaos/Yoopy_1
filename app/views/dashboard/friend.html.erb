@@ -1,17 +1,7 @@
-<h1>THIS IS FRIEND DASHBOARD</h1>
-<%= react_component("NewFriendJob", owner: current_friend.as_json(only: :id)) %>
+<div class="container">
+  <h1>Yoopy Friends</h1>
+  <h4>Yoopy puts you in contact with medical professionals quick so you can get help when you need it.</h4>
+  <%= react_component("NewFriendJob", owner: current_friend.as_json(only: :id)) %>
 
-<%= react_component("CurrentFriendJobsWrapper", friendJobs: current_friend.friendJobs.as_json) %>
-
-<!-- <div class="container" id="friendJobs">
-  <%# current_friend.friendJobs.each do |job| %>
-      <div class="card horizontal">
-        <%# job.name %>
-          <br />
-        <%# job.description %>
-          <br />
-        <%# job.rate %>
-      </div>
-    <br />
-  <%# end %>
-</div> -->
+  <%= react_component("CurrentFriendJobsWrapper", friendJobs: current_friend.friendJobs.as_json) %>
+</div>
