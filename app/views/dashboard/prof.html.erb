@@ -43,12 +43,12 @@
 
 
       <% else %>
-        <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="card-panel grey lighten-5">
           <div class="row valign-wrapper">
-            <div class="col s2">
+            <div class="col s3" style="z-index: 1;">
               <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"], class: "circle" %> <!-- notice the "circle" class -->
             </div>
-            <div class="col s10">
+            <div class="col s9">
               <span class="black-text">
                 <% if @li_profile.nil?  %>
                 <% else %>
