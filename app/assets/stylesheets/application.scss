@@ -115,7 +115,7 @@ body > nav > div > ul > li > a {
   font-size: 20px;
 }
 #cta-button {
-  width: 45%;
+  width: 100%;
 }
 #facil-button {
   margin-bottom: 2rem;
@@ -307,6 +307,7 @@ input[type=range] + .thumb.active .value::before {
 }
 #signup-button {
   font-size: 22px;
+  width: 80%;
 }
 .tab col.s3 a, .tabs .tab a:hover, .tabs .tab a.active, .tabs .tab a {
   color: #1FA0FC;
