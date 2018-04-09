@@ -2,8 +2,8 @@
 
 <nav>
   <div class="nav-wrapper">
+    <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
     <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
@@ -11,26 +11,23 @@
       <li><%= link_to 'Jobs', jobs_path %></li>
       <li><%= link_to 'Log Out', destroy_prof_session_path, :method => :delete %></li>
       <span data-behavior='unread-count' id='unred'></span>
-      <a class='dropdown-trigger btn green-button' href='#' data-behavior="notifications" data-target='dropdown1'><i class='material-icons' data-behavior="notifications-link">notifications</i></a>
-      <div id='dropdown1' class='dropdown-content' data-behavior='notification-items'>
+      <a id="dropdown"class='dropdown-trigger btn green-button' href='#' data-behavior="notifications" data-target='dropdown1'><i class='material-icons' data-behavior="notifications-link">notifications</i></a>
+      <ul id='dropdown1' class='dropdown-content' data-behavior='notification-items' style="z-index: 100">
 
         <!-- Notification Should appear here. -->
-      </div>
+      </ul>
       <!-- Notifications end here  -->
 
     </ul>
-
-    <ul class="side-nav" id="mobile-demo">
+    <ul class="sidenav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
       <li><%= link_to 'Dashboard', dashboard_index_path %></li>
       <li><%= link_to 'Jobs', jobs_path %></li>
       <li><%= link_to 'Log Out', destroy_prof_session_path, :method => :delete %></li>
-
     </ul>
   </div>
 </nav>
-
 
 
 
@@ -38,14 +35,16 @@
 <nav>
   <div class="nav-wrapper">
     <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <div class="hide-on-med-and-up">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
       <li><%= link_to 'Dashboard', dashboard_index_path %></li>
       <li><%= link_to 'Log Out', destroy_hospital_session_path, :method => :delete %></li>
     </ul>
-    <ul class="side-nav" id="mobile-demo">
+    <ul class="sidenav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
       <li><%= link_to 'Dashboard', dashboard_index_path %></li>
@@ -58,14 +57,16 @@
 <nav>
   <div class="nav-wrapper">
     <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <div class="hide-on-med-and-up">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
       <li><%= link_to 'Dashboard', dashboard_index_path %></li>
       <li><%= link_to 'Log Out', destroy_friend_session_path, :method => :delete %></li>
     </ul>
-    <ul class="side-nav" id="mobile-demo">
+    <ul class="sidenav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
       <li><%= link_to 'Dashboard', dashboard_index_path %></li>
@@ -74,10 +75,13 @@
   </div>
 </nav>
 <% else %>
+
 <nav>
   <div class="nav-wrapper">
+    <!-- <div class="hide-on-med-and-up"> -->
+    <!-- </div> -->
     <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
@@ -85,7 +89,8 @@
 
 
     </ul>
-    <ul class="side-nav" id="mobile-demo">
+
+    <ul class="sidenav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
       <li><%= link_to "Yoopy Friends", friend_session_path, class: 'tooltipped'%></li>
@@ -94,4 +99,5 @@
     </ul>
   </div>
 </nav>
+
 <% end %>

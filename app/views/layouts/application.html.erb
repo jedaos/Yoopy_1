@@ -19,7 +19,7 @@
 
     <!-- Google Font: Open Sans Light -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <!--Let browser know website is optimized for mobile-->
 
@@ -30,19 +30,6 @@
     <p class="alert"><%= alert %></p>
     <div id="spinner"><%= image_tag 'loading' %></div>
     <%= render 'menubar' %>
-
-    <%# Stripe.api_key = "sk_test_56IdAiNC20dPrZSSOGYyKsnN" %>
-    <%# @account = Stripe::Account.retrieve(current_prof.uid)%>
-      <%# @account.login_links.create  %>
-    <%# if prof_signed_in? %>
- <!-- Signed in as <%#= current_prof.name %>. Not you? -->
-<%#= link_to "Sign out", destroy_prof_session_path,:method => :delete %>
-<%# else %>
-<%#= link_to "Sign up", new_prof_registration_path %>
-<%#= link_to "Sign in", new_prof_session_path %>
-<%#= link_to "Sign in with Linkedin", prof_linkedin_omniauth_authorize_path %>
- <%# end %>
-<%#= link_to 'Stripe Login', stripe_connect_login_path(type: :prof) %>
 
       <%= yield %>
 

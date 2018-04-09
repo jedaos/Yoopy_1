@@ -34,7 +34,7 @@ gem "linkedin"
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'materialize-sass'
+gem 'materialize-sass', '~> 1.0.0.beta'
 gem 'jquery-rails'
 
 # Sripe Connect

@@ -32,8 +32,8 @@ $(document).on('ajax:before', function() {
 $( document ).on('turbolinks:load', function(){
 
   $('.dropdown-trigger').dropdown()
-
-  $(".button-collapse").sideNav();
+  $('.sidenav').sidenav()
+  $(".button-collapse").sidenav();
   $('.modal').modal();
   $('#modal_prof').modal();
   $('.tooltipped').tooltip({delay: 50, tooltip: `Yoopy friends are individuals seeking healthcare <br /> professionals for their loved ones`, html: true});

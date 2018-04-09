@@ -1,5 +1,9 @@
 class FriendJobsController < ApplicationController
 
+  def index
+    @friendJobs = FriendJob.all
+  end
+
   def new
     @friendJob = FriendJob.new
   end
@@ -14,6 +18,18 @@ class FriendJobsController < ApplicationController
         flash[:error] = "Something went wrong"
         pp @friendJob.errors.full_messages
       end
+  end
+
+  def update
+    @friendJob = FriendJob.find(params[:id])
+    respond_to do |format|
+      if @friendJob.update(friend_job_params)
+        format.json {render json: @friendJob}
+      else
+        flash[:error] = "Something went wrong"
+        pp @friendJob.errors.full_messages
+      end
+    end
   end
 
   private
