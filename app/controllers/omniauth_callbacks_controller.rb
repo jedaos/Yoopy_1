@@ -2,7 +2,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # require 'linkedin'
 
   def stripe_connect
-    @user = Prof.connect_to_stripe(request.env["omniauth.auth"])
+
+    @user = Prof.connect_to_stripe(request.env["omniauth.auth"], current_prof)
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "Stripe") if is_navigational_format?

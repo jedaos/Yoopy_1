@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :dashboard #only: [:index]
   get '/dashboard/:id/prof_show' => 'dashboard#prof_show', as: :prof_show
   resources :jobs
+
   # get 'jobs/:id' => "jobs#show"
   get 'jobs/index' => 'jobs#index'
   resources :bookings
@@ -30,7 +31,8 @@ Rails.application.routes.draw do
   # devise_for :hospitals
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
-  devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions" }
+  devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions", registrations: "hospitals/registrations" }
+  
   devise_for :profs, path: 'profs', controllers: { sessions: "profs/sessions", registrations: "profs/registrations",  :omniauth_callbacks => "omniauth_callbacks"  }
    #omniauth_callbacks: "profs/omniauth_callbacks"
   devise_scope :prof do

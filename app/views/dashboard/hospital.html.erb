@@ -60,9 +60,9 @@
 
           <li>
               <%= form_tag charges_path, id: 'chargeForm' do %>
-                <%= hidden_field_tag "price", job.amount_with_commision %>
+                <%= hidden_field_tag "price", job.amount_with_commision.to_i %>
                 <%= hidden_field_tag "prof_id", slot.prof.id %>
-                <%= hidden_field_tag "commision", Job.commision(job.rate)  %>
+                <%= hidden_field_tag "commision", Job.commision(job.rate) * 100  %>
                 <script src="https://checkout.stripe.com/checkout.js"></script>
                 <%= hidden_field_tag 'stripeToken' %>
                 <%= hidden_field_tag 'stripeEmail' %>
@@ -84,7 +84,7 @@
                         handler.open({
                           name: 'Yoopy',
                           description: "You will be charged a $<%= Job.commision(job.rate) %>0 fee.",
-                          amount: "<%= job.amount_with_commision * 100 %>",
+                          amount: "<%= job.amount_with_commision.to_i %>",
                          });
                          e.preventDefault();
                         });
