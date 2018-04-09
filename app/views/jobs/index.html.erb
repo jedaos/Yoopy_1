@@ -3,8 +3,8 @@
 There are currently no posted jobs
 <% else %>
 
-<%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots), owner: @jobs.as_json(only: :hospital_id, include:{hospital:{only: :institution_name} } ), prof_id: current_prof.id.to_s )%>
+<%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots), prof_id: current_prof.id.to_s )%>
 <!-- <%= current_prof.id %> -->
-
+<!-- @jobs.as_json(only: :hospital_id, include:{hospital:{only: :institution_name} } ) -->
 <% end %>
 </div>

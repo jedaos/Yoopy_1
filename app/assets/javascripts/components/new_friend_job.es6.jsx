@@ -66,16 +66,6 @@ class NewFriendJob extends React.Component {
                 </input>
               </div>
             </div>
-          <div className="col s3">
-            <div className="input-field col s12">
-               <input
-                  type='text'
-                  onChange={this.handleDescriptionChange}
-                  value={this.state.description}
-                  placeholder="Description"
-                ></input>
-              </div>
-            </div>
 
             <div className="right-align">
               <div className="input-field col s6">
@@ -89,8 +79,22 @@ class NewFriendJob extends React.Component {
                 </div>
               </div>
             </div>
+            <div className="col s12">
+              <div className="row">
+                <div className="input-field">
+                  <textarea
+                    id="description"
+                    type='text'
+                    onChange={this.handleDescriptionChange}
+                    value={this.state.description}
+                    placeholder="Description"
+                    >
+                  </textarea>
+                  </div>
+                </div>
+              </div>
           </div>
-        
+
           <div className="row">
             <div className="col s">
               <input className="btn btn-primary" type="submit" value="Submit"></input>

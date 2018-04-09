@@ -9,13 +9,13 @@ class Job < ApplicationRecord
 
   def self.commision(price)
     case price
-    when 100..150
+    when 50..100
       return price * 0.15
-    when 150..175
+    when 101..150
       return price * 0.10
-    when 175..200
+    when 151..175
       return price * 0.05
-    when 200...300
+    when 176...00
       return price * 0.03
     else
       return price * 0.01
@@ -23,12 +23,12 @@ class Job < ApplicationRecord
   end
 
   def amount_with_commision
-    (Job.commision(self.rate)) + self.rate
+    ((Job.commision(self.rate)).to_i + self.rate.to_i) * 100
   end
 
-  # def self.make_slots(num_slots, slot_params)
-  #   num_slots.to_i.times { Slot.create(num_slot, slot_params) }
-  # end
+  def self.make_slots(num_slots, slot_params)
+    num_slots.to_i.times { Slot.create(num_slot, slot_params) }
+  end
   private
 
 end

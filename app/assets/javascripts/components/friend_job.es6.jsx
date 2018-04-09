@@ -60,28 +60,30 @@ class FriendJob extends React.Component {
     return (
       <div>
         <form>
-          <div className="input-field col s3">
-            <input
-              defaultValue={this.props.job.name}
-              onClick={this.handleClick}
-              onChange={this.handleNameChange}
-              />
+          <div className="container">
+            <div className="input-field col s3">
+              <input
+                defaultValue={this.props.job.name}
+                onClick={this.handleClick}
+                onChange={this.handleNameChange}
+                />
+            </div>
+            <div className="input-field col s3">
+              <input
+                defaultValue={this.props.job.description}
+                onClick={this.handleClick}
+                onChange={this.handleDescriptionChange}
+                />
+            </div>
+            <div className="input-field col s3">
+              <input
+                defaultValue={this.props.job.rate}
+                onClick={this.handleClick}
+                onChange={this.handleRateChange}
+                />
+            </div>
+            <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>
           </div>
-          <div className="input-field col s3">
-            <input
-              defaultValue={this.props.job.description}
-              onClick={this.handleClick}
-              onChange={this.handleDescriptionChange}
-              />
-          </div>
-          <div className="input-field col s3">
-            <input
-              defaultValue={this.props.job.rate}
-              onClick={this.handleClick}
-              onChange={this.handleRateChange}
-              />
-          </div>
-          <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>
         </form>
       </div>
 

@@ -11,8 +11,8 @@ class ChargesController < ApplicationController
     Stripe.api_key = ENV["STRIPE_SECRET"]
 
 
-    byebug
-    @amount = params[:price].to_i * 100
+
+    @amount = params[:price].to_i
 
 
     customer = Stripe::Customer.create(
@@ -22,16 +22,16 @@ class ChargesController < ApplicationController
 
 
     token = params[:stripeToken]
-    commision = params[:commision].to_i * 100
+    commision = params[:commision].to_i
     charge = Stripe::Charge.create({
       :amount => @amount,
       :currency => "usd",
       :source => 'tok_visa',#params[:stripeToken],
-      :destination => {
-        :amount => @amount - commision,
-        :account => Prof.find(params[:prof_id]).uid,
-      }
-    })
+      :application_fee => commision
+    },
+        :stripe_account => Prof.find(params[:prof_id]).uid,
+
+    )
     byebug
 
 

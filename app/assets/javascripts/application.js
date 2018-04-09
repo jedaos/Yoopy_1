@@ -29,6 +29,7 @@ $(document).on('ajax:before', function() {
 })
 
 
+
 $( document ).on('turbolinks:load', function(){
 
   $('.dropdown-trigger').dropdown()

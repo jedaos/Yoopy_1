@@ -4,19 +4,26 @@ class Prof < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
-  def self.connect_to_stripe(auth, signed_in_resource=nil)
-    user = Prof.find_by(:provider => auth.provider, :uid => auth.uid)
-    return user if user
-
-    Prof.create(
-      name: auth.info.name,
-      email: auth.info.email,
-      publishable_key: auth.info.stripe_publishable_key,
-      uid: auth.uid,
-      provider: auth.provider,
-      password:Devise.friendly_token[0,20]
-    )
+# signed_in_resource=nil
+  def self.connect_to_stripe(auth, current_prof)
+      if current_prof
+        current_prof.uid = auth.uid
+        current_prof.provider = auth.provider
+        current_prof.publishable_key = auth.info.publishable_key
+        current_prof.save
+        return current_prof
+      elsif user = Prof.find_by(:provider => auth.provider, :uid => auth.uid)
+        return user
+      else
+        Prof.create(
+          name: auth.info.name,
+          email: auth.info.email,
+          publishable_key: auth.info.stripe_publishable_key,
+          uid: auth.uid,
+          provider: auth.provider,
+          password:Devise.friendly_token[0,20]
+      )
+    end
   end
 
 

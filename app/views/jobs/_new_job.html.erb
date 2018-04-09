@@ -13,8 +13,10 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :rate %>
-      <%= range_field(:job, :rate, in: 100..1000, :step => 10 ) %> <br>
+      <%= f.label :rate, "Rate: " %>
+      <p id="rate_value">$0.00</p>
+      <%= f.range_field(:rate, :min=>50, :max=>200, :step => 10, :class => "slide", :id => "slider1") %> <br>
+
     </div>
 
     <div class="form-group">
@@ -35,7 +37,12 @@
         $('#Cancel').click(function() {
           $('#new_job_form').hide();
         })
+        $('#slider1').change(function(){
+          var value = $('#slider1').val()
+          $('#rate_value').text(`$${value}.00`)
+        })
       });
+
     </script>
 
     <% end %>

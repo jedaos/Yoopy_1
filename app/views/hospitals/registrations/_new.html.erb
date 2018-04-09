@@ -1,6 +1,6 @@
 <div class="hide-on-med-and-down">
         <div class="" id="form-background">
-          <%= form_for(:hospital, url: hospital_registration_path, method: :post) do |f| %>
+          <%= form_for(:hospital ,url: hospital_registration_path, method: :post) do |f| %>
             <%= devise_error_messages! %>
 
             <div class="field">
@@ -56,6 +56,6 @@
         </div>
 </div>
 
-<div class="hide-on-large-only">
-  <%= render 'mobile' %>
-</div>
+<!-- <div class="hide-on-large-only">
+  <%# render 'mobile' %>
+</div> -->

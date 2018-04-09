@@ -18,7 +18,7 @@ class NoEditJob extends React.Component {
 
       <div className='card-content'>
        <ul>
-
+      
          <li><h5>Job Title:</h5></li>
           <p>{this.props.job.name}</p>
          <li><h5>Job Description:</h5></li>
