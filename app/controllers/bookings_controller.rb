@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
       format.json do
         if @booking.save!
            @booking.slot.available = false
-           @booking.slot.save!           
+           @booking.slot.save!
            render json: @booking
 
         else
@@ -18,6 +18,14 @@ class BookingsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.slot.available = true
+    @booking.slot.save
+    @booking.destroy
+    redirect_to dashboard_index_path
   end
 
     # @booking = current_prof.bookings.build

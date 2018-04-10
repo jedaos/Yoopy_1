@@ -6,7 +6,7 @@ class ChargesController < ApplicationController
   end
 
   def create
-
+    
 
     Stripe.api_key = ENV["STRIPE_SECRET"]
 
@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
         :stripe_account => Prof.find(params[:prof_id]).uid,
 
     )
-    byebug
+
 
 
    # respond_to do |format|

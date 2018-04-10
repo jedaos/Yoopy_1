@@ -28,7 +28,9 @@ $(document).on('ajax:before', function() {
   $('#spinner').fadeOut();
 })
 
-
+$('#chargeForm').submit(function(){
+  $('form > button').html("Paid").addClass("disabled")
+})
 
 $( document ).on('turbolinks:load', function(){
 
