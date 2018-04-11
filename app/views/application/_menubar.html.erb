@@ -39,7 +39,6 @@
 
     <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
     <div class="hide-on-med-and-up">
-      <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
     </div>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
@@ -59,9 +58,10 @@
 <% elsif friend_signed_in? %>
 <nav>
   <div class="nav-wrapper">
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <%= link_to image_tag('yoopy_logo_small.png'), root_path %>
     <div class="hide-on-med-and-up">
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
     </div>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
