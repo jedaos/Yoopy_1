@@ -12,6 +12,7 @@ class FriendJob extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
     this.handleRateChange = this.handleRateChange.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   handleClick(e){
@@ -48,6 +49,7 @@ class FriendJob extends React.Component {
       }},
       success(response){
         console.log("Success", response);
+        $('form')[1].append(response)
       },
       error(response){
         console.log("Error", response);
@@ -56,6 +58,26 @@ class FriendJob extends React.Component {
     e.preventDefault();
 
   }
+  handleDelete(e){
+    $.ajax({
+      url: `/friend_jobs/${this.props.job.id}`,
+      method: "DELETE",
+      data: {friendJob:{
+        name: this.state.name,
+        description: this.state.description,
+        rate: this.state.rate
+      }},
+      success(response){
+        console.log("Success", response);
+      },
+      error(response){
+        console.log("Error", response);
+      }
+    }
+  );
+    e.preventDefault();
+  }
+
   render () {
     return (
       <div>
@@ -83,6 +105,7 @@ class FriendJob extends React.Component {
                 />
             </div>
             <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>
+            <button onClick={this.handleDelete} type = "Submit" className="btn btn-primary green">Delete</button>
           </div>
         </form>
       </div>
