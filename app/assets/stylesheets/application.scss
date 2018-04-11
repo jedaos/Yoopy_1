@@ -250,6 +250,32 @@ body > nav > div > a.sidenav-trigger {
   border-radius: 12px 12px 0px 0px;
 }
 
+.getting-started {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+
+}
+.getting-started li {
+  counter-increment: h6;
+  display: inline-block;
+}
+.getting-started li:before{
+  content: counter(h6);
+  color: #fff;
+  background: #6bbf3d;
+  margin-right: 10px;
+  border-radius: 100%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+
+}
+
 // Hospital Dashboard
 #jobs {
   float: left;
