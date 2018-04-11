@@ -24,29 +24,77 @@
     </div>
   </div>
 
-  <div class="prof-info-collection">
-    <h4>Account Information</h4>
-    <ul class="collection with-header">
-      <li class="collection-item">Phone: <%= current_prof.phone %></li>
-      <li class="collection-item">Email: <%= current_prof.email %></li>
-      <li class="collection-item">License: <%= current_prof.license_num %></li>
-      <li class="collection-item">Bio: <%= current_prof.bio %></li>
-    </ul>
-    <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal2">Update Bio & Account Information</a>
+  <!-- Check if Prof is signed in using LinkedIn -->
 
+
+
+  <% if current_prof.link_provider.nil? %>
+  <div class="card" style="margin-top: 2rem; padding: 1rem;">
+    <div class="prof-profile" style="text-align: center;">
+      <span class="card-title">Sign in with LinkedIn to show potential employers more information about yourself.</span>
+    </div>
+    <div class="card-content">
+      <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path %>
+    </div>
   </div>
 
-  <h4>Your current jobs</h4>
-  <div class="row center-cols center-align">
-    <% current_prof.bookings.each do |booking| %>
-    <div class="card">
-      <span class="card-title" style="width:100%;"><%= booking.slot.job.hospital.institution_name %></span>
+  <% else %>
+  <!-- Card displaying their linkedIn profile information -->
+    <div class="card" style="margin-top: 2rem; padding: 1rem;">
+      <div class="prof-profile" style="text-align: center;">
+        <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"], class: "circle" %> <br>
+        <span class="card-title">Your Yoopy Profile</span>
+        <p>Displaying information from your LinkedIn will allow potential employers to get more information about you. This will increase your chances of getting hired.</p>
+
+      </div>
       <div class="card-content">
-        <%= booking.slot.job.name %>
-        <%= booking.slot.job.description %>
+        Name: <%= @li_profile.profile["first_name"] %> <%= @li_profile.profile["last_name"] %>
+        <br />
+        Headline: <%= @li_profile.profile["headline"] %>
+        <br />
+        Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
+        <br />
+        Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
+        <br />
+        LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
       </div>
     </div>
-    <% end %>
+  <% end %>
+
+<!-- Check to see if Prof has any booked jobs -->
+
+<% if current_prof.bookings.count > 0 %>
+  <h4>Your current jobs</h4>
+  <div class="underline-gray"></div>
+  <% current_prof.bookings.each do |booking| %>
+  <div class="card">
+    <div class="job-booked-title">
+      <h4><%= booking.slot.job.hospital.institution_name %></h4>
+    </div>
+    <div class="row card-content">
+      <div class="col s6">
+        <ul>
+          <li>Job Name: <br>
+            <p><%= booking.slot.job.name %></p></li>
+          <li>Job Description: <br>
+            <p><%= booking.slot.job.description %></p></li>
+        </ul>
+      </div>
+      <div class="col s6">
+        <ul>
+          <li>Contact: <br>
+            <p><%= booking.slot.job.hospital.phone %></p></li>
+          <li>Pay: <br>
+            <p>$<%= booking.slot.job.rate %>0</p></li>
+        </ul>
+      </div>
+    </div>
+
+  <% end %>
   </div>
+<% else %>
+<h4 style="text-align: center;">Your booked jobs will be displayed here:</h4>
+<% end %>
+
 
 </div>

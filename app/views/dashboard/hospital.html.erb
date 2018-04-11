@@ -51,9 +51,13 @@
 
         <!-- If there is a booking in a slot -->
         <% else %>
-        <ul>
+        <ul style="padding: 1rem;">
           <li><h5><%= slot.prof.name %></h5></li>
-          <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+          <% if slot.prof.bio != nil %>
+            <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+          <% else %>
+            <li><h6>Bio: This user has not set a bio yet.</h6></li>
+          <% end %>
           <li><h6>Contact: <%= slot.prof.phone %></h6></li>
           <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
           <li><%= link_to "Remove Candidate", booking_path(:id => slot.booking.id), method: :delete %></li>
@@ -66,7 +70,7 @@
             <script src="https://checkout.stripe.com/checkout.js"></script>
             <%= hidden_field_tag 'stripeToken' %>
             <%= hidden_field_tag 'stripeEmail' %>
-              <button id="customButton<%= slot.prof.id %>" class="btn btn-large btn-primary">Pay <%= slot.prof.name %></button>
+              <button id="customButton<%= slot.prof.id %>" class="btn-large #42a5f5 blue lighten-1">Pay <%= slot.prof.name %></button>
 
             <script>
             let submittedForm = false
@@ -100,14 +104,11 @@
               }
             );
             e.preventDefault();
-
-
           });
-
-
           </script>
           <% end %>
         </li>
+      </ul>
         <% end %>
 
 
