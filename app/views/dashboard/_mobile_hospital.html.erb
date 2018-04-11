@@ -1,5 +1,5 @@
 <div class="container" id="mobile-wrapper">
-  <h2>Welcome, <%= current_hospital.institution_name %></h2>
+  <h4>Welcome, <%= current_hospital.institution_name %></h4>
 
   <%= link_to 'Connect Stripe', prof_stripe_connect_omniauth_authorize_path, class:"btn-large #42a5f5 blue lighten-1" %>
   <%= link_to 'Post A Job', new_job_path, class:'yoopy-button btn-large #00695c teal accent-3', id: 'new_job_button', remote: true %>
@@ -12,48 +12,115 @@
 
   <div id="jobs" class="jobs-card-hospitals">
     <% if current_hospital.job_ids.nil? %>
-      <h4>You Don't Have Any Job Postings</h4>
+    <h4>You Don't Have Any Job Postings</h4>
     <% else %>
-      <h4>Your Open Jobs</h4>
-      <%= react_component('JobApp', :jobs => @jobs) %>
+    <h5>Update or Delete Current Jobs</h5>
+    <div class="underline-gray"></div>
+
+    <%= react_component('JobApp', :jobs => @jobs) %>
     <% end %>
   </div>
 
-  <% current_hospital.jobs.each do |job| %>
-  <% job.slots.each do |slot| %>
-  <div class="card horizontal">
+  <div class="col s6" id="job-slots">
+    <h5><%= current_hospital.institution_name %>'s Open Jobs</h5>
+    <div class="underline-gray"></div>
+
+    <% current_hospital.jobs.each do |job| %>
+    <div class="job-posting-title">
+      <h5>Job Posting: <%= job.name %></h5>
+      <p>The medical professionals for this job are listed below.</p>
+    </div>
+
+    <% x = 1 %>
+    <% job.slots.each do |slot| %>
+    <!-- If there are no bookings for a slot... -->
     <% if slot.prof.nil?  %>
-      No bookings
+    <div class="card-panel grey lighten-5">
+      <div class="row valign-wrapper">
+        <div class="col s4">
+          <p>Job Opening #<%= x %></p>
+          <h5>Not Booked</h5>
+          <% x+=1 %>
+        </div>
+        <div class="col s8">
+          <span class="black-text">
+            <p>Your job has been listed! Medical professionals will appear here once this job opening is booked.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- If there is a booking in a slot -->
     <% else %>
     <ul>
       <li><h5><%= slot.prof.name %></h5></li>
       <li><h6>Bio: <%= slot.prof.bio %></h6></li>
       <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+      <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+      <li><%= link_to "Remove Candidate", booking_path(:id => slot.booking.id), method: :delete %></li>
       <li>
-        <%= form_tag charges_path do %>
-          <article>
-            <% if flash[:error].present? %>
-              <div id="error_explanation">
-                <p><%= flash[:error] %></p>
-              </div>
-            <% end %>
-            <label class="amount">
-              <h6>Rate: $<%= slot.job.rate %></h6>
-            </label>
-          </article>
-<!--
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<#%= #Rails.configuration.stripe[:publishable_key] %>"
-                  data-description="A month's subscription"
-                  data-amount="<#%= #slot.job.rate * 100 %>"
-                  data-locale="auto"></script> -->
-        <% end %>
-        <% end %>
-      </li>
-    </ul>
+        <%= form_tag charges_path, id: 'chargeForm' do %>
+        <div id="submit-text"></div>
+        <%= hidden_field_tag "price", job.amount_with_commision.to_i %>
+        <%= hidden_field_tag "prof_id", slot.prof.id %>
+        <%= hidden_field_tag "commision", Job.commision(job.rate) * 100  %>
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+        <%= hidden_field_tag 'stripeToken' %>
+        <%= hidden_field_tag 'stripeEmail' %>
+          <button id="customButton<%= slot.prof.id %>" class="btn btn-large btn-primary">Pay <%= slot.prof.name %></button>
+
+        <script>
+        let submittedForm = false
+        var handler = StripeCheckout.configure({
+          key: '<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>',
+          image: './assets/yoopy_logo_small.png',
+          token: function(token) {
+            document.getElementById("stripeToken").value = token.id;
+            document.getElementById("stripeEmail").value = token.email;
+            document.getElementById("chargeForm").submit();
+            submittedForm = true;
+            $('#submit-text').html('Processing, stand by');
+
+          },
+          closed: function(){
+            if (submittedForm == true) {
+              $('#customButton<%= slot.prof.id %>').html("Paid").addClass("disabled")
+            } else {
+              return false
+            }
+          }
+
+        });
+
+        document.getElementById('customButton<%= slot.prof.id %>').addEventListener('click', function(e) {
+          // Open Checkout with further options
+          handler.open({
+            name: 'Yoopy',
+            description: "You will be charged a $<%= Job.commision(job.rate) %>0 fee.",
+            amount: "<%= job.amount_with_commision.to_i %>",
+          }
+        );
+        e.preventDefault();
+
+
+      });
+
+
+      </script>
+      <% end %>
+    </li>
+    <% end %>
+
+
+    <% end %>
+    <% end %>
+    <div class="job-posting-footer">
+      <h6>Job postings will expire after 3 hours unless booked</h6>
+    </div>
+
   </div>
 
-  <% end %>
-  <% end %>
+
+
 
 </div>
