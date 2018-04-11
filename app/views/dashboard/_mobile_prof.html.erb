@@ -24,17 +24,47 @@
     </div>
   </div>
 
-  <div class="prof-info-collection">
-    <h4>Account Information</h4>
-    <ul class="collection with-header">
-      <li class="collection-item">Phone: <%= current_prof.phone %></li>
-      <li class="collection-item">Email: <%= current_prof.email %></li>
-      <li class="collection-item">License: <%= current_prof.license_num %></li>
-      <li class="collection-item">Bio: <%= current_prof.bio %></li>
-    </ul>
-    <a class="btn #42a5f5 blue lighten-1 modal-trigger" href="#modal2">Update Bio & Account Information</a>
+  <!-- Check if Prof is signed in using LinkedIn -->
 
+
+
+  <% if current_prof.link_provider.nil? %>
+  <div class="card" style="margin-top: 2rem; padding: 1rem;">
+    <div class="prof-profile" style="text-align: center;">
+      <span class="card-title">Sign in with LinkedIn to show potential employers more information about yourself.</span>
+    </div>
+    <div class="card-content">
+      <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path %>
+    </div>
   </div>
+
+  <% else %>
+  <!-- Card displaying their linkedIn profile information -->
+    <div class="card" style="margin-top: 2rem; padding: 1rem;">
+      <div class="prof-profile" style="text-align: center;">
+        <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"], class: "circle" %> <br>
+        <span class="card-title">Your Yoopy Profile</span>
+        <p>Displaying information from your LinkedIn will allow potential employers to get more information about you. This will increase your chances of getting hired.</p>
+
+      </div>
+      <div class="card-content">
+        Name: <%= @li_profile.profile["first_name"] %> <%= @li_profile.profile["last_name"] %>
+        <br />
+        Headline: <%= @li_profile.profile["headline"] %>
+        <br />
+        Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
+        <br />
+        Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
+        <br />
+        LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
+      </div>
+    </div>
+
+  <% end %>
+
+
+
+
 
   <h4>Your current jobs</h4>
   <div class="row center-cols center-align">
