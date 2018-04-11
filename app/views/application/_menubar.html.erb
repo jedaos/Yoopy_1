@@ -95,9 +95,11 @@
     <ul class="sidenav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
-      <li><%= link_to "Yoopy Friends", friend_session_path, class: 'tooltipped'%></li>
-      <li><%= link_to 'Medical Professionals', prof_session_path %></li>
-      <li><%= link_to 'Facilities', hospital_session_path %></li>
+      <li><a class="modal-trigger" href="#mobilelogin">Log In</a></li>
+
+      <li><%#= link_to "Yoopy Friends", friend_session_path, class: 'tooltipped'%></li>
+      <li><%#= link_to 'Medical Professionals', prof_session_path %></li>
+      <li><%#= link_to 'Facilities', hospital_session_path %></li>
     </ul>
   </div>
 </nav>
