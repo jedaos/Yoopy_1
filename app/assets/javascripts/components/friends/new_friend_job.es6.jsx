@@ -2,11 +2,13 @@ class NewFriendJob extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      name: '',
-      description: '',
-      rate: '',
-      slotNum: ''
+      job: {
+        name: '',
+        description: '',
+        rate: '',
+      }
     }
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
@@ -19,36 +21,48 @@ class NewFriendJob extends React.Component {
       url: "/friend_jobs",
       method: "POST",
       dataType: "json",
-      data: { friendJob:{
-        name: this.state.name,
-        description: this.state.description,
-        rate: this.state.rate,
-        friend_id: this.props.owner.id
-      }
-    },
-      success(response){
-        console.log("Success", response);
+      data: {friendJob: this.state.job},
+      success: (data) => {
+        console.log("Success", data);
+        this.setState({
+          job: data
+        })
+        this.props.onNewJob(data);
       }
     })
 
   }
   handleTitleChange(e){
-    this.setState({
-      name: e.target.value
-    })
+    let name = e.target.value
+    this.setState(prevState => ({
+        job: {
+          ...prevState.job,
+        name: name
+      }
+    }))
   }
   handleDescriptionChange(e){
-    this.setState({
-      description: e.target.value
-    })
+    let description = e.target.value
+    this.setState(prevState => ({
+        job: {
+          ...prevState.job,
+        description: description
+      }
+    }))
   }
   handleRateChange(e){
-    this.setState({
-      rate: e.target.value
-    })
+    let rate = e.target.value
+    this.setState(prevState => ({
+        job: {
+          ...prevState.job,
+        rate: rate
+      }
+    }))
   }
 
   render () {
+    const job = this.state.job;
+
     return (
     <div className="center" id="friendJobForm">
       <div className="row">
@@ -60,7 +74,7 @@ class NewFriendJob extends React.Component {
                 <input
                   type='text'
                   onChange={this.handleTitleChange}
-                  value={this.state.name}
+                  value={job.name}
                   placeholder="Title"
                   >
                 </input>
@@ -70,7 +84,7 @@ class NewFriendJob extends React.Component {
             <div className="right-align">
               <div className="input-field col s6">
                 <div className="col s6">
-                  <select className="browser-default" value={this.state.rate} onChange={this.handleRateChange}>
+                  <select className="browser-default" value={job.rate} onChange={this.handleRateChange}>
                     <option value="Rate" className="disabled">Rate</option>
                     <option value="100">$100</option>
                     <option value="200">$200</option>
@@ -86,7 +100,7 @@ class NewFriendJob extends React.Component {
                     id="description"
                     type='text'
                     onChange={this.handleDescriptionChange}
-                    value={this.state.description}
+                    value={job.description}
                     placeholder="Description"
                     >
                   </textarea>

@@ -48,7 +48,7 @@ class FriendJob extends React.Component {
         rate: this.state.rate
       }},
       success(response){
-        $('#FriendJobList').append(response)
+        // $('#FriendJobList').append(response)
       },
       error(response){
         console.log("Error", response);

@@ -26,7 +26,7 @@ class DashboardController < ApplicationController
       render 'dashboard/hospital'
 
     elsif current_friend
-      @jobs = current_friend.friendJobs
+      @friendJobs = current_friend.friendJobs
       render 'dashboard/friend'
 
     else

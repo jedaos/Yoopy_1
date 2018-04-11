@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Yoopy Friends</h1>
   <h4>Yoopy puts you in contact with medical professionals quick so you can get help when you need it.</h4>
-  <%= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: current_friend.friendJobs.as_json) %>
+  <%= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: @friendJobs.to_json) %>
 
 </div>

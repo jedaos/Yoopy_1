@@ -13,22 +13,13 @@ class FriendJobsController < ApplicationController
 
   def create
     @friendJob = FriendJob.new(friend_job_params)
+    @friendJob.friend_id = current_friend.id
     @friendJob.save
     if request.xhr?
       render :json => @friendJob
     else
       p "Didnt Work"
     end
-    # if @friendJob.save
-    #   respond_to do |format|
-    #     # format.json {render json: @friendJob}
-    #     format.json {}
-    #     # format.html { render 'dashboard'}
-    #   end
-    #   else
-    #     flash[:error] = "Something went wrong"
-    #     pp @friendJob.errors.full_messages
-    #   end
   end
 
 
