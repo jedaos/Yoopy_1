@@ -10,11 +10,11 @@
   <!-- <p>You can browse the list of open jobs or wait to be notified for openings in your area.</p> -->
 
     <div class="categories-container">
-      <ul class="list-inline">
-        <li class="col s3"><h6>Connect With Stripe<i class="material-icons">forward</i></h6></li>
-        <li class="col s3"><h6>Sync Your LinkedIn<i class="material-icons">forward</i></h6></li>
-        <li class="col s3"><h6>Search For Jobs!</h6></li>
-      </ul>
+      <ol class="list-inline getting-started">
+        <li class="col s3"><h5>Connect With Stripe</h5></li>
+        <li class="col s3"><h5>Sync Your LinkedIn</h5></li>
+        <li class="col s3"><h5>Search For Jobs!</h5></li>
+      </ol>
     </div>
 
 
@@ -45,11 +45,11 @@
       <% if current_prof.link_provider.nil? %>
       <div class="card-panel grey lighten-5">
         <div class="row valign-wrapper">
-          <div class="col s4" id="ask-linkedin">
+          <div class="col s6" id="ask-linkedin">
             <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path %>
 
           </div>
-          <div class="col s8">
+          <div class="col s6">
             <h5>Sign in with LinkedIn to show potential employers more information about yourself.</h5>
           </div>
         </div>
