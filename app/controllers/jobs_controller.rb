@@ -34,10 +34,7 @@ class JobsController < ApplicationController
         end
       # Job.make_slots(params[:slot_num], @job.id)
       @job.slot_num.to_i.times {Slot.create({:job_id => @job.id})}
-      # render json: @job
-      # redirect_to dashboard_index_path
-
-      # format.js   { render 'dashboard/hospital', status: :created, location: @job }
+    redirect_to dashboard_index_path
 
     else
       p @job.errors.full_messages
