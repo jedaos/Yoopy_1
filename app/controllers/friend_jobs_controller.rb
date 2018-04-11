@@ -1,4 +1,7 @@
 class FriendJobsController < ApplicationController
+  
+
+  respond_to :json
 
   def index
     @friendJobs = FriendJob.all
@@ -12,13 +15,15 @@ class FriendJobsController < ApplicationController
     @friendJob = FriendJob.new(friend_job_params)
     if @friendJob.save
       respond_to do |format|
-        format.json { render json: FriendJob.all.order(:name) }
+        format.json {render json: @friendJob}
+        # format.html { render 'dashboard'}
       end
       else
         flash[:error] = "Something went wrong"
         pp @friendJob.errors.full_messages
       end
   end
+
 
   def update
     @friendJob = FriendJob.find(params[:id])
@@ -30,6 +35,13 @@ class FriendJobsController < ApplicationController
         pp @friendJob.errors.full_messages
       end
     end
+  end
+
+
+  def destroy
+    @friendJob = FriendJob.find(params[:id])
+    @friendJob.destroy
+    redirect_to dashboard_index_path
   end
 
   private
