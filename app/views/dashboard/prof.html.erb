@@ -85,8 +85,9 @@
           </div>
         </div>
         <% end %>
+
         <!-- End of Yoopy Profile Card -->
-        <% if current_prof.bookings == 0 %>
+        <% if current_prof.bookings.count > 0 %>
           <h4>Your current jobs</h4>
           <div class="underline-gray"></div>
           <% current_prof.bookings.each do |booking| %>
