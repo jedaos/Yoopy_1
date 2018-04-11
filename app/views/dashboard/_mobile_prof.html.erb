@@ -1,6 +1,19 @@
 <div class="container" id="mobile-wrapper">
   <h4>Welcome, <%= current_prof.name %></h4>
+
+  <!-- Getting Started -->
+  <div class="categories-container">
+    <h5>Getting Started</h5>
+    <ol>
+      <li><h6>Connect With Stripe</h6></li>
+      <li><h6>Sync Your LinkedIn</h6></li>
+      <li><h6>Search For Jobs!</h6></li>
+    </ol>
+  </div>
+
+<!-- Stripe Connect & Find Jobs Buttons -->
   <%= link_to 'Connect Stripe', prof_stripe_connect_omniauth_authorize_path, class:"btn-large #42a5f5 blue lighten-1" %>
+  <%= link_to 'Find Jobs', jobs_path, class:'btn-large green-button' %>
 
   <div id="modal2" class="modal">
     <div class="modal-content">

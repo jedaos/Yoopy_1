@@ -1,4 +1,3 @@
-
-  task :destroy_old_jobs => :environment do
+task :destroy_old_jobs => :environment do
     Job.expired.destroy_all
-    end
+end
