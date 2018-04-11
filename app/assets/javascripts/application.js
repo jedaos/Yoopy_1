@@ -39,7 +39,7 @@ $( document ).on('turbolinks:load', function(){
   $(".button-collapse").sidenav();
   $('.modal').modal();
   $('#modal_prof').modal();
-  $('.tooltipped').tooltip({delay: 50, tooltip: `Yoopy friends are individuals seeking healthcare <br /> professionals for their loved ones`, html: true});
+  $('.tooltipped').tooltip({delay: 50, tooltip: "Yoopy friends are individuals seeking healthcare <br /> professionals for their loved ones", html: true});
   $('.tabs').tabs();
   // $('.modal').modal();
   // $('#modal1').modal('open');
