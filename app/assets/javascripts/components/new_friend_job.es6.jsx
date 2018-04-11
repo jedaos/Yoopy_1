@@ -61,7 +61,7 @@ class NewFriendJob extends React.Component {
                   type='text'
                   onChange={this.handleTitleChange}
                   value={this.state.name}
-                  placeholder="Title"
+                  placeholder="Job Title"
                   >
                 </input>
               </div>
@@ -71,7 +71,7 @@ class NewFriendJob extends React.Component {
               <div className="input-field col s6">
                 <div className="col s6">
                   <select className="browser-default" value={this.state.rate} onChange={this.handleRateChange}>
-                    <option value="Rate" className="disabled">Rate</option>
+                    <option value="Rate" className="disabled">Select Rate</option>
                     <option value="100">$100</option>
                     <option value="200">$200</option>
                     <option value="300">$300</option>
@@ -87,7 +87,7 @@ class NewFriendJob extends React.Component {
                     type='text'
                     onChange={this.handleDescriptionChange}
                     value={this.state.description}
-                    placeholder="Description"
+                    placeholder="Tell us what type of care you're looking for"
                     >
                   </textarea>
                   </div>
@@ -97,7 +97,7 @@ class NewFriendJob extends React.Component {
 
           <div className="row">
             <div className="col s">
-              <input className="btn btn-primary" type="submit" value="Submit"></input>
+              <input className="btn-large green-button" type="submit" value="Submit"></input>
             </div>
           </div>
         </form>
