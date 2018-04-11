@@ -60,6 +60,9 @@ body > nav > div > ul > li > a {
 #linkedin-signin img{
   margin-bottom: -1.1rem;
 }
+body > nav > div > a.sidenav-trigger {
+  color: #222;
+}
 // End of Navigation
 
 // Home Page
@@ -438,5 +441,9 @@ span#unred{
   #linkedin {
     width: 100%;
   }
-
+}
+@media only screen and (max-width: 450px) {
+  .nav-wrapper {
+    padding: 0rem 3rem;
+  }
 }
