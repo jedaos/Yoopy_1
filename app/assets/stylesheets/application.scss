@@ -429,8 +429,12 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 span#unred{
   color: black;
   position: relative;
-  z-index: 10;
+  z-index: 100;
 }
+#dropdown{
+  position: relative;
+}
+
 #dropdown1{
   position: relative;
   right: 0px;
@@ -438,6 +442,7 @@ span#unred{
   overflow: visible;
   li{
   background-color: rgb(242, 239, 239);
+  position: absolute;
   }
 }
 

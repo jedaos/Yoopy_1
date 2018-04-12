@@ -10,7 +10,7 @@ class Slot extends React.Component {
     this.props.slot.available = !this.props.slot.availeble
     $.ajax({
       method: 'POST',
-      url: `/bookings`,
+      url: '/bookings',
       dataType: 'json',
       data: {
         booking: {
