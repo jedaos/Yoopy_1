@@ -107,7 +107,7 @@ body > nav > div > a.sidenav-trigger {
 #homepage1 {
   height: 90vh;
   width: 100%;
-  background-image: url('yoopy4_resized.jpg');
+  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy4_resized.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -167,7 +167,7 @@ body > nav > div > a.sidenav-trigger {
   color: #222;
 }
 #homepage1-mobile {
-  background-image: url('yoopy_mobile.png');
+  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy_mobile.png');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -325,7 +325,7 @@ input[type=range] + .thumb.active .value::before {
 
 // Facility Signup Page
 .facil-signup-wrapper {
-  background-image: url('facil_signup.png');
+  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/facil_signup.png');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1rem;
@@ -373,7 +373,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 // Professional sign up page
 .prof-signup-wrapper {
-  background-image: url('yoopy_prof.png');
+  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy_prof.png');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1rem;
