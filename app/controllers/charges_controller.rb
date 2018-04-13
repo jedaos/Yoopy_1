@@ -30,7 +30,7 @@ class ChargesController < ApplicationController
       charge = Stripe::Charge.create({
         :amount => @amount,
         :currency => "usd",
-        :source => 'tok_visa',#params[:stripeToken],
+        :source => params[:stripeToken],
         :application_fee => commision
       },
           :stripe_account => Prof.find(params[:prof_id]).uid,
