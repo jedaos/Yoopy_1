@@ -15,7 +15,7 @@ class Job < ApplicationRecord
       return price * 0.10
     when 151..175
       return price * 0.05
-    when 176...00
+    when 176...200
       return price * 0.03
     else
       return price * 0.01
