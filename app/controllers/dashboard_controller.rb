@@ -23,7 +23,7 @@ class DashboardController < ApplicationController
 
       @jobs = current_hospital.jobs
       @error_message
-      
+
       render 'dashboard/hospital'
 
     elsif current_friend

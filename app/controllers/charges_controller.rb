@@ -15,10 +15,10 @@ class ChargesController < ApplicationController
     @amount = params[:price].to_i
 
 
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      source: params[:stripeToken]
-    )
+    # customer = Stripe::Customer.create(
+    #   email: params[:stripeEmail],
+    #   source: params[:stripeToken]
+    # )
 
     if Prof.find(params[:prof_id]).uid.nil?
       redirect_to dashboard_index_path
