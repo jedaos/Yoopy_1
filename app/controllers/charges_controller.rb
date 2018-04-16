@@ -12,7 +12,7 @@ class ChargesController < ApplicationController
 
 
 
-    @amount = 100  #params[:price].to_i
+    @amount = params[:price].to_i
 
 
     customer = Stripe::Customer.create(
