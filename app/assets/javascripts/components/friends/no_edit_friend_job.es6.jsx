@@ -7,7 +7,7 @@ class NoEditFriendJob extends React.Component {
             <span>Timer</span>
             <ul>
               <li><h5>Rate:</h5></li>
-              <p>{this.props.friendJob.rate}</p>
+              <p>${this.props.friendJob.rate}0</p>
             </ul>
           </div>
 

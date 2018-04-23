@@ -14,7 +14,5 @@ There are currently no posted jobs
   </div>
   <div id="hospitalJobs" class="col s12"><%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots), prof_id: current_prof.id.to_s )%></div>
   <div id="residentialJobs" class="col s12"><%= react_component("FriendJobsIndex", friendJobs: @friendJobs.as_json) %></div>
-<!-- <%= current_prof.id %> -->
-<!-- @jobs.as_json(only: :hospital_id, include:{hospital:{only: :institution_name} } ) -->
 <% end %>
 </div>
