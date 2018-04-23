@@ -4,8 +4,8 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
-
     @slots = Slot.all
+    @friendJobs = FriendJob.all
     @hospitals = Hospital.all
     if current_prof
       @user = current_prof

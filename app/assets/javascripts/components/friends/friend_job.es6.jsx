@@ -42,13 +42,14 @@ class FriendJob extends React.Component {
     $.ajax({
       url: `/friend_jobs/${this.props.job.id}`,
       method: "PUT",
+      dataType: 'json',
       data: {friendJob:{
         name: this.state.name,
         description: this.state.description,
         rate: this.state.rate
       }},
       success(response){
-        // $('#FriendJobList').append(response)
+        console.log(response);
       },
       error(response){
         console.log("Error", response);
@@ -61,6 +62,7 @@ class FriendJob extends React.Component {
     $.ajax({
       url: `/friend_jobs/${this.props.job.id}`,
       method: "DELETE",
+      dataType: 'json',
       data: {friendJob:{
         name: this.state.name,
         description: this.state.description,
@@ -78,6 +80,10 @@ class FriendJob extends React.Component {
   }
 
   render () {
+    let descriptionStyle = {
+      height: '75',
+      overflow: 'scroll'
+    }
     return (
       <div>
         <form>
@@ -91,16 +97,17 @@ class FriendJob extends React.Component {
             </div>
             <div className="input-field col s3">
               <input
-                defaultValue={this.props.job.description}
+                defaultValue={"$" + this.props.job.rate}
                 onClick={this.handleClick}
-                onChange={this.handleDescriptionChange}
+                onChange={this.handleRateChange}
                 />
             </div>
             <div className="input-field col s3">
-              <input
-                defaultValue={this.props.job.rate}
+              <textarea
+                defaultValue={this.props.job.description}
                 onClick={this.handleClick}
-                onChange={this.handleRateChange}
+                onChange={this.handleDescriptionChange}
+                style={descriptionStyle}
                 />
             </div>
             <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>

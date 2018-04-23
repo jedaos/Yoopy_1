@@ -478,3 +478,20 @@ span#unred{
     padding: 0rem 3rem;
   }
 }
+// #74D14C
+.tabs .jobsPage a {
+  color: #74D14C;
+  font-size: 20px;
+}
+.tabs .jobsPage a.active {
+  color: #74D14C;
+  font-size: 20px;
+}
+.tabs .jobsPage a:hover {
+  color: #479e1f;
+  font-size: 20px;
+  background-color: #d4edc9;
+}
+.joblist .indicator {
+  background-color: #74D14C;
+}

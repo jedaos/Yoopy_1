@@ -28,6 +28,13 @@ class NewFriendJob extends React.Component {
           job: data
         })
         this.props.onNewJob(data);
+        this.setState({
+          job: {
+            name: '',
+            description: '',
+            rate: ''
+          }
+        })
       }
     })
 
