@@ -15,8 +15,11 @@ html {
   margin: -1rem 0rem;
 }
 
-body {
-
+select {
+  display: block;
+}
+label {
+  font-size: 1.2rem;
 }
 
 // spinner

@@ -1,7 +1,8 @@
 class FriendJobsController < ApplicationController
 
-
+  RATES = [100, 200, 300]
   respond_to :json
+
 
   def index
     @friendJobs = FriendJob.all
@@ -12,6 +13,7 @@ class FriendJobsController < ApplicationController
   end
 
   def create
+
     @friendJob = FriendJob.new(friend_job_params)
     @friendJob.friend_id = current_friend.id
     @friendJob.save
