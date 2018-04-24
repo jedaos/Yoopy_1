@@ -104,7 +104,7 @@ class FriendJob extends React.Component {
                 />
             </div>
             <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>
-            <button onClick={this.handleDelete} type = "Submit" className="btn btn-primary green">Delete</button>
+            <button onClick={this.handleDelete} type ="Submit" className="btn btn-primary green">Delete</button>
           </div>
         </form>
       </div>

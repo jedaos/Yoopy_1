@@ -1,6 +1,13 @@
-<div class="container">
-  <h1>Yoopy Friends</h1>
-  <h4>Yoopy puts you in contact with medical professionals quick so you can get help when you need it.</h4>
-  <%= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: @friendJobs.to_json) %>
+<div class="hide-on-med-and-down">
+  <div class="row" id="dashboard-wrapper">
+    <%= render 'friend_sidebar' %>
 
+    <!-- Dashboard Content - Right of the sidebar -->
+    <div class="col s9" id="dash-content">
+      <div class="col s6">
+        <%= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: @friendJobs.to_json) %>
+
+      </div>
+    </div>
+  </div>
 </div>

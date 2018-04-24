@@ -64,26 +64,26 @@ class NewFriendJob extends React.Component {
     const job = this.state.job;
 
     return (
-    <div className="center" id="friendJobForm">
+    <div className="" id="friendJobForm">
       <div className="row">
         <form className="col s12" onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="col s3">
-              <div className="input-field col s12">
 
+            <div>
+              <div className="input-field col s12">
                 <input
                   type='text'
                   onChange={this.handleTitleChange}
                   value={job.name}
-                  placeholder="Title"
+                  placeholder="Job Name"
                   >
                 </input>
               </div>
             </div>
 
-            <div className="right-align">
+            <div>
               <div className="input-field col s6">
-                <div className="col s6">
+                <div className="">
                   <select className="browser-default" value={job.rate} onChange={this.handleRateChange}>
                     <option value="Rate" className="disabled">Rate</option>
                     <option value="100">$100</option>
@@ -93,30 +93,25 @@ class NewFriendJob extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col s12">
-              <div className="row">
-                <div className="input-field">
+
+              <div>
+                <div className="input-field col s12">
                   <textarea
                     id="description"
                     type='text'
                     onChange={this.handleDescriptionChange}
                     value={job.description}
-                    placeholder="Description"
+                    placeholder="Add a description to tell us about the type of medical professional you're looking for"
                     >
                   </textarea>
-                  </div>
                 </div>
               </div>
-          </div>
-
-          <div className="row">
-            <div className="col s">
-              <input className="btn btn-primary" type="submit" value="Submit"></input>
             </div>
+            <input className="btn-large green-button" type="submit" value="Post Job"></input>
+
+            </form>
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
     );
   }
 }
