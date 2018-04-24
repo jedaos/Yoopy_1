@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  has_many :slots, dependent: :destroy
+  has_many :slots, as: :reservable, dependent: :destroy
   belongs_to :hospital
   # belongs_to :friend
   has_many :profs, through: :slots, dependent: :destroy

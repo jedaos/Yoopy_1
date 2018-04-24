@@ -30,7 +30,7 @@ class JobsController < ApplicationController
       Prof.all.each do |prof|
         Notification.create(recipient: prof, actor: current_hospital, action: "posted", notifiable: @job)
       end
-      @job.slot_num.to_i.times {Slot.create({:job_id => @job.id})}
+      @job.slot_num.to_i.times {Slot.create({reservable_type: 'Job' ,reservable_id: @job.id})}
       redirect_to dashboard_index_path
     else
       p @job.errors.full_messages
@@ -49,7 +49,7 @@ class JobsController < ApplicationController
 
 
     def update
-      if @job.update(job_params)        
+      if @job.update(job_params)
         redirect_to dashboard_index_path
       else
         render nothing: true, status: :unprocessable_entity
