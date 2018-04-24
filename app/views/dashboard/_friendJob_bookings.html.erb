@@ -1,11 +1,11 @@
-<div id="residential_bookings" class="col s12">
+
+<div class="card">
   <% current_prof.bookings.resident.each do |booking| %>
-      <div class="card">
         <div class="job-booked-title">
           <h4><%= booking.slot.reservable.name %></h4>
         </div>
         <div class="row card-content">
-          <div class="col s4">
+          <div class="col s6">
             <ul>
               <li>Job Name: <br>
                 <p><%= booking.slot.reservable.name %></p></li>
@@ -13,7 +13,7 @@
                 <p><%= booking.slot.reservable.description %></p></li>
             </ul>
           </div>
-          <div class="col s4">
+          <div class="col s6">
             <ul>
               <li>Pay: <br>
                 <p>$<%= booking.slot.reservable.rate %>0</p></li>
@@ -26,4 +26,5 @@
       <h5>You havent booked any residential jobs.</h5>
     </div>
   <% end %>
+
 </div>

@@ -1,11 +1,10 @@
-<div id="hospital_bookings" class="col s12">
+<div class="card">
   <% current_prof.bookings.institute.each do |booking| %>
-      <div class="card">
         <div class="job-booked-title">
           <h4><%= booking.slot.reservable.hospital.institution_name %></h4>
         </div>
         <div class="row card-content">
-          <div class="col s4">
+          <div class="col s6">
             <ul>
               <li>Job Name: <br>
                 <p><%= booking.slot.reservable.name %></p></li>
@@ -13,7 +12,7 @@
                 <p><%= booking.slot.reservable.description %></p></li>
             </ul>
           </div>
-          <div class="col s4">
+          <div class="col s6">
             <ul>
               <li>Contact: <br>
                 <p><%= booking.slot.reservable.hospital.phone %></p></li>
@@ -26,6 +25,6 @@
   <% if current_prof.bookings.institute.empty? %>
 
       <h5>You havent booked any hospital jobs.</h5>
-    
+
   <% end %>
 </div>
