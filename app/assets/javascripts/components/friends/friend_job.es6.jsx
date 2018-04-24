@@ -65,7 +65,7 @@ class FriendJob extends React.Component {
     e.preventDefault();
   }
 
-  handleDelete(){    
+  handleDelete(){
     return this.props.onDelete(this.props.job)
   }
 
@@ -75,31 +75,26 @@ class FriendJob extends React.Component {
       overflow: 'scroll'
     }
     return (
-      <div key={this.props.job.id}>
+      <div key={this.props.job.id} style={{padding: '10px'}}>
         <form>
-          <div className="container">
-            <div className="input-field col s3">
+          <div className="card">
               <input
                 defaultValue={this.props.job.name}
                 onClick={this.handleClick}
                 onChange={this.handleNameChange}
                 />
-            </div>
-            <div className="input-field col s3">
+
               <input
                 defaultValue={"$" + this.props.job.rate}
                 onClick={this.handleClick}
                 onChange={this.handleRateChange}
                 />
-            </div>
-            <div className="input-field col s3">
               <textarea
                 defaultValue={this.props.job.description}
                 onClick={this.handleClick}
                 onChange={this.handleDescriptionChange}
                 style={descriptionStyle}
                 />
-            </div>
             <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>
             <button onClick={this.handleDelete} type ="Submit" className="btn btn-primary green">Delete</button>
           </div>

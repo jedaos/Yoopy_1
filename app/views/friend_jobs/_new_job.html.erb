@@ -29,15 +29,13 @@
 
     <div class="actions">
       <%= f.submit id: 'submit_job', class:'btn #bdbdbd grey lighten-1' %>
-      <%= submit_tag("Cancel", :id => "Cancel", class:"btn #bdbdbd grey lighten-1")%>
+      <%#= submit_tag("Cancel", :id => "Cancel", class:"btn #bdbdbd grey lighten-1")%>
 
     </div>
 
     <script language="javascript">
       $(document).ready(function() {
-        $('#Cancel').click(function() {
-          $('#new_job_form').hide();
-        })
+
         $('#slider1').change(function(){
           var value = $('#slider1').val()
           $('#rate_value').text(`$${value}.00`)
