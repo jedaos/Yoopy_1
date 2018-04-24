@@ -75,15 +75,16 @@ class FriendJob extends React.Component {
       overflow: 'scroll'
     }
     return (
-      <div key={this.props.job.id} style={{padding: '10px'}}>
+      <div key={this.props.job.id} >
         <form>
-          <div className="card">
+          <div className="card" id="friends-job-edit">
               <input
                 defaultValue={this.props.job.name}
                 onClick={this.handleClick}
                 onChange={this.handleNameChange}
                 />
 
+              
               <input
                 defaultValue={"$" + this.props.job.rate}
                 onClick={this.handleClick}
@@ -96,7 +97,7 @@ class FriendJob extends React.Component {
                 style={descriptionStyle}
                 />
             <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>
-            <button onClick={this.handleDelete} type ="Submit" className="btn btn-primary green">Delete</button>
+            <button onClick={this.handleDelete} type ="Submit" className="btn gray-button">Delete</button>
           </div>
         </form>
       </div>

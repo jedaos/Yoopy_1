@@ -14,15 +14,10 @@ class AllFriendJobs extends React.Component {
     });
   }
 
-
-
-
   render () {
     return (
       <div>
         <div>
-
-          <NewFriendJob owner={this.props.owner} onNewJob={this.handleNewJob} />
           <CurrentFriendJobsWrapper friendJobs={this.state.friendJobs} />
         </div>
       </div>

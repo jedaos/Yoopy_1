@@ -5,9 +5,18 @@
     <!-- Dashboard Content - Right of the sidebar -->
     <div class="col s9" id="dash-content">
       <div class="col s6">
-        <h5>Looking for a medical professional?<br>Post a job below.</h5>
-        <div class="underline-gray"></div>
+        <div id="jobs" class="jobs-card-friends">
+          <% if current_friend.friendJobs.nil? %>
+          <h4>You Don't Have Any Job Postings</h4>
+          <% else %>
+          <h5>Update or Delete Current Jobs</h5>
+          <div class="underline-gray"></div>
 
+          <%= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: @friendJobs.to_json) %>
+          <% end %>
+        </div>
+
+        <!-- New Friend Job Posting Modal -->
         <div id='modal_friend' class="modal">
           <div class="modal-content">
             <%= render 'friend_jobs/new_job' %>
@@ -121,6 +130,9 @@
                 <% end %>
               <% end %>
             <% end %>
+            <div class="job-posting-footer">
+              <h6>Job postings will expire after 3 hours unless booked</h6>
+            </div>
           <% end %>
         <% end %>
       </div>

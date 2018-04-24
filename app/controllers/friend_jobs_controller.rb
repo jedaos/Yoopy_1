@@ -1,6 +1,5 @@
 class FriendJobsController < ApplicationController
 
-  RATES = [100, 200, 300]
   respond_to :json
 
 

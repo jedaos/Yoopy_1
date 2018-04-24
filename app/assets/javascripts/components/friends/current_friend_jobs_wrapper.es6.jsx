@@ -24,10 +24,9 @@ class CurrentFriendJobsWrapper extends React.Component {
 
     }
 
-
   render () {
     return (
-        <div className="container" id="FriendJobList">
+        <div className="" id="FriendJobList">
           {this.props.friendJobs.map(x => {
           return <FriendJob key={x.id} job={x} onDelete={this.handleDelete} />
           })}
