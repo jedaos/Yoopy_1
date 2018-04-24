@@ -495,3 +495,21 @@ span#unred{
 .joblist .indicator {
   background-color: #74D14C;
 }
+//prof dashboard tabs
+ul.tabsDash .indicator {
+  background-color: #74D14C;
+}
+.dashTab a {
+  color: #74D14C;
+  font-size: 20px;
+}
+.dashTab a.active {
+  color: #74D14C;
+  font-size: 20px;
+  border-bottom: 1px solid #74D14C
+}
+.dashTab a:hover {
+  color: #479e1f;
+  font-size: 20px;
+  background-color: #d4edc9;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423190830) do
+ActiveRecord::Schema.define(version: 20180424214944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180423190830) do
     t.bigint "slot_id"
     t.bigint "prof_id"
     t.boolean "paid", default: false
+    t.string "booking_type"
     t.index ["prof_id"], name: "index_bookings_on_prof_id"
     t.index ["slot_id"], name: "index_bookings_on_slot_id"
   end

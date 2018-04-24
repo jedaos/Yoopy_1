@@ -85,60 +85,50 @@
           </div>
         </div>
         <% end %>
-
-        <!-- End of Yoopy Profile Card -->
-        <% if current_prof.bookings.count > 0 %>
-          <h4>Your current jobs</h4>
-          <div class="underline-gray"></div>
-          <% current_prof.bookings.each do |booking| %>
-          <div class="card">
-            <div class="job-booked-title">
-              <h4><%= booking.slot.reservable.hospital.institution_name %></h4>
-            </div>
-            <div class="row card-content">
-              <div class="col s6">
-                <ul>
-                  <li>Job Name: <br>
-                    <p><%= booking.slot.reservable.name %></p></li>
-                  <li>Job Description: <br>
-                    <p><%= booking.slot.reservable.description %></p></li>
-                </ul>
-              </div>
-              <div class="col s6">
-                <ul>
-                  <li>Contact: <br>
-                    <p><%= booking.slot.reservable.hospital.phone %></p></li>
-                  <li>Pay: <br>
-                    <p>$<%= booking.slot.reservable.rate %>0</p></li>
-                </ul>
-              </div>
-            </div>
-
-          <% end %>
-          </div>
-        <% else %>
-        <h5>You don't have any jobs</h5>
-        <%= link_to 'Find Jobs', jobs_path, class:'btn green-button' %>
-
-        <% end %>
-
-
-
     </div>
+  <% if current_prof.bookings.count > 0 %>
+    <div class="container bookings">
+      <div class="underline-gray"></div>
+      <div class="row align-center">
+        <div class="col s12">
+          <h4>Your current jobs</h4>
+          <ul class="tabsDash">
+            <li class="tab col s6 dashTab"><a href="#hospital_bookings">Hospital Jobs</a></li>
+            <li class="tab col s6 dashTab"><a href="#residential_bookings">Residential Jobs</a></li>
 
 
+                <%= render 'hospital_bookings' %>
+
+
+                <%= render 'friendJob_bookings' %>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
 
 
 
   </div>
 
   </div>
+
   </div>
+
 </div>
+<!-- End of Yoopy Profile Card -->
+
 
 
 
 <!-- Mobile Version -->
 <div class="hide-on-large-only">
-  <%= render 'mobile_prof' %>
+  <%# render 'mobile_prof' %>
 </div>
+<script type="text/javascript">
+
+    $('ul.tabsDash').tabs();
+
+</script>

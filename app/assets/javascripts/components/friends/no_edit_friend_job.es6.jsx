@@ -12,7 +12,7 @@ class NoEditFriendJob extends React.Component {
             <span id="reserve-buttons">
               {this.props.friendJob.slots.map(slot => {
                 return (<li key={slot.id} style={{listStyle: 'none'}}>
-                <FriendJobSlot key={slot.id} job={slot.reservable_id} available={slot.available} id={slot.id} />
+                <FriendJobSlot key={slot.id} job={slot.reservable_id} available={slot.available} type={slot.reservable_type} id={slot.id} />
               </li>)
               })}
             </span>

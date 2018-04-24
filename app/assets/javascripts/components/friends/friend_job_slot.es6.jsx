@@ -16,6 +16,7 @@ class FriendJobSlot extends React.Component {
       data: {
         booking: {
           slot_id: this.props.id,
+          booking_type: this.props.type          
         }
       },
       success: (response) => {
