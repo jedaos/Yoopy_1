@@ -9,6 +9,11 @@ class NoEditFriendJob extends React.Component {
               <li><h5>Rate:</h5></li>
               <p>${this.props.friendJob.rate}0</p>
             </ul>
+            <ul>
+              {this.props.friendJob.slots.map(slot => {
+                return (<li key={slot.id}><FriendJobSlot key={slot.id} job={slot.reservable_id} available={slot.available} id={slot.id} /></li>)
+              })}
+            </ul>
           </div>
 
 
