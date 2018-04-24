@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <% if current_prof.link_provider.nil? %>
+      <% if current_prof.link_token.nil? %>
       <div class="card-panel grey lighten-5">
         <div class="row valign-wrapper">
           <div class="col s6" id="ask-linkedin">
@@ -93,23 +93,23 @@
           <% current_prof.bookings.each do |booking| %>
           <div class="card">
             <div class="job-booked-title">
-              <h4><%= booking.slot.job.hospital.institution_name %></h4>
+              <h4><%= booking.slot.reservable.hospital.institution_name %></h4>
             </div>
             <div class="row card-content">
               <div class="col s6">
                 <ul>
                   <li>Job Name: <br>
-                    <p><%= booking.slot.job.name %></p></li>
+                    <p><%= booking.slot.reservable.name %></p></li>
                   <li>Job Description: <br>
-                    <p><%= booking.slot.job.description %></p></li>
+                    <p><%= booking.slot.reservable.description %></p></li>
                 </ul>
               </div>
               <div class="col s6">
                 <ul>
                   <li>Contact: <br>
-                    <p><%= booking.slot.job.hospital.phone %></p></li>
+                    <p><%= booking.slot.reservable.hospital.phone %></p></li>
                   <li>Pay: <br>
-                    <p>$<%= booking.slot.job.rate %>0</p></li>
+                    <p>$<%= booking.slot.reservable.rate %>0</p></li>
                 </ul>
               </div>
             </div>

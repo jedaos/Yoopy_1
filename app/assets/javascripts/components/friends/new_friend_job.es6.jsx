@@ -6,6 +6,7 @@ class NewFriendJob extends React.Component {
         name: '',
         description: '',
         rate: '',
+        slot_num: ''
       }
     }
 
@@ -13,6 +14,7 @@ class NewFriendJob extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
     this.handleRateChange = this.handleRateChange.bind(this)
+    this.handleSlotChange = this.handleSlotChange.bind(this)
   }
 
   handleSubmit(e){
@@ -28,6 +30,14 @@ class NewFriendJob extends React.Component {
           job: data
         })
         this.props.onNewJob(data);
+        this.setState({
+          job: {
+            name: '',
+            description: '',
+            rate: '',
+            slot_num: ''
+          }
+        })
       }
     })
 
@@ -59,6 +69,15 @@ class NewFriendJob extends React.Component {
       }
     }))
   }
+  handleSlotChange(e){
+    let slot_num = e.target.value
+    this.setState(prevState => ({
+        job: {
+          ...prevState.job,
+        slot_num: slot_num
+      }
+    }))
+  }
 
   render () {
     const job = this.state.job;
@@ -80,7 +99,29 @@ class NewFriendJob extends React.Component {
                 </input>
               </div>
             </div>
+          </div>
 
+          <div className="row">
+
+                  <div className="col s6">
+                      <select className="browser-default" value={job.rate} onChange={this.handleRateChange}>
+                        <option value="Rate" className="disabled">Rate</option>
+                        <option value="100">$100</option>
+                        <option value="200">$200</option>
+                        <option value="300">$300</option>
+                      </select>
+                    </div>
+
+                  <div className="col s6">
+                      <select className='browser-default' value={job.slot_num} onChange={this.handleSlotChange}>
+                        <option value="Slots" className="disabled"> Number of Professionals</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
+                  </div>
+
+<<<<<<< HEAD
             <div>
               <div className="input-field col s6">
                 <div className="">
@@ -96,6 +137,13 @@ class NewFriendJob extends React.Component {
 
               <div>
                 <div className="input-field col s12">
+=======
+              </div>
+
+            <div className="col s12">
+              <div className="row">
+                <div className="input-field">
+>>>>>>> 8a603b84532fa3ca768838d5fbbc24a8cd46b887
                   <textarea
                     id="description"
                     type='text'
@@ -106,12 +154,27 @@ class NewFriendJob extends React.Component {
                   </textarea>
                 </div>
               </div>
+<<<<<<< HEAD
+=======
+
+
+          <div className="row">
+            <div className="col s1">
+              <input className="btn btn-primary" type="submit" value="Submit"></input>
+>>>>>>> 8a603b84532fa3ca768838d5fbbc24a8cd46b887
             </div>
             <input className="btn-large green-button" type="submit" value="Post Job"></input>
 
             </form>
           </div>
+<<<<<<< HEAD
         </div>
+=======
+        </form>
+      </div>
+
+
+>>>>>>> 8a603b84532fa3ca768838d5fbbc24a8cd46b887
     );
   }
 }

@@ -1,6 +1,7 @@
-<% if @prof.link_provider.nil? %>
+ <% if @prof.link_token.nil? %>
  <h4>This person has not allowed us access to their LinkedIn profile.</h4>
-<% else %>
+ 
+ <% else %>
     First Name: <%= @li_profile.profile["first_name"] %>
     <br />
     Last Name: <%= @li_profile.profile["last_name"] %>

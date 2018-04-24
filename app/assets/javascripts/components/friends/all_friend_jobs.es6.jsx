@@ -4,8 +4,8 @@ class AllFriendJobs extends React.Component {
     this.state = {
       friendJobs: JSON.parse(this.props.friendJobs)
     }
-
     this.handleNewJob = this.handleNewJob.bind(this);
+
   }
 
   handleNewJob(job) {
@@ -13,6 +13,9 @@ class AllFriendJobs extends React.Component {
       friendJobs: [...this.state.friendJobs, job]
     });
   }
+
+
+
 
   render () {
     return (

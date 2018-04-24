@@ -23,11 +23,10 @@ class Timer extends React.Component {
     s = (s - secs) / 60;
     var mins = s % 60;
     var hrs = (s - mins) / 60;
-
     this.setState({
     time: hrs + ':' + mins + ':' + secs
     })
-  }
+}
   componentDidMount(){
     var self = this
   setInterval(function() {
@@ -37,9 +36,12 @@ class Timer extends React.Component {
 }
 
   render () {
-
-    return (
-      <div>
+    let style = {};
+    if (this.state.time === 0) {
+      style.display = 'none'
+    }
+    return(
+      <div style={style}>
         {this.state.time}
       </div>
     );

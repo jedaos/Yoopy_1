@@ -15,11 +15,6 @@ class ChargesController < ApplicationController
     @amount = params[:price].to_i
 
 
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      source: params[:stripeToken]
-    )
-
     if Prof.find(params[:prof_id]).uid.nil?
       redirect_to dashboard_index_path
       @error_message = "This person has not set up their Stripe account to receive payments"
@@ -30,7 +25,7 @@ class ChargesController < ApplicationController
       charge = Stripe::Charge.create({
         :amount => @amount,
         :currency => "usd",
-        :source => 'tok_visa',#params[:stripeToken],
+        :source => params[:stripeToken],
         :application_fee => commision
       },
           :stripe_account => Prof.find(params[:prof_id]).uid,

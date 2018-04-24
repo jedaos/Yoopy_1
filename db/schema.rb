@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412165642) do
+ActiveRecord::Schema.define(version: 20180423190830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180412165642) do
     t.datetime "updated_at", null: false
     t.decimal "rate", precision: 8, scale: 2
     t.bigint "friend_id"
+    t.integer "slot_num"
     t.index ["friend_id"], name: "index_friend_jobs_on_friend_id"
   end
 
@@ -139,13 +140,13 @@ ActiveRecord::Schema.define(version: 20180412165642) do
   create_table "slots", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "job_id"
     t.boolean "available", default: true
-    t.index ["job_id"], name: "index_slots_on_job_id"
+    t.string "reservable_type"
+    t.bigint "reservable_id"
+    t.index ["reservable_type", "reservable_id"], name: "index_slots_on_reservable_type_and_reservable_id"
   end
 
   add_foreign_key "bookings", "profs"
   add_foreign_key "bookings", "slots"
   add_foreign_key "jobs", "hospitals"
-  add_foreign_key "slots", "jobs"
 end
