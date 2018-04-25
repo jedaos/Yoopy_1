@@ -32,11 +32,8 @@ class DashboardController < ApplicationController
 
   def prof_show
     @prof = Prof.find(params[:id])
-    # @jobs = current_hospital.jobs
-    # slots = jobs.each{|job| job.slots}
-    # booking = Prof.find(Booking.first.prof_id)
     if @prof.link_provider.nil?
-
+      flash[:error] = "This person has not registered through LinkedIn"
     else
       @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
       @li_profile.authorize_from_access(@prof.link_token, @prof.link_secret)

@@ -70,6 +70,14 @@
               <li><h6>Contact: <%= slot.prof.phone %></h6></li>
 
               <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+              <div id="modal_prof_friend" class="modal friend">
+                <div class="modal-content-friend">
+
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                </div>
+              </div>
               <% if !slot.booking.paid %>
               <li><%= link_to "Remove Candidate", booking_path(:id => slot.booking.id), method: :delete %></li>
               <% end %>
@@ -80,13 +88,13 @@
               <li>
                 <%= form_tag charges_path, id: 'chargeForm' do %>
                 <div id="submit-text"></div>
-                <%= hidden_field_tag "price", job.amount_with_commision.to_i %>
-                <%= hidden_field_tag "prof_id", slot.prof.id %>
-                <%= hidden_field_tag "commision", Job.commision(job.rate) * 100  %>
-                <%= hidden_field_tag "booking_id", slot.booking.id %>
+                  <%= hidden_field_tag "price", friendJob_total(job.rate) %>
+                  <%= hidden_field_tag "prof_id", slot.prof.id %>
+                  <%= hidden_field_tag "commision", friendJob_comission(job.rate) * 100  %>
+                  <%= hidden_field_tag "booking_id", slot.booking.id %>
                 <script src="https://checkout.stripe.com/checkout.js"></script>
-                <%= hidden_field_tag 'stripeToken' %>
-                <%= hidden_field_tag 'stripeEmail' %>
+                  <%= hidden_field_tag 'stripeToken' %>
+                  <%= hidden_field_tag 'stripeEmail' %>
 
                 <button id="customButton<%= slot.prof.id %>" class="<%= slot.booking.paid? ? 'btn-large #42a5f5 blue lighten-1 disabled' : 'btn-large #42a5f5 blue lighten-1'  %>">Pay <%= slot.prof.name %></button>
 
