@@ -126,7 +126,7 @@
                   handler.open({
                     name: 'Yoopy',
                     description: "You will be charged a $<%= Job.commision(job.rate) %> fee.",
-                    amount: "<%= job.amount_with_commision.to_i %>",
+                    amount: "<%= friendJob_total(job.rate) %>",
 
                   }
                 );
