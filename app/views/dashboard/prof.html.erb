@@ -95,10 +95,11 @@
       <div class="row">
     <div class="col s12">
       <ul class="tabsDash">
-        <li class="tab col s3 dashTab"><a href="#hospital_bookings">Hospital Jobs</a></li>
-        <li class="tab col s3 dashTab"><a href="#residential_bookings">Residential Jobs</a></li>
+        <li class="tab col s6 dashTab"><a href="#hospital_bookings">Hospital Jobs</a></li>
+        <li class="tab col s6 dashTab"><a href="#residential_bookings">Residential Jobs</a></li>
       </ul>
     </div>
+    <br /><br />
 
     <div id="residential_bookings" class="col s12"><%= render 'friendJob_bookings' %></div>
     <div id="hospital_bookings" class="col s12"><%= render 'hospital_bookings' %></div>
@@ -122,7 +123,7 @@
   <%# render 'mobile_prof' %>
 </div>
 <script type="text/javascript">
-
+$(document).ready(function(){
     $('ul.tabsDash').tabs();
-
+})
 </script>
