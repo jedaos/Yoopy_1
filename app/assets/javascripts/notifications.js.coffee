@@ -18,7 +18,7 @@ class Notifications
       method: "POST"
       success: ->
         console.log "Success"
-        # $("[data-behavior='unread-count']").text(0)
+        $("[data-behavior='unread-count']").text(0)
     )
 
   handleSuccess: (data) =>

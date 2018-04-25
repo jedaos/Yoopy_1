@@ -2,9 +2,17 @@
   <% if current_prof.nil? %>
 There are currently no posted jobs
 <% else %>
-
-<%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots), prof_id: current_prof.id.to_s )%>
-<!-- <%= current_prof.id %> -->
-<!-- @jobs.as_json(only: :hospital_id, include:{hospital:{only: :institution_name} } ) -->
+<br />
+<br />
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs joblist">
+        <li class="tab col s6 jobsPage"><a href="#hospitalJobs">Hospital Jobs</a></li>
+        <li class="tab col s6 jobsPage"><a href="#residentialJobs">Residential Jobs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="hospitalJobs" class="col s12"><%= react_component("AllJobs", jobs: @jobs.as_json(include: :slots), prof_id: current_prof.id.to_s )%></div>
+  <div id="residentialJobs" class="col s12"><%= react_component("FriendJobsIndex", friendJobs: @friendJobs.as_json(include: :slots)) %></div>
 <% end %>
 </div>

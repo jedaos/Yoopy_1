@@ -15,6 +15,7 @@ class Slot extends React.Component {
       data: {
         booking: {
           slot_id: this.props.slot.id,
+          booking_type: this.props.slot.reservable_type          
         }
       },
       success: (response) => {

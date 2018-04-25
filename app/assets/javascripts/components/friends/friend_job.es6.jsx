@@ -24,87 +24,80 @@ class FriendJob extends React.Component {
     })
   }
   handleNameChange(e){
-    this.setState({
-      name: e.target.value
-    })
+    let name = e.target.value
+    this.setState(prevState => ({
+      ...prevState.name,
+      name: name
+    }))
   }
   handleDescriptionChange(e){
-    this.setState({
-      description: e.target.value
-    })
+    let description = e.target.value
+    this.setState(prevState => ({
+      ...prevState.description,
+      description: description
+    }))
   }
   handleRateChange(e){
-    this.setState({
-      rate: e.target.value
-    })
+    let rate = e.target.value
+    this.setState(prevState => ({
+      ...prevState.rate,
+      rate: rate
+    }))
   }
   handleSubmit(e){
     $.ajax({
       url: `/friend_jobs/${this.props.job.id}`,
       method: "PUT",
-      data: {friendJob:{
+      dataType: 'json',
+      data: {
+        friendJob: {
         name: this.state.name,
         description: this.state.description,
         rate: this.state.rate
       }},
-      success(response){
-        // $('#FriendJobList').append(response)
+      success: (data) => {
+        console.log(data);
       },
-      error(response){
+      error: (response) => {
         console.log("Error", response);
       }
     });
     e.preventDefault();
-
   }
-  handleDelete(e){
-    $.ajax({
-      url: `/friend_jobs/${this.props.job.id}`,
-      method: "DELETE",
-      data: {friendJob:{
-        name: this.state.name,
-        description: this.state.description,
-        rate: this.state.rate
-      }},
-      success(response){
-        console.log("Success", response);
-      },
-      error(response){
-        console.log("Error", response);
-      }
-    }
-  );
-    e.preventDefault();
+
+  handleDelete(){
+    return this.props.onDelete(this.props.job)
   }
 
   render () {
+    let descriptionStyle = {
+      height: '75',
+      overflow: 'scroll'
+    }
     return (
-      <div>
+      <div key={this.props.job.id} >
         <form>
-          <div className="container">
-            <div className="input-field col s3">
+          <div className="card" id="friends-job-edit">
               <input
                 defaultValue={this.props.job.name}
                 onClick={this.handleClick}
                 onChange={this.handleNameChange}
                 />
-            </div>
-            <div className="input-field col s3">
+
+              
               <input
-                defaultValue={this.props.job.description}
-                onClick={this.handleClick}
-                onChange={this.handleDescriptionChange}
-                />
-            </div>
-            <div className="input-field col s3">
-              <input
-                defaultValue={this.props.job.rate}
+                defaultValue={"$" + this.props.job.rate}
                 onClick={this.handleClick}
                 onChange={this.handleRateChange}
                 />
-            </div>
+              <textarea
+                defaultValue={this.props.job.description}
+                onClick={this.handleClick}
+                onChange={this.handleDescriptionChange}
+                style={descriptionStyle}
+                />
             <button onClick={this.handleSubmit} type="Submit" className="btn btn-primary green">Update</button>
-            <button onClick={this.handleDelete} type = "Submit" className="btn btn-primary green">Delete</button>
+            <button onClick={this.handleDelete} type ="Submit" className="btn gray-button">Delete</button>
           </div>
         </form>
       </div>

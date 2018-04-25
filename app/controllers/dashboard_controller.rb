@@ -3,27 +3,18 @@ class DashboardController < ApplicationController
 
   def index
 
-
-
     if current_prof
 
       @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
       @li_profile.authorize_from_access(current_prof.link_token, current_prof.link_secret)
       @li_profile
-
-
-
-
-      # pp session['li_profile']
-      # @li_profile.headline
-
       render 'dashboard/prof'
 
     elsif current_hospital
 
       @jobs = current_hospital.jobs
       @error_message
-      
+
       render 'dashboard/hospital'
 
     elsif current_friend
@@ -41,11 +32,8 @@ class DashboardController < ApplicationController
 
   def prof_show
     @prof = Prof.find(params[:id])
-    # @jobs = current_hospital.jobs
-    # slots = jobs.each{|job| job.slots}
-    # booking = Prof.find(Booking.first.prof_id)
     if @prof.link_provider.nil?
-
+      flash[:error] = "This person has not registered through LinkedIn"
     else
       @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
       @li_profile.authorize_from_access(@prof.link_token, @prof.link_secret)

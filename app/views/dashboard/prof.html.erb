@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <% if current_prof.link_provider.nil? %>
+      <% if current_prof.link_token.nil? %>
       <div class="card-panel grey lighten-5">
         <div class="row valign-wrapper">
           <div class="col s6" id="ask-linkedin">
@@ -86,59 +86,44 @@
         </div>
         <% end %>
 
-        <!-- End of Yoopy Profile Card -->
-        <% if current_prof.bookings.count > 0 %>
-          <h4>Your current jobs</h4>
-          <div class="underline-gray"></div>
-          <% current_prof.bookings.each do |booking| %>
-          <div class="card">
-            <div class="job-booked-title">
-              <h4><%= booking.slot.job.hospital.institution_name %></h4>
-            </div>
-            <div class="row card-content">
-              <div class="col s6">
-                <ul>
-                  <li>Job Name: <br>
-                    <p><%= booking.slot.job.name %></p></li>
-                  <li>Job Description: <br>
-                    <p><%= booking.slot.job.description %></p></li>
-                </ul>
-              </div>
-              <div class="col s6">
-                <ul>
-                  <li>Contact: <br>
-                    <p><%= booking.slot.job.hospital.phone %></p></li>
-                  <li>Pay: <br>
-                    <p>$<%= booking.slot.job.rate %>0</p></li>
-                </ul>
-              </div>
-            </div>
+    </div>
+  </div>
+  <% if current_prof.bookings.count > 0 %>
+    <div class="container bookings">
+      <div class="underline-gray"></div>
+      <h4>Your current jobs</h4>
+      <div class="row">
+    <div class="col s12">
+      <ul class="tabsDash">
+        <li class="tab col s6 dashTab"><a href="#hospital_bookings">Hospital Jobs</a></li>
+        <li class="tab col s6 dashTab"><a href="#residential_bookings">Residential Jobs</a></li>
+      </ul>
+    </div>
+    <br /><br />
 
-          <% end %>
-          </div>
-        <% else %>
-        <h5>You don't have any jobs</h5>
-        <%= link_to 'Find Jobs', jobs_path, class:'btn green-button' %>
-
-        <% end %>
+    <div id="residential_bookings" class="col s12"><%= render 'friendJob_bookings' %></div>
+    <div id="hospital_bookings" class="col s12"><%= render 'hospital_bookings' %></div>
 
 
 
     </div>
-
-
-
-
+  </div>
+    <% end %>
 
   </div>
 
-  </div>
-  </div>
 </div>
+<!-- End of Yoopy Profile Card -->
+
 
 
 
 <!-- Mobile Version -->
 <div class="hide-on-large-only">
-  <%= render 'mobile_prof' %>
+  <%# render 'mobile_prof' %>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('ul.tabsDash').tabs();
+})
+</script>

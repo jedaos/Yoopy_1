@@ -15,8 +15,11 @@ html {
   margin: -1rem 0rem;
 }
 
-body {
-
+select {
+  display: block;
+}
+label {
+  font-size: 1.2rem;
 }
 
 // spinner
@@ -218,7 +221,7 @@ body > nav > div > a.sidenav-trigger {
 }
 #dash-content {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   float: left;
 }
 #job-post-button {
@@ -249,12 +252,10 @@ body > nav > div > a.sidenav-trigger {
   color: #fff;
   border-radius: 12px 12px 0px 0px;
 }
-
 .getting-started {
   list-style: none;
   width: 100%;
   text-align: center;
-
 }
 .getting-started li {
   counter-increment: h6;
@@ -273,7 +274,6 @@ body > nav > div > a.sidenav-trigger {
   margin: 0 auto;
   display: inline-block;
   position: relative;
-
 }
 
 // Hospital Dashboard
@@ -297,6 +297,15 @@ body > nav > div > a.sidenav-trigger {
   text-align: center;
   color: #fff;
   border-radius: 0px 0px 12px 12px;
+}
+.gray-button {
+  background: #bdbdbd;
+  margin-left: 1rem;
+}
+// Friend Dashboard
+#friends-job-edit {
+  padding: 1rem;
+  line-height: 3.5rem;
 }
 
 // mobile hospital dash
@@ -477,4 +486,39 @@ span#unred{
   .nav-wrapper {
     padding: 0rem 3rem;
   }
+}
+//Jobs page Tabs
+.tabs .jobsPage a {
+  color: #74D14C;
+  font-size: 20px;
+}
+.tabs .jobsPage a.active {
+  color: #74D14C;
+  font-size: 20px;
+}
+.tabs .jobsPage a:hover {
+  color: #479e1f;
+  font-size: 20px;
+  background-color: #d4edc9;
+}
+.joblist .indicator {
+  background-color: #74D14C;
+}
+//prof dashboard tabs
+ul.tabsDash .indicator {
+  background-color: #74D14C;
+}
+.dashTab a {
+  color: #74D14C;
+  font-size: 20px;
+}
+.dashTab a.active {
+  color: #74D14C;
+  font-size: 20px;
+  border-bottom: 3px solid #74D14C  
+}
+.dashTab a:hover {
+  color: #479e1f;
+  font-size: 20px;
+  background-color: #d4edc9;
 }

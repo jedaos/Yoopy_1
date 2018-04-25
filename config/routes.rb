@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
   devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions", registrations: "hospitals/registrations" }
-  
+
   devise_for :profs, path: 'profs', controllers: { sessions: "profs/sessions", registrations: "profs/registrations",  :omniauth_callbacks => "omniauth_callbacks"  }
    #omniauth_callbacks: "profs/omniauth_callbacks"
   devise_scope :prof do

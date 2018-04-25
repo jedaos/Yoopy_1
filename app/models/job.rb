@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  has_many :slots, dependent: :destroy
+  has_many :slots, as: :reservable, dependent: :destroy
   belongs_to :hospital
   # belongs_to :friend
   has_many :profs, through: :slots, dependent: :destroy
@@ -15,7 +15,7 @@ class Job < ApplicationRecord
       return price * 0.10
     when 151..175
       return price * 0.05
-    when 176...00
+    when 176...200
       return price * 0.03
     else
       return price * 0.01

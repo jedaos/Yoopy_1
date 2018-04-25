@@ -1,6 +1,149 @@
-<div class="container">
-  <h1>Yoopy Friends</h1>
-  <h4>Yoopy puts you in contact with medical professionals quick so you can get help when you need it.</h4>
-  <%= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: @friendJobs.to_json) %>
+<div class="hide-on-med-and-down">
+  <div class="row" id="dashboard-wrapper">
+    <%= render 'friend_sidebar' %>
 
+    <!-- Dashboard Content - Right of the sidebar -->
+    <div class="col s9" id="dash-content">
+      <div class="col s6">
+        <div id="jobs" class="jobs-card-friends">
+          <% if current_friend.friendJobs.nil? %>
+          <h4>You Don't Have Any Job Postings</h4>
+          <% else %>
+          <h5>Update or Delete Current Jobs</h5>
+          <div class="underline-gray"></div>
+
+          <%= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: @friendJobs.to_json) %>
+          <% end %>
+        </div>
+
+        <!-- New Friend Job Posting Modal -->
+        <div id='modal_friend' class="modal">
+          <div class="modal-content">
+            <%= render 'friend_jobs/new_job' %>
+          </div>
+        </div>
+
+        <%#= react_component("AllFriendJobs", owner: current_friend.as_json(only: :id), friendJobs: @friendJobs.to_json) %>
+      </div>
+
+      <div class="col s6" id="job-slots">
+        <h5>Your Open Jobs</h5>
+        <div class="underline-gray"></div>
+        <% if current_friend.friendJobs.count == 0 %>
+          <p>You currently do not have any job postings<p>
+
+        <% else %>
+          <% current_friend.friendJobs.each do |job| %>
+            <div class="job-posting-title">
+              <h5>Job Posting: <%= job.name %></h5>
+              <p>The medical professionals for this job are listed below.</p>
+            </div>
+
+            <% x = 1 %>
+            <% job.slots.each do |slot| %>
+            <!-- If there are no bookings for a slot... -->
+            <% if slot.prof.nil?  %>
+            <div class="card-panel grey lighten-5">
+              <div class="row valign-wrapper">
+                <div class="col s4">
+                  <p>Job Opening #<%= x %></p>
+                  <h5>Not Booked</h5>
+                  <% x+=1 %>
+                </div>
+                <div class="col s8">
+                  <span class="black-text">
+                    <p>Your job has been listed! Medical professionals will appear here once this job opening is booked.</p>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- If there is a booking in a slot -->
+            <% else %>
+            <ul style="padding: 1rem;">
+              <li><h5><%= slot.prof.name %></h5></li>
+              <% if slot.prof.bio != nil %>
+                <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+              <% else %>
+                <li><h6>Bio: This user has not set a bio yet.</h6></li>
+              <% end %>
+              <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+
+              <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+              <div id="modal_prof_friend" class="modal friend">
+                <div class="modal-content-friend">
+
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                </div>
+              </div>
+              <% if !slot.booking.paid %>
+              <li><%= link_to "Remove Candidate", booking_path(:id => slot.booking.id), method: :delete %></li>
+              <% end %>
+              <!-- This will prevent Pay button from appearing if this Prof has not signed up with stripe -->
+              <% if slot.prof.uid.nil? %>
+                <li><strong>This person has not set up their stripe account</strong></li>
+              <% else %>
+              <li>
+                <%= form_tag charges_path, id: 'chargeForm' do %>
+                <div id="submit-text"></div>
+                  <%= hidden_field_tag "price", friendJob_total(job.rate) %>
+                  <%= hidden_field_tag "prof_id", slot.prof.id %>
+                  <%= hidden_field_tag "commision", friendJob_comission(job.rate) * 100  %>
+                  <%= hidden_field_tag "booking_id", slot.booking.id %>
+                <script src="https://checkout.stripe.com/checkout.js"></script>
+                  <%= hidden_field_tag 'stripeToken' %>
+                  <%= hidden_field_tag 'stripeEmail' %>
+
+                <button id="customButton<%= slot.prof.id %>" class="<%= slot.booking.paid? ? 'btn-large #42a5f5 blue lighten-1 disabled' : 'btn-large #42a5f5 blue lighten-1'  %>">Pay <%= slot.prof.name %></button>
+
+                <script>
+                let submittedForm = false
+                var handler = StripeCheckout.configure({
+                  key: '<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>',
+                  image: './assets/yoopy_logo_small.png',
+                  allowRememberMe: true,
+                  token: function(token) {
+                    document.getElementById("stripeToken").value = token.id;
+                    document.getElementById("stripeEmail").value = token.email;
+                    document.getElementById("chargeForm").submit();
+                    submittedForm = true;
+                    $('#submit-text').html('Processing, stand by');
+
+                  },
+                  closed: function(){
+                    if (submittedForm == true) {
+                      $('#customButton<%= slot.prof.id %>').html("Paid").addClass("disabled")
+                    } else {
+                      return false
+                    }
+                  }
+                });
+
+                document.getElementById('customButton<%= slot.prof.id %>').addEventListener('click', function(e) {
+                  // Open Checkout with further options
+                  handler.open({
+                    name: 'Yoopy',
+                    description: "You will be charged a $<%= Job.commision(job.rate) %> fee.",
+                    amount: "<%= friendJob_total(job.rate) %>",
+
+                  }
+                );
+                e.preventDefault();
+              });
+              </script>
+                  <% end %>
+                <!-- This is where if else ends for checkout Prof.uid -->
+                <% end %>
+              <% end %>
+            <% end %>
+            <div class="job-posting-footer">
+              <h6>Job postings will expire after 3 hours unless booked</h6>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

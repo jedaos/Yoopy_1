@@ -45,12 +45,7 @@
         <div class="actions">
           <div class="row">
               <%= f.submit "Sign up", class:"yoopy-button btn #1de9b6 teal accent-3", style: 'height: 50px; width: 207px; margin-bottom: 1rem;'%> <br>
-
-              <%- if devise_mapping.omniauthable? %>
-                <%- resource_class.omniauth_providers.each do |provider| %>
-                  <%= link_to image_tag("linkedIn_button.png", height: '50', ), omniauth_authorize_path(resource_name, provider) %>
-                <% end -%>
-              <% end %>
+                  <%= link_to image_tag("linkedIn_button.png", height: '50', ), prof_linkedin_omniauth_authorize_path %>
             </div>
           </div>
       <% end %>

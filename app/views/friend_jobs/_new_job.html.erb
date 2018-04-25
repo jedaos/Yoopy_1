@@ -1,0 +1,36 @@
+<%= form_with(scope: :friendJob, url: friend_jobs_path, method: 'post') do |f| %>
+  <h4>Post A New Job</h4>
+  <%= f.hidden_field :friend_id, :value=>current_friend.id %>
+
+    <div class="form-group">
+      <%= f.label 'Job Name' %>
+      <%= f.text_field :name, :required => true %>
+      <br>
+    </div>
+    <div class="form-group">
+      <%= f.label 'What type of medical professional are you looking for?' %>
+      <%= f.text_field :description, :required => true %>
+      <br>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Rate: " %>
+      <%= f.select(:rate, options_for_select([ ['$100', 100], ['$200', 200], ['$300', 300]])) %>
+      <br>
+
+    </div>
+
+    <div class="form-group">
+      <%# f.hidden_field :job_id, :value => params[:id] %>
+      <%= f.label 'How many medical professionals are you seeking?' %>
+      <%= f.text_field :slot_num %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit id: 'submit_job', class:'btn #bdbdbd grey lighten-1' %>
+      <%#= submit_tag("Cancel", :id => "Cancel", class:"btn #bdbdbd grey lighten-1")%>
+
+    </div>
+
+
+    <% end %>
