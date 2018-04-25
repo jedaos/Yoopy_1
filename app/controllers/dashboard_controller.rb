@@ -3,18 +3,11 @@ class DashboardController < ApplicationController
 
   def index
 
-
-
     if current_prof
 
       @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
       @li_profile.authorize_from_access(current_prof.link_token, current_prof.link_secret)
       @li_profile
-
-      
-      # pp session['li_profile']
-      # @li_profile.headline
-
       render 'dashboard/prof'
 
     elsif current_hospital

@@ -18,9 +18,6 @@ class NoEditFriendJob extends React.Component {
             </span>
           </div>
 
-
-
-
           <div className="col s6">
             <ul>
               <li><h5>Job Title:</h5></li>
