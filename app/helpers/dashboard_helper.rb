@@ -15,6 +15,6 @@ module DashboardHelper
   end
 
   def friendJob_total(price)
-    p (friendJob_comission(price).to_i + price) * 100
+    (friendJob_comission(price).to_i + price) * 100
   end
 end
