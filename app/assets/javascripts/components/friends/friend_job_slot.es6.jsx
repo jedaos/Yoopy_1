@@ -16,7 +16,7 @@ class FriendJobSlot extends React.Component {
       data: {
         booking: {
           slot_id: this.props.id,
-          booking_type: this.props.type          
+          booking_type: this.props.type
         }
       },
       success: (response) => {
@@ -37,7 +37,7 @@ class FriendJobSlot extends React.Component {
     if (this.state.available) {
       return (
         <button className={this.state.buttonClass} style={{fontSize: 10}} onClick={this.handleClick.bind(this)}>Reserve</button>
-      );
+      )
     } else {
       return (
         <p><i className='material-icons'>lock</i></p>

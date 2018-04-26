@@ -75,9 +75,9 @@
         <li>
           <%= form_tag charges_path, id: 'chargeForm' do %>
           <div id="submit-text"></div>
-          <%= hidden_field_tag "price", job.amount_with_commision.to_i %>
+          <%= hidden_field_tag "price", friendJob_total(job.rate) %>
           <%= hidden_field_tag "prof_id", slot.prof.id %>
-          <%= hidden_field_tag "commision", Job.commision(job.rate) * 100  %>
+          <%= hidden_field_tag "commision", friendJob_comission(job.rate) * 100  %>
           <%= hidden_field_tag "booking_id", slot.booking.id %>
           <script src="https://checkout.stripe.com/checkout.js"></script>
           <%= hidden_field_tag 'stripeToken' %>
@@ -112,8 +112,8 @@
             // Open Checkout with further options
             handler.open({
               name: 'Yoopy',
-              description: "You will be charged a $<%= Job.commision(job.rate) %> fee.",
-              amount: "<%= job.amount_with_commision.to_i %>",
+              description: "You will be charged a $<%= friendJob_comission(job.rate) %> fee.",
+              amount: "<%= friendJob_total(job.rate) %>",
 
             }
           );
