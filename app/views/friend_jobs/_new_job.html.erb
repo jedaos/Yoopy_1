@@ -15,7 +15,7 @@
 
     <div class="form-group">
       <%= f.label "Rate: " %>
-      <%= f.select(:rate, options_for_select([ ['$100', 100], ['$200', 200], ['$300', 300]])) %>
+      <%= f.select(:rate, options_for_select([['$1', 1 ], ['$100', 100], ['$200', 200], ['$300', 300]])) %>
       <br>
 
     </div>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit id: 'submit_job', class:'btn #bdbdbd grey lighten-1' %>
+      <%= f.submit "Submit", id: 'submit_job', class:'btn #bdbdbd grey lighten-1' %>
       <%#= submit_tag("Cancel", :id => "Cancel", class:"btn #bdbdbd grey lighten-1")%>
 
     </div>
