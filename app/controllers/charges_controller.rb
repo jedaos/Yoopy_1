@@ -3,11 +3,10 @@ class ChargesController < ApplicationController
 
 
   def new
+
   end
 
   def create
-
-
     Stripe.api_key = ENV["STRIPE_SECRET"]
 
 
@@ -37,11 +36,6 @@ class ChargesController < ApplicationController
     end
   end
 
-
-    # rescue Stripe::CardError => e
-    #   flash[:error] = e.message
-    #   redirect_to new_charge_path
-    # end
 
 
 end
