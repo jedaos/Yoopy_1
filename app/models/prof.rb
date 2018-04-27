@@ -4,7 +4,7 @@ class Prof < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-# signed_in_resource=nil
+
   def self.connect_to_stripe(access_token, _ = nil)
     data = access_token.info
       user = Prof.where(email: data['email']).first_or_create(
@@ -33,7 +33,7 @@ class Prof < ApplicationRecord
         registered_user.link_secret = auth["extra"]["access_token"].secret
         registered_user.link_token = auth["extra"]["access_token"].token
         registered_user.save
-        return registered_user#.update(link_token:auth["extra"]["access_token"].token, link_secret:auth["extra"]["access_token"].secret)
+        return registered_user
       else
         user = Prof.create(name:auth.info.first_name, link_provider:auth.provider, linkedin_uid:auth.uid, link_token:auth["extra"]["access_token"].token, link_secret:auth["extra"]["access_token"].secret, email:auth.info.email, password:Devise.friendly_token[0,20],
         )

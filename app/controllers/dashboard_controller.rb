@@ -44,9 +44,6 @@ class DashboardController < ApplicationController
       end
     end
 
-    def stripe_dash
-      
-    end
 
   def show
     @jobs = Job.all
