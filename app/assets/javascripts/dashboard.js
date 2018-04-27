@@ -6,3 +6,8 @@
 //     console.log("Click");
 //   })
 // })
+$(document).ready(function(){
+  $('#stripe_dash').click(function(){
+    window.open($('#stripe_account').text(), "_blank")
+  })
+})

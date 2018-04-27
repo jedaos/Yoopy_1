@@ -5,26 +5,18 @@ class Prof < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 # signed_in_resource=nil
-  def self.connect_to_stripe(auth, current_prof)
-      if current_prof
-        current_prof.uid = auth.uid
-        current_prof.provider = auth.provider
-        current_prof.publishable_key = auth.info.publishable_key
-        current_prof.save
-        return current_prof
-      elsif user = Prof.find_by(:provider => auth.provider, :uid => auth.uid)
-        return user
-      else
-        Prof.create(
-          name: auth.info.name,
-          email: auth.info.email,
-          publishable_key: auth.info.stripe_publishable_key,
-          uid: auth.uid,
-          provider: auth.provider,
-          password:Devise.friendly_token[0,20]
+  def self.connect_to_stripe(access_token, _ = nil)
+    data = access_token.info
+      user = Prof.where(email: data['email']).first_or_create(
+        email: data['email'],
+        password: Devise.friendly_token[0, 20],
+        provider: access_token.provider,
+        uid: access_token.uid,
+        access_code: access_token.credentials.token,
+        publishable_key: access_token.info.stripe_publishable_key
       )
+      return user
     end
-  end
 
 
   def self.connect_to_linkedin(auth, signed_in_resource=nil)

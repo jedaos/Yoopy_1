@@ -47,6 +47,11 @@
         <div class="row valign-wrapper">
           <div class="col s6" id="ask-linkedin">
             <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path %>
+            <button id="stripe_dash" class="btn btn-medium green">Stripe Account Balance</button>
+            <div id="stripe_account" style='display: none'>
+              <%= account = Stripe::Account.retrieve(current_prof.uid)
+                  account.login_links.create().url %>
+            </div>
 
           </div>
           <div class="col s6">

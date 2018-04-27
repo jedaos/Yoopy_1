@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
       @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
       @li_profile.authorize_from_access(current_prof.link_token, current_prof.link_secret)
       @li_profile
+
       render 'dashboard/prof'
 
     elsif current_hospital
@@ -41,6 +42,10 @@ class DashboardController < ApplicationController
       respond_to do |format|
         format.js {}
       end
+    end
+
+    def stripe_dash
+      
     end
 
   def show
