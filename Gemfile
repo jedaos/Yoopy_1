@@ -36,6 +36,7 @@ gem "linkedin"
 # gem 'bcrypt', '~> 3.1.7'
 gem 'materialize-sass', '~> 1.0.0.beta'
 gem 'jquery-rails'
+gem "scrollreveal-rails"
 
 # Sripe Connect
 gem 'stripe'

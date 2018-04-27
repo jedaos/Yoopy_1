@@ -131,10 +131,11 @@ body > nav > div > a.sidenav-trigger {
   font-size: 18px;
 }
 #homepage2 {
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 #about-us {
-  padding-top: 3rem;
+  padding-top: 1rem;
+  text-align: center;
 }
 #iphone-display {
   float: right;
@@ -161,7 +162,7 @@ body > nav > div > a.sidenav-trigger {
   margin-bottom: 4rem;
 }
 #for-facils, #for-profs {
-  margin-top: 15rem;
+  margin-top: 13rem;
 }
 // End of home page desktop
 
@@ -515,7 +516,7 @@ ul.tabsDash .indicator {
 .dashTab a.active {
   color: #74D14C;
   font-size: 20px;
-  border-bottom: 3px solid #74D14C  
+  border-bottom: 3px solid #74D14C
 }
 .dashTab a:hover {
   color: #479e1f;
