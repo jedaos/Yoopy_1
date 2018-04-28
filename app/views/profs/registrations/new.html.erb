@@ -1,75 +1,71 @@
 <div class="hide-on-med-and-down">
-  <div class="prof-signup-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col s7">
-          <h2 class="signup-text" id="signup-headline">Become a Yoopy Medical Professional</h2>
-          <h5 class="signup-text">Enter your information to get started.</h5>
-        </div>
 
-        <div class="col s5" id="form-background">
-          <%= form_for(:prof ,url: prof_registration_path, method: :post) do |f| %>
-            <%= devise_error_messages! %>
-
-            <div class="form-group">
-              <%#= f.label :name %>
-              <%= f.text_field :name, placeholder: 'Your Name' %>
-            </div>
-
-            <div class="form-group">
-              <%#= f.label :license_num %>
-              <%= f.text_field :license_num, placeholder: 'License Number' %>
-            </div>
-
-            <div class="form-group">
-              <%#= f.label :job_title %>
-              <%= f.text_field :job_title, placeholder: 'Job Title' %>
-            </div>
-
-            <div class="form-group">
-              <%#= f.label :phone %>
-              <%= f.text_field :phone, placeholder: 'Phone Number' %>
-            </div>
-            <div class="form-group">
-              <%#= f.label :email %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email Address' %>
-            </div>
-
-            <div class="form-group">
-              <%#= f.label :password %>
-
-              <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
-            </div>
-
-            <div class="form-group">
-              <%#= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password' %>
-            </div>
-
-
-            <div class="actions">
-              <div class="row">
-                <div class="col s6" id="signup">
-                  <%= f.submit "Sign up", class:"yoopy-button btn green-button", style: 'height: 50px'%>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="yoopy_form" id="msform">
+                <ul id="progressbar">
+                  <li class="active">Tell us about yourself</li>
+                  <li>Professional Information</li>
+                  <li>Start Getting Paid</li>
+                </ul>
+              <fieldset>
+                <%= devise_error_messages! %>
+                <h2 class="fs-title">Create your Yoopy account</h2>
+                <div class="form-group">
+                  <%#= f.label :name %>
+                  <%= f.text_field :name, placeholder: 'Your Name' %>
                 </div>
 
-                <div class="col s6" id="linkedin">
-                      <%= link_to image_tag("linkedIn_button.png", height: '50', ), prof_linkedin_omniauth_authorize_path %>                  
+                <div class="form-group">
+                  <%#= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email Address' %>
                 </div>
-              </div>
-            </div>
+                <div class="form-group">
+                  <%#= f.label :phone %>
+                  <%= f.text_field :phone, placeholder: 'Phone Number' %>
+                </div>
+                <div class="form-group">
+                  <%#= f.label :password %>
+
+                  <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+                </div>
+
+                <div class="form-group">
+                  <%#= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password' %>
+                </div>
+                <%= button_tag "Next", :type => 'button', :class => "next action-button" %>
+              </fieldset>
+              <fieldset id = "signupForm1">
+                <h2 class="fs-title">Professional Information</h2>
+                <div class="form-group">
+                  <%#= f.label :license_num %>
+                  <%= f.text_field :license_num, placeholder: 'License Number' %>
+                </div>
+
+                <div class="form-group">
+                  <%#= f.label :job_title %>
+                  <%= f.text_field :job_title, placeholder: 'Job Title' %>
+                </div>
+                <div class="actions">
+                  <div class="row">
+                    <div class="col s6" id="signup">
+                      <%= f.submit "Sign up", class:"yoopy-button btn green-button", style: 'height: 50px'%>
+                    </div>
+
+                  </div>
+                </div>
+                <%# button_tag "Next", :type => 'button', :class => "next action-button" %>
+              </fieldset>
+              <!-- <fieldset id = "signupForm2">
+                <h2 class="fs-title">Start getting paid</h2>
+                <%#link_to "Set Up Payments", "https://connect.stripe.com/express/oauth/authorize?redirect_uri=http://localhost:3000/profs/auth/stripe_connect/callback&client_id=#{ENV['STRIPE_CLIENT_ID']}&state=signup", class: 'btn-large blue-button' %>
+              </fieldset> -->
           <% end %>
-
-          <p>Already a Yoopy Professional?</p>
-          <%- if controller_name != 'sessions' %>
-            <%= link_to "Log in", new_session_path(resource_name) %><br />
-          <% end -%>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="hide-on-large-only">
-  <%= render 'mobile' %>
+          <!-- <p>Already a Yoopy Professional?</p> -->
+          <!-- <%# if controller_name != 'sessions' %> -->
+            <!-- <%# link_to "Log in", new_session_path(resource_name) %><br /> -->
+          <%# end -%>
+
 </div>

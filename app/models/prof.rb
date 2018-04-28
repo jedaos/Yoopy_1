@@ -7,14 +7,14 @@ class Prof < ApplicationRecord
 
   def self.connect_to_stripe(access_token, _ = nil)
     data = access_token.info
-      user = Prof.where(email: data['email']).first_or_create(
-        email: data['email'],
-        password: Devise.friendly_token[0, 20],
-        provider: access_token.provider,
-        uid: access_token.uid,
-        access_code: access_token.credentials.token,
-        publishable_key: access_token.info.stripe_publishable_key
-      )
+      user = Prof.where(email: data['email']).first
+        # user.email = data['email'],
+        # password: Devise.friendly_token[0, 20],
+        user.provider = access_token.provider
+        user.uid = access_token.uid
+        user.access_code = access_token.credentials.token
+        user.publishable_key = access_token.info.stripe_publishable_key
+        user.save
       return user
     end
 
