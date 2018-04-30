@@ -1,3 +1,7 @@
+<% content_for :prof do %>
+  <%= javascript_include_tag "signup/prof" %>
+  <%= stylesheet_link_tag 'signup/prof' %>
+<% end %>
 <div class="prof_sign_up">
   <div class="hide-on-med-and-down">
 
@@ -34,16 +38,15 @@
                   <h2 class="fs-title">Professional Information</h2>
                   <div class="form-group">
                     <%= f.text_field :license_num, placeholder: 'License Number' %>
-                  </div>
-
-                  <div class="form-group">
                     <%= f.text_field :job_title, placeholder: 'Job Title' %>
-                    <div class="actions">
-                      <div class="input-button" id="signup">
-                        <%= f.submit "Sign up", class:"yoopy-button btn green-button", style: 'height: 50px'%>
-                      </div>
+                  </div>
+                  <div class="actions">
+                    <div class="input-button" id="signup">
+                      <%= f.submit "Sign up", class: "action-button", style: 'height: 50px'%>
                     </div>
                   </div>
+
+                  <%= button_tag "Previous", :type => 'button', :class => "previous action-button" %>
                 </fieldset>
             <% end %>
           </div>

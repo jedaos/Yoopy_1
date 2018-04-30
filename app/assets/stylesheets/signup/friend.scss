@@ -1,0 +1,49 @@
+body {
+  background: url("https://d1x10phm9yoa51.cloudfront.net/wp-content/uploads/2017/05/NursingHomesVsAssistedLiving.jpg")
+    no-repeat center left;
+  background-size: cover;
+}
+#friend-form {
+  width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
+  background-color: rgba(11, 142, 66, 0.7);
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 5px;
+  padding-bottom: 20px;
+}
+#friend-form input,
+#friend-form textarea {
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  color: #e1e7ed;
+  font-size: 13px;
+}
+#friend-form input::-webkit-input-placeholder {
+  color: #e1e7ed;
+}
+#friend-form .action-button {
+  width: 100px;
+  background: #81c69e;
+  font-weight: bold;
+  color: #fff;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+#friend-form .action-button:hover,
+#friend-form .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
+}
+#friend-form h3 {
+  padding: 10px;
+  background-color: #81c69e;
+}
