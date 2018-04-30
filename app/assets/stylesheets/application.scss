@@ -8,8 +8,15 @@ SLEEK GRAY: #A5A5AF
 
 LOGO GREEN: #48DA37
 */
-h1, h2, h3, h4, h5, h6, p, a {
-  font-family: 'Open Sans', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-family: "Open Sans", sans-serif;
 }
 html {
   margin: -1rem 0rem;
@@ -31,36 +38,42 @@ label {
   display: none;
 }
 
-
 // Navigation
 nav {
-  background: rgba(255,255,255,0.80);
+  background: rgba(255, 255, 255, 0.8);
   height: 90px;
 }
 .nav-wrapper {
   padding: 0rem 6rem;
 }
 
-body > nav > div > ul > li > a:hover,body > nav > div > ul > li > a:active {
+body > nav > div > ul > li > a:hover,
+body > nav > div > ul > li > a:active {
   background-color: none;
 }
-body > nav > div > ul.right.hide-on-med-and-down > a:hover,.btn:hover, .btn-large:hover, .btn:focus, .btn-large:focus, .btn-floating:focus {
-  background-color: #6bbf3d!important;
+body > nav > div > ul.right.hide-on-med-and-down > a:hover,
+.btn:hover,
+.btn-large:hover,
+.btn:focus,
+.btn-large:focus,
+.btn-floating:focus {
+  background-color: #6bbf3d !important;
 }
-nav ul li:hover, nav ul li a:hover{
-   // background-color: #42a5f5;
-   background-color: #fff;;
-   // color: #fff;
-   border-bottom: 2px solid #48DA37;
+nav ul li:hover,
+nav ul li a:hover {
+  // background-color: #42a5f5;
+  background-color: #fff;
+  // color: #fff;
+  border-bottom: 2px solid #48da37;
 }
 body > nav > div > ul > li > a {
   color: #222;
   font-size: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   padding-top: 1rem;
 }
 
-#linkedin-signin img{
+#linkedin-signin img {
   margin-bottom: -1.1rem;
 }
 body > nav > div > a.sidenav-trigger {
@@ -110,7 +123,7 @@ body > nav > div > a.sidenav-trigger {
 #homepage1 {
   height: 90vh;
   width: 100%;
-  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy4_resized.jpg');
+  background-image: url("https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy4_resized.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -153,7 +166,7 @@ body > nav > div > a.sidenav-trigger {
 .underline-gray {
   height: 2px;
   width: 10rem;
-  background-color: #CCC;
+  background-color: #ccc;
   margin-bottom: 2rem;
 }
 .subtext {
@@ -161,7 +174,8 @@ body > nav > div > a.sidenav-trigger {
   color: #787878;
   margin-bottom: 4rem;
 }
-#for-facils, #for-profs {
+#for-facils,
+#for-profs {
   margin-top: 13rem;
 }
 // End of home page desktop
@@ -171,13 +185,14 @@ body > nav > div > a.sidenav-trigger {
   color: #222;
 }
 #homepage1-mobile {
-  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy_mobile.png');
+  background-image: url("https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy_mobile.png");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   height: 80vh;
 }
-#headline-mobile, #sub-headline-mobile {
+#headline-mobile,
+#sub-headline-mobile {
   color: #fff;
 }
 #sub-headline-mobile {
@@ -190,7 +205,6 @@ body > nav > div > a.sidenav-trigger {
 #homepage2-mobile {
   padding-top: 4rem;
 }
-
 
 // Dashboard
 #dashboard-wrapper {
@@ -232,7 +246,8 @@ body > nav > div > a.sidenav-trigger {
   padding: 2rem;
   border-radius: 12px 12px 12px 12px;
 }
-.jobs-card-hospitals, .new-job-card-hospitals {
+.jobs-card-hospitals,
+.new-job-card-hospitals {
   width: 50%;
 }
 .col.s3 {
@@ -262,7 +277,7 @@ body > nav > div > a.sidenav-trigger {
   counter-increment: h6;
   display: inline-block;
 }
-.getting-started li:before{
+.getting-started li:before {
   content: counter(h6);
   color: #fff;
   background: #6bbf3d;
@@ -286,7 +301,7 @@ body > nav > div > a.sidenav-trigger {
   display: inline-block;
 }
 .job-posting-title {
-  background: #44C824;
+  background: #44c824;
   padding: 1rem;
   text-align: center;
   color: #fff;
@@ -317,25 +332,24 @@ body > nav > div > a.sidenav-trigger {
 
 //Form Rate Display
 #new_job_form > div:nth-child(7) > span.thumb.active {
-  left: auto!important;
-  top: auto!important;
-  margin: 0 auto!important;
-  height: 0!important;
+  left: auto !important;
+  top: auto !important;
+  margin: 0 auto !important;
+  height: 0 !important;
   width: 30px;
-
 }
-input[type=range] + .thumb.active .value {
+input[type="range"] + .thumb.active .value {
   color: #222;
   font-size: 24px;
-  before: "$"
+  before: "$";
 }
-input[type=range] + .thumb.active .value::before {
+input[type="range"] + .thumb.active .value::before {
   content: "$";
 }
 
 // Facility Signup Page
 .facil-signup-wrapper {
-  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/facil_signup.png');
+  background-image: url("https://s3.us-east-2.amazonaws.com/yoopyimages/facil_signup.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1rem;
@@ -348,17 +362,21 @@ input[type=range] + .thumb.active .value::before {
   font-size: 22px;
   width: 80%;
 }
-.tab col.s3 a, .tabs .tab a:hover, .tabs .tab a.active, .tabs .tab a {
-  color: #1FA0FC;
+.tab col.s3 a,
+.tabs .tab a:hover,
+.tabs .tab a.active,
+.tabs .tab a {
+  color: #1fa0fc;
 }
 .tabs .indicator {
-  background-color: #1FA0FC;
+  background-color: #1fa0fc;
 }
-.tabs .tab a:focus, .tabs .tab a:focus.active {
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
   background-color: #fff;
 }
 #signup-form-headline {
-  color: #1FA0FC;
+  color: #1fa0fc;
   text-align: center;
 }
 #signup-headline {
@@ -373,17 +391,30 @@ input[type=range] + .thumb.active .value::before {
   color: #787878;
   font-size: 1.2rem;
 }
-span.character-coutner, #new_hospital > div > span {
+span.character-coutner,
+#new_hospital > div > span {
   display: none;
 }
-input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+input:not([type]):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #42a5f5;
   box-shadow: 1px solid #42a5f5;
 }
 
 // Professional sign up page
 .prof-signup-wrapper {
-  background-image: url('https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy_prof.png');
+  background-image: url("https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy_prof.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1rem;
@@ -421,38 +452,52 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 // footer
 .page-footer {
-  background-color: #A5A5AF!important;
+  background-color: #a5a5af !important;
   z-index: 99999;
 }
 //Slot buttons
-.btn.disabled, .disabled.btn-large, .btn-floating.disabled, .btn-large.disabled, .btn-flat.disabled, .btn:disabled, .btn-large:disabled, .btn-floating:disabled, .btn-large:disabled, .btn-flat:disabled, .btn[disabled], [disabled].btn-large, .btn-floating[disabled], .btn-large[disabled], .btn-flat[disabled] {
-      pointer-events: none;
-      background-color: #DFDFDF !important;
-      box-shadow: none;
-      color: #9F9F9F !important;
-      cursor: default;
-  }
-  .btn-floating {
-    display: inline-block;
-  }
+.btn.disabled,
+.disabled.btn-large,
+.btn-floating.disabled,
+.btn-large.disabled,
+.btn-flat.disabled,
+.btn:disabled,
+.btn-large:disabled,
+.btn-floating:disabled,
+.btn-large:disabled,
+.btn-flat:disabled,
+.btn[disabled],
+[disabled].btn-large,
+.btn-floating[disabled],
+.btn-large[disabled],
+.btn-flat[disabled] {
+  pointer-events: none;
+  background-color: #dfdfdf !important;
+  box-shadow: none;
+  color: #9f9f9f !important;
+  cursor: default;
+}
+.btn-floating {
+  display: inline-block;
+}
 //notifications unred / content
-span#unred{
+span#unred {
   color: black;
   position: relative;
   z-index: 100;
 }
-#dropdown{
+#dropdown {
   position: relative;
 }
 
-#dropdown1{
+#dropdown1 {
   position: relative;
   right: 0px;
   bottom: 50px;
   overflow: visible;
-  li{
-  background-color: rgb(242, 239, 239);
-  position: absolute;
+  li {
+    background-color: rgb(242, 239, 239);
+    position: absolute;
   }
 }
 
@@ -466,17 +511,20 @@ span#unred{
   #job_rate {
     width: 50%;
   }
-  #new_job_form > div:nth-child(7) > span:nth-child(4) > span,#new_job_form > div:nth-child(7) > span.character-counter, .character-counter {
+  #new_job_form > div:nth-child(7) > span:nth-child(4) > span,
+  #new_job_form > div:nth-child(7) > span.character-counter,
+  .character-counter {
     display: none;
   }
-  .jobs-card-hospitals, .new-job-card-hospitals {
+  .jobs-card-hospitals,
+  .new-job-card-hospitals {
     width: 100%;
   }
 }
 @media only screen and (max-width: 1200px) and (min-width: 900px) {
   #signup {
     width: 100%;
-    clear: both!important;
+    clear: both !important;
     margin-bottom: 1rem;
   }
   #linkedin {
@@ -490,11 +538,11 @@ span#unred{
 }
 //Jobs page Tabs
 .tabs .jobsPage a {
-  color: #74D14C;
+  color: #74d14c;
   font-size: 20px;
 }
 .tabs .jobsPage a.active {
-  color: #74D14C;
+  color: #74d14c;
   font-size: 20px;
 }
 .tabs .jobsPage a:hover {
@@ -503,20 +551,20 @@ span#unred{
   background-color: #d4edc9;
 }
 .joblist .indicator {
-  background-color: #74D14C;
+  background-color: #74d14c;
 }
 //prof dashboard tabs
 ul.tabsDash .indicator {
-  background-color: #74D14C;
+  background-color: #74d14c;
 }
 .dashTab a {
-  color: #74D14C;
+  color: #74d14c;
   font-size: 20px;
 }
 .dashTab a.active {
-  color: #74D14C;
+  color: #74d14c;
   font-size: 20px;
-  border-bottom: 3px solid #74D14C
+  border-bottom: 3px solid #74d14c;
 }
 .dashTab a:hover {
   color: #479e1f;
@@ -525,112 +573,133 @@ ul.tabsDash .indicator {
 }
 /*Form*/
 #msform {
-	width: 400px;
-	margin: 50px auto;
-	text-align: center;
-	position: relative;
+  width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
 }
 #msform fieldset {
-	background: rgba(56, 158, 9,0.7);
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	padding: 20px 30px;
+  background: rgba(56, 158, 9, 0.7);
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
 
-	box-sizing: border-box;
-	width: 80%;
-	margin: 0 10%;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
 
-	/*stacking fieldsets above each other*/
-	position: absolute;
+  /*stacking fieldsets above each other*/
+  position: absolute;
 }
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
-	display: none;
+  display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
-	padding: 5px;
-	border: 1px solid #333;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	width: 100%;
-	box-sizing: border-box;
-	font-family: montserrat;
-	color: #e1e7ed;
-	font-size: 13px;
+#msform input,
+#msform textarea {
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  color: #e1e7ed;
+  font-size: 13px;
 }
 #msform input::-webkit-input-placeholder {
-color: #e1e7ed;
+  color: #e1e7ed;
 }
 /*buttons*/
 #msform .action-button {
-	width: 100px;
-	background: #27AE60;
-	font-weight: bold;
-	color: #fff;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 10px 5px;
-	margin: 10px 5px;
+  width: 100px;
+  background: #27ae60;
+  font-weight: bold;
+  color: #fff;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
 }
-#msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
 }
 /*headings*/
 .fs-title {
-	font-size: 15px;
-	text-transform: uppercase;
-	color: #fff;
-	margin-bottom: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 10px;
 }
 /*progressbar*/
 #progressbar {
-	margin-bottom: 30px;
-	overflow: hidden;
-	/*CSS counters to number the steps*/
-	counter-reset: step;
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
 }
 #progressbar li {
-	list-style-type: none;
-	color: #333;
-	text-transform: uppercase;
-	font-size: 10px;
-	width: 33.33%;
-	float: left;
-	position: relative;
+  list-style-type: none;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 10px;
+  width: 33.33%;
+  float: left;
+  position: relative;
 }
 #progressbar li:before {
-	content: counter(step);
-	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
-	display: block;
-	font-size: 10px;
-	color: #333;
-	background: #ccc;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 10px;
+  color: #333;
+  background: #ccc;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
 }
 /*progressbar connectors*/
 #progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: #ccc;
-	position: absolute;
-	left: -50%;
-	top: 9px;
-	z-index: -1; /*put it behind the numbers*/
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /*put it behind the numbers*/
 }
 #progressbar li:first-child:after {
-	/*connector not needed before the first step*/
-	content: none;
+  /*connector not needed before the first step*/
+  content: none;
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
-	background: #27AE60;
-	color: #fff;
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: #27ae60;
+  color: #fff;
+}
+.input-button {
+  margin: auto;
+  text-align: center;
+}
+.yoopy-button:hover {
+  box-shadow: 5px 5px 5px rgb(226, 226, 226);
+}
+input .yoopy-button {
+  width: 100px;
+  background: #27ae60;
+  font-weight: bold;
+  color: #fff;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
 }
