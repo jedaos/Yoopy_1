@@ -11,26 +11,20 @@
                 <%= devise_error_messages! %>
                 <h2 class="fs-title">Create your Yoopy account</h2>
                 <div class="form-group">
-                  <%#= f.label :name %>
                   <%= f.text_field :name, placeholder: 'Your Name' %>
                 </div>
 
                 <div class="form-group">
-                  <%#= f.label :email %>
                   <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email Address' %>
                 </div>
                 <div class="form-group">
-                  <%#= f.label :phone %>
                   <%= f.text_field :phone, placeholder: 'Phone Number' %>
                 </div>
                 <div class="form-group">
-                  <%#= f.label :password %>
-
                   <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
                 </div>
 
                 <div class="form-group">
-                  <%#= f.label :password_confirmation %>
                   <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password' %>
                 </div>
                 <%= button_tag "Next", :type => 'button', :class => "next action-button" %>
@@ -38,34 +32,19 @@
               <fieldset id = "signupForm1">
                 <h2 class="fs-title">Professional Information</h2>
                 <div class="form-group">
-                  <%#= f.label :license_num %>
                   <%= f.text_field :license_num, placeholder: 'License Number' %>
                 </div>
 
                 <div class="form-group">
-                  <%#= f.label :job_title %>
                   <%= f.text_field :job_title, placeholder: 'Job Title' %>
-                </div>
-                <div class="actions">
-                  <div class="row">
-                    <div class="col s6" id="signup">
+                  <div class="actions">
+                    <div class="input-button" id="signup">
                       <%= f.submit "Sign up", class:"yoopy-button btn green-button", style: 'height: 50px'%>
                     </div>
-
                   </div>
                 </div>
-                <%# button_tag "Next", :type => 'button', :class => "next action-button" %>
               </fieldset>
-              <!-- <fieldset id = "signupForm2">
-                <h2 class="fs-title">Start getting paid</h2>
-                <%#link_to "Set Up Payments", "https://connect.stripe.com/express/oauth/authorize?redirect_uri=http://localhost:3000/profs/auth/stripe_connect/callback&client_id=#{ENV['STRIPE_CLIENT_ID']}&state=signup", class: 'btn-large blue-button' %>
-              </fieldset> -->
           <% end %>
         </div>
-
-          <!-- <p>Already a Yoopy Professional?</p> -->
-          <!-- <%# if controller_name != 'sessions' %> -->
-            <!-- <%# link_to "Log in", new_session_path(resource_name) %><br /> -->
-          <%# end -%>
 
 </div>
