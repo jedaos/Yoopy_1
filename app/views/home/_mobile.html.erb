@@ -2,26 +2,45 @@
   <div class="headline-box-mobile">
     <h3 id="headline-mobile">On Demand <br>Medical Staffing</h3>
     <p id="sub-headline-mobile">Yoopy connects healthcare facilities with healthcare professionals quickly.</p>
-    <%#= link_to 'Facility Sign-Up', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large #1de9b6 teal accent-3' %>
-    <%#= link_to 'Professional Sign-Up', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
     <a class="modal-trigger btn-large green-button" href="#mobilesignup" id="signup-button">Sign Up</a>
-    
-
   </div>
 </div>
 
 <div id="homepage2-mobile">
-  <div class="container">
+  <div class="container mobile-icons">
     <h3>About Us</h3>
-    <div class="underline-blue"></div>
+    <div class="underline-blue" style="margin: 0 auto;"></div>
     <p class="subtext">Yoopy provides healthcare professionals & healthcare facilities with more flexibility than any other service in the industry. <br> <br>During shortages or emergencies, Yoopy connects medical facilities with an on-demand supply of professionals.</p>
 
-  <div class="facilities-mobile">
-    <h3>For Medical Facilities</h3>
+    <div class="mobile-icons">
+      <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
+        <%= image_tag('stethoscope.png', :size => "150x150") %>
+        <h5>Professionals</h5>
+        <p class="subtext">Lorem ipsum dolor sit amet, nostrud fabulas accusata ad has, est lorem dicit cu, duo ad possim delenit ponderum.</p>
+      <% end %>
+    </div>
+
+    <div class="mobile-icons">
+      <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
+        <%= image_tag('medicine.png', :size => "150x150") %>
+        <h5>Facilities</h5>
+        <p class="subtext">Lorem ipsum dolor sit amet, nostrud fabulas accusata ad has, est lorem dicit cu, duo ad possim delenit ponderum.</p>
+      <% end %>
+    </div>
+
+    <div class="mobile-icons">
+      <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
+        <%= image_tag('heart.png', :size => "150x150") %>
+        <h5>Friends</h5>
+        <p class="subtext">Lorem ipsum dolor sit amet, nostrud fabulas accusata ad has, est lorem dicit cu, duo ad possim delenit ponderum.</p>
+      <% end %>
+    </div>
+
+    <!-- <div class="facilities-mobile">
+      <h3>For Medical Facilities</h3>
       <div class="underline-green"></div>
       <p class="subtext">Lorem ipsum dolor sit amet, magna in augue fringilla, turpis ad nulla lacus vel a, vestibulum class voluptas in vel sed. Dolor dapibus aptent nec curabitur, eros ac leo leo consectetuer, tortor per commodo dolor tellus in.</p>
       <%= link_to 'Become A Yoopy Facility', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large #1de9b6 teal accent-3' %>
-
     </div>
 
     <div class="professionals-mobile">
@@ -29,7 +48,7 @@
       <div class="underline-blue"></div>
       <p class="subtext">Yoopy lets you decide how valuable your time is, who you enjoy caring for, and what you choose to do. Be alerted on your mobile device when facilities in your area are paying for your services.</p>
       <%= link_to 'Become A Yoopy Professional', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
-    </div>
+    </div> -->
 
   </div>
 </div>
