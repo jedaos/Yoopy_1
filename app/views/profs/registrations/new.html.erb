@@ -1,6 +1,7 @@
 <% content_for :prof do %>
-  <%= javascript_include_tag "signup/prof" %>
-  <%= stylesheet_link_tag 'signup/prof' %>
+
+  <%= javascript_include_tag "signup/prof", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'signup/prof', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% end %>
 <div class="prof_sign_up">
   <div class="hide-on-med-and-down">

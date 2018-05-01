@@ -1,6 +1,6 @@
 <% content_for :friend do %>
-  <%= javascript_include_tag "signup/friend" %>
-  <%= stylesheet_link_tag 'signup/friend' %>
+  <%= javascript_include_tag "signup/friend", 'data-turbolinks-track': 'reload'%>
+  <%= stylesheet_link_tag 'signup/friend', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% end %>
 <div id="friend-form">
 <h3>Sign up</h3>

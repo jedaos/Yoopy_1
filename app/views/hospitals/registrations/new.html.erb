@@ -1,6 +1,7 @@
 <% content_for :hospital do %>
-  <%= javascript_include_tag "signup/hospital" %>
-  <%= stylesheet_link_tag 'signup/hospital' %>
+
+  <%= javascript_include_tag "signup/hospital", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'signup/hospital', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% end %>
 <div class="hide-on-med-and-down">
   <div class="facil-signup-wrapper">
