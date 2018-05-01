@@ -1,27 +1,23 @@
-<div class="card">
+<table class ="rwd-table">
+  <tr>
+    <th>Institution</th>
+    <th>Job Title</th>
+    <th>Description</th>
+    <th>Phone</th>
+    <th>Rate</th>
+    <th>Paid</th>
+  </tr>
   <% current_prof.bookings.institute.each do |booking| %>
-        <div class="job-booked-title">
-          <h4><%= booking.slot.reservable.hospital.institution_name %></h4>
-        </div>
-        <div class="row card-content">
-          <div class="col s6">
-            <ul>
-              <li>Job Name: <br>
-                <p><%= booking.slot.reservable.name %></p></li>
-              <li>Job Description: <br>
-                <p><%= booking.slot.reservable.description %></p></li>
-            </ul>
-          </div>
-          <div class="col s6">
-            <ul>
-              <li>Contact: <br>
-                <p><%= booking.slot.reservable.hospital.phone %></p></li>
-              <li>Pay: <br>
-                <p>$<%= booking.slot.reservable.rate %>0</p></li>
-            </ul>
-          </div>
-        </div>
+  <tr>
+      <td data-th="Institution"><%= booking.slot.reservable.hospital.institution_name %></td>
+      <td data-th="Job Title"><%= booking.slot.reservable.name %></td>
+      <td data-th="Description"><%= booking.slot.reservable.description %></td>
+      <td data-th="Phone"><%= booking.slot.reservable.hospital.phone %></td>
+      <td data-th="Rate">$<%= booking.slot.reservable.rate %>0</td>
+      <td data-th="Paid"> <%= booking.paid %></td>
+  </tr>
   <% end %>
+</table>
   <% if current_prof.bookings.institute.empty? %>
 
       <h5>You havent booked any hospital jobs.</h5>
