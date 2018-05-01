@@ -4,13 +4,7 @@
     <p id="sub-headline-mobile">Yoopy connects healthcare facilities with healthcare professionals quickly.</p>
     <a class="modal-trigger btn-large green-button" href="#mobilesignup" id="signup-button">Sign Up</a>
   </div>
-  <!-- Sign Up Modal With Tabs -->
-  
-  <!-- <div id="#mobilesignup" class="modal mobile">
-    <div class="modal-content">
-      <%#= render 'new_registration' %>
-    </div>
-  </div> -->
+
 </div>
 
 <div id="homepage2-mobile">
@@ -23,7 +17,8 @@
       <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
         <%= image_tag('stethoscope.png', :size => "150x150") %>
         <h5>Professionals</h5>
-        <p class="subtext">Lorem ipsum dolor sit amet, nostrud fabulas accusata ad has, est lorem dicit cu, duo ad possim delenit ponderum.</p>
+        <p class="subtext">Yoopy provides you with more flexibility than any other service in the nursing industry. Yoopy does this by letting you decide how valuable your time is, what you enjoy doing, and what you agree to.</p>
+        <%= link_to "Get Started", new_hospital_registration_path, class: "btn #757575 grey darken-1" %>
       <% end %>
     </div>
 
@@ -31,7 +26,9 @@
       <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
         <%= image_tag('medicine.png', :size => "150x150") %>
         <h5>Facilities</h5>
-        <p class="subtext">Lorem ipsum dolor sit amet, nostrud fabulas accusata ad has, est lorem dicit cu, duo ad possim delenit ponderum.</p>
+        <p class="subtext">Yoopy provides you with the smoothest scheduling service in the healthcare industry. Yoopy does this by letting you pick your favorite talent, your desired budget, and your best incentives.</p>
+        <%= link_to "Get Started", new_prof_registration_path, class: "btn #757575 grey darken-1" %>
+
       <% end %>
     </div>
 
@@ -39,23 +36,10 @@
       <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
         <%= image_tag('heart.png', :size => "150x150") %>
         <h5>Friends</h5>
-        <p class="subtext">Lorem ipsum dolor sit amet, nostrud fabulas accusata ad has, est lorem dicit cu, duo ad possim delenit ponderum.</p>
+        <p class="subtext">Yoopy provides you with more personalized in-person-in-home service than any other service in the industry. Yoopy does this by letting you decide the price, who comes to your home, & more.</p>
+        <%= link_to "Get Started", new_friend_registration_path, class: "btn #757575 grey darken-1" %>
       <% end %>
     </div>
-
-    <!-- <div class="facilities-mobile">
-      <h3>For Medical Facilities</h3>
-      <div class="underline-green"></div>
-      <p class="subtext">Lorem ipsum dolor sit amet, magna in augue fringilla, turpis ad nulla lacus vel a, vestibulum class voluptas in vel sed. Dolor dapibus aptent nec curabitur, eros ac leo leo consectetuer, tortor per commodo dolor tellus in.</p>
-      <%= link_to 'Become A Yoopy Facility', new_hospital_registration_path, id: 'facil-button', class: 'yoopy-button btn-large #1de9b6 teal accent-3' %>
-    </div>
-
-    <div class="professionals-mobile">
-      <h3>For Medical Professionals</h3>
-      <div class="underline-blue"></div>
-      <p class="subtext">Yoopy lets you decide how valuable your time is, who you enjoy caring for, and what you choose to do. Be alerted on your mobile device when facilities in your area are paying for your services.</p>
-      <%= link_to 'Become A Yoopy Professional', new_prof_registration_path, id: 'prof-button', class: 'yoopy-button btn-large #42a5f5 blue lighten-1' %>
-    </div> -->
 
   </div>
 </div>
