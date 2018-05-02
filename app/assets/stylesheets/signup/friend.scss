@@ -4,15 +4,41 @@ body {
   background-size: cover;
   position: relative;
 }
+
 #friend-form {
   width: 400px;
   margin: 50px auto;
   text-align: center;
   position: relative;
-  background-color: rgba(11, 142, 66, 0.7);
+  top: 50px;
+  border-radius: 10px;
+  background-color: rgba(56, 158, 9, 0.7);
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   padding: 5px;
   padding-bottom: 20px;
+  z-index: 100;
+  img {
+    position: absolute;
+    top: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 1px;
+    right: 1px;
+    z-index: -10;
+  }
+  .img_back {
+    position: absolute;
+    top: -19%;
+    height: 95px;
+    width: 90px;
+    background-color: rgba(56, 158, 9, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border-radius: 47%;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  }
 }
 #friend-form input,
 #friend-form textarea {
@@ -44,7 +70,7 @@ body {
 #friend-form .action-button:focus {
   box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
 }
-#friend-form h3 {
+#friend-form h5 {
   padding: 10px;
-  background-color: #81c69e;
+  background-color: rgba(103, 209, 54, 0.7);
 }

@@ -23,8 +23,6 @@
         <div class="row">
           <div id="cta-button">
             <a class="modal-trigger btn-large green-button" href="#modal6" id="signup-button">Sign Up</a>
-            <br /><br />
-            <%= link_to "Professionals Sign Up", new_prof_registration_path, class: 'btn-large green-button', id:"signup-button" %>
           </div>
 
         </div>
@@ -46,7 +44,7 @@
 
 
           <div class="col s4">
-            <%= scroll_reveal(animation: "enter left, after 0.15s" ) do %>
+            <%= scroll_reveal(animation: "enter left, after 0.15s", id: "icons" ) do %>
               <%= link_to image_tag('stethoscope.png', :size => "150x150"), new_prof_registration_path %>
               <h5>Professionals</h5>
               <p class="subtext">Yoopy provides you with more flexibility than any other service in the nursing industry. Yoopy does this by letting you decide how valuable your time is, what you enjoy doing, and what you agree to.</p>
