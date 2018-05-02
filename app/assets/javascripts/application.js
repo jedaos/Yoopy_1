@@ -54,6 +54,7 @@ $(document).on("turbolinks:load", function() {
   });
   $(".tabs").tabs();
 });
+
 jQuery.easing["jswing"] = jQuery.easing["swing"];
 
 jQuery.extend(jQuery.easing, {
