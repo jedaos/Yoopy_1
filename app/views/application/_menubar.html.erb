@@ -61,8 +61,7 @@
   <div class="nav-wrapper">
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <%= link_to image_tag('yoopyHealth_logo.png'), root_path %>
-    <div class="hide-on-med-and-up">
-      <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
+    <div class="hide-on-med-and-up">      
     </div>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
@@ -95,11 +94,7 @@
     <ul class="sidenav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
       <li><a href="#">About</a></li>
-      <li><a class="modal-trigger" href="#mobilelogin">Log In</a></li>
-
-      <li><%#= link_to "Yoopy Friends", friend_session_path, class: 'tooltipped'%></li>
-      <li><%#= link_to 'Medical Professionals', prof_session_path %></li>
-      <li><%#= link_to 'Facilities', hospital_session_path %></li>
+      <li><a class="modal-trigger" href="#modal_mobile_login">Log In</a></li>
     </ul>
   </div>
 </nav>

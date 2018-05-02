@@ -9,20 +9,13 @@
         </div>
       </div>
 
-      <!-- Sign Up Modal With Tabs -->
-      <div id="modal6" class="modal">
-        <div class="modal-content">
-          <%= render 'new_registration' %>
-        </div>
-      </div>
-
       <!-- Home Page Headline & Subheadline -->
       <div class="headline-box">
         <h1 id="headline">Nurse Concierge.<br>Simple.</h1>
         <p id="sub-headline">Yoopy connects you with healthcare professionals quickly.</p>
         <div class="row">
           <div id="cta-button">
-            <a class="modal-trigger btn-large green-button" href="#modal6" id="signup-button">Sign Up</a>
+            <%= link_to "Sign Up", root_path(anchor: "about-us"), class: "btn btn-large-green" %>
           </div>
 
         </div>
@@ -44,7 +37,7 @@
 
 
           <div class="col s4">
-            <%= scroll_reveal(animation: "enter left, after 0.15s", id: "icons" ) do %>
+            <%= scroll_reveal(animation: "enter left, after 0.15s", id: "signup-icons" ) do %>
               <%= link_to image_tag('stethoscope.png', :size => "150x150"), new_prof_registration_path %>
               <h5>Professionals</h5>
               <p class="subtext">Yoopy provides you with more flexibility than any other service in the nursing industry. Yoopy does this by letting you decide how valuable your time is, what you enjoy doing, and what you agree to.</p>

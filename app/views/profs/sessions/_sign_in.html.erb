@@ -2,29 +2,29 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :email, id: nil, class: "friend_email" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", id: nil, class: "friend_email" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.label :password, id: nil, class: "friend_password" %><br />
+      <%= f.password_field :password, autocomplete: "off", id: nil, class: "friend_password" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.check_box :remember_me, id: nil, class: "friend_remember" %>
+        <%= f.label :remember_me, id: nil, class: "friend_remember" %>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in", class:"btn-large #42a5f5 blue lighten-1" %>
+      <%= f.submit "Log in", class:"btn-large #42a5f5 blue lighten-1", id: nil, class: "friend_submit_form" %>
       <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path, id: 'linkedin-signin' %>
 
     </div>
   <% end %>
-  <%#= link_to "Sign in with LinkedIn", prof_linkedin_omniauth_authorize_path %>
+
 
 
   <%= render "profs/shared/links" %>
