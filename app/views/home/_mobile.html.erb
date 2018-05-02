@@ -2,34 +2,38 @@
   <div class="headline-box-mobile">
     <h3 id="headline-mobile">On Demand <br>Medical Staffing</h3>
     <p id="sub-headline-mobile">Yoopy connects healthcare facilities with healthcare professionals quickly.</p>
-    <!-- <a class="btn-large green-button" href="#about" id="signup-button">Sign Up</a> -->
-    <%= link_to "Sign Up", "#{home_index_path}#icon1" %>
+    <a class="modal-trigger btn-large green-button" href="#mobilesignup" id="signup-button">Sign Up</a>
   </div>
+
 </div>
 <div id="homepage2-mobile">
   <div class="container mobile-icons">
-    <h3><a id="about">About Us</a></h3>
+    <h3>About Us</h3>
     <div class="underline-blue" style="margin: 0 auto;"></div>
     <p class="subtext">Yoopy provides healthcare professionals & healthcare facilities with more flexibility than any other service in the industry. <br> <br>During shortages or emergencies, Yoopy connects medical facilities with an on-demand supply of professionals.</p>
-    <div class="mobile-icons" >
+
+    <div class="mobile-icons">
       <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
-        <%= image_tag('stethoscope.png', :size => "150x150", name: "icon1") %>
+        <%= image_tag('stethoscope.png', :size => "150x150") %>
         <h5>Professionals</h5>
         <p class="subtext">Yoopy provides you with more flexibility than any other service in the nursing industry. Yoopy does this by letting you decide how valuable your time is, what you enjoy doing, and what you agree to.</p>
         <%= link_to "Get Started", new_hospital_registration_path, class: "btn #757575 grey darken-1" %>
       <% end %>
     </div>
+
     <div class="mobile-icons">
       <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
-        <%= image_tag('medicine.png', :size => "150x150", id: "icon2") %>
+        <%= image_tag('medicine.png', :size => "150x150") %>
         <h5>Facilities</h5>
         <p class="subtext">Yoopy provides you with the smoothest scheduling service in the healthcare industry. Yoopy does this by letting you pick your favorite talent, your desired budget, and your best incentives.</p>
         <%= link_to "Get Started", new_prof_registration_path, class: "btn #757575 grey darken-1" %>
+
       <% end %>
     </div>
+
     <div class="mobile-icons">
       <%= scroll_reveal(animation: "enter bottom, after 0.2s" ) do %>
-        <%= image_tag('heart.png', :size => "150x150", id: "icon3") %>
+        <%= image_tag('heart.png', :size => "150x150") %>
         <h5>Friends</h5>
         <p class="subtext">Yoopy provides you with more personalized in-person-in-home service than any other service in the industry. Yoopy does this by letting you decide the price, who comes to your home, & more.</p>
         <%= link_to "Get Started", new_friend_registration_path, class: "btn #757575 grey darken-1" %>
