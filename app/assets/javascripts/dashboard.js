@@ -10,7 +10,7 @@
     sidebar.animate({
       width: "200px"
     }, 500)
-    $("h6").animate({"opacity" : "1"}, 500)
+    $("h6").delay(500).animate({"opacity" : "1"}, 500)
     $(".close").animate({"opacity": "1"}, 500)
   }
   function closeNav(){
@@ -18,6 +18,6 @@
     sidebar.animate({
       width: "60px"
     }, 500)
-    $("h6").animate({"opacity" : "0"}, 500)
+    $("h6").animate({"opacity" : "0"}, 200)
     $(".close").animate({"opacity": "0"}, 500)
     }
