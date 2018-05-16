@@ -1,8 +1,16 @@
-  <h4>Welcome, <br> <%= current_prof.name %></h4>
-  <div class="sidebar-items">
-  
-      <a class="modal-trigger" href="#modal-account"><li><i class="material-icons">supervisor_account</i>Account</li></a>
-      <a class="modal-trigger" href="#modal1"><li><i class="material-icons">mode_edit</i>Update Account</li></a>
 
-      <li><i class="material-icons">help</i>Support</li>
+
+  <div class="sidebar-items">
+    <ul>
+      <i class="material-icons close" onclick="closeNav()">close</i>
+      <li><i class="material-icons spin" onclick="openNav()">play_arrow</i></li>
+      <li><a class="modal-trigger" href="#modal-account"><i class="material-icons">account_circle</i></a><h6 class="inner-list">Account Info<h6></li>
+      <li><a class="modal-trigger" href="#modal1"><i class="material-icons">mode_edit</i></a><h6 class="inner-list">Edit Account Info<h6></li>
+      <li><a><i class="material-icons">help</i></a><h6 class="inner-list">Support<h6></li>
+    </ul>
+
   </div>
+  <!-- <a class="modal-trigger" href="#modal-account"><li><i class="material-icons">supervisor_account</i>Account</li></a>
+  <a class="modal-trigger" href="#modal1"><li><i class="material-icons">mode_edit</i>Update Account</li></a>
+
+  <li><i class="material-icons">help</i>Support</li> -->

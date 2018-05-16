@@ -3,12 +3,11 @@
   <%= stylesheet_link_tag 'signup/friend', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% end %>
 <div id="friend-form">
-    <div class="img_back">
-      <%= image_tag "steth_icon.png" %>
-    </div>
   <h5>Sign Up</h5>
 <%= form_for(:friend, as: resource_name, url: friend_registration_path) do |f| %>
-    <%= devise_error_messages! %>
+    <h6><%= devise_error_messages! %></h6>
+
+
 
     <div class="field">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>

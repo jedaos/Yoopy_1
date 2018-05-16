@@ -2,8 +2,22 @@
 // // # All this logic will automatically be available in application.js.
 // // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready(function(){
-  $('#stripe_dash').click(function(){
-    window.open($('#stripe_account').text(), "_blank")
-  })
-})
+
+
+
+  function openNav(){
+    let sidebar = $(".sidebar-items");
+    sidebar.animate({
+      width: "200px"
+    }, 500)
+    $("h6").animate({"opacity" : "1"}, 500)
+    $(".close").animate({"opacity": "1"}, 500)
+  }
+  function closeNav(){
+  let sidebar = $(".sidebar-items");
+    sidebar.animate({
+      width: "60px"
+    }, 500)
+    $("h6").animate({"opacity" : "0"}, 500)
+    $(".close").animate({"opacity": "0"}, 500)
+    }

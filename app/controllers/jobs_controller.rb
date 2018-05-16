@@ -16,7 +16,7 @@ class JobsController < ApplicationController
     end
 
   def new
-    if hospital_signed_in? || friend_signed_in?
+    if hospital_signed_in?
       @job = Job.new
     else
       redirect_to dashboard_index_path
@@ -24,17 +24,14 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(job_params)
+    @job = Job.create(job_params)
 
-    if @job.save
+    if @job.save && @job.errors.empty?
       Prof.all.each do |prof|
         Notification.create(recipient: prof, actor: current_hospital, action: "posted", notifiable: @job)
       end
       @job.slot_num.to_i.times {Slot.create({reservable_type: 'Job' ,reservable_id: @job.id})}
-      redirect_to dashboard_index_path
-    else
-      p @job.errors.full_messages
-      flash[:error] = "Something went wrong!"
+      redirect_to dashboard_index_path      
     end
   end
 

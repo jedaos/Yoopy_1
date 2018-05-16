@@ -2,7 +2,6 @@
 
   <h4>Post A New Job</h4>
   <%= f.hidden_field :hospital_id, :value=>current_hospital.id %>
-
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, :required => true %>
@@ -21,9 +20,8 @@
 
     <div class="form-group">
       <h5>How many positions do you need filled?</h5>
-      <%= f.hidden_field :job_id, :value => params[:id] %>
       <%= f.label :number_of_slots %>
-      <%= f.text_field :slot_num %>
+      <%= f.text_field :slot_num, required: true %>
     </div>
 
     <div class="actions">

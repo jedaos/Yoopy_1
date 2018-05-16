@@ -1,20 +1,12 @@
 @import "materialize";
-
-/* --- COLORS ---
-LIGHT BLUE: #42a5f5
-SEA GREEN: #1de9b6
-FOREST GREEN: #015249
-SLEEK GRAY: #A5A5AF
-
-LOGO GREEN: #48DA37
-*/
+@import "dashboard.css.scss";
+// /* --- COLORS --- LIGHT BLUE: #42a5f5 SEA GREEN: #1de9b6 FOREST GREEN: #015249 SLEEK GRAY: #A5A5AF LOGO GREEN: #48DA37 */ h1,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p,
 a {
   font-family: "Open Sans", sans-serif;
 }
@@ -211,33 +203,33 @@ body > nav > div > a.sidenav-trigger {
 }
 
 // Dashboard
-#dashboard-wrapper {
-  height: 800px;
-}
-#sidebar {
-  border-right: 1px solid #ccc;
-  background-color: #242424;
-  color: #fff;
-  height: 1000px;
-  position: relative;
-  float: left;
-  padding: 1rem 2rem;
-  z-index: 2;
-}
-.sidebar-items li {
-  list-style: none;
-  line-height: 4rem;
-  width: 100%;
-  text-align: left;
-  color: #fff;
-  font-size: 20px;
-}
-.sidebar-items li:hover {
-  background-color: #111;
-}
-.sidebar-items {
-  margin-top: 3rem;
-}
+// #dashboard-wrapper {
+//   height: 800px;
+// }
+// #sidebar {
+//   border-right: 1px solid #ccc;
+//   background-color: #242424;
+//   color: #fff;
+//   height: 1000px;
+//   position: relative;
+//   float: left;
+//   padding: 1rem 2rem;
+//   z-index: 2;
+// }
+// .sidebar-items li {
+//   list-style: none;
+//   line-height: 4rem;
+//   width: 100%;
+//   text-align: left;
+//   color: #fff;
+//   font-size: 20px;
+// }
+// .sidebar-items li:hover {
+//   background-color: #111;
+// }
+// .sidebar-items {
+//   margin-top: 3rem;
+// }
 #dash-content {
   display: inline-block;
   padding: 1rem 1rem;
@@ -579,3 +571,4 @@ ul.tabsDash .indicator {
 
 // More practical CSS...
 // using mobile first method (IE8,7 requires respond.js polyfill https://github.com/scottjehl/Respond)
+// Notification

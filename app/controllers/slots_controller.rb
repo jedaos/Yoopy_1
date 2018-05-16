@@ -14,7 +14,9 @@ class SlotsController < ApplicationController
     if @slot.save
       redirect_to dashboard_index_path
     else
-      flash[:error] = "something went wrong"
+
+      @error_msg = @slot.errors.full_messages.each
+
     end
   end
 

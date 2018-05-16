@@ -1,8 +1,7 @@
-$(document).on("turbolinks:load", function() {
-  let form = $("#friend-form");
-  let button = $("#friend_submit");
-
-  form.submit(function() {
-    $(this).fadeOut();
-  });
-});
+// $(document).on("turbolinks:load", function() {
+//   $("svg path").addClass("animate-logo");
+//   // form.submit(function() {
+//   //   // $("svg path").addClass("animate-logo");
+//   //   $(this).addClass("animate-form");
+//   // });
+// });

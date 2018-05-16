@@ -4,6 +4,7 @@ class Job < ApplicationRecord
   # belongs_to :friend
   has_many :profs, through: :slots, dependent: :destroy
   scope :expired, -> { where('created_at < ?', 3.hours.ago) }
+  validates :slot_num, presence: true
 
   RATES = [100, 200, 300, 400]
 

@@ -10,15 +10,7 @@
       <li><a href="#">About</a></li>
       <li><%= link_to 'Dashboard', dashboard_index_path %></li>
       <li><%= link_to 'Jobs', jobs_path %></li>
-      <li><%= link_to 'Log Out', destroy_prof_session_path, :method => :delete %></li>
-      <span data-behavior='unread-count' id='unred'></span>
-      <a id="dropdown"class='dropdown-trigger btn green-button' href='#' data-behavior="notifications" data-target='dropdown1'><i class='material-icons' data-behavior="notifications-link">notifications</i></a>
-      <ul id='dropdown1' class='dropdown-content' data-behavior='notification-items'>
-
-        <!-- Notification Should appear here. -->
-      </ul>
-      <!-- Notifications end here  -->
-
+      <li><%= link_to 'Log Out', destroy_prof_session_path, :method => :delete %></li>            
     </ul>
     <ul class="sidenav" id="mobile-demo">
       <li><%= link_to 'Home', root_path %></li>
@@ -61,7 +53,7 @@
   <div class="nav-wrapper">
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <%= link_to image_tag('yoopyHealth_logo.png'), root_path %>
-    <div class="hide-on-med-and-up">      
+    <div class="hide-on-med-and-up">
     </div>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to 'Home', root_path %></li>
