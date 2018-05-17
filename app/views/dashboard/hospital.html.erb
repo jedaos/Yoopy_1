@@ -1,40 +1,147 @@
-<div class="modal_back">
-  <div id='modal_hospital' class=""></div>
-</div>
-<div class="H_dash">
-<%= render 'hospital_sidebar' %>
+<div class="hide-on-med-and-down">
+  <div class="row" id="dashboard-wrapper">
+    <%= render 'hospital_sidebar' %>
+    <div class="col s9" id="dash-content">
+      <div id='modal_hospital' class="new-job-card-hospitals"></div>
 
-<div class="dash_left">
+      <div id="jobs" class="jobs-card-hospitals">
+        <% if current_hospital.jobs.nil? %>
+        <h4>You Don't Have Any Job Postings</h4>
+        <% else %>
+        <h5>Update or Delete Current Jobs</h5>
+        <div class="underline-gray"></div>
 
-
-
-      <!-- <div id="jobs" class="jobs-card-hospitals"> -->
-        <%# if current_hospital.jobs.nil? %>
-        <!-- <h4>You Don't Have Any Job Postings</h4> -->
-        <%# else %>
-        <%# react_component('JobContent', :jobs => @jobs) %>
-        <%# end %>
-      <!-- </div> -->
-
-
-      <div class="edit-job"></div>
-        <div class="all_jobs_wrap">
-          <% current_hospital.jobs.each do |job| %>
-          <div class="job_wrap">
-            <div class="job_header">
-              <p> <%= job.created_at.strftime("%H:%M:%S") %> </p>
-              <h5><%= job.name %></h5>
-            </div>
-            <div class="job_content">
-              <h6> <%= job.description %> </h6>
-              <h6> $<%= job.rate %>0 </h6>
-            </div>
-            <div class="job_footer">
-              Slots
-            </div>
-          </div>
-          <% end %>
-        </div>
+        <%= react_component('JobApp', :jobs => @jobs) %>
+        <% end %>
       </div>
 
+      <div class="col s6" id="job-slots">
+        <h5><%= current_hospital.institution_name %>'s Open Jobs</h5>
+        <div class="underline-gray"></div>
+
+        <% current_hospital.jobs.each do |job| %>
+        <div class="job-posting-title">
+          <h5>Job Posting: <%= job.name %></h5>
+          <p>The medical professionals for this job are listed below.</p>
+        </div>
+
+        <% x = 1 %>
+        <% job.slots.each do |slot| %>
+        <!-- If there are no bookings for a slot... -->
+        <% if slot.prof.nil?  %>
+        <div class="card-panel grey lighten-5">
+          <div class="row valign-wrapper">
+            <div class="col s4">
+              <p>Job Opening #<%= x %></p>
+              <h5>Not Booked</h5>
+              <% x+=1 %>
+            </div>
+            <div class="col s8">
+              <span class="black-text">
+                <p>Your job has been listed! Medical professionals will appear here once this job opening is booked.</p>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- If there is a booking in a slot -->
+        <% else %>
+        <ul style="padding: 1rem;">
+          <li><h5><%= slot.prof.name %></h5></li>
+          <% if slot.prof.bio != nil %>
+            <li><h6>Bio: <%= slot.prof.bio %></h6></li>
+          <% else %>
+            <li><h6>Bio: This user has not set a bio yet.</h6></li>
+          <% end %>
+          <li><h6>Contact: <%= slot.prof.phone %></h6></li>
+
+          <li><%= link_to "More Info", prof_show_path(:id => slot.prof.id), id: "Info", remote: true %></li>
+          <% if !slot.booking.paid %>
+          <li><%= link_to "Remove Candidate", booking_path(:id => slot.booking.id), method: :delete %></li>
+          <% end %>
+          <!-- This will prevent Pay button from appearing if this Prof has not signed up with stripe -->
+          <% if slot.prof.uid.nil? %>
+            <li><strong>This person has not set up their stripe account</strong></li>
+          <% else %>
+          <li>
+            <%= form_tag charges_path, id: 'chargeForm' do %>
+            <div id="submit-text"></div>
+            <%= hidden_field_tag "price", job.amount_with_commision.to_i %>
+            <%= hidden_field_tag "prof_id", slot.prof.id %>
+            <%= hidden_field_tag "commision", Job.commision(job.rate) * 100  %>
+            <%= hidden_field_tag "booking_id", slot.booking.id %>
+            <script src="https://checkout.stripe.com/checkout.js"></script>
+            <%= hidden_field_tag 'stripeToken' %>
+            <%= hidden_field_tag 'stripeEmail' %>
+
+            <button id="customButton<%= slot.prof.id %>" class="<%= slot.booking.paid? ? 'btn-large #42a5f5 blue lighten-1 disabled' : 'btn-large #42a5f5 blue lighten-1'  %>">Pay <%= slot.prof.name %></button>
+
+            <script>
+            let submittedForm = false
+            var handler = StripeCheckout.configure({
+              key: '<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>',
+              image: './assets/yoopy_logo_small.png',
+              allowRememberMe: true,
+              token: function(token) {
+                document.getElementById("stripeToken").value = token.id;
+                document.getElementById("stripeEmail").value = token.email;
+                document.getElementById("chargeForm").submit();
+                submittedForm = true;
+                $('#submit-text').html('Processing, stand by');
+
+              },
+              closed: function(){
+                if (submittedForm == true) {
+                  $('#customButton<%= slot.prof.id %>').html("Paid").addClass("disabled")
+                } else {
+                  return false
+                }
+              }
+
+            });
+
+            document.getElementById('customButton<%= slot.prof.id %>').addEventListener('click', function(e) {
+              // Open Checkout with further options
+              handler.open({
+                name: 'Yoopy',
+                description: "You will be charged a $<%= Job.commision(job.rate) %> fee.",
+                amount: "<%= job.amount_with_commision.to_i %>",
+
+              }
+            );
+            e.preventDefault();
+          });
+          </script>
+          <% end %>
+          <!-- This is where if else ends for checkout Prof.uid -->
+        <% end %>
+      </li>
+    </ul>
+      <% end %>
+
+
+        <% end %>
+        <% end %>
+        <div class="job-posting-footer">
+          <h6>Job postings will expire after 3 hours unless booked</h6>
+        </div>
+
+      </div>
+    </div> <!-- End Dash Content Div-->
+  </div> <!-- End of Row Div -->
+
+
+
+  <div id="modal_prof" class="modal">
+    <div class="modal-content">
+
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+    </div>
+  </div>
 </div>
+
+  <div class="hide-on-large-only">
+    <%= render 'mobile_hospital' %>
+  </div>
