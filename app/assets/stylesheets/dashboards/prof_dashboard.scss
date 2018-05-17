@@ -138,22 +138,24 @@
 }
 
 .sidebar-items {
-  height: 100%;
   position: absolute;
   display: flex;
   flex-direction: column;
   width: 60px;
   background-color: rgb(107, 109, 107);
-  top: 0;
+  top: 0px;
+  bottom: 0px;
   margin-top: 90px;
   ul {
     height: 100%;
     margin-top: 0;
     padding-top: 0;
     top: 0px;
+    bottom: 0px;
     background-color: rgb(107, 109, 107);
     position: absolute;
     width: 100%;
+    list-style: none;
   }
   li {
     text-align: center;
