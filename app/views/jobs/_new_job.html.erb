@@ -1,5 +1,5 @@
-<%= form_with model: @job, id: 'new_job_form', remote: true do |f| %>
-
+<%= form_with model: @job, id: 'new_job_form', html:{novalidate: true}, remote: true do |f| %>
+<i class="material-icons close-form" onclick="formClose()">close</i>
   <h4>Post A New Job</h4>
   <%= f.hidden_field :hospital_id, :value=>current_hospital.id %>
     <div class="form-group">
@@ -25,9 +25,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit id: 'submit_job', class:'btn #bdbdbd grey lighten-1' %>
-      <%= submit_tag("Cancel", :id => "Cancel", class:"btn #bdbdbd grey lighten-1")%>
-
+      <%= f.submit "Submit", id: 'submit_job', class:'btn #bdbdbd grey lighten-1', onclick: "text()" %>
     </div>
 
     <script language="javascript">

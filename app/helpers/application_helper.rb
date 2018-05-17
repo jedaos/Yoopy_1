@@ -11,4 +11,6 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:prof]
   end
 
+  
+
 end

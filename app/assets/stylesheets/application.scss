@@ -1,5 +1,5 @@
 @import "materialize";
-@import "dashboard.css.scss";
+@import "dashboard.scss";
 // /* --- COLORS --- LIGHT BLUE: #42a5f5 SEA GREEN: #1de9b6 FOREST GREEN: #015249 SLEEK GRAY: #A5A5AF LOGO GREEN: #48DA37 */ h1,
 h1,
 h2,
@@ -19,6 +19,12 @@ select {
 }
 label {
   font-size: 1.2rem;
+}
+ul {
+  margin: 0;
+}
+* {
+  box-sizing: border
 }
 
 // spinner
@@ -295,6 +301,12 @@ body > nav > div > a.sidenav-trigger {
 #job-slots {
   float: right;
   display: inline-block;
+}
+.job-slots {
+  position: relative;
+  right: 0; 
+  width: 40%;
+  float: right;
 }
 .job-posting-title {
   background: #44c824;

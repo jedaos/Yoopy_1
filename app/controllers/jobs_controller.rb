@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:update, :destroy]
+  before_action :set_job, only: [:update, :destroy, :edit, :show]
   respond_to :json
 
   def index
@@ -31,19 +31,20 @@ class JobsController < ApplicationController
         Notification.create(recipient: prof, actor: current_hospital, action: "posted", notifiable: @job)
       end
       @job.slot_num.to_i.times {Slot.create({reservable_type: 'Job' ,reservable_id: @job.id})}
-      redirect_to dashboard_index_path      
+      redirect_to dashboard_index_path
     end
   end
 
   def show
-    @job = Job.find(params[:id])
+    # @job = Job.find(params[:id])
   end
 
   def destroy
-    @job = Job.find(params[:id])
+    # @job = Job.find(params[:id])
     @job.destroy
   end
-
+  def edit    
+  end
 
     def update
       if @job.update(job_params)
@@ -57,10 +58,10 @@ class JobsController < ApplicationController
       @job.destroy
       redirect_to dashboard_index_path
     end
-
-
-
   private
+
+
+
   def set_job
       @job = Job.find(params[:id])
     end

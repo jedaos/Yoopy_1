@@ -1,11 +1,13 @@
-<div class="col s3" id="sidebar">
-  <h5><%= current_hospital.institution_name %></h5>
-  <div class="new-job-button">
-    <%= link_to 'Post A Job', new_job_path, class:'yoopy-button btn-large green-button', id: 'new_job_button', remote: true %>
-  </div>
 
-  <div class="sidebar-items">
-    <li><i class="material-icons">supervisor_account</i>     Account</li>
-    <li><i class="material-icons">help</i>     Support</li>
-  </div>
+<div class="sidebar-hospital">
+  <ul>
+    <i class="material-icons close" onclick="closeNavHospital()">close</i>
+    <li><i class="material-icons spin" onclick="openNavHospital()">play_arrow</i></li>
+    <li class="post-job"><i class="material-icons">local_hospital</i><%= link_to new_job_path, remote: true do %>
+    <h6 onclick="formOpen()">Post A New Job</h6></li>
+    <% end %>
+    <li><a class="modal-trigger" href="#modal-account"><i class="material-icons">account_circle</i><h6>Account Info</h6></li>
+    <li><a class="modal-trigger" href="#modal1"><i class="material-icons">mode_edit</i></a><h6 class="inner-list">Edit Account Info<h6></li>
+    <li><a><i class="material-icons">help</i></a><h6 class="inner-list">Support<h6></li>
+  </ul>
 </div>

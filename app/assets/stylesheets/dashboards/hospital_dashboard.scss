@@ -1,0 +1,287 @@
+.job-table {
+  position: absolute;
+}
+.H_dash {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border: 1px solid red;
+  background-color: rgba(173, 178, 173, 0.8);
+  justify-content: flex-start;
+  .dash_left{
+    flex-flow: row wrap;
+    height: 100%;
+    width: 65%;
+    position: absolute;
+    right: 0;
+  }
+  .all_jobs_wrap {
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    display: flex;
+    position: relative;
+    flex-flow: column wrap;
+    .job_wrap{
+      order: 1;
+      width: 100%;
+      box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.20);
+      background-color: #fff;
+      text-align: center;
+      margin: 0 5px;
+      .job_header {
+        position: relative;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        text-align: center;
+        display: flex;
+        border-bottom: 2px solid rgb(4, 204, 4);
+        .p {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+//SIDEBAR
+.sidebar-hospital {
+  height: 100%;
+  position: absolute;
+  width: 60px;
+  background-color: rgb(47, 48, 47);
+  top: 0;
+  bottom: 0;
+  margin-top: 0;
+  z-index: 1;
+  ul {
+    height: 300px;
+    margin-top: 0;
+    margin-right: 50px;
+    padding-top: 0;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgb(107, 109, 107);
+    position: absolute;
+    width: 100%;
+    list-style: none;
+    li {
+      text-align: center;
+      border-bottom: 2px solid #fff;
+      height: 60px;
+      width: 100%;
+      padding: 20px 0;
+      i {
+        font-size: 40px;
+        color: #fff;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        display: block;
+        left: 0;
+        padding-top: 3px;
+        border-radius: 50%;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.30);
+        background-color: rgb(107, 109, 107);
+        z-index: 1;
+      }
+      h6 {
+        margin-left: 40px;
+        color: #fff;
+        margin-top: 0;
+        bottom: 30px;
+        position: relative;
+        opacity: 0;
+      }
+    }
+  }
+}
+//JOB TABLE
+.job-table {
+  float: left;
+  width: 50%;
+  left: 210px;
+  background-color: rgb(174, 255, 137);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0.20, 0.8);
+  border-radius: 10px;
+  min-width: 350px;
+  h5 {
+    text-align: center;
+  }
+  thead {
+    border-bottom: 2px solid rgb(41, 132, 0);
+    background-color: rgb(223, 247, 212);
+    text-align: center;
+  }
+  tbody {
+    tr {
+      i {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 5px;
+        background-color: rgb(84, 163, 47);
+        color: #fff;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0.30, 0.7);
+        transform: scale(1);
+        &:hover {
+          transform: scale(1.2);
+          transition: transform 200ms ease-in;
+          cursor: pointer;
+        }
+      }
+      &:nth-child(even){
+        background-color: rgb(91, 247, 89);
+      }
+      &:hover {
+        background-color: rgb(228, 255, 216);
+      }
+    }
+  }
+}
+//ADD JOB FORM
+#new_job_form {
+  // position: absolute;
+  width: 400px;
+  background-color: #6B6D6B;
+  color: #fff;
+  box-shadow: 10px 10px 12px rgba(0, 0, 0.10, 0.6), 0px 15px 16px rgba(0, 0, 0.20, 0.7);
+  z-index: 2;
+}
+//ADD JOB CONTAINER
+.modal_back {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+  z-index: 5;
+  display: none;
+  position:absolute;
+}
+#modal_hospital {
+  width: 400px;
+  transform-origin: 50% 50%;
+  position: absolute;
+  left: 25%;
+  z-index: 1;
+  form {
+    padding: 15px;
+    label {
+      color: #fff;
+    }
+    input {
+      &[type="text"]{
+        color: #fff;
+      }
+      &:focus {
+        border-bottom: 3px solid #FFF;
+      }
+    }
+  }
+}
+//POST JOB ANIMATION
+
+.activated {
+  animation: activated 200ms ease-in forwards;
+}
+
+.not-activated {
+  animation: notActivated 300ms ease-in forwards;
+
+}
+@keyframes activated {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  90% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes notActivated {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(1100px) rotate(180deg);
+  }
+}
+
+//CLOSE ADD_JOB FORM BUTTON
+.close-form{
+  width: 20px;
+  right: 5px;
+  top: 5px;
+  margin-right: 0;
+  position: absolute;
+  &:hover {
+    cursor: default;
+  }
+}
+//Edit job Form
+.edit-job {
+  position: relative;
+  width: 20%;
+  padding: 0;
+  left: 40%;
+  top: 35%;
+  form {
+    padding: 15px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #6B6D6B;
+    input {
+      &[type="text"]{
+        color: #fff;
+        &::placeholder {
+          color: #fff;
+        }
+      }
+    }
+    .close-edit {
+      position: absolute;
+      right: 0;
+      color: #fff;
+    }
+    i {
+      color: white;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+.slide-up {
+  animation: slideUp 1s ease-in forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-200px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
