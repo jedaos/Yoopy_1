@@ -20,22 +20,7 @@
     $(".close").animate({"opacity": "0"}, 500)
   }
   //Hospital Side Nav
-  function openNavHospital(){
-    let sidebar = $(".sidebar-hospital");
-    sidebar.animate({
-      width: "200px"
-    }, 500)
-    $("h6").delay(500).animate({"opacity" : "1"}, 500)
-    $(".close").animate({"opacity": "1"}, 500)
-  }
-  function closeNavHospital(){
-  let sidebar = $(".sidebar-hospital");
-    sidebar.animate({
-      width: "75px"
-    }, 500)
-    $("h6").animate({"opacity" : "0"}, 200)
-    $(".close").animate({"opacity": "0"}, 500)
-  }
+
   //New Job
   function formOpen() {
     if($("#modal_hospital").hasClass("not-activated")){

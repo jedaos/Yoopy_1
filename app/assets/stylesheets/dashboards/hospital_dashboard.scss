@@ -106,6 +106,15 @@
   height: 100%;
   background-color: rgb(78, 79, 78);
   width: 75px;
+  transition: width 400ms ease-in;
+  &:hover {
+    width: 200px;
+    transition: width 400ms ease-in;
+    h6 {
+      opacity: 1;
+      transition: opacity 200ms 400ms ease-in;
+    }
+  }
   ul {
     background-color: rgb(78, 79, 78);
     list-style: none;
@@ -131,6 +140,7 @@
         opacity: 0;
         color: #fff;
         margin-top: 0;
+        transition: opacity 200ms ease-in;
       }
     }
   }
