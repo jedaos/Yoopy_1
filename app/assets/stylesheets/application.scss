@@ -10,6 +10,9 @@ h6,
 a {
   font-family: "Open Sans", sans-serif;
 }
+body {
+  height: 100%;
+}
 html {
   margin: -1rem 0rem;
 }
@@ -304,7 +307,7 @@ body > nav > div > a.sidenav-trigger {
 }
 .job-slots {
   position: relative;
-  right: 0; 
+  right: 0;
   width: 40%;
   float: right;
 }
