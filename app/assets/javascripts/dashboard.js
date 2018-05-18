@@ -31,7 +31,7 @@
   function closeNavHospital(){
   let sidebar = $(".sidebar-hospital");
     sidebar.animate({
-      width: "60px"
+      width: "75px"
     }, 500)
     $("h6").animate({"opacity" : "0"}, 200)
     $(".close").animate({"opacity": "0"}, 500)
