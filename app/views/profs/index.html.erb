@@ -1,0 +1,72 @@
+<div class="outside_wrap">
+  <div class="prof_index_head">
+    <h4>Medical Professionals</h4>
+  </div>
+  <div class="sub_head">
+    <p>Yoopy has medical professionals who are ready to work. Simply search from the list below, add any professional to your favorites, and you instantly have a group of well trained professionals you can access.
+    just post a private job and they'll be the first to see it. After an hour, that job becomes available to everyone! </p>
+  </div>
+  <div class="errors_box">
+    <% flash.each do |key, value| %>
+    <p>  <%= "#{key.capitalize}! #{value}" %>  </p>
+    <% end %>
+  </div>
+  <div class="all_profs">
+    <% @profs.each do |prof| %>
+    <div class="prof">
+      <div class="like">
+    <%= link_to favorites_path(favorite: {profs_id: prof.id, favoritable_id: @current_user.id , favoritable_type: @current_user.class.name}), method: :post do %>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+        <style type="text/css">
+        	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+        </style>
+        <path id="shape" class="st0" d="M89.9,89.8L76.2,59.6V24.1c0-8.2-5.5-14.9-12.1-14.9H17.6c-6.7,0-12.1,6.7-12.1,14.9v36.6
+        	c0,8.2,5.5,14.9,12.1,14.9h38.8C78.1,92.3,89.9,89.8,89.9,89.8z"/>
+        <g>
+        	<path id="box" d="M240.4,183.6c-4.4,0-8.5,2.2-11.2,5.7c-2.8-3.5-6.9-5.7-11.3-5.7c-7.8,0-13.7,6.5-13.7,15c0,10.4,8.5,18.7,21.4,31.5
+        		l3.6,3.5l3.6-3.5c12.9-12.8,21.4-21.1,21.4-31.5C254.2,190.1,248.2,183.6,240.4,183.6z M230.7,226.5l-0.5,0.5l-1,1l-1-1l-0.5-0.5
+        		c-6.1-6-11.3-11.2-14.7-15.9c-3.4-4.5-4.9-8.2-4.9-12c0-3,1-5.7,2.8-7.7c1.8-2,4.3-3.1,7-3.1c3.1,0,6.2,1.6,8.3,4.2l2.9,3.8
+        		l2.9-3.8c2.1-2.7,5.2-4.2,8.3-4.2c2.7,0,5.2,1.1,7.1,3.1s2.8,4.8,2.8,7.7c0,3.8-1.5,7.5-4.9,12C242,215.2,236.8,220.4,230.7,226.5z
+        		"/>
+        </g>
+        <g>
+        	<path id="heart" d="M51.6,13.9c-4.8,0-9.3,2.5-12.4,6.6c-3-4.1-7.6-6.6-12.4-6.6c-8.5,0-15.1,7.6-15.1,17.4c0,12,9.3,21.6,23.5,36.5l4,4.1
+        		l4-4.1c14.2-14.8,23.5-24.5,23.5-36.5C66.7,21.5,60.1,13.9,51.6,13.9z M40.9,63.6l-0.6,0.6l-1.1,1.2l-1.1-1.2l-0.6-0.6
+        		c-6.7-7-12.4-13-16.2-18.4c-3.7-5.2-5.3-9.5-5.3-13.9c0-3.5,1.1-6.6,3.1-8.9c2-2.3,4.8-3.6,7.7-3.6c3.5,0,6.9,1.8,9.1,4.9l3.2,4.4
+        		l3.2-4.4c2.3-3.1,5.7-4.9,9.1-4.9c3,0,5.7,1.3,7.8,3.6c2,2.3,3.1,5.5,3.1,8.9c0,4.4-1.7,8.7-5.3,13.9
+        		C53.3,50.6,47.6,56.6,40.9,63.6z"/>
+        </g>
+        </svg>
+        <% end %>
+      </div>
+      <div class="prof_image">
+        <i class="material-icons">account_box</i>
+      </div>
+        <div class="left_card">
+          <small>Name:</small>
+          <h6><%= prof.name %></h6>
+          <small>Position:</small>
+          <h6><%= prof.job_title %></h6>
+        </div>
+        <div class="right_card">
+          <ul>
+              <li class="labels"><small>Email Address: </small></li>
+              <li><%= prof.email %></li>
+              <hr>
+              <li class="labels"><small>License Number: </small></li>
+              <li><%= prof.license_num %></li>
+          </ul>
+        </div>
+      <div class="social">
+        <ul>
+            <li><i class="icon ion-logo-twitter"></i></li>
+            <li><i class="icon ion-logo-facebook"></i></li>
+            <li><i class="icon ion-logo-linkedin"></i></li>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>

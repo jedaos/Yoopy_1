@@ -20,7 +20,11 @@
     $(".close").animate({"opacity": "0"}, 500)
   }
   //Hospital Side Nav
-
+  $(document).ready(function(){
+    $("#new_job_form").on("submit", "#submit_job", function(){
+      $("#modal_hospital").removeClass("activated").addClass("not-activated");
+    })
+  })
   //New Job
   function formOpen() {
     if($("#modal_hospital").hasClass("not-activated")){

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424214944) do
+ActiveRecord::Schema.define(version: 20180518181719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20180424214944) do
     t.string "booking_type"
     t.index ["prof_id"], name: "index_bookings_on_prof_id"
     t.index ["slot_id"], name: "index_bookings_on_slot_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "favoritable_type"
+    t.bigint "favoritable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "profs_id"
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
+    t.index ["profs_id"], name: "index_favorites_on_profs_id"
   end
 
   create_table "friend_jobs", force: :cascade do |t|
@@ -149,5 +159,6 @@ ActiveRecord::Schema.define(version: 20180424214944) do
 
   add_foreign_key "bookings", "profs"
   add_foreign_key "bookings", "slots"
+  add_foreign_key "favorites", "profs", column: "profs_id"
   add_foreign_key "jobs", "hospitals"
 end

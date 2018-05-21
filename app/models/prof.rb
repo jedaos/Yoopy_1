@@ -1,5 +1,6 @@
 class Prof < ApplicationRecord
   has_many :bookings
+  belongs_to :favoritable, polymorphic: true
   has_many :slots, :through => :bookings, dependent: :destroy
   has_many :notifications, as: :notifiable, foreign_key: :recipient_id
   devise :database_authenticatable, :registerable,

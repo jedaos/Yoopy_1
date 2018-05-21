@@ -2,6 +2,9 @@
 <i class="material-icons close-form" onclick="formClose()">close</i>
   <h4>Post A New Job</h4>
   <%= f.hidden_field :hospital_id, :value=>current_hospital.id %>
+  <% if @job.errors.any? %>
+    <%= render "errors", object: @job %>
+  <% end %>
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, :required => true %>
@@ -12,10 +15,11 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :rate, "Rate: " %>
-      <p id="rate_value">$0.00</p>
-      <%= f.range_field(:rate, :min=>50, :max=>200, :step => 10, :class => "slide", :id => "slider1") %> <br>
 
+      <%= f.range_field(:rate, :min=>50, :max=>200, :step => 10, :class => "slide", :id => "slider1", onchange: "rangevalue.value=value" ) %> <br>
+      <div class="tooltip"><output id="rangevalue" class="tooltiptext">$50.00</output></div>
+      <%= f.label :rate, "Rate: $" %>
+      <!-- <output id="rangevalue">$50.00</output> -->
     </div>
 
     <div class="form-group">
@@ -27,18 +31,4 @@
     <div class="actions">
       <%= f.submit "Submit", id: 'submit_job', class:'btn #bdbdbd grey lighten-1'%> <!-- onclick: "text()"-->
     </div>
-
-    <script language="javascript">
-      $(document).ready(function() {
-        $('#Cancel').click(function() {
-          $('#new_job_form').hide();
-        })
-        $('#slider1').change(function(){
-          var value = $('#slider1').val()
-          $('#rate_value').text(`$${value}.00`)
-        })
-      });
-
-    </script>
-
     <% end %>

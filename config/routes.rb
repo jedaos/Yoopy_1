@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :friend_jobs
-
+  resources :favorites, only: [:show, :create, :destroy]
   resources :dashboard #only: [:index]
   get '/dashboard/:id/prof_show' => 'dashboard#prof_show', as: :prof_show
   resources :jobs
@@ -27,19 +27,16 @@ Rails.application.routes.draw do
     end
   end
 
-  # post '/dashboard' => 'jobs#new'
-  # devise_for :profs
-  # devise_for :hospitals
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root "home#index"
   devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions", registrations: "hospitals/registrations" }
 
   devise_for :profs, path: 'profs', controllers: { sessions: "profs/sessions", registrations: "profs/registrations",  :omniauth_callbacks => "omniauth_callbacks"  }
    #omniauth_callbacks: "profs/omniauth_callbacks"
   devise_scope :prof do
-    # get 'auth/stripe_connect', as: 'stripe_connect_login' #, to: "yoopy_omniauth_callbacks#stripe_connect"
     get 'auth/stripe_connect/callback' => 'yoopy_omniauth_callbacks#stripe_connect'
   end
+  resources :profs, only: [:index]
 
   resources :charges, only: [:new, :create]
   resources :posts

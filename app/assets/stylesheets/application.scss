@@ -1,5 +1,6 @@
 @import "materialize";
 @import "dashboard.scss";
+@import "./profs/index.scss";
 // /* --- COLORS --- LIGHT BLUE: #42a5f5 SEA GREEN: #1de9b6 FOREST GREEN: #015249 SLEEK GRAY: #A5A5AF LOGO GREEN: #48DA37 */ h1,
 h1,
 h2,
@@ -349,14 +350,6 @@ body > nav > div > a.sidenav-trigger {
   height: 0 !important;
   width: 30px;
 }
-input[type="range"] + .thumb.active .value {
-  color: #222;
-  font-size: 24px;
-  before: "$";
-}
-input[type="range"] + .thumb.active .value::before {
-  content: "$";
-}
 
 // Facility Signup Page
 .facil-signup-wrapper {
@@ -582,8 +575,7 @@ ul.tabsDash .indicator {
   font-size: 20px;
   background-color: #d4edc9;
 }
-//Prof bookings
-
-// More practical CSS...
-// using mobile first method (IE8,7 requires respond.js polyfill https://github.com/scottjehl/Respond)
-// Notification
+.error {
+  border: 3px solid red;
+  background-color: rgba(255, 122, 122, 0.5)
+}

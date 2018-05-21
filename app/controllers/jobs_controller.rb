@@ -32,6 +32,8 @@ class JobsController < ApplicationController
       end
       @job.slot_num.to_i.times {Slot.create({reservable_type: 'Job' ,reservable_id: @job.id})}
       redirect_to dashboard_index_path
+    else
+      render action: "new"
     end
   end
 
@@ -43,7 +45,7 @@ class JobsController < ApplicationController
     # @job = Job.find(params[:id])
     @job.destroy
   end
-  def edit    
+  def edit
   end
 
     def update

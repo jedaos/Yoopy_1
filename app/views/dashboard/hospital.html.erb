@@ -4,47 +4,54 @@
     <div class="modal_back">
       <div id='modal_hospital' class=""></div>
     </div>
-  </div>
-
+</div>
 <div class="H_dash">
-
-<div class="dash_right">
-
-
-
-      <!-- <div id="jobs" class="jobs-card-hospitals"> -->
-        <%# if current_hospital.jobs.nil? %>
-        <!-- <h4>You Don't Have Any Job Postings</h4> -->
-        <%# else %>
-        <%# react_component('JobContent', :jobs => @jobs) %>
-        <%# end %>
-      <!-- </div> -->
-
-
+  <div class="favorite_wrap">
+    <div class="favorites">
+      <h5>Favorites</h5>
+      <ul>
+       <% if current_hospital.favorites.count > 0 %>
+        <% current_hospital.favorites.each do |fav| %>
+        <li> <%= Prof.find(fav.profs_id).name %> </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="dash_right">
       <div class="edit-job"></div>
         <div class="all_jobs_wrap">
           <% current_hospital.jobs.each do |job| %>
           <div class="job_wrap">
             <div class="job_header">
-              <h5><%= job.name %></h5>
-              <i class="material-icons head-icon">edit</i>
+              <div class="title">
+                <small>Title:</small>
+                <h6><%= job.name.capitalize %></h6>
+              </div>
+              <hr>
+              <div class="rate">
+                <small>Rate:</small>
+                <h6>$<%= job.rate %>0</h6>
+              </div>
             </div>
             <div class="job_content">
-              <p><label>Description:</label><%= job.description %></p>
-
-              <p><label>Rate:</label> $<%= job.rate %>0</p>
-            </div>
-            <div class="job_footer">
-              <label>Spots:</label>
-              <ul>
-              <% job.slots.each do |slot| %>
-              <% if slot.available %>
-                <li> <i class="material-icons foot-icon">contacts</i></li>
-                <% else %>
-                <li> <i class="material-icons foot-icon">check_circle</i> </li>
-                <% end %></li>
+              <div class="job_des">
+                <small>Description</small>
+                <h6>  <%= job.description %>  </h6>
+              </div>
+              <hr>
+              <div class="job_slots">
+                <small> Available Slots: </small>
+                <ul>
+                  <% job.slots.each do |slot| %>
+                    <% if slot.available %>
+                  <li> <i class="material-icons">contacts</i></li>
+                    <% else %>
+                  <li><i class="material-icons">check_circle</i></li>
+                    <% end %>
                   <% end %>
-              </ul>
+                </ul>
+              </div>
             </div>
           </div>
           <% end %>
