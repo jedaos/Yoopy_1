@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'react-rails'
 gem "font-awesome-rails"
 gem "figaro"
-gem "linkedin"
 gem 'twilio-ruby', '~> 5.10.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -43,7 +42,6 @@ gem 'stripe'
 gem 'omniauth-stripe-connect'
 #linkedin
 gem 'omniauth'
-gem 'omniauth-linkedin'
 
 
 gem 'hirb'

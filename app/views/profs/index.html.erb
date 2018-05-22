@@ -8,8 +8,11 @@
   </div>
   <div class="errors_box">
     <% flash.each do |key, value| %>
+      <% unless key == "notice"%>
     <p>  <%= "#{key.capitalize}! #{value}" %>  </p>
     <% end %>
+  <% end %>
+
   </div>
   <div class="all_profs">
     <% @profs.each do |prof| %>

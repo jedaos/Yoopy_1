@@ -38,11 +38,14 @@ class JobsController < ApplicationController
   end
 
   def show
-    # @job = Job.find(params[:id])
+
+  end
+
+  def edit
+    @job.update(job_params)    
   end
 
   def destroy
-    # @job = Job.find(params[:id])
     @job.destroy
   end
   def edit

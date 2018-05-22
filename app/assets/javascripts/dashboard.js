@@ -40,7 +40,22 @@
        $('#modal_hospital').removeClass("activated").addClass("not-activated");
     }
   }
-  //Edit form
+  // New FriendJob Form
+  function openFriendJob(){
+    if($("#modal_friend").hasClass("not-open")){
+      $('#modal_friend').removeClass("not-open").addClass("is-open")
+    } else {
+      $(".modal_back").css("display", "block")
+     $("#modal_friend").addClass("is-open")
+    }
+  }
+  function closeFriendJob(){
+    if ($("#modal_friend").hasClass("is-open")){
+       $('#modal_friend').removeClass("is-open").addClass("not-open");
+    }
+  }
+
+  //Edit Job form
   $(document).ready(function(){
     $(".edit-job").on('click', '.close-edit', function(){
       $("#edit-job-form").toggle("slideUp")
@@ -54,3 +69,54 @@
       }
     });
   })
+  $(document).on("turbolinks:load", function(){
+    $("#modal_friend").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+    if ($("#modal_friend").hasClass("not-open")){
+        $(".modal_back").css("display", "none");
+      }
+    });
+  })
+  //Prof Show Modal
+  function openProfModal(){
+    if($(".modal_content_friend").hasClass("not-open")){
+      $('.modal_content_friend').removeClass("not-open").addClass("is-open")
+    } else {
+      $(".modal_prof_back").css("display", "flex")
+     $(".modal_content_friend").addClass("is-open")
+    }
+  }
+  function closeProfModal(){
+    if ($(".modal_content_friend").hasClass("is-open")){
+       $('.modal_content_friend').removeClass("is-open").addClass("not-open");
+    }
+  }
+  $(document).on("turbolinks:load", function(){
+    $(".modal_content_friend").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+    if ($(".modal_content_friend").hasClass("not-open")){
+        $(".modal_prof_back").css("display", "none");
+      }
+    });
+  })
+  //Edit friendJob Form
+  function openFriendJobEdit(){
+    if($(".modal_edit_job").hasClass("not-open")){
+      $('.modal_edit_job').removeClass("not-open").addClass("is-open")
+    } else {
+      $(".modal_edit_back").css("display", "flex")
+     $(".modal_edit_job").addClass("is-open")
+    }
+  }
+  function friendJobEditClose(){
+    if ($(".modal_edit_job").hasClass("is-open")){
+       $('.modal_edit_job').removeClass("is-open").addClass("not-open");
+    }
+  }
+  $(document).on("turbolinks:load", function(){
+    $(".modal_edit_job").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+    if ($(".modal_edit_job").hasClass("not-open")){
+        $(".modal_edit_back").css("display", "none");
+      }
+    });
+  })
+
+  

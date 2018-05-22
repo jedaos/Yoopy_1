@@ -6,18 +6,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
      set_notice_and_redirect
   end
 
-
-  def linkedin
-    @user = Prof.connect_to_linkedin(request.env["omniauth.auth"],current_prof)
-    if @user.persisted?
-
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success"
-      sign_in_and_redirect @user, :event => :authentication
-    else
-      session["devise.linkedin_uid"] = request.env["omniauth.auth"]
-      redirect_to new_prof_registration_url
-    end
-  end
   private
   def set_notice_and_redirect
       if @user.persisted?

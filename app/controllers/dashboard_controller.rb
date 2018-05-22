@@ -4,17 +4,10 @@ class DashboardController < ApplicationController
   def index
 
     if current_prof
-
-      @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
-      @li_profile.authorize_from_access(current_prof.link_token, current_prof.link_secret)
-      @li_profile
-
       render 'dashboard/prof'
-
     elsif current_hospital
 
       @jobs = current_hospital.jobs
-      @error_message
 
       render 'dashboard/hospital'
 
@@ -32,17 +25,8 @@ class DashboardController < ApplicationController
   end
 
   def prof_show
-    @prof = Prof.find(params[:id])
-    if @prof.link_provider.nil?
-      flash[:error] = "This person has not registered through LinkedIn"
-    else
-      @li_profile = LinkedIn::Client.new(ENV["LINKID"], ENV["LINKSECRET"])
-      @li_profile.authorize_from_access(@prof.link_token, @prof.link_secret)
-    end
-      respond_to do |format|
-        format.js {}
-      end
-    end
+    @prof = Prof.find(params[:id])    
+  end
 
 
   def show

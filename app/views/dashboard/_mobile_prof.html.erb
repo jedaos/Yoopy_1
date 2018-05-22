@@ -2,13 +2,7 @@
   <h4>Welcome, <%= current_prof.name %></h4>
 
   <!-- Getting Started -->
-  <div class="categories-container">
-    <h5>Getting Started</h5>
-    <ol>
-      <li><h6>Connect With Stripe</h6></li>
-      <li><h6>Sync Your LinkedIn</h6></li>
-      <li><h6>Search For Jobs!</h6></li>
-    </ol>
+  <div class="categories-container">    
   </div>
 
 <!-- Stripe Connect & Find Jobs Buttons -->
@@ -24,42 +18,6 @@
     </div>
   </div>
 
-  <!-- Check if Prof is signed in using LinkedIn -->
-
-
-
-  <% if current_prof.link_provider.nil? %>
-  <div class="card" style="margin-top: 2rem; padding: 1rem;">
-    <div class="prof-profile" style="text-align: center;">
-      <span class="card-title">Sign in with LinkedIn to show potential employers more information about yourself.</span>
-    </div>
-    <div class="card-content">
-      <%= link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path %>
-    </div>
-  </div>
-
-  <% else %>
-  <!-- Card displaying their linkedIn profile information -->
-    <div class="card" style="margin-top: 2rem; padding: 1rem;">
-      <div class="prof-profile" style="text-align: center;">
-        <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"], class: "circle" %> <br>
-        <span class="card-title">Your Yoopy Profile</span>
-        <p>Displaying information from your LinkedIn will allow potential employers to get more information about you. This will increase your chances of getting hired.</p>
-
-      </div>
-      <div class="card-content">
-        Name: <%= @li_profile.profile["first_name"] %> <%= @li_profile.profile["last_name"] %>
-        <br />
-        Headline: <%= @li_profile.profile["headline"] %>
-        <br />
-        Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
-        <br />
-        Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
-        <br />
-        LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
-      </div>
-    </div>
-  <% end %>
 
 <!-- Check to see if Prof has any booked jobs -->
 

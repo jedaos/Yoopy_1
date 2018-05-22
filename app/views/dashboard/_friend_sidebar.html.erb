@@ -1,11 +1,11 @@
-<div class="col s3" id="sidebar">
-  <h4>Welcome, <br> <%= current_friend.name %></h4>
-  <h6>Looking for a medical professional?<br>Post a job below.</h6>
-
-  <a class="modal-trigger btn-large green-button" href="#modal_friend">Post A Job</a>
-
-  <div class="sidebar-items">
-    <li><i class="material-icons">supervisor_account</i>Account</li>
-    <li><i class="material-icons">help</i>Support</li>
-  </div>
+<div class="sidebar-friend">
+  <ul>
+    <li class="post-job"><i class="material-icons">local_hospital</i><%= link_to new_friend_job_path, remote: true do %>
+    <h6 onclick="openFriendJob()">Post A New Job</h6></li>
+    <% end %>
+    <li><a class="modal-trigger" href="#modal-account"><i class="material-icons">account_circle</i><h6>Account Info</h6></li>
+    <li><a class="modal-trigger" href="#modal1"><i class="material-icons">build</i></a><h6 class="inner-list">Edit Account Info<h6></li>
+    <li><a><i class="material-icons">help</i></a><h6 class="inner-list">Support<h6></li>
+    <li><a href="/profs"><i class="material-icons">person_add</i></a><h6>Add Favorites</h6></li>
+  </ul>
 </div>

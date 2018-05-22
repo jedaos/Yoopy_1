@@ -1,0 +1,462 @@
+.main {
+  background-color: rgb(78, 79, 78);
+  .sidebar-stuff {
+    float: left;
+    margin-top: 15px;
+      &:before {
+      content: " ";
+      height: 260px;
+      border: 2px solid #fff;
+      position: absolute;
+      margin-left: 35px;
+    }
+  }
+  .F_dash {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #fff;
+    .favorite_wrap {
+      display: inline-block;
+      height: 300px;
+      width: 400px;
+      background: #fff;
+      margin-left: auto;
+      .favorites {
+        display: block;
+        height: 100%;
+        width:100%;
+        background-color: rgba(0, 0, 0, 0.30);
+        text-align: center;
+        margin-right: auto;
+
+        h5 {
+          margin-top: 0;
+        }
+      }
+    }
+    .dash_right{
+      height: auto;
+      width: 100%;
+    }
+    .all_jobs_wrap {
+      display: flex;
+      height: 100vh;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      .job_wrap{
+        width: 40%;
+        height: 200px;
+        box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.20), 5px 16px 8px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        margin: 5px;
+        font-family: 'Source Sans Pro', sans-serif;
+        display: flex;
+        border: 4px solid green;
+        border-radius: 11px;
+          small {
+            font-size: 14px;
+          }
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+            animation-name: loadJobs;
+            animation-duration: 200ms * $i;
+            animation-delay: 200ms * $i;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+          }
+        }
+        i.head-icon {
+          float: right;
+
+        }
+        .job_header {
+          display: block;
+          height: 100%;
+          width: 150px;
+          background-color: #ccc;
+          text-align: center;
+          border-radius: 6px 0 0 6px;
+          .title {
+            margin-top: 21px;
+            margin-bottom: 23px;
+          }
+        }
+        .job_content {
+          display: inline-block;
+          width: 70%;
+          margin-left: 22px;
+          &:before {
+            content: "";
+            background-color: green;
+            padding: 1px;
+            position: relative;
+            margin-left: -13px;
+            padding-bottom: 72px;
+            bottom: -51px;
+          }
+          .edit-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            .mode_edit{
+              transform: scale(1);
+              transition: transform 200ms ease-in;
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+                transition: transform 200ms ease-in;
+              }
+            }
+            i {
+              color: #000;
+            }
+          }
+          .job_des {
+            height: 67px;
+            overflow: scroll;
+            &:before {
+              content: "";
+              position: absolute;
+              background-color: green;
+              border-radius: 50%;
+              display: block;
+              margin-left: -17px;
+              padding: 5px;
+              margin-top: 22px;
+
+            }
+          }
+          .job_slots {
+              &:before {
+                content: "";
+                position: absolute;
+                background-color: green;
+                border-radius: 50%;
+                display: block;
+                margin-left: -17px;
+                padding: 5px;
+                margin-top: 29px;
+              }
+              ul {
+                li.slot-icon {
+                  i {
+                    font-size: 35px;
+                    &:hover {
+                      cursor: pointer;
+                    }
+                  }
+                  .not-available {
+                    color: green;
+                  }
+                }
+              }
+            }
+            ul {
+              display: flex;
+              margin-top: 10px;
+            }
+          }
+        }
+        .job_footer {
+          background-color: rgb(190, 247, 190);
+          border-top: 2px solid rgb(42, 237, 42);
+          height: 45px;
+          display: flex;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          label {
+            height: 31px;
+            text-align: left;
+            float: left;
+            padding-right: 15px;
+          }
+          ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+          }
+          i.foot-icon{
+
+          }
+        }
+      }
+    }
+}
+//SideBar
+.sidebar-friend {
+  height: 100%;
+  background-color: rgb(78, 79, 78);
+  width: 75px;
+  transition: width 400ms ease-in;
+  &:hover {
+    width: 200px;
+    transition: width 400ms ease-in;
+    h6 {
+      opacity: 1;
+      transition: opacity 200ms 400ms ease-in;
+    }
+  }
+  ul {
+    background-color: rgb(78, 79, 78);
+    list-style: none;
+    height: 385px;
+    li {
+      text-align: center;
+      height: 60px;
+      padding: 20px 10px;
+      position: relative;
+      i {
+        font-size: 40px;
+        float: left;
+        color: rgb(78, 79, 78);
+        width: 50px;
+        height: 50px;
+        margin-top: -20px;
+        padding-top: 5px;
+        border-radius: 50%;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.30);
+        background-color: #fff;
+      }
+      h6 {
+        opacity: 0;
+        color: #fff;
+        margin-top: 0;
+        transition: opacity 200ms ease-in;
+      }
+    }
+  }
+}
+//New FriendJob Container
+.modal_back {
+  top:0;
+  bottom:0;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+  z-index: 5;
+  display: none;
+}
+#modal_friend {
+  width: 400px;
+  margin: auto;
+  transform-origin: 50% 50%;
+  form {
+    padding: 15px;
+    label {
+      color: #fff;
+    }
+    input {
+      &[type="text"]{
+        color: #fff;
+        &:focus {
+          border-bottom: 3px solid #FFF;
+        }
+      }
+    }
+  }
+  #new_friend_job_form {
+    width: 400px;
+    background-color: #6B6D6B;
+    border: 8px solid #A3CD80;
+    position: relative;
+    color: #fff;
+    box-shadow: 10px 10px 12px rgba(0, 0, 0.10, 0.6), 0px 15px 16px rgba(0, 0, 0.20, 0.7);
+    z-index: 2;
+    .close-friend{
+      width: 20px;
+      right: 5px;
+      top: 5px;
+      margin-right: 0;
+      position: absolute;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+.is-open {
+  animation: isOpen 200ms ease-in forwards;
+}
+
+.not-open {
+  animation: notOpen 300ms ease-in forwards;
+
+}
+@keyframes isOpen {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  90% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes notOpen {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(1100px) rotate(180deg);
+  }
+}
+.modal_prof_back {
+  top:0;
+  bottom:0;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  .modal-content-friend {
+    width: 100%;
+    margin: auto;
+  }
+}
+.modal_edit_back {
+  top:0;
+  bottom:0;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  .edit_friendJob_back {
+    width: 100%;
+    margin: auto;
+    background-color: rgb(107, 109, 107);
+    padding: 20px;
+    border: 5px solid green;
+    form {
+      label {
+        color: #fff;
+      }
+      input[type='text']{
+        color: #fff;
+      }
+      .edit_friendJob_close {
+        display: inline-block;
+        float: right;
+        i {
+          color: #fff;
+          text-decoration: none;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+.prof_show_back {
+  display: flex;
+  background-color: #FFF;
+  flex-flow: column wrap;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.40);
+  width: 500px;
+  height: 255px;
+  border: 4px solid green;
+  border-radius: 10px;
+  .prof_show_head {
+    width: 70%;
+    height: 100%;
+    .prof_show_image {
+      height: 115px;
+      i {
+        position: relative;
+        font-size: 80px;
+        padding: 0px 15px;
+      }
+    }
+    .prof_show_image {
+      height: 125px;
+    }
+    .prof_show_social {
+      ul {
+        display: flex;
+        justify-content: space-around;
+        li {
+          width: 50px;
+          .twitter {
+            stroke-dasharray: 305px;
+            stroke-dashoffset: 305px;
+            stroke-width: 2px;
+          }
+          .linkedin {
+            stroke-dasharray: 305px;
+            stroke-dashoffset: 305px;
+            stroke-width: 2px;
+          }
+          .facebook {
+            stroke-dasharray: 305px;
+            stroke-dashoffset: 305px;
+            stroke-width: 2px;
+          }
+          &:hover {
+            .twitter {
+              stroke-dashoffset: 0px;
+              transition: stroke-dashoffset 500ms ease-in;
+            }
+            .linkedin {
+              stroke-dashoffset: 0px;
+              transition: stroke-dashoffset 500ms ease-in;
+            }
+            .facebook {
+              stroke-dashoffset: 0px;
+              transition: stroke-dashoffset 500ms ease-in;
+            }
+          }
+        }
+      }
+    }
+  }
+  // @keyframes circle {
+  //   0% {
+  //     stroke-dashoffset: 305px;
+  //   }
+  //   100% {
+  //     stroke-dashoffset: 0px;
+  //   }
+  // }
+  .close_prof_show {
+    width: 20px;
+    margin-left: auto;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .prof_show_right{
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 0px 6px 6px 0;
+    .prof_show_title {
+      margin-top: 35px;
+      margin-bottom: 30px;
+      margin-left: 10px;
+    }
+    .prof_show_license {
+      margin-top: 28px;
+      margin-left: 10px;
+    }
+    i {
+      float: right;
+      color: #fff;
+      margin-right: 5px;
+    }
+    label {
+      color: #000;
+    }
+    h6 {
+      color: #000;
+    }
+  }
+}

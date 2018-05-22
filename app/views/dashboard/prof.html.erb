@@ -4,15 +4,7 @@
 <%= render 'prof_sidebar' %>
   <div class="getting-started">
     <h4>Getting Started</h4>
-
-    <div class="categories-container">
-      <ol class="list-inline getting-started">
-        <li class="col s3"><h5>Connect With Stripe</h5></li>
-        <li class="col s3"><h5>Sync Your LinkedIn</h5></li>
-        <li class="col s3"><h5>Search For Jobs!</h5></li>
-      </ol>
-    </div>
-
+    
 
   </div>
   <div class="col s9" id="dash-content">
@@ -37,57 +29,6 @@
 
         </div>
       </div>
-
-      <% if current_prof.link_token.nil? %>
-      <!-- <div class="card-panel grey lighten-5">
-        <div class="row valign-wrapper">
-          <div class="col s6" id="ask-linkedin">
-            <%#link_to image_tag("linkedIn_button.png", height: '50'), prof_linkedin_omniauth_authorize_path %>
-            <button id="stripe_dash" class="btn btn-medium green">Stripe Account Balance</button>
-            <div id="stripe_account" style='display: none'>
-              <%# account = Stripe::Account.retrieve(current_prof.uid)
-                  account.login_links.create().url %>
-            </div> -->
-
-          </div>
-          <div class="col s6">
-            <!-- <h5>Sign in with LinkedIn to show potential employers more information about yourself.</h5> -->
-          </div>
-        </div>
-      </div>
-      <% else %>
-        <div class="card-panel grey lighten-5">
-          <div class="row valign-wrapper">
-            <div class="col s3" style="z-index: 1;">
-              <%= image_tag @li_profile.profile(:fields => ["picture-url"])["picture-url"], class: "circle" %> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s9">
-              <span class="black-text">
-                <% if @li_profile.nil?  %>
-                <% else %>
-                  <h5>Your Yoopy Profile</h5>
-                  <p>Displaying information from your LinkedIn will allow potential employers to get more information about you. This will increase your chances of getting hired.</p>
-
-                  First Name: <%= @li_profile.profile["first_name"] %>
-                  <br />
-                  Last Name: <%= @li_profile.profile["last_name"] %>
-                  <br />
-                  Headline: <%= @li_profile.profile["headline"] %>
-                  <br />
-                  Total Connections: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["num-connections"]%>
-                  <br />
-                  Industry: <%=@li_profile.profile(:fields => ["num-connections", "industry"])["industry"]%>
-                  <br />
-                  LinkedIn Profile: <%= link_to "LinkedIn Profile", @li_profile.profile["site_standard_profile_request"]["url"] %>
-
-                <% end %>
-              </span>
-            </div>
-          </div>
-        </div>
-        <% end %>
-
-
   </div>
   <% if current_prof.bookings.count > 0 %>
     <div class="container bookings">

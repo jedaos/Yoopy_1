@@ -21,16 +21,17 @@ class FriendJobsController < ApplicationController
     end
   end
 
+  def edit
+    @friendjob = FriendJob.find(params[:id])
+  end
 
   def update
     @friendJob = FriendJob.find(params[:id])
-    respond_to do |format|
-      if @friendJob.update(friend_job_params)
-        format.json {render json: @friendJob}
-      else
-        flash[:error] = "Something went wrong"
-        pp @friendJob.errors.full_messages
-      end
+    if @friendJob.update(friend_job_params)
+      flash[:success] = "This job has successfully been updated!"
+      redirect_to dashboard_index_path
+    else
+      render "edit"
     end
   end
 
@@ -44,7 +45,7 @@ class FriendJobsController < ApplicationController
   private
 
   def friend_job_params
-    params.require(:friendJob).permit(:name, :description, :rate, :friend_id, :slot_num)
+    params.require(:friend_job).permit(:name, :description, :rate, :friend_id, :slot_num)
   end
 
 end
