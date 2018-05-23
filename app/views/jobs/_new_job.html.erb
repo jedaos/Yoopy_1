@@ -1,4 +1,8 @@
-<%= form_with model: @job, class: 'new_job_form', html:{novalidate: true}, remote: true do |f| %>
+
+<%= form_with model: @job, class: 'new_job_form', html: {novalidate: true}, remote: true do |f| %>
+  <% if @job.errors.any? %>
+    <%= render "errors", :object => @job %>
+  <% end %>
 <i class="material-icons close-friend"  onclick="formClose()">close</i>
   <h4>Post A New Job</h4>
   <%= f.hidden_field :hospital_id, :value=>current_hospital.id %>
@@ -17,7 +21,14 @@
     <div class="form-group">
       <%= f.label :rate, "Rate:$" %><output id="rangevalue">50</output>
       <%= f.range_field(:rate, :min=>50, :max=>200, :step => 10, :class => "slide", :id => "slider1", onchange: "rangevalue.value=value" ) %> <br>
-
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="hidden" id="hospital_id_for_favs" value="<%= current_hospital.id %>" />
+        <input type="checkbox" />
+        <span>Private: </span>
+      </label>
+    </small>Checking this box will make this job private, which would make it only visible to your favorites.</small>
     </div>
 
     <div class="form-group">

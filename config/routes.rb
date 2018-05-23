@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :jobs
 
   post "notifications/notify_text" => "notifications#notify_text"
+  post "notifications/:id/notify_favorites" => "notifications#notify_favorites"
   # get 'jobs/:id' => "jobs#show"
   get 'jobs/index' => 'jobs#index'
   resources :bookings

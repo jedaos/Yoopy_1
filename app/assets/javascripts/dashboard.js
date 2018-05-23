@@ -140,3 +140,12 @@
       }
     });
   })
+
+  $(document).ready(function(){
+    $(".new_job_form").on("ajax:success", function(){
+      console.log($("#submit_job"));
+      $("#submit_job").on("click", function(){
+        console.log("clickeddd");
+      })
+    })
+  })
