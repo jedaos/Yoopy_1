@@ -1,6 +1,6 @@
 class Prof < ApplicationRecord
   has_many :bookings
-  belongs_to :favoritable, polymorphic: true
+  belongs_to :favoritable, polymorphic: true, optional: true
   has_many :slots, :through => :bookings, dependent: :destroy
   has_many :notifications, as: :notifiable, foreign_key: :recipient_id
   devise :database_authenticatable, :registerable,
@@ -17,5 +17,5 @@ class Prof < ApplicationRecord
         user.publishable_key = access_token.info.stripe_publishable_key
         user.save
       return user
-    end  
+    end
 end

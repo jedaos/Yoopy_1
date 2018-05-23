@@ -1,5 +1,5 @@
-<%= form_with model: @job, id: 'new_job_form', html:{novalidate: true}, remote: true do |f| %>
-<i class="material-icons close-form" onclick="formClose()">close</i>
+<%= form_with model: @job, class: 'new_job_form', html:{novalidate: true}, remote: true do |f| %>
+<i class="material-icons close-friend"  onclick="formClose()">close</i>
   <h4>Post A New Job</h4>
   <%= f.hidden_field :hospital_id, :value=>current_hospital.id %>
   <% if @job.errors.any? %>

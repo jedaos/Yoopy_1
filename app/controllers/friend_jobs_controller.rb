@@ -27,11 +27,28 @@ class FriendJobsController < ApplicationController
 
   def update
     @friendJob = FriendJob.find(params[:id])
-    if @friendJob.update(friend_job_params)
-      flash[:success] = "This job has successfully been updated!"
+    if @friendJob.slot_num.to_i > params[:friend_job][:slot_num].to_i
+      new_slots = @friendJob.slot_num.to_i - params[:friend_job][:slot_num].to_i
+      new_slots.times do |slot|
+        @friendJob.slots.last.destroy
+      end
+      flash[:success] = "This job was successfully updated and #{new_slots.to_i} slot(s) were deleted."
+      @friendJob.update(friend_job_params)
+      redirect_to dashboard_index_path
+    elsif @friendJob.slot_num.to_i < params[:friend_job][:slot_num].to_i
+      new_slots = params[:friend_job][:slot_num].to_i - @friendJob.slot_num.to_i
+      new_slots.times do |slot|
+        @friendJob.slots.create
+      end
+      flash[:success] = "This job was successfully updated and #{new_slots.to_i} slot(s) were added."
+      @friendJob.update(friend_job_params)
+      redirect_to dashboard_index_path
+    elsif @friendJob.update(friend_job_params)
+      flash[:success] = "This job was successfully updated."
       redirect_to dashboard_index_path
     else
-      render "edit"
+      flash[:error] = "This job was not successfully updated"
+      render nothing: true, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +56,7 @@ class FriendJobsController < ApplicationController
   def destroy
     @friendJob = FriendJob.find(params[:id])
     @friendJob.destroy
-    render json: @friendJob
+    redirect_to dashboard_index_path
   end
 
   private

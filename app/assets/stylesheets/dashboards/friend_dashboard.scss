@@ -96,9 +96,8 @@
             bottom: -51px;
           }
           .edit-icon {
-            position: absolute;
-            top: 0;
-            right: 0;
+            display: inline-block;
+            float: right;
             .mode_edit{
               transform: scale(1);
               transition: transform 200ms ease-in;
@@ -139,6 +138,8 @@
                 margin-top: 29px;
               }
               ul {
+                display: flex;
+                margin-top: 10px;
                 li.slot-icon {
                   i {
                     font-size: 35px;
@@ -152,38 +153,11 @@
                 }
               }
             }
-            ul {
-              display: flex;
-              margin-top: 10px;
-            }
-          }
-        }
-        .job_footer {
-          background-color: rgb(190, 247, 190);
-          border-top: 2px solid rgb(42, 237, 42);
-          height: 45px;
-          display: flex;
-          width: 100%;
-          position: absolute;
-          bottom: 0;
-          label {
-            height: 31px;
-            text-align: left;
-            float: left;
-            padding-right: 15px;
-          }
-          ul {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-          }
-          i.foot-icon{
-
           }
         }
       }
     }
-}
+  }
 //SideBar
 .sidebar-friend {
   height: 100%;
@@ -256,10 +230,10 @@
       }
     }
   }
-  #new_friend_job_form {
+  .new_job_form {
     width: 400px;
     background-color: #6B6D6B;
-    border: 8px solid #A3CD80;
+    border: 8px solid green;
     position: relative;
     color: #fff;
     box-shadow: 10px 10px 12px rgba(0, 0, 0.10, 0.6), 0px 15px 16px rgba(0, 0, 0.20, 0.7);
@@ -330,7 +304,7 @@
   display: none;
   justify-content: center;
   align-items: center;
-  .edit_friendJob_back {
+  .edit_job_back {
     width: 100%;
     margin: auto;
     background-color: rgb(107, 109, 107);
@@ -369,16 +343,67 @@
   .prof_show_head {
     width: 70%;
     height: 100%;
+    h4 {
+      font-size: 2.28rem;
+      line-height: 110%;
+      margin: 1.52rem 0 0.912rem 2rem;
+    }
     .prof_show_image {
       height: 115px;
       i {
         position: relative;
         font-size: 80px;
         padding: 0px 15px;
+        top: 10px;
       }
-    }
-    .prof_show_image {
-      height: 125px;
+      .pay_box {
+        display: flex;
+        svg {
+          height: 80px;
+          width: 80px;
+          margin-top: 10px;
+          stroke-dasharray: 310px;
+          margin-left: 135px;
+          stroke-dashoffset: 310px;
+          transition: stroke-dashoffset 500ms ease-in;
+          .st0 {
+            stroke: green;
+          }
+          .st1 {
+            opacity: 1;
+            transition: opacity 500ms ease-in;
+          }
+        }
+        .pay {
+          font-size: 1.64rem;
+          line-height: 110%;
+          margin: 1.0933333333rem 0 0.656rem 0;
+          position: absolute;
+          top: 80px;
+          opacity: 0;
+          transition: opacity 500ms ease-in;
+          color: green;
+          right: 190px;
+        }
+        &:hover {
+          svg {
+            stroke-dashoffset: 0px;
+            transition: stroke-dashoffset 500ms ease-in;
+            cursor: pointer;
+            .st1 {
+              opacity: 0;
+              transition: opacity 500ms ease-in;
+            }
+          }
+          .pay {
+            opacity: 1;
+            transition: opacity 500ms ease-in;
+            h5 {
+              cursor: pointer;
+            }
+          }
+        }
+      }
     }
     .prof_show_social {
       ul {
@@ -390,18 +415,22 @@
             stroke-dasharray: 305px;
             stroke-dashoffset: 305px;
             stroke-width: 2px;
+            transition: stroke-dashoffset 500ms ease-in;
           }
           .linkedin {
             stroke-dasharray: 305px;
             stroke-dashoffset: 305px;
             stroke-width: 2px;
+            transition: stroke-dashoffset 500ms ease-in;
           }
           .facebook {
             stroke-dasharray: 305px;
             stroke-dashoffset: 305px;
             stroke-width: 2px;
+            transition: stroke-dashoffset 500ms ease-in;
           }
           &:hover {
+            animation: circle 200ms ease-in-out forwards;
             .twitter {
               stroke-dashoffset: 0px;
               transition: stroke-dashoffset 500ms ease-in;
@@ -419,14 +448,17 @@
       }
     }
   }
-  // @keyframes circle {
-  //   0% {
-  //     stroke-dashoffset: 305px;
-  //   }
-  //   100% {
-  //     stroke-dashoffset: 0px;
-  //   }
-  // }
+  @keyframes circle {
+    0% {
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.2)
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
   .close_prof_show {
     width: 20px;
     margin-left: auto;
@@ -438,14 +470,48 @@
     height: 100%;
     background-color: #ccc;
     border-radius: 0px 6px 6px 0;
+    &:before {
+      content: "";
+      height: 102px;
+      margin-top: 70px;
+      background-color: green;
+      position: absolute;
+      width: 3px;
+      right: 166px;
+    }
     .prof_show_title {
-      margin-top: 35px;
-      margin-bottom: 30px;
+      margin-top: 30px;
+      margin-bottom: 4px;
       margin-left: 10px;
+      display: inline-block;
+      &:before {
+        content: "";
+        height: 20px;
+        width: 20px;
+        display: block;
+        border: 2px solid green;
+        border-radius: 50%;
+        position: absolute;
+        right: 158px;
+        top: 64px;
+        background-color: #fff;
+      }
     }
     .prof_show_license {
-      margin-top: 28px;
+      margin-top: 0;
       margin-left: 10px;
+      &:before {
+        content: "";
+        height: 20px;
+        width: 20px;
+        display: block;
+        border: 2px solid green;
+        border-radius: 50%;
+        position: absolute;
+        right: 158px;
+        top: 165px;
+        background-color: #fff;
+      }
     }
     i {
       float: right;

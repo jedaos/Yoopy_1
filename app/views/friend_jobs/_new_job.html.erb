@@ -1,5 +1,5 @@
 
-<%= form_with(scope: :friend_job, url: friend_jobs_path, method: 'post', id: "new_friend_job_form", remote: true) do |f| %>
+<%= form_with(scope: :friend_job, url: friend_jobs_path, method: 'post', class: "new_job_form", remote: true) do |f| %>
 <i class="material-icons close-friend"  onclick="closeFriendJob()">close</i>
   <h4>Post A New Job</h4>
   <%= f.hidden_field :friend_id, :value=>current_friend.id %>

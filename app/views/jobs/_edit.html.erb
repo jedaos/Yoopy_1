@@ -1,23 +1,25 @@
+<div class="edit_job_back">
+  <%= form_with model: @job, id: "edit-job-form", remote: true do |f| %>
+  <div class="edit_friendJob_close">
+    <i class="material-icons friend_job_close" onclick="friendJobEditClose()">close</i>
+  </div>
+    <div class="form-group">
+      <%= f.text_field :name, placeholder: "Name" %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :description, placeholder: "Description" %>
+    </div>    
+      <div class="form-group">
+        <%= f.label :rate, "Rate:$" %><output id="rangevalue">50</output>
+        <%= f.range_field(:rate, :min=>50, :max=>200, :step => 10, :class => "slide", :id => "slider1", onchange: "rangevalue.value=value" ) %> <br>
 
-<%= form_with model: @job, id: "edit-job-form", remote: true do |f| %>
-<i class="material-icons close-edit">close</i>
-  <div class="form-group">
-    <%= f.text_field :name, placeholder: "Name" %>
-  </div>
-  <div class="form-group">
-      <%= f.text_field :description, placeholder: "Description" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :rate, "Rate: " %>
-    <!-- <p id="edit_rate_value">$0.00</p> -->
-    <%# f.range_field(:rate, :min=>50, :max=>200, :step => 10, :class => "slide", :id => "slider1") %>
-    <%= f.text_field :rate, :value=> "$#{@job.rate}0" ,tabindex: 25 %>
-  </div>
-  <div class="form-group">
-    <%= f.text_field :slot_num, placeholder: "Available Spots" %>
-  </div>
+      </div>
+    <div class="form-group">
+      <%= f.text_field :slot_num, placeholder: "Available Spots" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Submit", class: "edit_job_form" %>
-  </div>
- <% end %>
+    <div class="actions">
+      <%= f.submit "Submit", class: "edit_job_form" %>
+    </div>
+   <% end %>
+</div>

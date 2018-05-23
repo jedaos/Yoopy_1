@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @job.update(job_params)    
+    @job.update(job_params)
   end
 
   def destroy
@@ -52,9 +52,27 @@ class JobsController < ApplicationController
   end
 
     def update
-      if @job.update(job_params)
+      if @job.slot_num > params[:job][:slot_num]
+        new_slots = @job.slot_num.to_i - params[:job][:slot_num].to_i
+        new_slots.times do |slot|
+          @job.slots.last.destroy
+        end
+        flash[:success] = "This job was successfully updated and #{new_slots.to_i} slot(s) were deleted."
+        @job.update(job_params)
+        redirect_to dashboard_index_path
+      elsif @job.slot_num < params[:job][:slot_num]
+        new_slots = params[:job][:slot_num].to_i - @job.slot_num.to_i
+        new_slots.times do |slot|
+          @job.slots.create
+        end
+        flash[:success] = "This job was successfully updated and #{new_slots.to_i} slot(s) were added."
+        @job.update(job_params)
+        redirect_to dashboard_index_path
+      elsif @job.update(job_params)
+        flash[:success] = "This job was successfully updated."
         redirect_to dashboard_index_path
       else
+        flash[:error] = "This job was not successfully updated"
         render nothing: true, status: :unprocessable_entity
       end
     end

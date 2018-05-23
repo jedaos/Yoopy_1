@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [:show, :create, :destroy]
   resources :dashboard #only: [:index]
   get '/dashboard/:id/prof_show' => 'dashboard#prof_show', as: :prof_show
+  get '/dashboard/:id/prof_show_hospital' => 'dashboard#prof_show_hospital', as: :prof_show_hospital
   resources :jobs
 
   post "notifications/notify_text" => "notifications#notify_text"

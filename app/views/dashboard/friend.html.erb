@@ -43,6 +43,7 @@
               <div class="job_content">
                 <div class="edit-icon">
                   <a href="/friend_jobs/<%= job.id %>/edit" data-remote="true" onclick="openFriendJobEdit()"><i class="material-icons mode_edit">mode_edit</i></a>
+                  <a href="friend_jobs/<%= job.id %>" data-method="DELETE" data-confirm="Are you sure you want to delete this job?"><i class="material-icons">close</i></a>
                 </div>
                 <div class="job_des">
                   <small>Description</small>
@@ -57,7 +58,7 @@
                     <li class="slot-icon"> <i class="material-icons">contacts</i></li>
                       <% else %>
                         <% if slot.booking %>
-                    <li class="slot-icon"><a href="/dashboard/<%= slot.booking.prof_id %>/prof_show" onclick="openProfModal()" id="prof-show-trigger" data-remote="true"><i class="material-icons not-available">check_circle</i></a></li>
+                    <li class="slot-icon"><a href="/dashboard/<%= slot.booking.prof_id %>/prof_show?job=<%= slot.reservable.id %>&type=friend_job&booking_id=<%= slot.booking.id %>" onclick="openProfModal()" id="prof-show-trigger" data-remote="true"><i class="material-icons not-available">check_circle</i></a></li>
                         <% end %>
                       <% end %>
                     <% end %>

@@ -8,7 +8,6 @@ class DashboardController < ApplicationController
     elsif current_hospital
 
       @jobs = current_hospital.jobs
-
       render 'dashboard/hospital'
 
     elsif current_friend
@@ -25,7 +24,25 @@ class DashboardController < ApplicationController
   end
 
   def prof_show
-    @prof = Prof.find(params[:id])    
+    @prof = Prof.find(params[:id])
+    case params[:type]
+    when "friend_job"
+      @job = FriendJob.find(params[:job])
+    when "job"
+      @job = Job.find(params[:job])
+    end
+    @booking_id = params[:booking_id]
+  end
+  
+  def prof_show_hospital
+    @prof = Prof.find(params[:id])
+    case params[:type]
+    when "friend_job"
+      @job = FriendJob.find(params[:job])
+    when "job"
+      @job = Job.find(params[:job])
+    end
+    @booking_id = params[:booking_id]
   end
 
 
