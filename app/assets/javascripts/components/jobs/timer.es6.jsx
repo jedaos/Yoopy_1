@@ -8,7 +8,7 @@ class Timer extends React.Component {
       time: 0
     }
     this.now = this.now.bind(this)
-
+    this.stop = this.stop.bind(this)
   }
 
   now(){
@@ -34,7 +34,12 @@ class Timer extends React.Component {
     return self.msToTime(x)
   }, 1000);
 }
-
+  stop(){
+    const { time } = this.state;
+    if (time === "00:00:00") {
+      clearInterval();
+    }
+  }
   render () {
     let style = {};
     if (this.state.time === 0) {
@@ -42,7 +47,7 @@ class Timer extends React.Component {
     }
     return(
       <div style={style}>
-        {this.state.time}
+        {this.state.time = "00:00:00" ? this.stop() : this.state.time}
       </div>
     );
   }

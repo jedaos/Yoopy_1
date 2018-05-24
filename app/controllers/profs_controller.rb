@@ -10,4 +10,24 @@ class ProfsController < ApplicationController
       redirect_to home_index_path
     end
   end
+
+  def edit
+    @prof = Prof.find(params[:id])
+  end
+
+  def update
+    @prof = Prof.find(params[:id])
+    avatar = params[:avatar]
+    @prof.avatar.attach(avatar)
+    if @prof.save
+      flash[:success] = "A profile image will now be displayed for users to see"
+      redirect_to dashboard_index_path
+    else
+      flash[:error] = "Profile image was not stored successfully"
+    end
+  end
+  private
+  def prof_params
+    params.require(:prof).permit(:name, :job_title, :bio, :phone, :email, :avatar)
+  end
 end

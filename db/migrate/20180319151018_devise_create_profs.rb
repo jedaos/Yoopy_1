@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DeviseCreateProfs < ActiveRecord::Migration[5.1]
+class DeviseCreateProfs < ActiveRecord::Migration[5.2]
   def change
     create_table :profs do |t|
       ## Database authenticatable

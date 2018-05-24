@@ -1,4 +1,4 @@
-class AddPublishableKeyToUsers < ActiveRecord::Migration[5.1]
+class AddPublishableKeyToUsers < ActiveRecord::Migration[5.2]
   def change
     add_column :profs, :publishable_key, :string
     add_column :profs, :provider, :string

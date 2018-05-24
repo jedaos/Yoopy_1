@@ -1,4 +1,4 @@
-class AddLinkedInUidToProfs < ActiveRecord::Migration[5.1]
+class AddLinkedInUidToProfs < ActiveRecord::Migration[5.2]
   def change
     add_column :profs, :linkedin_uid, :string
   end

@@ -1,0 +1,39 @@
+<div class="errors_box">
+  <% flash.each do |key, value| %>
+    <% unless key == "notice"%>
+  <p>  <%= "#{key.capitalize}! #{value}" %>  </p>
+  <% end %>
+<% end %>
+</div>
+<div class="prof_show_back_H">
+  <div class="prof_show_head_H">
+    <h4><%= @hospital.institution_name.capitalize %></h4>
+    <div class="prof_show_image_H">
+      <i class="material-icons">account_box</i>
+    </div>
+
+  <div class="prof_show_social_H">
+    <h6>Open Slots:</h6>
+    <ul>
+      <% @job.slots.each do |slot| %>
+        <% if slot.available %>
+        <li class="slot-icon"> <i class="material-icons">contacts</i></li>        
+        <% end %>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+  <div class="prof_show_right_H">
+    <i class="material-icons close_prof_show_H" onclick="closeHospitalModal()">close</i>
+    <div class="prof_show_title_H">
+      <label>Email: </label>
+      <h6><%= @hospital.email  %></h6>
+    </div>
+    <hr>
+      <div class="prof_show_license_H">
+        <label>Location:</label>
+        <h6><%= @hospital.street %></h6>
+        <p><%= @hospital.city.capitalize %>, <%= @hospital.zip %></p>
+      </div>
+  </div>
+</div>

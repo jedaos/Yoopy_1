@@ -121,31 +121,64 @@
 
   // Prof Modal Show - HOSPITAL
   function openProfModalHospital(){
-    if($(".modal_content_hospital").hasClass("not-open-H")){
-      $('.modal_content_hospital').removeClass("not-open-H").addClass("is-open-H")
+    if($(".modal_content_hospital").hasClass("not-open")){
+      $('.modal_content_hospital').removeClass("not-open").addClass("is-open")
     } else {
       $(".modal_prof_back_H").css("display", "flex")
-     $(".modal_content_hospital").addClass("is-open-H")
+     $(".modal_content_hospital").addClass("is-open")
     }
   }
   function closeProfModalHospital(){
-    if ($(".modal_content_hospital").hasClass("is-open-H")){
-       $('.modal_content_hospital').removeClass("is-open-H").addClass("not-open-H");
+    if ($(".modal_content_hospital").hasClass("is-open")){
+       $('.modal_content_hospital').removeClass("is-open").addClass("not-open");
     }
   }
   $(document).on("turbolinks:load", function(){
     $(".modal_content_hospital").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
-    if ($(".modal_content_hospital").hasClass("not-open-H")){
+    if ($(".modal_content_hospital").hasClass("not-open")){
         $(".modal_prof_back_H").css("display", "none");
       }
     });
   })
-
-  $(document).ready(function(){
-    $(".new_job_form").on("ajax:success", function(){
-      console.log($("#submit_job"));
-      $("#submit_job").on("click", function(){
-        console.log("clickeddd");
-      })
-    })
+//Prof dashboard edit account ifo
+  function openEditAccountModal(){
+    if($("#account_info").hasClass("not-open")){
+      $('#account_info').removeClass("not-open").addClass("is-open")
+    } else {
+      $(".modal_prof_back").css("display", "flex")
+     $("#account_info").addClass("is-open")
+    }
+  }
+  function closeEditProfModal(){
+    if ($("#account_info").hasClass("is-open")){
+       $('#account_info').removeClass("is-open").addClass("not-open");
+    }
+  }
+  $(document).on("turbolinks:load", function(){
+    $("#account_info").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+    if ($("#account_info").hasClass("not-open")){
+        $(".modal_prof_back").css("display", "none");
+      }
+    });
+  })
+  //Prof show hospital info
+  function openHospitaltModal(){
+    if($("#hospital_account_info").hasClass("not-open")){
+      $('#hospital_account_info').removeClass("not-open").addClass("is-open")
+    } else {
+      $(".modal_prof_back").css("display", "flex")
+     $("#hospital_account_info").addClass("is-open")
+    }
+  }
+  function closeHospitalModal(){
+    if ($("#hospital_account_info").hasClass("is-open")){
+       $('#hospital_account_info').removeClass("is-open").addClass("not-open");
+    }
+  }
+  $(document).on("turbolinks:load", function(){
+    $("#hospital_account_info").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+    if ($("#hospital_account_info").hasClass("not-open")){
+        $(".modal_prof_back").css("display", "none");
+      }
+    });
   })

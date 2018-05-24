@@ -1,11 +1,10 @@
 
 
-  <div class="sidebar-items">
+  <div class="sidebar-prof">
     <ul>
-      <i class="material-icons close" onclick="closeNav()">close</i>
-      <li><i class="material-icons spin" onclick="openNav()">play_arrow</i></li>
       <li><a class="modal-trigger" href="#modal-account"><i class="material-icons">account_circle</i></a><h6 class="inner-list">Account Info<h6></li>
-      <li><a class="modal-trigger" href="#modal1"><i class="material-icons">mode_edit</i></a><h6 class="inner-list">Edit Account Info<h6></li>
+      <li><a href="/profs/<%= current_prof.id %>/edit" data-remote="true" onclick="openEditAccountModal()"><i class="material-icons">mode_edit</i><h6 class="inner-list">Edit Account Info<h6></a></li>
+      <li><a href="/jobs"><i class="material-icons">work</i><h6 class="inner-list">Available Jobs<h6></a></li>
       <li><a><i class="material-icons">help</i></a><h6 class="inner-list">Support<h6></li>
     </ul>
 

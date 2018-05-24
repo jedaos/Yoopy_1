@@ -1,3 +1,38 @@
+.profile_image {
+  display: block;
+  width: 40%;
+  height: 350px;
+  margin-left: auto;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5), 8px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 5px solid green;
+  }
+  .right_info {
+    width: 50%;
+    float: right;
+    margin-top: -120px;
+    ul {
+      li {
+        padding: 20px 0;
+      }
+    }
+  }
+  .left_info {
+    width: 50%;
+    ul {
+      li {
+        padding: 20px 0;
+      }
+    }
+  }
+}
+
+
 //Notification
 * {
   box-sizing: border-box;
@@ -117,69 +152,268 @@
   position: relative;
   left: 0;
 }
-
-.close {
-  float: right;
-  opacity: 0;
-  color: #fff;
-  &:hover {
-    cursor: pointer;
+// Getting Started
+.intro {
+  display: block;
+  width: 50%;
+  margin-top: -350px;
+  margin-bottom: 201px;
+  p {
+    text-indent: 20px;
+    padding-left: 20px;
   }
 }
 
-.spin {
-  transform-origin: center;
-  transform: rotate(0deg);
-  &:hover {
-    cursor: pointer;
-    transform: rotate(360deg);
-    transition: transform 500ms ease-in;
-  }
-}
 
-.sidebar-items {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 60px;
-  background-color: rgb(107, 109, 107);
-  top: 0px;
-  bottom: 0px;
-  margin-top: 90px;
-  ul {
-    height: 100%;
-    margin-top: 0;
-    padding-top: 0;
-    top: 0px;
-    bottom: 0px;
-    background-color: rgb(107, 109, 107);
+//Prof sidebar
+.sidebar-stuff-prof {
+  float: left;
+  margin-top: 15px;
+    &:before {
+    content: " ";
+    height: 185px;
+    border: 2px solid #fff;
     position: absolute;
-    width: 100%;
-    list-style: none;
+    margin-left: 35px;
   }
-  li {
-    text-align: center;
-    border-bottom: 2px solid #fff;
-    height: 60px;
-    width: 100%;
-    i {
-      font-size: 40px;
-      color: #fff;
-      position: relative;
-      width: 50px;
-      display: block;
-      margin-top: 20px;
-      left: 0;
-      background-color: rgb(107, 109, 107);
-      z-index: 1;
-    }
+}
+.sidebar-prof {
+  height: 100%;
+  background-color: rgb(78, 79, 78);
+  width: 75px;
+  transition: width 400ms ease-in;
+  &:hover {
+    width: 200px;
+    transition: width 400ms ease-in;
     h6 {
-      margin-left: 30px;
-      color: #fff;
-      margin-top: 0;
-      bottom: 30px;
+      opacity: 1;
+      transition: opacity 200ms 400ms ease-in;
+    }
+  }
+  ul {
+    background-color: rgb(78, 79, 78);
+    list-style: none;
+    height: 385px;
+    li {
+      text-align: center;
+      height: 60px;
+      padding: 20px 10px;
       position: relative;
-      opacity: 0;
+      i {
+        font-size: 40px;
+        float: left;
+        color: rgb(78, 79, 78);
+        width: 50px;
+        height: 50px;
+        margin-top: -20px;
+        padding-top: 5px;
+        border-radius: 50%;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.30);
+        background-color: #fff;
+      }
+      h6 {
+        opacity: 0;
+        color: #fff;
+        margin-top: 0;
+        transition: opacity 200ms ease-in;
+      }
     }
   }
 }
+.job_slots_prof {
+  display: flex;
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: green;
+      border-radius: 50%;
+      display: block;
+      margin-left: -17px;
+      padding: 5px;
+      margin-top: 29px;
+    }
+    svg {
+      height: 50px;
+      margin-left: -115px;
+      margin-top: 25px;
+      stroke-dashoffset: 295px;
+      stroke-dasharray: 295px;
+      transition: stroke-dashoffset 400ms ease-in;
+      &:hover {
+        stroke-dashoffset: 0;
+        cursor: pointer;
+        transition: stroke-dashoffset 400ms ease-in;
+      }
+    }
+  }
+  .edit_account_form {
+    width: 400px;
+    background-color: rgba(147, 147, 147, 0.9);
+    border: 8px solid green;
+    position: relative;
+    color: #fff;
+    box-shadow: 10px 10px 12px rgba(0, 0, 0.10, 0.6), 0px 15px 16px rgba(0, 0, 0.20, 0.7);
+    form {
+      padding: 15px;
+      label {
+        color: #fff;
+      }
+      .close-account-info {
+        color: #fff;
+        float: right;
+        cursor: pointer;
+      }
+      input[type='text'], input[type='password'] {
+        color: #fff;
+        border-bottom: 2px solid green !important;
+        transition: border-bottom box-shadow 200ms ease-in !important;
+          &:focus {
+            border-bottom: none !important;
+            box-shadow: 2px 3px 2px rgba(18, 191, 5, 0.5), 2px 3px 2px rgba(18, 191, 5, 0.2) !important;
+            transition: border-bottom box-shadow 200ms ease-in !important;
+          }
+        }
+      textarea:focus {
+        color: white;
+        outline: green !important;
+        border: none !important;
+        box-shadow: 0px 4px 4px rgba(18, 191, 5, 0.5), 0px 0px 4px rgba(18, 191, 5, 0.2) !important;
+        transition: box-shadow 200ms ease-in;
+      }
+      .field {
+        padding: 10px 0;
+      }
+    }
+  }
+  //Hospital Show Box
+  .close_prof_show_H {
+    width: 20px;
+    margin-left: auto;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .prof_show_back_H {
+    display: flex;
+    background-color: #FFF;
+    flex-flow: column wrap;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.40);
+    width: 500px;
+    height: 255px;
+    border: 4px solid green;
+    border-radius: 10px;
+    .prof_show_head_H {
+      width: 55%;
+      height: 100%;
+      h4 {
+        font-size: 2.28rem;
+        line-height: 110%;
+        margin: 1.52rem 0 0.912rem 2rem;
+      }
+      .prof_show_image_H {
+        height: 115px;
+        i {
+          position: relative;
+          font-size: 80px;
+          padding: 0px 15px;
+          top: 10px;
+        }
+      }
+      .prof_show_social_H {
+        display: flex;
+        align-items: center;
+        border-top: 3px solid green;
+        border-bottom: 3px solid green;
+        padding-left: 10px;
+        width: 103%;
+        ul {
+          li {
+            padding: 0 10px;
+            line-height: 5px;
+           }
+        }
+      }
+    }
+    @keyframes circle {
+      0% {
+        transform: scale(1);
+      }
+      50%{
+        transform: scale(1.2)
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .prof_show_right_H{
+      height: 100%;
+      background-color: #ccc;
+      border-radius: 0px 6px 6px 0;
+      &:before {
+        content: "";
+        height: 102px;
+        margin-top: 70px;
+        background-color: green;
+        position: absolute;
+        width: 3px;
+        right: 235px;
+      }
+      .prof_show_title_H {
+        margin-top: 30px;
+        margin-bottom: 4px;
+        margin-left: 10px;
+        display: inline-block;
+        &:before {
+          content: "";
+          height: 20px;
+          width: 20px;
+          display: block;
+          border: 2px solid green;
+          border-radius: 50%;
+          position: absolute;
+          right: 227px;
+          top: 64px;
+          background-color: #fff;
+          transition: background-color 500ms ease-in;
+        }
+      }
+      .prof_show_license_H {
+        margin-top: 0;
+        margin-left: 10px;
+        &:before {
+          content: "";
+          height: 20px;
+          width: 20px;
+          display: block;
+          border: 2px solid green;
+          border-radius: 50%;
+          position: absolute;
+          right: 227px;
+          top: 165px;
+          background-color: #fff;
+          transition: background-color 500ms ease-in;
+        }
+      }
+      i {
+        float: right;
+        color: #fff;
+        margin-right: 5px;
+      }
+      label {
+        color: #000;
+      }
+      h6 {
+        color: #000;
+      }
+    }
+    &:hover {
+      .prof_show_title_H:before {
+        background-color: green;
+        transition: background-color 500ms ease-in;
+      }
+      .prof_show_license_H:before {
+        background-color: green;
+        transition: background-color 500ms ease-in;
+      }
+    }
+  }
