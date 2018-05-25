@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  Rails.application.routes.draw do
   devise_for :friend, controllers: {
     sessions: 'friends/sessions',
     registrations: 'friends/registrations'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   resources :jobs
 
   post "notifications/notify_text" => "notifications#notify_text"
+  post "notifications/:id/notify_favorites" => "notifications#notify_favorites"
   # get 'jobs/:id' => "jobs#show"
   get 'jobs/index' => 'jobs#index'
   resources :bookings
@@ -37,14 +40,15 @@ Rails.application.routes.draw do
   devise_scope :prof do
     get 'auth/stripe_connect/callback' => 'yoopy_omniauth_callbacks#stripe_connect'
   end
-  resources :profs, only: [:index]
+  resources :profs, only: [:index, :edit, :update]
 
   resources :charges, only: [:new, :create]
   resources :posts
   root to: 'posts#index'
   # get "omniauth_callbacks/:action/callback", :controller => "omniauth_callbacks", :constraints => { :action => /stripe_connect/ }
-
+  get 'hospital/:id/show' => "dashboard#hospital_show"
 
 #
 # , :omniauth_callbacks => "omniauth_callbacks"
+end
 end

@@ -1,14 +1,30 @@
 
   $('#modal_hospital').html("<%= j render('new_job') %>")
-  
 
-
-  // $("#new_job_form").submit(function(result){
-    // if (result == 'success') {
-  //     $('.output_message').text('Message Sent!');
-  //   form[0].reset();
-  //   $(this).hide();
-  // // } else  {
-  //   $('.output_message').text('Error Sending email!');
-  // }
+  let checkbox = $("input[type='checkbox']");
+  let submit = $("#submit_job");
+  let form = $(".new_job_form");
+  let hospital_id = $("#hospital_id_for_favs").val();
+  form.submit(function(){
+    if (checkbox.is(":checked")) {
+        $.ajax({
+          url: `/notifications/${hospital_id}/notify_favorites`,
+          method: "POST",
+          success: () => {
+            console.log("Ajax succeeded");
+          },
+          error: () => {
+            console.log("Error occured");
+          }
+        })
+      } else {
+        console.log("checkbox error");
+      }
+    })
+  // checkbox.change(function(){
+  //   if($(this).is(':checked')){
+  //     console.log("Checked");
+  //   } else {
+  //     console.log("Not Checked");
+  //   }
   // })

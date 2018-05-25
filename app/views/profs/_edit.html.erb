@@ -1,0 +1,43 @@
+<div class="edit_account_form">
+  <%= form_for(@prof, url: prof_path(@prof), html: { method: :put, multipart: true }, class: 'new_job_form', remote: true) do |f| %>
+  <i class="material-icons close-account-info" onclick="closeEditProfModal()">close</i>
+  <h4>Edit Your Account Information</h4>
+    <div class="errors">
+      <% flash.each do |key, value| %>
+        <% unless key == "notice"%>
+      <p>  <%= "#{key.capitalize}! #{value}" %>  </p>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :job_title %><br />
+      <%= f.text_field :job_title, autocomplete: "off"%>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Add your bio' %>
+      <%= f.text_area :bio %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label 'Add or update your phone number' %><br />
+      <%= f.text_field :phone, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Profile Image" %>
+      <%= f.file_field "avatar" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password %> <i>(We need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update", class:"btn #42a5f5 green lighten-1" %>
+    </div>
+  <% end %>
+</div>

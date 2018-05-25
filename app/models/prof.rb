@@ -1,4 +1,5 @@
 class Prof < ApplicationRecord
+  has_one_attached :avatar
   has_many :bookings
   belongs_to :favoritable, polymorphic: true, optional: true
   has_many :slots, :through => :bookings, dependent: :destroy

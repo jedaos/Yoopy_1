@@ -52,7 +52,7 @@ class Profs::RegistrationsController < Devise::RegistrationsController
   # end
   private
   def prof_params
-    params.require(:prof).permit(:bio, :job_title, :image, :phone, :email)
+    params.require(:prof).permit(:bio, :job_title, :image, :phone, :email, :avatar)
   end
   # protected
 

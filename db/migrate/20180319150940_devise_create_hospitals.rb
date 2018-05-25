@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DeviseCreateHospitals < ActiveRecord::Migration[5.1]
+class DeviseCreateHospitals < ActiveRecord::Migration[5.2]
   def change
     create_table :hospitals do |t|
       ## Database authenticatable

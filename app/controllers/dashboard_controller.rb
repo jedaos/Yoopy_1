@@ -33,7 +33,7 @@ class DashboardController < ApplicationController
     end
     @booking_id = params[:booking_id]
   end
-  
+
   def prof_show_hospital
     @prof = Prof.find(params[:id])
     case params[:type]
@@ -43,6 +43,11 @@ class DashboardController < ApplicationController
       @job = Job.find(params[:job])
     end
     @booking_id = params[:booking_id]
+  end
+
+  def hospital_show
+    @hospital = Hospital.find(params[:id])
+    @job = Job.find(params[:job])
   end
 
 

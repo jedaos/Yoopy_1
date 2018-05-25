@@ -1,4 +1,4 @@
-class AddColumnsToProfs < ActiveRecord::Migration[5.1]
+class AddColumnsToProfs < ActiveRecord::Migration[5.2]
   def change
     add_column :profs, :name, :string
     add_column :profs, :license_num, :string

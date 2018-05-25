@@ -1,4 +1,4 @@
-class AddColumnsToHospitals < ActiveRecord::Migration[5.1]
+class AddColumnsToHospitals < ActiveRecord::Migration[5.2]
   def change
     add_column :hospitals, :institution_name, :string
     add_column :hospitals, :street, :string

@@ -21,7 +21,7 @@
 set :output, 'log/whenever.log'
 
 
-every 30.minutes do
+every 2.minutes do
 
   rake "destroy_old_jobs", :environment => "development"
 

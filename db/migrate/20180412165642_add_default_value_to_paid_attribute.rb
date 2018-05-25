@@ -1,4 +1,4 @@
-class AddDefaultValueToPaidAttribute < ActiveRecord::Migration[5.1]
+class AddDefaultValueToPaidAttribute < ActiveRecord::Migration[5.2]
   def up
     change_column :bookings, :paid, :boolean, default: false
   end

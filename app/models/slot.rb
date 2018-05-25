@@ -5,4 +5,5 @@ class Slot < ApplicationRecord
 
   scope :friend, -> { where(reservable_type: "FriendJob")}
   scope :facility, -> {where(reservable_type: 'Job')}
+  scope :open, -> {where(available: true)}
 end

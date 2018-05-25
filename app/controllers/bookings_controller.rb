@@ -19,6 +19,12 @@ class BookingsController < ApplicationController
       end
     end
   end
+  def show
+    @booking = Booking.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
 
   def destroy
     @booking = Booking.find(params[:id])

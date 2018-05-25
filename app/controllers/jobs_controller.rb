@@ -51,29 +51,45 @@ class JobsController < ApplicationController
   def edit
   end
 
+  def create_new_slots(current_slots, added_slots, id)
+    @job = Job.find(id)
+      new_slots = added_slots - current_slots
+      new_slots.times do |slot|
+        @job.slots.create
+    end
+  end
+
+  def destroy_slots(current_slots, added_slots, id)
+      @job = Job.find(id)
+        new_slots = current_slots - added_slots
+        new_slots.times do |slot|
+          @job.slots.open.last.destroy
+      end
+    end
+
     def update
-      if @job.slot_num > params[:job][:slot_num]
-        new_slots = @job.slot_num.to_i - params[:job][:slot_num].to_i
-        new_slots.times do |slot|
-          @job.slots.last.destroy
-        end
-        flash[:success] = "This job was successfully updated and #{new_slots.to_i} slot(s) were deleted."
+      old_slots = @job.slot_num.to_i
+      changed_slots = params[:job][:slot_num].to_i
+      if old_slots < changed_slots
+        create_new_slots(old_slots, changed_slots, @job.id)
+        new_slots = changed_slots - old_slots
         @job.update(job_params)
-        redirect_to dashboard_index_path
-      elsif @job.slot_num < params[:job][:slot_num]
-        new_slots = params[:job][:slot_num].to_i - @job.slot_num.to_i
-        new_slots.times do |slot|
-          @job.slots.create
-        end
         flash[:success] = "This job was successfully updated and #{new_slots.to_i} slot(s) were added."
-        @job.update(job_params)
         redirect_to dashboard_index_path
-      elsif @job.update(job_params)
-        flash[:success] = "This job was successfully updated."
+      elsif changed_slots < old_slots
+        if !@job.slots.open
+          destroy_slots(old_slots, changed_slots, @job.id)
+          @job.update(job_params)
+          new_slots = old_slots - changed_slots
+          flash[:success] = "This job was successfully updated and #{new_slots.to_i} slot(s) were deleted."
+          redirect_to dashboard_index_path
+        else
+          flash[:error] = "You cannot delete slots that have already been booked"
+          redirect_to dashboard_index_path
+        end
+      else @job.update(job_params)
+        flash[:success] = "#{@job.name} was successfully updated!"
         redirect_to dashboard_index_path
-      else
-        flash[:error] = "This job was not successfully updated"
-        render nothing: true, status: :unprocessable_entity
       end
     end
 
