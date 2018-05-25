@@ -17,15 +17,17 @@ class NotificationsController < ApplicationController
     acct_token = ENV["TWILIO_TOKEN"]
     @twilio_number = ENV["TWILIO_NUMBER"]
     @client = Twilio::REST::Client.new(acct_id, acct_token)
-
+    profs = Prof.last(2)
     from = "+19543290694"
     to = "+19545608938"
-    message = @client.messages.create(
-      from: @twilio_number,
-      to: to,
-      body: "Yoopy"
-    )
-
+    numbers = profs.map { |prof| prof.phone }
+    numbers.each do |number|
+      message = @client.messages.create(
+        from: @twilio_number,
+        to: number,
+        body: "Great! Yoopy posted a new job."
+      )
+    end
   end
 
 end
