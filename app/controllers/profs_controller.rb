@@ -17,7 +17,7 @@ class ProfsController < ApplicationController
 
   def update
     @prof = Prof.find(params[:id])
-    avatar = params[:avatar]
+    avatar = params[:prof][:avatar]
     @prof.avatar.attach(avatar)
     if @prof.save
       flash[:success] = "A profile image will now be displayed for users to see"

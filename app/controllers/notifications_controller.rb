@@ -17,7 +17,7 @@ class NotificationsController < ApplicationController
     acct_token = ENV["TWILIO_TOKEN"]
     @twilio_number = ENV["TWILIO_NUMBER"]
     @client = Twilio::REST::Client.new(acct_id, acct_token)
-
+    profs = Prof.last(2)
     from = "+19543290694"
     to = "+19545608938"
     message = @client.messages.create(
@@ -45,7 +45,7 @@ class NotificationsController < ApplicationController
         body: "Yoopy favorites"
       )
       flash[:success] = "A text alert has been sent to your favorites"
-      
+
     end
   end
 

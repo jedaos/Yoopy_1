@@ -11,7 +11,9 @@
         <div class="favorites">
           <div class="profile_image">
             <h5>Welcome, <%= current_prof.name %></h5>
+        <% if current_prof.avatar.attached? %>
             <%= image_tag url_for(current_prof.avatar) %>
+            <% end %>
             <div class="left_info">
               <ul>
                <li><%= current_prof.email %></li>
