@@ -182,3 +182,64 @@
       }
     });
   })
+  // Sending Text after friendJob created
+  function computeDistance(address_lat_lng){
+
+      var marker_lat_lng = new google.maps.LatLng(gon.profs[1].lat, gon.profs[1].lng);
+      var address = new google.maps.LatLng(address_lat_lng.lat, address_lat_lng.lng);
+      var distance_from_location = google.maps.geometry.spherical.computeDistanceBetween(address, marker_lat_lng);
+      if (distance_from_location <= 1609.34) {
+         console.log(distance_from_location);
+      }
+
+ }
+  // 1 mile in meters = 1609.34
+  function text() {
+      let form = $(".new_job_form");
+      form.submit(function(){
+        console.log("submitted");
+        $.ajax({
+          url: "notifications/notify_text",
+          method: "POST",
+          success: (res) => {
+            console.log("Success, message sent", res);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        })
+      })
+    }
+  //Google maps
+  function initMap(){
+    opts = {
+      enableHighAccuracy: true
+    }
+    function success(pos){
+     let currentLoc = {
+       lat: pos.coords.latitude,
+       lng: pos.coords.longitude
+     }
+     computeDistance(currentLoc)
+     let map1;
+     map1 = new google.maps.Map(document.getElementById('map1'), {
+       center: new google.maps.LatLng(currentLoc),
+       zoom: 10
+     });
+     let markers;
+     if (gon.friendBook){
+       gon.friendBook.map(loc => {
+        locations = {
+           lat: loc.lat,
+           lng: loc.lng
+         }
+         markers = new google.maps.Marker({ position: locations, map: map1 })
+       })
+     }
+    }
+    function failure(err){
+     console.log(err);
+   }
+
+     navigator.geolocation.getCurrentPosition(success, failure, opts)
+   }

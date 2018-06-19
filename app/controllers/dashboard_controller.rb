@@ -12,14 +12,24 @@ class DashboardController < ApplicationController
 
     elsif current_friend
       @friendJobs = current_friend.friendJobs
-      render 'dashboard/friend'
+        gmaps = GoogleMapsService::Client.new
+        @prof_address = Prof.all.map{|prf| gmaps.geocode(prf.address)}
+        gon.profs = @prof_address.flatten.map{|add| add[:geometry][:location]}
+        @friendBookings = current_friend.friendJobs.map{|job| job.slots.where(available: false).map{|slot| slot.booking.prof.address}}
+        @res = @friendBookings.map{|book| gmaps.geocode(book)}
+        @res.flatten
+        gon.friendBook = @res.flatten.map{|re| re[:geometry][:location]}
+
+      respond_to do |format|
+        format.html{ render 'dashboard/friend' }
+        format.js
+      end
 
     else
 
       redirect_to root_path
 
     end
-
 
   end
 

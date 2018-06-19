@@ -1,3 +1,7 @@
+<% content_for :google do %>
+  <% javascript_include_tag "https://maps.googleapis.com/maps/api/js?&libraries=geometry&key=#{ENV["GOOGLE_KEY"]}&callback=initMap", defer: true, async: true %>
+<% end %>
+
 <div class="main">
   <div class="sidebar-stuff">
     <%= render 'friend_sidebar' %>
@@ -6,6 +10,9 @@
     </div>
 </div>
   <div class="F_dash">
+    <div id="map1"></div>
+
+    <%= console %>
     <div class="favorite_wrap">
       <div class="favorites">
         <h5>Favorites</h5>
