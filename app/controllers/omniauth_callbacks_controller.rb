@@ -1,4 +1,4 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController  
+class OmniauthCallbacksController < Devise::OmniauthCallbacksControllergit   
 
   def stripe_connect
     @user = Prof.connect_to_stripe(request.env['omniauth.auth'], current_prof)    
