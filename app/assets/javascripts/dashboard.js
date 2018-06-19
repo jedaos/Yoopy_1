@@ -124,7 +124,7 @@
     if($(".modal_content_hospital").hasClass("not-open")){
       $('.modal_content_hospital').removeClass("not-open").addClass("is-open")
     } else {
-      $(".modal_prof_back_H").css("display", "flex")
+      $(".modal_prof_back_3").css("display", "flex")
      $(".modal_content_hospital").addClass("is-open")
     }
   }
@@ -136,7 +136,7 @@
   $(document).on("turbolinks:load", function(){
     $(".modal_content_hospital").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
     if ($(".modal_content_hospital").hasClass("not-open")){
-        $(".modal_prof_back_H").css("display", "none");
+        $(".modal_prof_back_3").css("display", "none");
       }
     });
   })
@@ -145,7 +145,7 @@
     if($("#account_info").hasClass("not-open")){
       $('#account_info').removeClass("not-open").addClass("is-open")
     } else {
-      $(".modal_prof_back").css("display", "flex")
+      $(".modal_prof_back_1").css("display", "flex")
      $("#account_info").addClass("is-open")
     }
   }
@@ -157,7 +157,7 @@
   $(document).on("turbolinks:load", function(){
     $("#account_info").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
     if ($("#account_info").hasClass("not-open")){
-        $(".modal_prof_back").css("display", "none");
+        $(".modal_prof_back_1").css("display", "none");
       }
     });
   })
@@ -166,7 +166,7 @@
     if($("#hospital_account_info").hasClass("not-open")){
       $('#hospital_account_info').removeClass("not-open").addClass("is-open")
     } else {
-      $(".modal_prof_back").css("display", "flex")
+      $(".modal_prof_back_2").css("display", "flex")
      $("#hospital_account_info").addClass("is-open")
     }
   }
@@ -178,7 +178,7 @@
   $(document).on("turbolinks:load", function(){
     $("#hospital_account_info").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
     if ($("#hospital_account_info").hasClass("not-open")){
-        $(".modal_prof_back").css("display", "none");
+        $(".modal_prof_back_2").css("display", "none");
       }
     });
   })

@@ -123,10 +123,11 @@ body > nav > div > a.sidenav-trigger {
 #homepage1 {
   height: 90vh;
   width: 100%;
-  background-image: url("https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy4_resized.jpg");
-  background-attachment: fixed;
+  background: url("https://s3.us-east-2.amazonaws.com/yoopyimages/yoopy4_resized.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
 }
 .yoopy-button {
   width: max-content;

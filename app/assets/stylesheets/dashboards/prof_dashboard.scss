@@ -417,3 +417,25 @@
       }
     }
   }
+  .modal_prof_back_1 {
+    top:0;
+    bottom:0;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.30);
+    z-index: 5;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal_prof_back_2 {
+    top:0;
+    bottom:0;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.30);
+    z-index: 5;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }

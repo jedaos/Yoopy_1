@@ -135,3 +135,14 @@
     transform: translateX(1100px) rotate(180deg);
   }
 }
+.modal_prof_back_3 {
+  top:0;
+  bottom:0;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}

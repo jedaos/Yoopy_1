@@ -4,7 +4,7 @@
 <% end %>
 <div id="friend-form">
   <h5>Sign Up</h5>
-<%= form_for(:friend, as: resource_name, url: friend_registration_path) do |f| %>
+<%= form_for(:friend, url: friend_registration_path, method: :post) do |f| %>
     <h6><%= devise_error_messages! %></h6>
 
 
