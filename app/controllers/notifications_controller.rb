@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_prof!, only: [:mark_as_read, :index]
+  respond_to :js, :json, :html
 
 
   def index
@@ -16,15 +17,17 @@ class NotificationsController < ApplicationController
     acct_id = ENV["TWILIO_ID"]
     acct_token = ENV["TWILIO_TOKEN"]
     @twilio_number = ENV["TWILIO_NUMBER"]
-    @client = Twilio::REST::Client.new(acct_id, acct_token)
-    profs = Prof.last(2)
-    from = "+19543290694"
-    to = "+19545608938"
-    message = @client.messages.create(
-      from: @twilio_number,
-      to: to,
-      body: "Yoopy"
-    )
+    @client = Twilio::REST::Client.new(acct_id, acct_token)    
+    profs = params[:profs]
+      profs.each do |prof|
+      from = "+19543290694"
+      to = "+1#{prof}"
+      message = @client.messages.create(
+        from: @twilio_number,
+        to: to,
+        body: "Yoopy"
+      )
+    end
   end
 
   def notify_favorites
@@ -48,5 +51,6 @@ class NotificationsController < ApplicationController
 
     end
   end
+
 
 end

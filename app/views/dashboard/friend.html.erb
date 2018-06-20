@@ -1,5 +1,5 @@
 <% content_for :google do %>
-  <% javascript_include_tag "https://maps.googleapis.com/maps/api/js?&libraries=geometry&key=#{ENV["GOOGLE_KEY"]}&callback=initMap", defer: true, async: true %>
+  <% javascript_include_tag "https://maps.googleapis.com/maps/api/js?&libraries=geometry&key=#{ENV["GOOGLE_KEY"]}", defer: true, async: true %>
 <% end %>
 
 <div class="main">
@@ -12,15 +12,20 @@
   <div class="F_dash">
     <div id="map1"></div>
 
-    <%= console %>
+
     <div class="favorite_wrap">
       <div class="favorites">
         <h5>Favorites</h5>
+        <p>
+          <small>On your sidebar, clicking "Add Favorites" will allow you to bookmark the medical professionals you've enjoyed so that the next time you need them, they'll be notified of your job posting</small>
+        </p>
         <ul>
          <% if current_friend.favorites.count > 0 %>
           <% current_friend.favorites.each do |fav| %>
           <li> <%= Prof.find(fav.profs_id).name %> </li>
             <% end %>
+            <% else %>
+            <a href="/profs"><i class="material-icons no-favs">person_add</i></a><h6>Add Favorites</h6>
           <% end %>
         </ul>
       </div>

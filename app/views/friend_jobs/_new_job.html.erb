@@ -22,17 +22,37 @@
         <br>
       </div>
     </div>
-
     <div class="form-group">
-      <%# f.hidden_field :job_id, :value => params[:id] %>
+      <label>Radius</label>
+      <p>
+      <small>Selecting a radius will send a text message to  all available professionals within that given radius</small>
+    </p>
+      <p>
+          <label>
+            <input class="miles" name="miles" type="radio" value="1" />
+            <span>1 Mile</span>
+          </label>
+        </p>
+        <p>
+            <label>
+              <input class="miles" name="miles" type="radio" value="5" />
+              <span>5 Miles</span>
+            </label>
+          </p>
+          <p>
+              <label>
+                <input class="miles" name="miles" type="radio" value="10" />
+                <span>10 Miles</span>
+              </label>
+            </p>
+    </div>
+    <div class="form-group">
       <%= f.label 'How many medical professionals are you seeking?' %>
       <%= f.text_field :slot_num %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Submit", id: 'submit_job', class:'btn #bdbdbd grey lighten-1' %>
-      <%#= submit_tag("Cancel", :id => "Cancel", class:"btn #bdbdbd grey lighten-1")%>
-
+      <%= f.submit "Submit", id: 'submit_job', class:'btn #bdbdbd grey lighten-1', onclick: "text()"%>
     </div>
 
 
