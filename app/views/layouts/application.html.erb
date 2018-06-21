@@ -17,8 +17,7 @@
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <link href="https://unpkg.com/ionicons@4.1.1/dist/css/ionicons.min.css" rel="stylesheet">
 
-    <%= csrf_meta_tags %>
-    <%= Gon::Base.render_data %>   
+    <%= csrf_meta_tags %>   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -31,17 +30,14 @@
 
     <%= yield :prof %>
     <%= yield :hospital %>
-    <%= yield :friend %>
-    <%= yield :google %>
+    <%= yield :friend %>    
   </head>
 
   <body>
     <%= render 'menubar' %>
 
       <%= yield %>
-
-      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_KEY"]}&callback=initMap"
-      async defer></script> -->
+      
   </body>
 
 </html>

@@ -106,6 +106,7 @@ GEM
       thor (~> 0.14)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gon (6.2.0)
@@ -295,6 +296,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-rails
+  geocoder
   gon
   google_maps_service
   hirb
