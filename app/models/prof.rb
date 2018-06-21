@@ -10,8 +10,7 @@ class Prof < ApplicationRecord
   def self.connect_to_stripe(access_token, _ = nil)
     data = access_token.info
       user = Prof.where(email: data['email']).first
-        # user.email = data['email'],
-        # password: Devise.friendly_token[0, 20],
+        user.phone = access_token.extra.extra_info.support_phone
         user.provider = access_token.provider
         user.uid = access_token.uid
         user.access_code = access_token.credentials.token

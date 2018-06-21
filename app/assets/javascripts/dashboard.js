@@ -124,7 +124,7 @@
     if($(".modal_content_hospital").hasClass("not-open")){
       $('.modal_content_hospital').removeClass("not-open").addClass("is-open")
     } else {
-      $(".modal_prof_back_H").css("display", "flex")
+      $(".modal_prof_back_3").css("display", "flex")
      $(".modal_content_hospital").addClass("is-open")
     }
   }
@@ -136,7 +136,7 @@
   $(document).on("turbolinks:load", function(){
     $(".modal_content_hospital").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
     if ($(".modal_content_hospital").hasClass("not-open")){
-        $(".modal_prof_back_H").css("display", "none");
+        $(".modal_prof_back_3").css("display", "none");
       }
     });
   })
@@ -182,3 +182,76 @@
       }
     });
   })
+
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    let currentLocation = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    }
+    if (currentLocation){
+      window.GlobalVar = currentLocation
+      // initMap(currentLocation);
+    }
+  })
+  // Sending Text after friendJob created
+  function text() {
+      let form = $(".new_job_form");
+      // 1 mile in meters = 1609.34
+      let radius = Number($("input[name='miles']:checked").val()) * 1609.34;
+      console.log(radius);
+      let prof_numbers = computeDistance(radius, window.GlobalVar);
+      console.log(prof_numbers);
+      form.submit(function(){
+        $.ajax({
+          url: "notifications/notify_text",
+          method: "POST",
+          data: { profs: prof_numbers },
+          success: (res) => {
+            console.log("Success, message sent", res);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        })
+      })
+    }
+    //Compute distance between professionals and current location and store the numbers into an array.
+  function computeDistance(radius, currentLocation){
+    let prof_addresses = []
+    let prof_phones = []
+    var address = new google.maps.LatLng(currentLocation.lat, currentLocation.lng);
+      for (var i = 0; i < gon.profs.length; i++) {
+        var marker_lat_lng = new google.maps.LatLng(gon.profs[i].address.lat, gon.profs[i].address.lng);
+        prof_addresses.push(marker_lat_lng);
+        prof_phones.push(gon.profs[i].phone);
+      }
+      let textNumbers = []
+        for (var i = 0; i < prof_addresses.length; i++) {
+          var distance_from_location = google.maps.geometry.spherical.computeDistanceBetween(address, prof_addresses[i]);
+            if (distance_from_location <= radius) {
+               console.log(prof_addresses[i].lat(), prof_addresses[i].lng());
+               textNumbers.push(prof_phones[i]);
+            }
+        }
+        return textNumbers
+ }
+
+  // Google maps
+  // function initMap(currentLocation){
+  //    let map1;
+  //    map1 = new google.maps.Map(document.getElementById('map1'), {
+  //      center: new google.maps.LatLng(currentLocation),
+  //      zoom: 10
+  //    });
+  //    let markers;
+  //    if (gon.friendBook){
+  //      gon.friendBook.map(loc => {
+  //       locations = {
+  //          lat: loc.lat,
+  //          lng: loc.lng
+  //        }
+  //        markers = new google.maps.Marker({ position: locations, map: map1 })
+  //      })
+  //    }
+  //   }

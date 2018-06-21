@@ -16,9 +16,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <link href="https://unpkg.com/ionicons@4.1.1/dist/css/ionicons.min.css" rel="stylesheet">
+
     <%= csrf_meta_tags %>
+    <%= Gon::Base.render_data %>   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"> -->
 
     <!--Import Google Icon Font-->
@@ -29,6 +32,7 @@
     <%= yield :prof %>
     <%= yield :hospital %>
     <%= yield :friend %>
+    <%= yield :google %>
   </head>
 
   <body>
@@ -36,7 +40,8 @@
 
       <%= yield %>
 
-
+      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_KEY"]}&callback=initMap"
+      async defer></script> -->
   </body>
 
 </html>

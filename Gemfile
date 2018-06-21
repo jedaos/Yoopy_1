@@ -45,6 +45,9 @@ gem 'omniauth'
 
 #For active_storage images
 gem "aws-sdk-s3", require: false
+#google maps services
+gem 'google_maps_service'
+gem 'gon'
 
 gem 'hirb'
 gem 'whenever', require: false
