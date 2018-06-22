@@ -28,6 +28,6 @@ class ProfsController < ApplicationController
   end
   private
   def prof_params
-    params.require(:prof).permit(:name, :job_title, :bio, :phone, :email, :avatar, :address)
+    params.require(:prof).permit(:name, :job_title, :bio, :phone, :email, :avatar, :address, :password)
   end
 end

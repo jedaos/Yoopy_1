@@ -26,7 +26,7 @@ class NotificationsController < ApplicationController
     nearby_profs.each do |prof|
       if prof.phone      
     from = "+19543290694"
-    to = "+1#{prof.phone}"
+    to = "#{prof.phone}"
     message = @client.messages.create(
       from: @twilio_number,
       to: to,
