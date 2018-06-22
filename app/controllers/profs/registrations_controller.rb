@@ -52,13 +52,13 @@ class Profs::RegistrationsController < Devise::RegistrationsController
   # end
   private
   def prof_params
-    params.require(:prof).permit(:bio, :job_title, :image, :phone, :email, :avatar, :address)
+    params.require(:prof).permit(:bio, :job_title, :image, :phone, :email, :avatar, :address, :uid, :publishable_key, :access_code, :provider)
   end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:bio, :job_title, :image, :phone, :email, :avatar, :address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:bio, :job_title, :image, :phone, :email, :avatar, :address, :password])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
