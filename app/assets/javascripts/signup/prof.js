@@ -2,8 +2,17 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 console.log("Hello");
+
 $(document).on("turbolinks:load", function() {
+  let fields = $(".signup_prof");  
   $(".next").click(function() {
+    var empty = $(this).parent().find("input").filter(function() {
+      return this.value === "";
+  });
+  if(empty.length) {     
+    $("#prof_signup_error").html("<span>You must fill all fields</span>")        
+    throw new Error("You must fill all fields");       
+  }    
     if (animating) return false;
     animating = true;
 

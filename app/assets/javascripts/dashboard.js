@@ -185,6 +185,7 @@
   })
 
 //   // Sending Text after friendJob created
+
 function text(){
   let form = $(".new_job_form");
   let radius = Number($("input[name='miles']:checked").val());
