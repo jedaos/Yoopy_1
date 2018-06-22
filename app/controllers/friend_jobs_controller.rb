@@ -13,8 +13,8 @@ class FriendJobsController < ApplicationController
 
   def create
     @friendJob = FriendJob.new(friend_job_params)
-    @friendJob.friend_id = current_friend.id        
-    @friendJob.save
+    @friendJob.friend_id = current_friend.id    
+    @friendJob.save    
     @friendJob.slot_num.to_i.times {Slot.create({reservable_type: 'FriendJob' ,reservable_id: @friendJob.id})}
     respond_to do |format|
       format.js { redirect_to dashboard_index_path }

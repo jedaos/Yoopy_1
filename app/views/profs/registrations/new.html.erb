@@ -5,32 +5,36 @@
 <% end %>
 <div class="prof_sign_up">
 
-
-                <%= form_for(@prof, url: prof_registration_path, method: :post) do |f| %>
-                <div class="yoopy_form" id="msform">
+      
+              <%= form_for(@prof, url: prof_registration_path, method: :post) do |f| %>              
+                <div class="yoopy_form" id="msform">                
                   <ul id="progressbar">
                     <li class="active">Tell us about yourself</li>
                     <li>Professional Information</li>
                     <li>Start Getting Paid</li>
                   </ul>
                 <fieldset>
-                  <h2 class="fs-title">Create your Yoopy account</h2>
+                <div id="prof_signup_error">
+
+                </div>
+                  <h5 class="fs-title-main">Medical Professionals</h5>
+                  <span class="fs-title-sub">Create your Yoopy account</span>
                   <div class="form-group">
-                    <%= f.text_field :name, placeholder: 'Your Name' %>
+                    <%= f.text_field :name, placeholder: 'Your Name', class: "signup_prof" %>
                   </div>
 
                   <div class="form-group">
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email Address' %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email Address', class: "signup_prof" %>
                   </div>
                   <div class="form-group">
                     <%= f.text_field :address, placeholder: 'Street Address' %>
                   </div>
                   <div class="form-group">
-                    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+                    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: "signup_prof" %>
                   </div>
 
                   <div class="form-group">
-                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password' %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password', class: "signup_prof"  %>
                   </div>
                   <%= button_tag "Next", :type => 'button', :class => "next action-button" %>
                 </fieldset>
@@ -53,3 +57,4 @@
 
 
 </div>
+

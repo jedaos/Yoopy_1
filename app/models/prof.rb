@@ -8,6 +8,10 @@ class Prof < ApplicationRecord
   after_validation :geocode
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :address, presence: true
+  validates :password, presence: true  
 
 
   def self.connect_to_stripe(access_token, _ = nil)
