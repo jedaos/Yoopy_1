@@ -14,19 +14,27 @@ class NotificationsController < ApplicationController
   end
 
    def notify_text
+    friend = Friend.find(params[:id])
+    radius = params[:radius]
+    nearby_profs = Prof.near([friend.latitude, friend.longitude], radius)
+    amount = params[:amount]
+    byebug    
     acct_id = ENV["TWILIO_ID"]
     acct_token = ENV["TWILIO_TOKEN"]
     @twilio_number = ENV["TWILIO_NUMBER"]
-    @client = Twilio::REST::Client.new(acct_id, acct_token)    
-    profs = params[:profs]
-      profs.each do |prof|
-      from = "+19543290694"
-      to = "+1#{prof}"
-      message = @client.messages.create(
-        from: @twilio_number,
-        to: to,
-        body: "Yoopy"
-      )
+    @client = Twilio::REST::Client.new(acct_id, acct_token) 
+    nearby_profs.each do |prof|
+      if prof.phone      
+    from = "+19543290694"
+    to = "+1#{prof.phone}"
+    message = @client.messages.create(
+      from: @twilio_number,
+      to: to,
+      body: "Yoopy has a job available only #{prof.distance.round(2)} miles away! You can get paid $#{amount} today!"
+    )
+      else 
+        flash[:error] = "#{prof.name} did not include a phone number"
+      end 
     end
   end
 

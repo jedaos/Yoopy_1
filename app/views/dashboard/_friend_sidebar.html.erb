@@ -1,7 +1,8 @@
 <div class="sidebar-friend">
   <ul>
-    <li class="post-job"><i class="material-icons">local_hospital</i><%= link_to new_friend_job_path, remote: true do %>
-    <h6 onclick="openFriendJob()">Post A New Job</h6></li>
+    <li class="post-job" onclick="openFriendJob()"><i class="material-icons">local_hospital</i><%= link_to new_friend_job_path, remote: true, class: "post-job" do %>
+    <h6>Post A New Job</h6></li>
+    
     <% end %>
     <li><a class="modal-trigger" href="#modal-account"><i class="material-icons">account_circle</i><h6>Account Info</h6></li>
     <li><a class="modal-trigger" href="#modal1"><i class="material-icons">build</i></a><h6 class="inner-list">Edit Account Info<h6></li>

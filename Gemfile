@@ -29,6 +29,7 @@ gem 'react-rails'
 gem "font-awesome-rails"
 gem "figaro"
 gem 'twilio-ruby', '~> 5.10.0'
+gem "geocoder"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -46,8 +47,6 @@ gem 'omniauth'
 #For active_storage images
 gem "aws-sdk-s3", require: false
 #google maps services
-gem 'google_maps_service'
-gem 'gon'
 
 gem 'hirb'
 gem 'whenever', require: false

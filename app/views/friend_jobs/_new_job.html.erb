@@ -2,7 +2,7 @@
 <%= form_with(scope: :friend_job, url: friend_jobs_path, method: 'post', class: "new_job_form", remote: true) do |f| %>
 <i class="material-icons close-friend"  onclick="closeFriendJob()">close</i>
   <h4>Post A New Job</h4>
-  <%= f.hidden_field :friend_id, :value=>current_friend.id %>
+  <%= f.hidden_field :friend_id, :value=>current_friend.id, class: "friend_id" %>
 
     <div class="form-group">
       <%= f.label 'Job Name' %>
@@ -18,7 +18,7 @@
     <div class="form-group">
       <div class="range">
         <%= f.label "Rate: " %>
-        <%= f.select(:rate, options_for_select([['$1', 1 ], ['$100', 100], ['$200', 200], ['$300', 300]])) %>
+        <%= f.select(:rate, options_for_select([['$1', 1 ], ['$100', 100], ['$200', 200], ['$300', 300]]),{}, { class: "friendJob_rate" }) %>
         <br>
       </div>
     </div>

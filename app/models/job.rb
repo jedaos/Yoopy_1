@@ -1,7 +1,6 @@
 class Job < ApplicationRecord
   has_many :slots, as: :reservable, dependent: :destroy
-  belongs_to :hospital
-  # belongs_to :friend
+  belongs_to :hospital  
   has_many :profs, through: :slots, dependent: :destroy
   scope :expired, -> { where('created_at < ?', 3.hours.ago) }
   validates :slot_num, presence: true
