@@ -184,24 +184,39 @@
     });
   })
 
-//   // Sending Text after friendJob created
+//// Sending Text after friendJob/Job created
 
 function text(){
   let form = $(".new_job_form");
   let radius = Number($("input[name='miles']:checked").val());
-  let id = $(".friend_id").val();
-  let amount = $(".friendJob_rate").val();
+  let checkbox = $("input[type='checkbox']");
+  let textFavsId = $(".id_for_favs").val();
   form.submit(function(){
-    $.ajax({
-      url: "notifications/notify_text",
-      method: "POST",
-      data: { radius: radius, id: id, amount: amount },
-      success: (res) => {
-        console.log("success");
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-  });
-}
+    if (radius){
+      let id = $(".friend_id").val();
+      let amount = $(".friendJob_rate").val();  
+        $.ajax({
+          url: "notifications/notify_text",
+          method: "POST",
+          data: { radius: radius, id: id, amount: amount },
+          success: (res) => {
+            console.log("success");
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });  
+    } else if(checkbox.is(":checked")) {        
+        $.ajax({
+          url: `/notifications/${textFavsId}/notify_favorites`,
+          method: "POST",
+          success: () => {
+            console.log("Ajax succeeded");
+          },
+          error: () => {
+            console.log("Error occured");
+          }
+        })
+      }      
+    });  
+  }

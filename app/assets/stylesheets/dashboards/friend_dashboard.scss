@@ -16,10 +16,33 @@
     flex-wrap: wrap;
     flex-direction: column;
     background-color: #fff;
+    .F_title {
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      .user_type {
+        font-size: 2rem;
+        display: block;
+        margin-top: -2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+      }
+      .user_name {
+        font-size: 1.5rem;        
+      }
+      .user_etc {
+        position: relative;
+        top: 4rem;        
+      }
+      .user_details {        
+        font-size: 1.5rem;
+        display: block;
+      }
+    }
     .favorite_wrap {
       display: inline-block;
-      height: 300px;
-      width: 400px;
+      height: 20rem;
+      width: 25rem;
       background: #fff;
       margin-left: auto;
       .favorites {
@@ -29,6 +52,16 @@
         background-color: rgba(0, 0, 0, 0.30);
         text-align: center;
         margin-right: auto;
+        overflow: scroll;
+        li {
+          font-size: 1.2rem;          
+          border-top: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+          .delete-fav {
+            float: right;
+            color: black;
+          }              
+        }
         .no-favs {
           font-size: 50px;
           border-radius: 50px;

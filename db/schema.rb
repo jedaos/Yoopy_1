@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_21_195721) do
+ActiveRecord::Schema.define(version: 2018_06_22_202722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 2018_06_21_195721) do
     t.bigint "favoritable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "profs_id"
+    t.bigint "prof_id"
     t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
-    t.index ["profs_id"], name: "index_favorites_on_profs_id"
+    t.index ["prof_id"], name: "index_favorites_on_prof_id"
   end
 
   create_table "friend_jobs", force: :cascade do |t|
@@ -180,6 +180,6 @@ ActiveRecord::Schema.define(version: 2018_06_21_195721) do
 
   add_foreign_key "bookings", "profs"
   add_foreign_key "bookings", "slots"
-  add_foreign_key "favorites", "profs", column: "profs_id"
+  add_foreign_key "favorites", "profs"
   add_foreign_key "jobs", "hospitals"
 end
