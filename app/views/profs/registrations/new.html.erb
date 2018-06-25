@@ -5,9 +5,9 @@
 <% end %>
 <div class="prof_sign_up">
 
-      
-              <%= form_for(@prof, url: prof_registration_path, method: :post) do |f| %>              
-                <div class="yoopy_form" id="msform">                
+
+              <%= form_for(@prof, url: prof_registration_path, method: :post) do |f| %>
+                <div class="yoopy_form" id="msform">
                   <ul id="progressbar">
                     <li class="active">Tell us about yourself</li>
                     <li>Professional Information</li>
@@ -27,7 +27,7 @@
                     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email Address', class: "signup_prof" %>
                   </div>
                   <div class="form-group">
-                    <%= f.text_field :address, placeholder: 'Street Address' %>
+                    <%# f.text_field :address, placeholder: 'Street Address' %>
                   </div>
                   <div class="form-group">
                     <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: "signup_prof" %>
@@ -57,4 +57,3 @@
 
 
 </div>
-
