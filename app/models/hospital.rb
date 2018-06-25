@@ -1,6 +1,6 @@
 class Hospital < ApplicationRecord
   has_many :jobs
-  has_many :favorites, as: :favoritable, dependent: :destroy
+  has_many :favorites, as: :favoritable
   validates :email, presence: true
   validates :institution_name, presence: true
   validates :street, presence: true

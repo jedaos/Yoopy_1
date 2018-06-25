@@ -141,3 +141,54 @@ body {
   font-size: 1.3rem;
   color: red;
 }
+@media screen and (max-width: 450px){
+  #msform {
+    width: 27rem;
+    margin: 2rem auto;
+    text-align: center;
+  }
+    #msform .action-button {
+      width: 23rem;
+      background: #27ae60;
+      font-weight: bold;
+      color: #fff;
+      border: 0 none;
+      border-radius: .1rem;
+      cursor: pointer;    
+      font-size: 2.3rem;
+      display: inline-block;
+  }
+    #msform input, #msform textarea {
+      padding: 1.5rem;
+      border: 0.3rem solid #333;
+      border-radius: .3rem;
+      margin-bottom: 3.5rem;
+      width: 20rem;
+      box-sizing: border-box;
+      font-family: "Open Sans";
+      color: #e1e7ed;
+      font-size: 1.3rem;
+      display: inline-block;
+  }
+    #msform fieldset {
+      background: rgba(56, 158, 9, 0.7);
+      border: 0 none;
+      border-radius: .3rem;
+      box-shadow: 0 0 1.5rem 0.1rem rgba(0, 0, 0, 0.4);      
+      box-sizing: border-box;
+      width: 20rem;
+      margin: auto -5rem;      
+  }
+  .fs-title-main {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+  .fs-title-sub {
+    font-size: 1rem;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1rem;
+      display: inline-block;
+  }
+}

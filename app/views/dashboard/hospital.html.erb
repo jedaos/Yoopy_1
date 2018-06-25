@@ -6,13 +6,31 @@
     </div>
 </div>
 <div class="F_dash">
+
+<div class="F_title">
+<span class="user_type"> Facilities </span>
+  <span class="user_name">Welcome to your dashboard, <%= current_hospital.institution_name %></span>
+  <div class="user_etc">
+  <label> Edit your details on the sidebar </label>
+    <span class="user_details"> Email: <%= current_hospital.email %></span>
+    <span class="user_details"> Phone: <%= current_hospital.phone %></span>
+  </div>
+</div>
   <div class="favorite_wrap">
     <div class="favorites">
       <h5>Favorites</h5>
       <ul>
        <% if current_hospital.favorites.count > 0 %>
-        <% current_hospital.favorites.each do |fav| %>
-        <li> <%= Prof.find(fav.profs_id).name %> </li>
+       <%# current_favs = current_hospital.favorites.select(:prof_id).map(&:prof_id).uniq %>
+        <% current_hospital.favorites.each do |fav| %>                              
+        <li><%= Prof.find(fav.prof_id).name %> 
+          <a href="/favorites/<%= fav.id %>" data-method="DELETE"
+            data-confirm="Are you sure you want to remove <%= Prof.find(fav.prof_id).name %> from your favorites?">
+              <i class="material-icons delete-fav">
+              close
+              </i>
+          </a>
+         </li>            
           <% end %>
         <% end %>
       </ul>

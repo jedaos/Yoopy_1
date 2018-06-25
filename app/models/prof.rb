@@ -1,7 +1,8 @@
 class Prof < ApplicationRecord
   has_one_attached :avatar
   has_many :bookings
-  belongs_to :favoritable, polymorphic: true, optional: true, dependent: :destroy
+  has_many :favorites, as: :favoritable #:favoritable, polymorphic: true, optional: true, dependent: :destroy
+  # belongs_to :favorites, as: :favoritable
   has_many :slots, :through => :bookings, dependent: :destroy
   has_many :notifications, as: :notifiable, foreign_key: :recipient_id
   geocoded_by :address_geocode

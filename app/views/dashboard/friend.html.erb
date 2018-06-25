@@ -6,9 +6,16 @@
       <div id='modal_friend' class=""></div>
     </div>
 </div>
-  <div class="F_dash">
-    <div id="map1"></div>
-
+  <div class="F_dash">    
+  <div class="F_title">
+  <span class="user_type"> Friend </span>
+    <span class="user_name">Welcome to your dashboard, <%= current_friend.name %></span>
+    <div class="user_etc">
+    <label> Edit your details on the sidebar </label>
+      <span class="user_details"> Email: <%= current_friend.email %></span>
+      <span class="user_details"> Phone: <%= current_friend.address %></span>
+    </div>
+  </div>
 
     <div class="favorite_wrap">
       <div class="favorites">
@@ -17,13 +24,12 @@
           <small>On your sidebar, clicking "Add Favorites" will allow you to bookmark the medical professionals you've enjoyed so that the next time you need them, they'll be notified of your job posting</small>
         </p>
         <ul>
-         <% if current_friend.favorites.count > 0 %>
-          <% current_friend.favorites.each do |fav| %>
-          <li> <%= Prof.find(fav.profs_id).name %> </li>
-            <% end %>
-            <% else %>
-            <a href="/profs"><i class="material-icons no-favs">person_add</i></a><h6>Add Favorites</h6>
+        <% if current_friend.favorites.count > 0 %>
+       <% current_favs = current_friend.favorites.select(:prof_id).map(&:prof_id).uniq %>
+        <% current_favs.each do |fav| %>                    
+        <li> <%= Prof.find(fav).name %> </li>            
           <% end %>
+        <% end %>
         </ul>
       </div>
     </div>

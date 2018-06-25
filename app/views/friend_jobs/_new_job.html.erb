@@ -1,5 +1,5 @@
 
-<%= form_with(scope: :friend_job, url: friend_jobs_path, method: 'post', class: "new_job_form", remote: true) do |f| %>
+<%= form_with(scope: :friend_job, url: friend_jobs_path, method: 'post', class: "new_job_form", id: "friendJob_new_job", remote: true) do |f| %>
 <i class="material-icons close-friend"  onclick="closeFriendJob()">close</i>
   <h4>Post A New Job</h4>
   <%= f.hidden_field :friend_id, :value=>current_friend.id, class: "friend_id" %>
@@ -22,6 +22,11 @@
         <br>
       </div>
     </div>
+    <label>
+        <input type="hidden" class="id_for_favs" value="<%= current_friend.id %>" />
+        <input type="checkbox" />
+        <span>Private: </span>
+      </label>
     <div class="form-group">
       <label>Radius</label>
       <p>
@@ -52,7 +57,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Submit", id: 'submit_job', class:'btn #bdbdbd grey lighten-1', onclick: "text()"%>
+      <%= f.submit "Submit", id: 'submit_job', class:'btn #bdbdbd grey lighten-1', onclick: "text()" %>
     </div>
 
 

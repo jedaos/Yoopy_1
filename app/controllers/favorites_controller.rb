@@ -12,14 +12,15 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new
   end
 
-  def create
+  def create   
     @favorite = Favorite.create(favorite_params)
     if @favorite.save
-      flash[:success] = "#{Prof.find(@favorite.profs_id).name} has been added to your favorites!"
+      flash[:success] = "#{Prof.find(@favorite.prof_id).name} has been added to your favorites!"
       redirect_to profs_path
     elsif @favorite.errors.any?
       redirect_to profs_path
-      flash[:error] = "#{Prof.find(@favorite.profs_id).name} has already been added to your favorites"
+      flash[:error] = "#{Prof.find(@favorite.prof_id).name} has already been added to your favorites"
+      p @favorite.errors.full_messages
   end
 end
 
@@ -28,14 +29,13 @@ end
     @favorite.destroy
     if @favorite.errors.any?
       @error = @favorite.errors.full_messages
-      p @error
-    elsif @favorite.destroy
-      @fave_delete = "#{@favorite.name} has been removed from your favorites!"
+      p @error   
     end
+    redirect_to dashboard_index_path
   end
   private
   def favorite_params
-    params.require(:favorite).permit(:favoritable_type, :favoritable_id, :profs_id)
+    params.require(:favorite).permit(:favoritable_type, :favoritable_id, :prof_id)
   end
 
   def validate_user

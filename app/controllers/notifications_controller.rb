@@ -17,8 +17,7 @@ class NotificationsController < ApplicationController
     friend = Friend.find(params[:id])
     radius = params[:radius]
     nearby_profs = Prof.near([friend.latitude, friend.longitude], radius)
-    amount = params[:amount]
-    byebug    
+    amount = params[:amount]     
     acct_id = ENV["TWILIO_ID"]
     acct_token = ENV["TWILIO_TOKEN"]
     @twilio_number = ENV["TWILIO_NUMBER"]
@@ -39,17 +38,23 @@ class NotificationsController < ApplicationController
   end
 
   def notify_favorites
-    @hospital = Hospital.find(params[:id])
+    if current_hospital
+      @notifier = Hospital.find(params[:id])
+    elsif current_friend
+      @notifier = Friend.find(params[:id])
+    else 
+      return
+    end    
     acct_id = ENV["TWILIO_ID"]
     acct_token = ENV["TWILIO_TOKEN"]
     @twilio_number = ENV["TWILIO_NUMBER"]
     @client = Twilio::REST::Client.new(acct_id, acct_token)
-    favorites = @hospital.favorites.map{|fav| fav.profs_id}
+    favorites = @notifier.favorites.map{|fav| fav.prof_id}
     professionals = favorites.map{|id| Prof.find(id)}
     prof_numbers = professionals.map{|prof| prof.phone}
     prof_numbers.each do |num|
       from = "+19543290694"
-      to = "+1#{num}"
+      to = "#{num}"
       message = @client.messages.create(
         from: @twilio_number,
         to: to,
