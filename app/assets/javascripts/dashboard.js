@@ -53,7 +53,7 @@
     if ($("#modal_friend").hasClass("is-open")){
        $('#modal_friend').removeClass("is-open").addClass("not-open");
     }
-  }   
+  }
 
 
   //Edit Job form
@@ -194,7 +194,7 @@ function text(){
   form.submit(function(){
     if (radius){
       let id = $(".friend_id").val();
-      let amount = $(".friendJob_rate").val();  
+      let amount = $(".friendJob_rate").val();
         $.ajax({
           url: "notifications/notify_text",
           method: "POST",
@@ -205,8 +205,8 @@ function text(){
           error: (err) => {
             console.log(err);
           }
-        });  
-    } else if(checkbox.is(":checked")) {        
+        });
+    } else if(checkbox.is(":checked")) {
         $.ajax({
           url: `/notifications/${textFavsId}/notify_favorites`,
           method: "POST",
@@ -217,6 +217,6 @@ function text(){
             console.log("Error occured");
           }
         })
-      }      
-    });  
+      }
+    });
   }
