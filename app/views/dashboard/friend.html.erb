@@ -25,9 +25,16 @@
         </p>
         <ul>
         <% if current_friend.favorites.count > 0 %>
-       <% current_favs = current_friend.favorites.select(:prof_id).map(&:prof_id).uniq %>
-        <% current_favs.each do |fav| %>                    
-        <li> <%= Prof.find(fav).name %> </li>            
+       <%# current_favs = current_friend.favorites.select(:prof_id).map(&:prof_id).uniq %>
+        <% current_friend.favorites.each do |fav| %>                              
+        <li><%= Prof.find(fav.prof_id).name %> 
+          <a href="/favorites/<%= fav.id %>" data-method="DELETE"
+            data-confirm="Are you sure you want to remove <%= Prof.find(fav.prof_id).name %> from your favorites?">
+              <i class="material-icons delete-fav">
+              close
+              </i>
+          </a>
+         </li>            
           <% end %>
         <% end %>
         </ul>
