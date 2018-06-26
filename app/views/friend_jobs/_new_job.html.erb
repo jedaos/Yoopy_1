@@ -22,12 +22,15 @@
         <br>
       </div>
     </div>
-    <label>
-        <input type="hidden" class="id_for_favs" value="<%= current_friend.id %>" />
-        <input type="checkbox" />
-        <span>Private: </span>
-      </label>
-    <div class="form-group">
+    <div id="private_job">
+      <label>
+          <input type="hidden" class="id_for_favs" value="<%= current_friend.id %>" />
+          <input class="private" type="checkbox" onclick="onlySendOneText()"/>
+          <span>Private: </span>
+          </small>Checking this box will make this job private, which would make it only visible to your favorites.</small>
+        </label>
+      </div>
+    <div class="form-group radius">
       <label>Radius</label>
       <p>
       <small>Selecting a radius will send a text message to  all available professionals within that given radius</small>

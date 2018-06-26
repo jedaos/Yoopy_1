@@ -31,13 +31,13 @@
       $('#modal_hospital').removeClass("not-activated").addClass("activated")
     } else {
       $(".modal_back").css("display", "block")
-     $("#modal_hospital").addClass("activated")
+      $("#modal_hospital").addClass("activated")
     }
   }
 
   function formClose(){
     if ($("#modal_hospital").hasClass("activated")){
-       $('#modal_hospital').removeClass("activated").addClass("not-activated");
+        $('#modal_hospital').removeClass("activated").addClass("not-activated");
     }
   }
   // New FriendJob Form
@@ -46,12 +46,12 @@
       $('#modal_friend').removeClass("not-open").addClass("is-open")
     } else {
       $(".modal_back").css("display", "block")
-     $("#modal_friend").addClass("is-open")
-    }
+      $("#modal_friend").addClass("is-open")
+    } 
   }
   function closeFriendJob(){
     if ($("#modal_friend").hasClass("is-open")){
-       $('#modal_friend').removeClass("is-open").addClass("not-open");
+        $('#modal_friend').removeClass("is-open").addClass("not-open");
     }
   }   
 
@@ -83,12 +83,12 @@
       $('.modal_content_friend').removeClass("not-open").addClass("is-open")
     } else {
       $(".modal_prof_back").css("display", "flex")
-     $(".modal_content_friend").addClass("is-open")
+      $(".modal_content_friend").addClass("is-open")
     }
   }
   function closeProfModal(){
     if ($(".modal_content_friend").hasClass("is-open")){
-       $('.modal_content_friend').removeClass("is-open").addClass("not-open");
+        $('.modal_content_friend').removeClass("is-open").addClass("not-open");
     }
   }
   $(document).on("turbolinks:load", function(){
@@ -104,12 +104,12 @@
       $('.modal_edit_job').removeClass("not-open").addClass("is-open")
     } else {
       $(".modal_edit_back").css("display", "flex")
-     $(".modal_edit_job").addClass("is-open")
+      $(".modal_edit_job").addClass("is-open")
     }
   }
   function friendJobEditClose(){
     if ($(".modal_edit_job").hasClass("is-open")){
-       $('.modal_edit_job').removeClass("is-open").addClass("not-open");
+        $('.modal_edit_job').removeClass("is-open").addClass("not-open");
     }
   }
   $(document).on("turbolinks:load", function(){
@@ -126,12 +126,12 @@
       $('.modal_content_hospital').removeClass("not-open").addClass("is-open")
     } else {
       $(".modal_prof_back_3").css("display", "flex")
-     $(".modal_content_hospital").addClass("is-open")
+      $(".modal_content_hospital").addClass("is-open")
     }
   }
   function closeProfModalHospital(){
     if ($(".modal_content_hospital").hasClass("is-open")){
-       $('.modal_content_hospital').removeClass("is-open").addClass("not-open");
+        $('.modal_content_hospital').removeClass("is-open").addClass("not-open");
     }
   }
   $(document).on("turbolinks:load", function(){
@@ -147,12 +147,12 @@
       $('#account_info').removeClass("not-open").addClass("is-open")
     } else {
       $(".modal_prof_back_1").css("display", "flex")
-     $("#account_info").addClass("is-open")
+      $("#account_info").addClass("is-open")
     }
   }
   function closeEditProfModal(){
     if ($("#account_info").hasClass("is-open")){
-       $('#account_info').removeClass("is-open").addClass("not-open");
+        $('#account_info').removeClass("is-open").addClass("not-open");
     }
   }
   $(document).on("turbolinks:load", function(){
@@ -168,13 +168,13 @@
       $('#hospital_account_info').removeClass("not-open").addClass("is-open")
     } else {
       $(".modal_prof_back_2").css("display", "flex")
-     $("#hospital_account_info").addClass("is-open")
+      $("#hospital_account_info").addClass("is-open")
     }
   }
   function closeHospitalModal(){
     if ($("#hospital_account_info").hasClass("is-open")){
-       $('#hospital_account_info').removeClass("is-open").addClass("not-open");
-    }
+        $('#hospital_account_info').removeClass("is-open").addClass("not-open");
+    } 
   }
   $(document).on("turbolinks:load", function(){
     $("#hospital_account_info").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
@@ -185,14 +185,21 @@
   })
 
 //// Sending Text after friendJob/Job created
+function onlySendOneText(){  
+  if ($("input.miles").attr("disabled")){
+    $("input.miles").removeAttr("disabled");
+  } else {
+    $("input.miles").attr("disabled", "disabled").prop("checked", false);
+  }
+}
 
 function text(){
   let form = $(".new_job_form");
   let radius = Number($("input[name='miles']:checked").val());
   let checkbox = $("input[type='checkbox']");
-  let textFavsId = $(".id_for_favs").val();
+  let textFavsId = $(".id_for_favs").val(); 
   form.submit(function(){
-    if (radius){
+    if (radius){      
       let id = $(".friend_id").val();
       let amount = $(".friendJob_rate").val();  
         $.ajax({

@@ -29,8 +29,7 @@ Rails.application.routes.draw do
     collection do
       post :mark_as_read
     end
-  end
-
+  end  
 
   root "home#index"
   devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions", registrations: "hospitals/registrations" }
@@ -40,7 +39,7 @@ Rails.application.routes.draw do
   devise_scope :prof do
     get 'auth/stripe_connect/callback' => 'yoopy_omniauth_callbacks#stripe_connect'
   end
-  resources :profs, only: [:index, :edit, :update]
+  resources :profs, only: [:index, :edit, :update, :destroy]
 
   resources :charges, only: [:new, :create]
   resources :posts

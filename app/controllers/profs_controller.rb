@@ -26,6 +26,13 @@ class ProfsController < ApplicationController
       flash[:error] = "Profile image was not stored successfully"
     end
   end
+
+  def destroy
+    @prof = Prof.find(params[:id])
+    Favorite.all.where(prof_id: @prof.id).destroy_all
+    @prof.destroy
+    redirect_to home_index_path
+  end 
   private
   def prof_params
     params.require(:prof).permit(:name, :job_title, :bio, :phone, :email, :avatar, :address, :password)

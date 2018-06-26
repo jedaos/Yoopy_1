@@ -1,5 +1,6 @@
 class Hospital < ApplicationRecord
   has_many :jobs
+  has_many :profs, :through => :favorites, :source => :favoritable, :source_type => 'Prof'
   has_many :favorites, as: :favoritable
   validates :email, presence: true
   validates :institution_name, presence: true

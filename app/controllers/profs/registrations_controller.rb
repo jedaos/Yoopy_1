@@ -38,7 +38,7 @@ class Profs::RegistrationsController < Devise::RegistrationsController
   end
 
   # DELETE /resource
-  # def destroy
+  # def destroy    
   #   super
   # end
 
