@@ -265,9 +265,9 @@
   display: none;
 }
 #modal_friend {
-  width: 400px;
-  margin: auto;
+  display: flex;        
   transform-origin: 50% 50%;
+  justify-content: center;
   form {
     padding: 15px;
     label {

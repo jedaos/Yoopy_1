@@ -29,13 +29,14 @@ Rails.application.routes.draw do
     collection do
       post :mark_as_read
     end
-  end  
+  end
+  get "/home/about", :as => "about"
 
   root "home#index"
   devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions", registrations: "hospitals/registrations" }
 
   devise_for :profs, path: 'profs', controllers: { sessions: "profs/sessions", registrations: "profs/registrations",  :omniauth_callbacks => "omniauth_callbacks"  }
-   #omniauth_callbacks: "profs/omniauth_callbacks"
+    #omniauth_callbacks: "profs/omniauth_callbacks"
   devise_scope :prof do
     get 'auth/stripe_connect/callback' => 'yoopy_omniauth_callbacks#stripe_connect'
   end
