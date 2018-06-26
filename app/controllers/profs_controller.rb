@@ -18,9 +18,16 @@ class ProfsController < ApplicationController
   def update
     @prof = Prof.find(params[:id])
     avatar = params[:prof][:avatar]
-    @prof.avatar.attach(avatar)
+    if avatar
+      @prof.avatar.attach(avatar)
+    end
+    phone = params[:prof][:phone]    
+    if !phone.include? "+1"
+      phone.prepend("+1")
+    end
+    @prof.update(prof_params)
     if @prof.save
-      flash[:success] = "A profile image will now be displayed for users to see"
+      flash[:success] = "Your account information has been updated"
       redirect_to dashboard_index_path
     else
       flash[:error] = "Profile image was not stored successfully"

@@ -283,13 +283,16 @@
     }
   }
   .new_job_form {
-    width: 400px;
+    width: 40rem;
     background-color: #6B6D6B;
     border: 8px solid green;
     position: relative;
     color: #fff;
     box-shadow: 10px 10px 12px rgba(0, 0, 0.10, 0.6), 0px 15px 16px rgba(0, 0, 0.20, 0.7);
     z-index: 2;
+    select {
+      width: 20rem;
+    }
     .close-friend{
       width: 20px;
       right: 5px;

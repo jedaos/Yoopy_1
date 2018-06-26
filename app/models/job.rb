@@ -12,13 +12,13 @@ class Job < ApplicationRecord
 
 
 
-  def amount_with_commision
-    ((Job.commision(self.rate)).to_i + self.rate.to_i) * 100
-  end
-
+  # def amount_with_commision
+  #   ((Job.commision(self.rate)).to_i + self.rate.to_i) * 100
+  # end
+  #
   def self.make_slots(num_slots, slot_params)
     num_slots.to_i.times { Slot.create(num_slot, slot_params) }
   end
-  private
+  # private
 
 end

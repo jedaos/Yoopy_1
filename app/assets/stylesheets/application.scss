@@ -370,7 +370,7 @@ body > nav > div > a.sidenav-trigger {
 .tabs .tab a:hover,
 .tabs .tab a.active,
 .tabs .tab a {
-  color: #1fa0fc;
+  color: #1fa0fc;  
 }
 .tabs .indicator {
   background-color: #1fa0fc;
@@ -379,6 +379,7 @@ body > nav > div > a.sidenav-trigger {
 .tabs .tab a:focus.active {
   background-color: #fff;
 }
+
 #signup-form-headline {
   color: #1fa0fc;
   text-align: center;

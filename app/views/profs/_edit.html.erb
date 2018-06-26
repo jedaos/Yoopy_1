@@ -29,15 +29,11 @@
     <div class="field">
       <%= f.label "Profile Image" %>
       <%= f.file_field "avatar" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password %> <i>(We need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
-    </div>
+    </div>    
 
     <div class="actions">
       <%= f.submit "Update", class:"btn #42a5f5 green lighten-1" %>
+      <%= link_to "Delete Your Account", prof_path(current_prof.id), method: :delete, class: "btn red btn-danger" %>
     </div>
   <% end %>
 </div>
