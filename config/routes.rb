@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
-
+  get "/home/about", :as => "about"
 
   root "home#index"
   devise_for :hospitals, path: 'hospitals', controllers: { sessions: "hospitals/sessions", registrations: "hospitals/registrations" }
